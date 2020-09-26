@@ -1,0 +1,18 @@
+{
+    "identifier": "org.tailwindcss",
+    "name": "tailwindcss",
+    "organization": "MyOrganization",
+    "description": "Lorem ipsum, dolor sit amet.",
+    "version": "1.0",
+    "categories": ["completions"],
+    
+    "main": "main.js",
+    
+    "activationEvents": [
+        "onLanguage:html"
+    ],
+    
+    "entitlements": {
+        
+    }
+}
