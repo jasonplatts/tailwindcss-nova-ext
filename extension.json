@@ -1,8 +1,8 @@
 {
     "identifier": "org.tailwindcss",
-    "name": "tailwindcss",
-    "organization": "MyOrganization",
-    "description": "Lorem ipsum, dolor sit amet.",
+    "name": "Tailwind CSS Completions",
+    "organization": "Jason Platts",
+    "description": "This extension provides completions for Tailwind CSS classes.",
     "version": "1.0",
     "categories": ["completions"],
     
