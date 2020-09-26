@@ -1,49 +1,49 @@
 
 exports.activate = function() {
-    // Do work when the extension is activated
+
 }
 
 exports.deactivate = function() {
-    // Clean up state before the extension is deactivated
+
 }
 
 
 class CompletionProvider {
   constructor() {
+    this.imports = [];
     
-    this.layout = require ('../Definitions/layout.js');
-    //console.log("con");
+    this.imports.push(require('../Definitions/layouts.js'));
   }
   
   provideCompletionItems(editor, context) {
-    // The text immediately preceding the cursor
-    //let text = context.text;
-    
-    // console.log(this.layout.classes[1].label);
-    
     let items = [];
     
-    for (let i = 0; i < this.layout.classes.length; i++) {
-        let cssClass = this.layout.classes[i];
+    for (let fileCount = 0; fileCount < this.imports.length; fileCount++) {
+      for (let i = 0; i < this.imports[fileCount].classes.length; i++) {
+        // console.log(this.imports[fileCount].classes[i].label);
+        let importObject = this.imports[fileCount].classes[i];
         
-        let item = new CompletionItem(cssClass.label, CompletionItemKind.StyleClass);
+        // Label and Kind passed when CompletionItem object is instantiated.
+        let item = new CompletionItem(importObject.label, CompletionItemKind.StyleClass);
         
-        item.detail = "Layout Class"
-        item.documentation = "A component for fixing an element's width to the current breakpoint."
-        // The text to be inserted in the editor
-        //item.insertText = "<" + tag + ">$[]</" + tag + ">";
-        item.insertText = cssClass.label
-        
-        // Tokenize placeholders such as "$[]"
-        item.tokenize = true;
+        console.log(importObject.label);
+        // All other attributes are set on item instance.
+        item.detail        = importObject.detail;
+        // console.log(item.detail);
+        item.documentation = importObject.documentation;
+        item.filterText = importObject.filterText !== null ? importObject.filterText : importObject.label;
+        item.insertText = importObject.insertText !== null ? importObject.insertText : importObject.label;
+        // item.range      = importObject.range == null ? ;
+        // item.commitChars   = importObject.commitChars;
+        // item.tokenize      = importObject.tokenize; 
         
         items.push(item);
+      }
     }
     
     return items;
   }
 }
-
 
 nova.assistants.registerCompletionAssistant("html", new CompletionProvider());
 
