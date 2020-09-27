@@ -240,15 +240,136 @@ var objectFit = [
     label:"object-scale-down",
     detail:"object-fit: scale-down;",
     documentation:"Displays an element's content at its original size, but scaled down to fit its container if necessary."
-  },  
+  },
 ];
 
 var objectPosition = [
   {
+    label:"object-bottom",
+    detail:"object-position: bottom;",
+    documentation:"Positions an element's content to the bottom of its container."
+  },
+  {
+    label:"object-center",
+    detail:"object-position: center;",
+    documentation:"Positions an element's content to the center of its container."
+  },
+  {
+    label:"object-left",
+    detail:"object-position: left",
+    documentation:"Positions an element's content to the left of its container."
+  },
+  {
+    label:"object-left-bottom",
+    detail:"object-position: left bottom;",
+    documentation:"Positions an element's content to the left bottom of its container."
+  },
+  {
+    label:"object-left-top",
+    detail:"object-position: left top;",
+    documentation:"Positions an element's content to the left top of its container."
+  },
+  {
+    label:"object-right",
+    detail:"object-position: right;",
+    documentation:"Positions an element's content to the right of its container."
+  },
+  {
+    label:"object-right-bottom",
+    detail:"object-position: right bottom;",
+    documentation:"Positions an element's content to the right bottom of its container."
+  },
+  {
+    label:"object-right-top",
+    detail:"object-position: right top;",
+    documentation:"Positions an element's content to the right top of its container."
+  },
+  {
+    label:"object-top",
+    detail:"object-position: top;",
+    documentation:"Positions an element's content to the top of its container."
+  }
+];
+
+var overflow = [
+  {
+    label:"overflow-auto",
+    detail:"overflow: auto;",
+    documentation:"Adds scrollbars to an element if its content overflows. Compare to overflow-scroll, which always shows scrollbars."
+  },  
+  {
+    label:"overflow-hidden",
+    detail:"overflow: hidden;",
+    documentation:"Clips any content within an element that overflows its bounds."
+  },  
+  {
+    label:"overflow-visible",
+    detail:"overflow: visible;",
+    documentation:"Prevents content within an element from being clipped."
+  },  
+  {
+    label:"overflow-scroll",
+    detail:"overflow: scroll;",
+    documentation:"Always adds scrollbars to an element regardless if its content overflows."
+  },
+  {
+    label:"overflow-x-auto",
+    detail:"overflow-x: auto;",
+    documentation:"Allows horizontal scrolling if needed."
+  },
+  {
+    label:"overflow-y-auto",
+    detail:"overflow-y: auto;",
+    documentation:"Allows vertical scrolling if needed."
+  },
+  {
+    label:"overflow-x-hidden",
+    detail:"overflow-x: hidden;",
+    documentation:"Clips any content with an element that overflows its bounds on the left or right."
+  },
+  {
+    label:"overflow-y-hidden",
+    detail:"overflow-y: hidden;",
+    documentation:"Clips any content with an element that overflows its bounds on the top or bottom."
+  },
+  {
+    label:"overflow-x-visible",
+    detail:"overflow-x: visible;",
+    documentation:"Prevents content within an element from being clipped on the left or right."
+  },
+  {
+    label:"overflow-y-visible",
+    detail:"overflow-y: visible;",
+    documentation:"Prevents content within an element from being clipped on the top or bottom."
+  },
+  {
+    label:"overflow-x-scroll",
+    detail:"overflow-x: scroll;",
+    documentation:"Always adds a horizontal scrollbar to an element regardless if its content overflows."
+  },
+  {
+    label:"overflow-y-scroll",
+    detail:"overflow-y: scroll;",
+    documentation:"Always adds a vertical scrollbar to an element regardless if its content overflows."
+  },
+  {
+    label:"scrolling-touch",
+    detail:"-wekkit-overflow-scrolling: touch;",
+    documentation:"Sets momentum-based scrolling on touch devices where supported."
+  },
+  {
+    label:"scrolling-auto",
+    detail:"-wekkit-overflow-scrolling: auto;",
+    documentation:"Sets normal non-momentum-based scrolling on touch devices."
+  },
+];
+
+var overscollBehavior = [
+  {
     label:"",
     detail:"",
     documentation:""
-  },  
+  },
 ];
 
 // {
@@ -257,19 +378,21 @@ var objectPosition = [
 //   documentation:""
 // },
 
-
 var classes = [];
 
 // Combines all sections of classes into classes array prior to
 // exporting for autocompletion.
 classes = classes.concat(
+  breakpoints,
   container,
   boxSizing,
   display,
   floats,
   clear,
   objectFit,
-  breakpoints
+  objectPosition,
+  overflow,
+  overscollBehavior
 );
 
 exports.classes = classes;
