@@ -23,34 +23,42 @@ A Charset object that specify the character set that, if typed while the item is
 tokenize
 Whether the text inserted by the completion should be tokenized. If true, then occurrences such as the format $[value] will be replaced by editor tokens containing the name value, where value may be any string that contains any characters other than $, [ and ]. By default this property is false.
 
+respVariants
+This is a custom extension property indicating if the item has responsive variants (i.e. Variants for the different breakpoints.).
 */
+const EXT_FUNCTIONS = require('../Scripts/ext_functions.js');
 
-const SM_BREAKPOINT = 640;
-const MD_BREAKPOINT = 768;
-const LG_BREAKPOINT = 1024;
-const XL_BREAKPOINT = 1280;
-
-var classes = [
+var containerClasses = [
   {
     label:"container",
     documentation: "Sets the max-width of an element to 100%."
   },
   {
     label:"sm:container",
-    documentation:"Responsive variant: Sets the max-width of an element to the small breakpoint (" + SM_BREAKPOINT + "px)."
+    documentation:"Responsive variant: Sets the max-width of an element to the small breakpoint (" + EXT_FUNCTIONS.SM_BREAKPOINT + "px)."
   },
   {
     label:"md:container",
-    documentation:"Responsive variant: Sets the max-width of an element to the medium breakpoint (" + MD_BREAKPOINT + "px)."
+    documentation:"Responsive variant: Sets the max-width of an element to the medium breakpoint (" + EXT_FUNCTIONS.MD_BREAKPOINT + "px)."
   },
   {
     label:"lg:container",
-    documentation:"Responsive variant: Sets the max-width of an element to the large breakpoint (" + LG_BREAKPOINT + "px)."
+    documentation:"Responsive variant: Sets the max-width of an element to the large breakpoint (" + EXT_FUNCTIONS.LG_BREAKPOINT + "px)."
   },
   {
     label:"xl:container",
-    documentation:"Responsive variant: Sets the max-width of an element to the extra large breakpoint (" + XL_BREAKPOINT + "px)."
-  },
+    documentation:"Responsive variant: Sets the max-width of an element to the extra large breakpoint (" + EXT_FUNCTIONS.XL_BREAKPOINT + "px)."
+  }
+]
+
+// Adds responsive variants.
+containerClasses = EXT_FUNCTIONS.addResponsiveVariants(containerClasses);
+
+// Defines the detail for each item layoutContainerClasses.
+containerClasses = EXT_FUNCTIONS.addDetailPropertyToGroup(containerClasses,
+  "Layout Container Class");
+
+var boxSizingClasses = [
   {
     label:"box-border",
     documentation:"Sets element's box-sizing to border-box, telling the browser to include the borders and padding in a specified height or width.",
@@ -58,56 +66,29 @@ var classes = [
   },
   {
     label:"box-content",
-    documentation:"Sets element's box-sizing to content-box, telling browser to add borders and padding on top of a specified width or height."
-  },
-];
-
-classes = classes.map(function(item) {
-  item.detail = "Layout Classes";
-  return item;
-});
-
-function addResponsiveVariants(items) {
-  const breakpoints = ["sm", "md", "lg", "xl"];
-  let newItems = [];
-  
-  for(iCount = 0; iCount < items.length; iCount++) {
-    if (items[iCount].hasOwnProperty('respVariants') && items[iCount].respVariants == true) {
-      for(vCount = 0; vCount < breakpoints.length; vCount++) {
-        let newItem = Object.assign({},items[iCount]);
-        
-        if (newItem.hasOwnProperty('label')) {
-          newItem.label = breakpoints[vCount] + ":" + newItem.label;
-        };
-        
-        if (newItem.hasOwnProperty('filterText')) {
-          newItem.filterText = breakpoints[vCount] + ":" + newItem.filterText;
-        };
-        
-        if (newItem.hasOwnProperty('insertText')) {
-          newItem.insertText = breakpoints[vCount] + ":" + newItem.insertText;
-        };
-        
-        newItems.push(newItem);
-      }
-    }
+    documentation:"Sets element's box-sizing to content-box, telling browser to add borders and padding on top of a specified width or height.",
+    respVariants: true
   }
-
-  items = items.concat(newItems);
-  
-  return items;
-}
-
-classes = addResponsiveVariants(classes);
-
-var directives = [
-  
 ];
 
-var functions = [
-  
+// Adds responsive variants.
+boxSizingClasses = EXT_FUNCTIONS.addResponsiveVariants(boxSizingClasses);
+
+// Defines the detail for each item layoutContainerClasses.
+boxSizingClasses = EXT_FUNCTIONS.addDetailPropertyToGroup(boxSizingClasses,
+  "Layout Box-Sizing Class");
+
+var displayClasses = [
+  {
+    label:"block",
+    documentation:"Creates a block level element.",
+    respVariants: true
+  }
 ];
+
+// Combines all sections of classes into classes array prior to exporting to main.js for autocompletion.
+
+var classes = [];
+classes = classes.concat(containerClasses, boxSizingClasses);
 
 exports.classes = classes;
-exports.directives = directives;
-exports.functions = functions;
