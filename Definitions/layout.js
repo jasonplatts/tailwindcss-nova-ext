@@ -23,33 +23,37 @@ A Charset object that specify the character set that, if typed while the item is
 tokenize
 Whether the text inserted by the completion should be tokenized. If true, then occurrences such as the format $[value] will be replaced by editor tokens containing the name value, where value may be any string that contains any characters other than $, [ and ]. By default this property is false.
 */
+
 const CONSTANTS = require('../Scripts/constants.js');
+
+breakpoints = [
+  {
+    label:"sm:",
+    detail:"max-width: " + CONSTANTS.SM_BREAKPOINT + "px;",
+    documentation:"References the small breakpoint set at " + CONSTANTS.SM_BREAKPOINT + "px."
+  },
+  {
+    label:"md:",
+    detail:"max-width: " + CONSTANTS.MD_BREAKPOINT + "px;",
+    documentation:"References the medium breakpoint set at " + CONSTANTS.MD_BREAKPOINT + "px."
+  },
+  {
+    label:"lg:",
+    detail:"max-width: " + CONSTANTS.LG_BREAKPOINT + "px;",
+    documentation:"References the large breakpoint set at " + CONSTANTS.LG_BREAKPOINT + "px."
+  },
+  {
+    label:"xl:",
+    detail:"max-width: " + CONSTANTS.XL_BREAKPOINT + "px;",
+    documentation:"References the extra large breakpoint set at " + CONSTANTS.XL_BREAKPOINT + "px."
+  },
+];
 
 container = [
   {
     label:"container",
-    detail:"width: 100%;",
-    documentation:"Sets the max-width of an element to 100%."
-  },
-  {
-    label:"sm:container",
-    detail:"max-width: " + CONSTANTS.SM_BREAKPOINT + "px;",
-    documentation:"Sets the max-width of an element to the small breakpoint (" + CONSTANTS.SM_BREAKPOINT + "px)."
-  },
-  {
-    label:"md:container",
-    detail:"max-width: " + CONSTANTS.MD_BREAKPOINT + "px;",
-    documentation:"Sets the max-width of an element to the medium breakpoint (" + CONSTANTS.MD_BREAKPOINT + "px)."
-  },
-  {
-    label:"lg:container",
-    detail:"max-width: " + CONSTANTS.LG_BREAKPOINT + "px;",
-    documentation:"Sets the max-width of an element to the large breakpoint (" + CONSTANTS.LG_BREAKPOINT + "px)."
-  },
-  {
-    label:"xl:container",
-    detail:"max-width: " + CONSTANTS.XL_BREAKPOINT + "px;",
-    documentation:"Sets the max-width of an element to the extra large breakpoint (" + CONSTANTS.XL_BREAKPOINT + "px)."
+    detail:"width: 100%; or max-width: breakpoint;",
+    documentation:"Sets the max-width of an element to 100% or the preceding breakpoint width."
   }
 ]
 
@@ -161,9 +165,98 @@ var display = [
   {
     label:"hidden",
     detail:"display: none;",
-    documentation:"Sets an element's display property to none and removes it from the paye layout -- Compare to .invisible class to set visbility."
+    documentation:"Sets an element's display property to none and removes it from the page layout -- Compare to .invisible class to set visbility."
   },
 ];
+
+var floats = [
+  {
+    label:"float-right",
+    detail:"float: right;",
+    documentation:"Floats an element to the right of its container."
+  },
+  {
+    label:"float-left",
+    detail:"float: left;",
+    documentation:"Floats an element to the left of its container."
+  },
+  {
+    label:"float-none",
+    detail:"float: none;",
+    documentation:"Resets any floats applied to an element. This is the default value for the float property."
+  },
+  {
+    label:"clearfix",
+    detail:"content: \"\"; display: table; clear: both;",
+    documentation:"Applies the \"clearfix\" hack to prevent elements after a floating element from flowing around it."
+  },
+];
+
+var clear = [
+  {
+    label:"clear-left",
+    detail:"clear: left;",
+    documentation:"Position an element below any preceding left-floated elements."
+  }, 
+  {
+    label:"clear-right",
+    detail:"clear: right;",
+    documentation:"Position an element below any preceding right-floated elements."
+  }, 
+  {
+    label:"clear-both",
+    detail:"clear: both;",
+    documentation:"Position an element below all preceding floated elements."
+  }, 
+  {
+    label:"clear-none",
+    detail:"clear: none;",
+    documentation:"Resets any clears that are applied to an element. This is the default value for the clear property."
+  },  
+]
+
+var objectFit = [
+  {
+    label:"object-contain",
+    detail:"object-fit: contain;",
+    documentation:"Resizes the element's content to stay contained with its container."
+  },  
+  {
+    label:"object-cover",
+    detail:"object-fit: cover;",
+    documentation:"Resizes the element's content to cover its container proportionately."
+  },  
+  {
+    label:"object-fill",
+    detail:"object-fit: fill;",
+    documentation:"Stretches the element's content to fit its container."
+  },  
+  {
+    label:"object-none",
+    detail:"object-fit: none;",
+    documentation:"Displays an element's content at its original size ignoring the container size."
+  },
+  {
+    label:"object-scale-down",
+    detail:"object-fit: scale-down;",
+    documentation:"Displays an element's content at its original size, but scaled down to fit its container if necessary."
+  },  
+];
+
+var objectPosition = [
+  {
+    label:"",
+    detail:"",
+    documentation:""
+  },  
+];
+
+// {
+//   label:"",
+//   detail:"",
+//   documentation:""
+// },
+
 
 var classes = [];
 
@@ -172,7 +265,11 @@ var classes = [];
 classes = classes.concat(
   container,
   boxSizing,
-  display
+  display,
+  floats,
+  clear,
+  objectFit,
+  breakpoints
 );
 
 exports.classes = classes;

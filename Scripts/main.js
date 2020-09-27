@@ -12,7 +12,7 @@ class CompletionProvider {
   constructor() {
     this.imports = [];
     
-    this.imports.push(require('../Definitions/layouts.js'));
+    this.imports.push(require('../Definitions/layout.js'));
   }
   
   provideCompletionItems(editor, context) {
