@@ -22,73 +22,157 @@ A Charset object that specify the character set that, if typed while the item is
 
 tokenize
 Whether the text inserted by the completion should be tokenized. If true, then occurrences such as the format $[value] will be replaced by editor tokens containing the name value, where value may be any string that contains any characters other than $, [ and ]. By default this property is false.
-
-respVariants
-This is a custom extension property indicating if the item has responsive variants (i.e. Variants for the different breakpoints.).
 */
-const EXT_FUNCTIONS = require('../Scripts/ext_functions.js');
+const CONSTANTS = require('../Scripts/constants.js');
 
-var containerClasses = [
+container = [
   {
     label:"container",
-    documentation: "Sets the max-width of an element to 100%."
+    detail:"width: 100%;",
+    documentation:"Sets the max-width of an element to 100%."
   },
   {
     label:"sm:container",
-    documentation:"Responsive variant: Sets the max-width of an element to the small breakpoint (" + EXT_FUNCTIONS.SM_BREAKPOINT + "px)."
+    detail:"max-width: " + CONSTANTS.SM_BREAKPOINT + "px;",
+    documentation:"Sets the max-width of an element to the small breakpoint (" + CONSTANTS.SM_BREAKPOINT + "px)."
   },
   {
     label:"md:container",
-    documentation:"Responsive variant: Sets the max-width of an element to the medium breakpoint (" + EXT_FUNCTIONS.MD_BREAKPOINT + "px)."
+    detail:"max-width: " + CONSTANTS.MD_BREAKPOINT + "px;",
+    documentation:"Sets the max-width of an element to the medium breakpoint (" + CONSTANTS.MD_BREAKPOINT + "px)."
   },
   {
     label:"lg:container",
-    documentation:"Responsive variant: Sets the max-width of an element to the large breakpoint (" + EXT_FUNCTIONS.LG_BREAKPOINT + "px)."
+    detail:"max-width: " + CONSTANTS.LG_BREAKPOINT + "px;",
+    documentation:"Sets the max-width of an element to the large breakpoint (" + CONSTANTS.LG_BREAKPOINT + "px)."
   },
   {
     label:"xl:container",
-    documentation:"Responsive variant: Sets the max-width of an element to the extra large breakpoint (" + EXT_FUNCTIONS.XL_BREAKPOINT + "px)."
+    detail:"max-width: " + CONSTANTS.XL_BREAKPOINT + "px;",
+    documentation:"Sets the max-width of an element to the extra large breakpoint (" + CONSTANTS.XL_BREAKPOINT + "px)."
   }
 ]
 
-// Adds responsive variants.
-containerClasses = EXT_FUNCTIONS.addResponsiveVariants(containerClasses);
-
-// Defines the detail for each item layoutContainerClasses.
-containerClasses = EXT_FUNCTIONS.addDetailPropertyToGroup(containerClasses,
-  "Layout Container Class");
-
-var boxSizingClasses = [
+var boxSizing = [
   {
     label:"box-border",
-    documentation:"Sets element's box-sizing to border-box, telling the browser to include the borders and padding in a specified height or width.",
-    respVariants: true
+    detail:"box-sizing: border-box;",
+    documentation:"Sets element's box-sizing to border-box, telling the browser to include the borders and padding in a specified height or width."
   },
   {
     label:"box-content",
+    detail:"box-sizing: content-box;",
     documentation:"Sets element's box-sizing to content-box, telling browser to add borders and padding on top of a specified width or height.",
-    respVariants: true
+    
   }
 ];
 
-// Adds responsive variants.
-boxSizingClasses = EXT_FUNCTIONS.addResponsiveVariants(boxSizingClasses);
-
-// Defines the detail for each item layoutContainerClasses.
-boxSizingClasses = EXT_FUNCTIONS.addDetailPropertyToGroup(boxSizingClasses,
-  "Layout Box-Sizing Class");
-
-var displayClasses = [
+var display = [
   {
     label:"block",
-    documentation:"Creates a block level element.",
-    respVariants: true
-  }
+    detail:"display: block;",
+    documentation:"Creates a block-level element."
+  },
+  {
+    label:"inline-block",
+    detail:"display: inline-block;",
+    documentation:"Creates a inline block-level element."
+  },
+  {
+    label:"inline",
+    detail:"display: inline;",
+    documentation:"Creates an inline element."
+  },
+  {
+    label:"flex",
+    detail:"display: flex;",
+    documentation:"Creates a block-level flex container."
+  },
+  {
+    label:"inline-flex",
+    detail:"display: inline-flex;",
+    documentation:"Creates an inline flex container."
+  },
+  {
+    label:"table",
+    detail:"display: table;",
+    documentation:"Creats an element that behaves like a table element."
+  },
+  {
+    label:"table-caption",
+    detail:"display: table-caption;",
+    documentation:"Creats an element that behaves like a table-caption element."
+  },
+  {
+    label:"table-cell",
+    detail:"display: table-cell;",
+    documentation:"Creats an element that behaves like a table-cell element."
+  },
+  {
+    label:"table-column",
+    detail:"display: table-column;",
+    documentation:"Creats an element that behaves like a table-column element."
+  },
+  {
+    label:"table-column-group",
+    detail:"display: table-column-group;",
+    documentation:"Creats an element that behaves like a table-column-group element."
+  },
+  {
+    label:"table-footer-group",
+    detail:"display: table-block;",
+    documentation:"Creats an element that behaves like a table-footer-group element."
+  },
+  {
+    label:"table-header-group",
+    detail:"display: table-header-group;",
+    documentation:"Creats an element that behaves like a table-header-group element."
+  },
+  {
+    label:"table-row-group",
+    detail:"display: table-row-group;",
+    documentation:"Creats an element that behaves like a table-row-group element."
+  },
+  {
+    label:"table-row",
+    detail:"display: table-row;",
+    documentation:"Creats an element that behaves like a table-row element."
+  },
+  {
+    label:"flow-root",
+    detail:"display: flow-root;",
+    documentation:"Creates a inline-block level element."
+  },
+  {
+    label:"grid",
+    detail:"display: grid;",
+    documentation:"Creates a grid container."
+  },
+  {
+    label:"inline-grid",
+    detail:"display: inline-grid;",
+    documentation:"Creates an inline grid container."
+  },
+  {
+    label:"contents",
+    detail:"display: contents;",
+    documentation:"Creates a \"phantom\" container whose children act like direct children of the parent."
+  },
+  {
+    label:"hidden",
+    detail:"display: none;",
+    documentation:"Sets an element's display property to none and removes it from the paye layout -- Compare to .invisible class to set visbility."
+  },
 ];
 
-// Combines all sections of classes into classes array prior to exporting to main.js for autocompletion.
-
 var classes = [];
-classes = classes.concat(containerClasses, boxSizingClasses);
+
+// Combines all sections of classes into classes array prior to
+// exporting for autocompletion.
+classes = classes.concat(
+  container,
+  boxSizing,
+  display
+);
 
 exports.classes = classes;
