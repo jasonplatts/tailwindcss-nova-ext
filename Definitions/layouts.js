@@ -25,63 +25,47 @@ Whether the text inserted by the completion should be tokenized. If true, then o
 
 */
 
-const smBreakPoint = 640;
-const mdBreakPoint = 768;
-const lgBreakPoint = 1024;
-const xlBreakPoint = 1280;
-const defaultDetail = "Layout Class";
-const defaultToken = false;
-
-function defineItem() {
-  
-}
+const SM_BREAKPOINT = 640;
+const MD_BREAKPOINT = 768;
+const LG_BREAKPOINT = 1024;
+const XL_BREAKPOINT = 1280;
 
 var classes = [
   {
     label:"container",
-    kind: "Class",
-    detail: defaultDetail,
-    documentation: "Sets the max-width of an element to 100%.", 
-    filterText: null,
-    insertText: null,
-    range: null,
-    commitChars: null,
-    tokenize: defaultToken 
+    documentation: "Sets the max-width of an element to 100%."
   },
   {
     label:"sm:container",
-    kind: "Class",
-    detail: defaultDetail,
-    documentation:"Responsive variant: Sets the max-width of an element to the small breakpoint (" + smBreakPoint + "px).", 
-    filterText: null,
-    insertText: null,
-    range: null,
-    commitChars: null,
-    tokenize: defaultToken 
+    documentation:"Responsive variant: Sets the max-width of an element to the small breakpoint (" + SM_BREAKPOINT + "px)."
   },
   {
     label:"md:container",
-    kind:"Class",
-    detail:"Layout Class",
-    documentation:"Responsive variant: Sets the max-width of an element to the medium breakpoint (" + mdBreakPoint + "px).", 
-    filterText: null,
-    insertText: null,
-    range: null,
-    commitChars: null,
-    tokenize: defaultToken 
+    documentation:"Responsive variant: Sets the max-width of an element to the medium breakpoint (" + MD_BREAKPOINT + "px)."
   },
   {
     label:"lg:container",
-    kind:"Class",
-    detail:"Layout Class",
-    documentation:"Responsive variant: Sets the max-width of an element to the medium breakpoint (" + mdBreakPoint + "px).", 
-    filterText: null,
-    insertText: null,
-    range: null,
-    commitChars: null,
-    tokenize: defaultToken 
+    documentation:"Responsive variant: Sets the max-width of an element to the large breakpoint (" + LG_BREAKPOINT + "px)."
+  },
+  {
+    label:"xl:container",
+    documentation:"Responsive variant: Sets the max-width of an element to the extra large breakpoint (" + XL_BREAKPOINT + "px)."
+  },
+  {
+    label:"box-border",
+    documentation:"Sets element's box-sizing to border-box, telling the browser to include the borders and padding in a specified height or width."
+  },
+  {
+    label:"box-content",
+    documentation:"Sets element's box-sizing to content-box, telling browser to add borders and padding on top of a specified width or height."
   },
 ];
+
+classes = classes.map(function(item) {
+  item.detail = "Layout Classes";
+  return item;
+});
+
 
 var directives = [
   

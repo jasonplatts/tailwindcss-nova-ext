@@ -20,22 +20,19 @@ class CompletionProvider {
     
     for (let fileCount = 0; fileCount < this.imports.length; fileCount++) {
       for (let i = 0; i < this.imports[fileCount].classes.length; i++) {
-        // console.log(this.imports[fileCount].classes[i].label);
         let importObject = this.imports[fileCount].classes[i];
         
-        // Label and Kind passed when CompletionItem object is instantiated.
+        // Label and kind are passed to the CompletionItem object when instantiated.
         let item = new CompletionItem(importObject.label, CompletionItemKind.StyleClass);
         
-        console.log(importObject.label);
         // All other attributes are set on item instance.
-        item.detail        = importObject.detail;
-        // console.log(item.detail);
-        item.documentation = importObject.documentation;
-        item.filterText = importObject.filterText !== null ? importObject.filterText : importObject.label;
-        item.insertText = importObject.insertText !== null ? importObject.insertText : importObject.label;
-        // item.range      = importObject.range == null ? ;
-        // item.commitChars   = importObject.commitChars;
-        // item.tokenize      = importObject.tokenize; 
+        if (importObject.hasOwnProperty('detail')) { item.detail = importObject.detail };
+        if (importObject.hasOwnProperty('documentation')) { item.documentation = importObject.documentation };
+        if (importObject.hasOwnProperty('filterText')) { item.filterText = importObject.filterText };
+        if (importObject.hasOwnProperty('insertText')) { item.insertText = importObject.insertText };
+        if (importObject.hasOwnProperty('range')) { item.range = importObject.range };
+        if (importObject.hasOwnProperty('commitChars')) { item.commitChars = importObject.commitChars };
+        if (importObject.hasOwnProperty('tokenize')) { item.tokenize = importObject.tokenize };
         
         items.push(item);
       }
