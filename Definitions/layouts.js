@@ -53,7 +53,8 @@ var classes = [
   },
   {
     label:"box-border",
-    documentation:"Sets element's box-sizing to border-box, telling the browser to include the borders and padding in a specified height or width."
+    documentation:"Sets element's box-sizing to border-box, telling the browser to include the borders and padding in a specified height or width.",
+    respVariants: true
   },
   {
     label:"box-content",
@@ -66,6 +67,38 @@ classes = classes.map(function(item) {
   return item;
 });
 
+function addResponsiveVariants(items) {
+  const breakpoints = ["sm", "md", "lg", "xl"];
+  let newItems = [];
+  
+  for(iCount = 0; iCount < items.length; iCount++) {
+    if (items[iCount].hasOwnProperty('respVariants') && items[iCount].respVariants == true) {
+      for(vCount = 0; vCount < breakpoints.length; vCount++) {
+        let newItem = Object.assign({},items[iCount]);
+        
+        if (newItem.hasOwnProperty('label')) {
+          newItem.label = breakpoints[vCount] + ":" + newItem.label;
+        };
+        
+        if (newItem.hasOwnProperty('filterText')) {
+          newItem.filterText = breakpoints[vCount] + ":" + newItem.filterText;
+        };
+        
+        if (newItem.hasOwnProperty('insertText')) {
+          newItem.insertText = breakpoints[vCount] + ":" + newItem.insertText;
+        };
+        
+        newItems.push(newItem);
+      }
+    }
+  }
+
+  items = items.concat(newItems);
+  
+  return items;
+}
+
+classes = addResponsiveVariants(classes);
 
 var directives = [
   
