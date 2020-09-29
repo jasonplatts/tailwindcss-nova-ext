@@ -487,6 +487,19 @@ let topRightBottomLeft = [
   }
 ];
 
+var visibility = [
+  {
+    label:"visible",
+    detail:"visibility: visible;",
+    documentation:"Sets an element to visible."
+  },
+  {
+    label:"invisible",
+    detail:"visibility: hidden;",
+    documentation:"Sets an element to invisible without removing it from the normal document flow. Compare to hidden, which removes the element."
+  }  
+];
+
 // {
 //   label:"",
 //   detail:"",
@@ -509,7 +522,8 @@ classes = classes.concat(
   overflow,
   overscollBehavior,
   position,
-  topRightBottomLeft
+  topRightBottomLeft,
+  visibility
 );
 
 exports.classes = classes;
