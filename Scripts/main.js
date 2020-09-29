@@ -7,7 +7,6 @@ exports.deactivate = function() {
 
 }
 
-
 class CompletionProvider {
   constructor() {
     this.imports = [];
