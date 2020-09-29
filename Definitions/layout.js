@@ -1,32 +1,6 @@
-/*
-
-Completion Item Properties
-
-detail
-An additional label for the item that is displayed alongside it, such as its type name.
-
-documentation
-A user-visible documentation string displayed at the bottom of the completions panel when the item is highlighted.
-
-filterText
-The text used when filtering the item. If null, label will be used.
-
-insertText
-The text used when inserting the item into the editor. If null, label will be used.
-
-range
-A Range value that describes the textual range within the editor that should be replaced when the item is chosen. If null, the word preceding the cursor will be replaced.
-
-commitChars
-A Charset object that specify the character set that, if typed while the item is highlighted, will accept the completion before inserting the typed character.
-
-tokenize
-Whether the text inserted by the completion should be tokenized. If true, then occurrences such as the format $[value] will be replaced by editor tokens containing the name value, where value may be any string that contains any characters other than $, [ and ]. By default this property is false.
-*/
-
 const CONSTANTS = require('../Scripts/constants.js');
 
-breakpoints = [
+let breakpoints = [
   {
     label:"sm:",
     detail:"max-width: " + CONSTANTS.SM_BREAKPOINT + "px;",
@@ -49,7 +23,7 @@ breakpoints = [
   },
 ];
 
-container = [
+let container = [
   {
     label:"container",
     detail:"width: 100%; or max-width: breakpoint;",
@@ -57,7 +31,7 @@ container = [
   }
 ]
 
-var boxSizing = [
+let boxSizing = [
   {
     label:"box-border",
     detail:"box-sizing: border-box;",
@@ -71,7 +45,7 @@ var boxSizing = [
   }
 ];
 
-var display = [
+let display = [
   {
     label:"block",
     detail:"display: block;",
@@ -169,7 +143,7 @@ var display = [
   },
 ];
 
-var floats = [
+let floats = [
   {
     label:"float-right",
     detail:"float: right;",
@@ -192,7 +166,7 @@ var floats = [
   },
 ];
 
-var clear = [
+let clear = [
   {
     label:"clear-left",
     detail:"clear: left;",
@@ -215,7 +189,7 @@ var clear = [
   },  
 ]
 
-var objectFit = [
+let objectFit = [
   {
     label:"object-contain",
     detail:"object-fit: contain;",
@@ -243,7 +217,7 @@ var objectFit = [
   },
 ];
 
-var objectPosition = [
+let objectPosition = [
   {
     label:"object-bottom",
     detail:"object-position: bottom;",
@@ -291,7 +265,7 @@ var objectPosition = [
   }
 ];
 
-var overflow = [
+let overflow = [
   {
     label:"overflow-auto",
     detail:"overflow: auto;",
@@ -364,12 +338,153 @@ var overflow = [
   },
 ];
 
-var overscollBehavior = [
+let overscollBehavior = [
   {
-    label:"",
-    detail:"",
-    documentation:""
+    label:"overscroll-auto",
+    detail:"overscroll-behavior: auto;",
+    documentation:"Allows scrolling a parent scroll area once the boundary of the primary scroll area has been reached."
   },
+  {
+    label:"overscroll-contain",
+    detail:"overscroll-behavior: contain;",
+    documentation:"Prevents scolling in the target area from triggering scrolling in the parent element. Preserves bounce effects, when supported."
+  },
+  {
+    label:"overscroll-none",
+    detail:"overscroll-behavior: none;",
+    documentation:"Prevents scrolling in the target area from triggering scrolling in the parent element. Prevents bounce effects, when supported."
+  },
+  {
+    label:"overscroll-y-auto",
+    detail:"overscroll-behavior-y: auto;",
+    documentation:"Allows scrolling a parent scroll area up or down once the boundary of the primary scroll area has been reached."
+  },
+  {
+    label:"overscroll-y-contain",
+    detail:"overscroll-behavior-y: contain;",
+    documentation:"Prevents up or down scolling in the target area from triggering scrolling in the parent element. Preserves bounce effects."
+  },
+  {
+    label:"overscroll-y-none",
+    detail:"overscroll-behavior-y: none;",
+    documentation:"Prevents up or down scrolling in the target area from triggering scrolling in the parent element. Prevents bounce effects."
+  },
+  {
+    label:"overscroll-x-auto",
+    detail:"overscroll-behavior-x: auto;",
+    documentation:"Allows scrolling a parent scroll area left or right once the boundary of the primary scroll area has been reached."
+  },
+  {
+    label:"overscroll-x-contain",
+    detail:"overscroll-behavior-x: contain;",
+    documentation:"Prevents left or right scolling in the target area from triggering scrolling in the parent element. Preserves bounce effects."
+  },
+  {
+    label:"overscroll-x-none",
+    detail:"overscroll-behavior-x: none;",
+    documentation:"Prevents left or right scrolling in the target area from triggering scrolling in the parent element. Prevents bounce effects."
+  },
+];
+
+let position = [
+  {
+    label:"static",
+    detail:"position: static;",
+    documentation:"Positions element according to normal document flow."
+  },  
+  {
+    label:"fixed",
+    detail:"position: fixed;",
+    documentation:"Positions element relative to the browser window."
+  },  
+  {
+    label:"absolute",
+    detail:"position: absolute;",
+    documentation:"Removes element from normal document flow. Positions element relative to the nearest parent with position other than static."
+  },  
+  {
+    label:"relative",
+    detail:"position: relative;",
+    documentation:"Positions element according to normal document flow. Sets element as reference for absolute positioned children."
+  },  
+  {
+    label:"sticky",
+    detail:"position: sticky;",
+    documentation:"Positions element relative until a specified threshold is crossed when it becomes fixed."
+  }
+];
+
+let topRightBottomLeft = [
+  {
+    label:"inset-0",
+    detail:"top: 0; right: 0; bottom: 0; left: 0;",
+    documentation:"Anchors positioned element in relation to its nearest positioned parent or browser window."
+  },
+  {
+    label:"inset-auto",
+    detail:"top: auto; right: auto; bottom: auto; left: auto;",
+    documentation:"Lets browser calculate top, right, bottom, and left position. Default behavior."
+  },
+  {
+    label:"inset-y-0",
+    detail:"top: 0; bottom: 0;",
+    documentation:"Anchors element's top and bottom position in relation to its nearest positioned parent or browser window."
+  },
+  {
+    label:"inset-x-0",
+    detail:"right: 0; left: 0;",
+    documentation:"Anchors element's left and right position in relation to its nearest positioned parent or browser window."
+  },
+  {
+    label:"inset-y-auto",
+    detail:"top: auto; bottom: auto;",
+    documentation:"Lets browser calculate top and bottom position."
+  },
+  {
+    label:"inset-x-auto",
+    detail:"right: auto; left: auto;",
+    documentation:"Lets browser calculate left and right position."
+  },
+  {
+    label:"top-0",
+    detail:"top: 0;",
+    documentation:"Anchors element's top position in relation to its nearest positioned parent or browser window."
+  },
+  {
+    label:"right-0",
+    detail:"right: 0;",
+    documentation:"Anchors element's right position in relation to its nearest positioned parent or browser window."
+  },
+  {
+    label:"bottom-0",
+    detail:"bottom: 0;",
+    documentation:"Anchors element's bottom position in relation to its nearest positioned parent or browser window."
+  },
+  {
+    label:"left-0",
+    detail:"left: 0;",
+    documentation:"Anchors element's left position in relation to its nearest positioned parent or browser window."
+  },
+  {
+    label:"top-auto",
+    detail:"top: auto;",
+    documentation:"Lets browser calculate top position."
+  },
+  {
+    label:"right-auto",
+    detail:"right: auto;",
+    documentation:"Lets browser calculate right position."
+  },
+  {
+    label:"bottom-auto",
+    detail:"bottom: auto;",
+    documentation:"Lets browser calculate bottom position."
+  },
+  {
+    label:"left-auto",
+    detail:"left: auto;",
+    documentation:"Lets browser calculate left position."
+  }
 ];
 
 // {
@@ -378,7 +493,7 @@ var overscollBehavior = [
 //   documentation:""
 // },
 
-var classes = [];
+let classes = [];
 
 // Combines all sections of classes into classes array prior to
 // exporting for autocompletion.
@@ -392,7 +507,9 @@ classes = classes.concat(
   objectFit,
   objectPosition,
   overflow,
-  overscollBehavior
+  overscollBehavior,
+  position,
+  topRightBottomLeft
 );
 
 exports.classes = classes;
