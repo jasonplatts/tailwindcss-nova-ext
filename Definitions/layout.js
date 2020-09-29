@@ -500,6 +500,44 @@ var visibility = [
   }  
 ];
 
+var zIndex = [
+  {
+    label:"z-0",
+    detail:"z-index: 0;",
+    documentation:"Sets the element's stack order to that of its parent."
+  },
+  {
+    label:"z-10",
+    detail:"z-index: 10;",
+    documentation:"Sets the element's stack order."
+  },
+  {
+    label:"z-20",
+    detail:"z-index: 20;",
+    documentation:"Sets the element's stack order."
+  },
+  {
+    label:"z-30",
+    detail:"z-index: 30;",
+    documentation:"Sets the element's stack order."
+  },
+  {
+    label:"z-40",
+    detail:"z-index: 40;",
+    documentation:"Sets the element's stack order."
+  },
+  {
+    label:"z-50",
+    detail:"z-index: 50;",
+    documentation:"Sets the element's stack order."
+  },
+  {
+    label:"z-auto",
+    detail:"z-index: auto;",
+    documentation:""
+  }
+];
+
 // {
 //   label:"",
 //   detail:"",
@@ -523,7 +561,8 @@ classes = classes.concat(
   overscollBehavior,
   position,
   topRightBottomLeft,
-  visibility
+  visibility,
+  zIndex
 );
 
 exports.classes = classes;
