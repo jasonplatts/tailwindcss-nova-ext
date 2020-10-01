@@ -1,10 +1,6 @@
 # Panic Nova Tailwind CSS Autocomplete Extension
 
-This repository contains the Tailwind CSS autocomplete extension for Nova, Panic's code editor for macOS. Its functionality includes autocomplete for Tailwind CSS classes, functions and directives.
-
-### Planned Features
-
-* If Panic includes the ability to use color icons in their autocomplete functionality, the Tailwind CSS color classes will be added with color previews.
+This repository contains the Tailwind CSS autocomplete extension for Nova, Panic's code editor for macOS. Its functionality includes autocomplete for Tailwind CSS classes.
 
 ## Prerequisites
 
@@ -14,6 +10,16 @@ There are no prerequisites for this extension other than the Nova editor, which 
 
 Enable the extension in the extension library within Nova.
 
+## Issues
+
+* Autocomplete suggestions of class names that contain hyphens are not the most relevant after the user has typed past the first hyphen. This has to do with the type being parsed into separate words based on where hyphens are present.
+* Autocompletion of customizations have not yet been added.
+
+## Future Plans
+
+This extension does not currently work the same way as the VS Code Tailwind extension, which uses a language server and requires a functioning installation of Tailwind within the active project. Therefore, there is currently no processing of customizations. This will likely be added to a future update.
+
+
 ## License
 
-This extension is not created or officially endorsed by Tailwind Labs. This is my first attempt at an extension and an open source project. The repo is public and available at https://github.com/jasonplatts/tailwindcss-nova-ext.git.
+This extension is not created or officially endorsed by Tailwind Labs.
