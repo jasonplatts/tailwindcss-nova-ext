@@ -24,4 +24,4 @@ This extension does not currently work the same way as the VS Code Tailwind exte
 
 ## License
 
-This extension is not created or officially endorsed by Tailwind Labs.
+This extension is not created or officially endorsed by Tailwind Labs. It is entirely open source.
