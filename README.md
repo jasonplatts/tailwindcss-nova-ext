@@ -2,6 +2,8 @@
 
 This repository contains the Tailwind CSS autocomplete extension for Nova, Panic's code editor for macOS. Its functionality includes autocomplete for Tailwind CSS classes.
 
+![Image of Extension](https://github.com/jasonplatts/tailwindcss-nova-ext/blob/master/Images/screenshots/screen-colors.jpeg)
+
 ## Prerequisites
 
 There are no prerequisites for this extension other than the Nova editor, which is available only for macOS.
