@@ -88,6 +88,84 @@ let flexShrink = [
   }
 ];
 
+let order = [
+  {
+    label:"order-1",
+    detail:"order: 1;",
+    documentation:"Renders a flex item in an order different than that of its order in the DOM."
+  },
+  {
+    label:"order-2",
+    detail:"order: 2;",
+    documentation:"Renders a flex item in an order different than that of its order in the DOM."
+  },
+  {
+    label:"order-3",
+    detail:"order: 3;",
+    documentation:"Renders a flex item in an order different than that of its order in the DOM."
+  },
+  {
+    label:"order-4",
+    detail:"order: 4;",
+    documentation:"Renders a flex item in an order different than that of its order in the DOM."
+  },
+  {
+    label:"order-5",
+    detail:"order: 5;",
+    documentation:"Renders a flex item in an order different than that of its order in the DOM."
+  },
+  {
+    label:"order-6",
+    detail:"order: 6;",
+    documentation:"Renders a flex item in an order different than that of its order in the DOM."
+  },
+  {
+    label:"order-7",
+    detail:"order: 7;",
+    documentation:"Renders a flex item in an order different than that of its order in the DOM."
+  },
+  {
+    label:"order-8",
+    detail:"order: 8;",
+    documentation:"Renders a flex item in an order different than that of its order in the DOM."
+  },
+  {
+    label:"order-9",
+    detail:"order: 9;",
+    documentation:"Renders a flex item in an order different than that of its order in the DOM."
+  },
+  {
+    label:"order-10",
+    detail:"order: 10;",
+    documentation:"Renders a flex item in an order different than that of its order in the DOM."
+  },
+  {
+    label:"order-11",
+    detail:"order: 11;",
+    documentation:"Renders a flex item in an order different than that of its order in the DOM."
+  },
+  {
+    label:"order-12",
+    detail:"order: 12;",
+    documentation:"Renders a flex item in an order different than that of its order in the DOM."
+  },
+  {
+    label:"order-first",
+    detail:"order: -9999;",
+    documentation:"Renders a flex item first, regardless of its order in the DOM."
+  },
+  {
+    label:"order-last",
+    detail:"order: 9999;",
+    documentation:"Renders a flex item last, regardless of its order in the DOM."
+  },
+  {
+    label:"order-none",
+    detail:"order: 0;",
+    documentation:"Renders a flex item in its default order."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
@@ -95,7 +173,8 @@ classes = classes.concat(
   flexWrap,
   flex,
   flexGrow,
-  flexShrink
+  flexShrink,
+  order
 );
 
 exports.classes = classes;
