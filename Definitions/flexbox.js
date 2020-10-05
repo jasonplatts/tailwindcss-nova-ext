@@ -62,12 +62,26 @@ let flex = [
   }
 ];
 
+let flexGrow = [
+  {
+    label:"flex-grow-0",
+    detail:"flex-grow: 0;",
+    documentation:"Allows a flex item to grow to fill available space."
+  },
+  {
+    label:"flex-grow",
+    detail:"flex-grow: 1;",
+    documentation:"Prevents a flex item from growing to fill available space."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
   flexDirection,
   flexWrap,
-  flex
+  flex,
+  flexGrow
 );
 
 exports.classes = classes;
