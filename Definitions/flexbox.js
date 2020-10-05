@@ -75,13 +75,27 @@ let flexGrow = [
   }
 ];
 
+let flexShrink = [
+  {
+    label:"flex-shrink-0",
+    detail:"flex-shrink: 0;",
+    documentation:"Prevents a flex item from shrinking."
+  },
+  {
+    label:"flex-shrink",
+    detail:"flex-shrink: 1;",
+    documentation:"Allows a flex item to shrink if necessary."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
   flexDirection,
   flexWrap,
   flex,
-  flexGrow
+  flexGrow,
+  flexShrink
 );
 
 exports.classes = classes;
