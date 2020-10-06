@@ -13,6 +13,7 @@ class CompletionProvider {
     
     this.imports.push(require('../Definitions/layout.js'));
     this.imports.push(require('../Definitions/flexbox.js'));
+    this.imports.push(require('../Definitions/grid.js'));
     this.imports.push(require('../Definitions/backgrounds.js'));
   }
   
