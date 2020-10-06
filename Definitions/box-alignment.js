@@ -31,10 +31,39 @@ let justifyContent = [
   },
 ];
 
+let justifyItems = [
+  {
+    label:"justify-items-auto",
+    detail:"justify-items: auto;",
+    documentation:"Automatically justify grid items based on their parent container. If no parent or it is absolutely positioned, auto represents normal."
+  },
+  {
+    label:"justify-items-start",
+    detail:"justify-items: start;",
+    documentation:"Justify grid items toward the starting edge of their inline axis."
+  },
+  {
+    label:"justify-items-end",
+    detail:"justify-items: end;",
+    documentation:"Justify grid items toward the ending edge of their inline axis."
+  },
+  {
+    label:"justify-items-center",
+    detail:"justify-items: center;",
+    documentation:"Justify grid items along their inline axis."
+  },
+  {
+    label:"justify-items-stretch",
+    detail:"justify-items: stretch;",
+    documentation:"Stretch items along their inline axis if the combined size of items is less than the size of their container."
+  },
+];
+
 let classes = [];
 
 classes = classes.concat(
-  justifyContent
+  justifyContent,
+  justifyItems
 );
 
 exports.classes = classes;
