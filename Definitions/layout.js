@@ -119,7 +119,7 @@ let display = [
   {
     label:"flow-root",
     detail:"display: flow-root;",
-    documentation:"Creates a inline-block level element."
+    documentation:"Creates a block-level element that establishes a new block formatting context."
   },
   {
     label:"grid",
