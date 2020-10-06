@@ -56,7 +56,7 @@ gridColumnStartEnd.push(
   {
     label:"col-start-auto",
     detail:"grid-column-start: auto;",
-    documentation:"Indicates no explicit grid item start placement."
+    documentation:"Indicates no explicit grid item column start placement."
   }
 )
 
@@ -74,7 +74,7 @@ gridColumnStartEnd.push(
   {
     label:"col-end-auto",
     detail:"grid-column-end: auto;",
-    documentation:"Indicates no explicit grid item end placement."
+    documentation:"Indicates no explicit grid item column end placement."
   }
 )
 
@@ -95,8 +95,66 @@ for(i = 1; i <= 6; i++) {
 gridTemplateRows.push(
   {
     label:"grid-rows-none",
-    detail:"grid-template-columns: none;",
+    detail:"grid-template-rows: none;",
     documentation:"Indicates no explicit grid row template."
+  }
+)
+
+/*        GRID ROW START/END CLASSES        */
+
+let gridRowStartEnd = [];
+
+gridRowStartEnd.push(
+  {
+    label:"row-auto",
+    detail:"grid-row: auto;",
+    documentation:"Indicates no explicit grid item placement or row span (default span of 1)."
+  }
+)
+
+for(i = 1; i <= 12; i++) {
+  gridRowStartEnd.push(
+    {
+      label:"row-span-" + i,
+      detail:"grid-row: span " + i + " / span" + i + ";",
+      documentation:"Makes an element span " + i + " rows."
+    }
+  )
+}
+
+for(i = 1; i <= 13; i++) {
+  gridRowStartEnd.push(
+    {
+      label:"row-start-" + i,
+      detail:"grid-row-start: " + i + ";",
+      documentation:"Makes an element start at row " + i + "."
+    }
+  )
+}
+
+gridRowStartEnd.push(
+  {
+    label:"row-start-auto",
+    detail:"grid-row-start: auto;",
+    documentation:"Indicates no explicit grid item row start placement."
+  }
+)
+
+for(i = 1; i <= 13; i++) {
+  gridRowStartEnd.push(
+    {
+      label:"row-end-" + i,
+      detail:"grid-row-end: " + i + ";",
+      documentation:"Makes an element end at row " + i + "."
+    }
+  )
+}
+
+gridRowStartEnd.push(
+  {
+    label:"row-end-auto",
+    detail:"grid-row-end: auto;",
+    documentation:"Indicates no explicit grid item row end placement."
   }
 )
 
@@ -105,7 +163,8 @@ let classes = [];
 classes = classes.concat(
   gridTemplateColumns,
   gridColumnStartEnd,
-  gridTemplateRows
+  gridTemplateRows,
+  gridRowStartEnd
 );
 
 exports.classes = classes;
