@@ -158,13 +158,39 @@ gridRowStartEnd.push(
   }
 )
 
+/*        GRID AUTO FLOW CLASSES        */
+
+let gridAutoFlow = [
+  {
+    label:"grid-flow-row",
+    detail:"grid-auto-flow: row;",
+    documentation:"Specifies that grid items fill each row, adding new rows as necessary."
+  },
+  {
+    label:"grid-flow-col",
+    detail:"grid-auto-flow: column;",
+    documentation:"Specifies that grid items fill each column, adding new columns as necessary."
+  },
+  {
+    label:"grid-flow-row-dense",
+    detail:"grid-auto-flow: row dense;",
+    documentation:"Specifies that grid items fill each row using an algorithm that attempts to fill holes earlier in the grid."
+  },
+  {
+    label:"grid-flow-col-dense",
+    detail:"grid-auto-flow: column dense;",
+    documentation:"Specifies that grid items fill each column using an algorithm that attempts to fill holes earlier in the grid."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
   gridTemplateColumns,
   gridColumnStartEnd,
   gridTemplateRows,
-  gridRowStartEnd
+  gridRowStartEnd,
+  gridAutoFlow
 );
 
 exports.classes = classes;
