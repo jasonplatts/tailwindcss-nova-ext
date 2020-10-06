@@ -148,6 +148,34 @@ let alignItems = [
   },
 ];
 
+let alignSelf = [
+  {
+    label:"self-auto",
+    detail:"align-self: auto;",
+    documentation:"Align an item based on the value of the container's align-items property."
+  },
+  {
+    label:"self-start",
+    detail:"align-self: start;",
+    documentation:"Align an item to the start of the container's cross axis, regardless of the container's align-items value."
+  },
+  {
+    label:"self-end",
+    detail:"align-self: end;",
+    documentation:"Align an an item to the end of the container's cross axis, regardless of the container's align-items value."
+  },
+  {
+    label:"self-center",
+    detail:"align-self: center;",
+    documentation:"Align an item along the center of the container's cross axis, regardless of the container's align-items value."
+  },
+  {
+    label:"self-stretch",
+    detail:"align-self: stretch;",
+    documentation:"Stretch an item to fill the container's cross axis, regardless of the container's align-items value."
+  },
+];
+
 let classes = [];
 
 classes = classes.concat(
@@ -155,7 +183,8 @@ classes = classes.concat(
   justifyItems,
   justifySelf,
   alignContent,
-  alignItems
+  alignItems,
+  alignSelf
 );
 
 exports.classes = classes;
