@@ -80,13 +80,32 @@ gridColumnStartEnd.push(
 
 /*        GRID TEMPLATE ROWS CLASSES        */
 
+let gridTemplateRows = [];
 
+for(i = 1; i <= 6; i++) {  
+  gridTemplateRows.push(
+    {
+      label:"grid-rows-" + i,
+      detail:"grid-template-rows: repeat(" + i + ", minmax(0, 1fr));",
+      documentation:"Creates a grid with " + i + " rows."
+    }
+  );
+}
+
+gridTemplateRows.push(
+  {
+    label:"grid-rows-none",
+    detail:"grid-template-columns: none;",
+    documentation:"Indicates no explicit grid row template."
+  }
+)
 
 let classes = [];
 
 classes = classes.concat(
   gridTemplateColumns,
-  gridColumnStartEnd
+  gridColumnStartEnd,
+  gridTemplateRows
 );
 
 exports.classes = classes;
