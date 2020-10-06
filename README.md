@@ -15,4 +15,5 @@ Enable the extension in the extension library within Nova.
 ## Known Issues
 
 * Autocomplete suggestions of class names that contain hyphens are not the most relevant after the user has typed past the first hyphen. This has to do with the type being parsed into separate words based on where hyphens are present and a current limitation of the Nova JavaScript API.
+* The extension does not currently work in any files, other than HTML.
 * Autocompletion of customizations haven't yet been added.
