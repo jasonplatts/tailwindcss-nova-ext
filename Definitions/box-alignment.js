@@ -27,8 +27,8 @@ let justifyContent = [
   {
     label:"justify-evenly",
     detail:"justify-content: space-evenly;",
-    documentation:"Distribute flex items along the container's main axis so as there is equal space between each item and the start and end edge."
-  },
+    documentation:"Distribute flex items along the container's main axis so as there is equal space between each item and the start and end edge of the container."
+  }
 ];
 
 let justifyItems = [
@@ -87,12 +87,46 @@ let justifySelf = [
   },
 ];
 
+let alignContent = [
+  {
+    label:"content-center",
+    detail:"align-content: center;",
+    documentation:"Pack rows in a container in the center of the cross axis."
+  },
+  {
+    label:"content-start",
+    detail:"align-content: flex-start;",
+    documentation:"Pack rows in a container against the start of the cross axis."
+  },
+  {
+    label:"content-end",
+    detail:"align-content: flex-end;",
+    documentation:"Pack rows in a container against the end of the cross axis."
+  },
+  {
+    label:"content-between",
+    detail:"align-content: space-between;",
+    documentation:"Distribute rows in a container so as there is equal space between each line."
+  },
+  {
+    label:"content-around",
+    detail:"align-content: space-around;",
+    documentation:"Distribute rows in a container so as there is equal space around each line."
+  },
+  {
+    label:"content-evenly",
+    detail:"align-content: space-evenly;",
+    documentation:"Distribute rows in a container so as there is equal space between each line, including the top and bottom of the container."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
   justifyContent,
   justifyItems,
-  justifySelf
+  justifySelf,
+  alignContent
 );
 
 exports.classes = classes;
