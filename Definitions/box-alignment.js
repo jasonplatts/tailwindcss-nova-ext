@@ -40,12 +40,12 @@ let justifyItems = [
   {
     label:"justify-items-start",
     detail:"justify-items: start;",
-    documentation:"Justify grid items toward the starting edge of their inline axis."
+    documentation:"Justify grid items toward the start of their inline axis."
   },
   {
     label:"justify-items-end",
     detail:"justify-items: end;",
-    documentation:"Justify grid items toward the ending edge of their inline axis."
+    documentation:"Justify grid items toward the end of their inline axis."
   },
   {
     label:"justify-items-center",
@@ -59,11 +59,40 @@ let justifyItems = [
   },
 ];
 
+let justifySelf = [
+  {
+    label:"justify-self-auto",
+    detail:"justify-self: auto;",
+    documentation:"Automatically align an item based on the value of the grid's justify-items property."
+  },
+  {
+    label:"justify-self-start",
+    detail:"justify-self: start;",
+    documentation:"Align a grid item to the start of its inline axis."
+  },
+  {
+    label:"justify-self-end",
+    detail:"justify-self: end;",
+    documentation:"Align a grid item to the end of its inline axis."
+  },
+  {
+    label:"justify-self-center",
+    detail:"justify-self: center;",
+    documentation:"Align a grid item along the center of its inline axis."
+  },
+  {
+    label:"justify-self-stretch",
+    detail:"justify-self: stretch;",
+    documentation:"Stretch a grid item to fill the grid area on its inline axis."
+  },
+];
+
 let classes = [];
 
 classes = classes.concat(
   justifyContent,
-  justifyItems
+  justifyItems,
+  justifySelf
 );
 
 exports.classes = classes;
