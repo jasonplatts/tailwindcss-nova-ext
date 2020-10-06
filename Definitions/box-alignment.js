@@ -120,13 +120,42 @@ let alignContent = [
   }
 ];
 
+let alignItems = [
+  {
+    label:"items-start",
+    detail:"align-items: flex-start;",
+    documentation:"Align items to the start of the container's cross axis."
+  },
+  {
+    label:"items-end",
+    detail:"align-items: flex-end;",
+    documentation:"Align items to the end of the container's cross axis."
+  },
+  {
+    label:"items-center",
+    detail:"align-items: center;",
+    documentation:"Align items along the center of the container's cross axis."
+  },
+  {
+    label:"items-baseline",
+    detail:"align-items: baseline;",
+    documentation:"Align items along the container's cross axis so as their baselines align."
+  },
+  {
+    label:"items-stretch",
+    detail:"align-items: stretch;",
+    documentation:"Stretch items to fill the container's cross axis."
+  },
+];
+
 let classes = [];
 
 classes = classes.concat(
   justifyContent,
   justifyItems,
   justifySelf,
-  alignContent
+  alignContent,
+  alignItems
 );
 
 exports.classes = classes;
