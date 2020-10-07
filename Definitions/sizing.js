@@ -140,7 +140,7 @@ height.push(
   {
     label:"h-screen",
     detail:"height: 100vh;",
-    documentation:"Set the element span the entire height of the viewport."
+    documentation:"Set the element to span the entire height of the viewport."
   },
 );
 
@@ -154,13 +154,46 @@ for(i = 0; i < CONSTANTS.CLASS_REMS.length; i++) {
   );
 }
 
+let minHeight = [
+  {
+    label:"min-h-0",
+    detail:"min-height: 0;",
+    documentation:"Set the minimum element height to 0."
+  },
+  {
+    label:"min-h-full",
+    detail:"min-height: 100%;",
+    documentation:"Set the minimum element height to 100% of its parent, as long as the parent has a defined height."
+  },
+  {
+    label:"min-h-screen",
+    detail:"min-height: 100vh;",
+    documentation:"Set the minimum element height to span the entire height of the viewport."
+  }
+];
+
+let maxHeight = [
+  {
+    label:"max-h-full",
+    detail:"max-height: 100%;",
+    documentation:"Set the maximum element height to 100% of its parent, as long as the parent has a defined height."
+  },
+  {
+    label:"max-h-screen",
+    detail:"max-height: 100vh;",
+    documentation:"Set the maximum element height to span the entire height of the viewport."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
  width,
  minWidth,
  maxWidth,
- height
+ height,
+ minHeight,
+ maxHeight
 );
 
 exports.classes = classes;
