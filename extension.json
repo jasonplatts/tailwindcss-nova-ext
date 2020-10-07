@@ -13,9 +13,8 @@
   
   "activationEvents": [
     "onLanguage:html",
-    "onLanguage:erb",
-    "onLanguage:php",
-    "*"
+    "onLanguage:html.erb",
+    "onLanguage:html.php"
   ],
   
   "entitlements": {
