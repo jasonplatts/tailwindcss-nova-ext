@@ -13,7 +13,7 @@ backgroundColor.push(
     documentation:"Set the background color of an element to transparent."
   },
   {
-    label:"text-current",
+    label:"bg-current",
     detail:"color: currentColor;",
     documentation:"Set the background color of an element to the currentColor."
   }
