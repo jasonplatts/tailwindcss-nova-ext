@@ -17,6 +17,7 @@ class CompletionProvider {
     this.imports.push(require('../Definitions/box-alignment.js'));
     this.imports.push(require('../Definitions/spacing.js'));
     this.imports.push(require('../Definitions/sizing.js'));
+    this.imports.push(require('../Definitions/typography.js'));
     this.imports.push(require('../Definitions/backgrounds.js'));
   }
   
