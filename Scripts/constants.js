@@ -1,8 +1,21 @@
-const BREAKPOINTS = ["sm", "md", "lg", "xl"];
-const SM_BREAKPOINT = 640;
-const MD_BREAKPOINT = 768;
-const LG_BREAKPOINT = 1024;
-const XL_BREAKPOINT = 1280;
+const BREAKPOINTS = [
+  {
+    class:"sm",
+    value:640
+  },
+  {
+    class:"md",
+    value:768
+  },
+  {
+    class:"lg",
+    value:1024
+  },
+  {
+    class:"xl",
+    value:1280
+  }
+];
 
 const CLASS_REMS = [
   {
@@ -183,10 +196,6 @@ const CLASS_FRACTIONALS = [
 ];
 
 
-exports.SM_BREAKPOINT = SM_BREAKPOINT
-exports.MD_BREAKPOINT = MD_BREAKPOINT
-exports.LG_BREAKPOINT = LG_BREAKPOINT
-exports.XL_BREAKPOINT = XL_BREAKPOINT
-
+exports.BREAKPOINTS = BREAKPOINTS
 exports.CLASS_REMS = CLASS_REMS
 exports.CLASS_FRACTIONALS = CLASS_FRACTIONALS

@@ -1,27 +1,16 @@
 const CONSTANTS = require('../Scripts/constants.js');
 
-let breakpoints = [
-  {
-    label:"sm:",
-    detail:"max-width: " + CONSTANTS.SM_BREAKPOINT + "px;",
-    documentation:"References the small breakpoint set at " + CONSTANTS.SM_BREAKPOINT + "px."
-  },
-  {
-    label:"md:",
-    detail:"max-width: " + CONSTANTS.MD_BREAKPOINT + "px;",
-    documentation:"References the medium breakpoint set at " + CONSTANTS.MD_BREAKPOINT + "px."
-  },
-  {
-    label:"lg:",
-    detail:"max-width: " + CONSTANTS.LG_BREAKPOINT + "px;",
-    documentation:"References the large breakpoint set at " + CONSTANTS.LG_BREAKPOINT + "px."
-  },
-  {
-    label:"xl:",
-    detail:"max-width: " + CONSTANTS.XL_BREAKPOINT + "px;",
-    documentation:"References the extra large breakpoint set at " + CONSTANTS.XL_BREAKPOINT + "px."
-  },
-];
+let breakpoints = [];
+
+for(i = 0; i < CONSTANTS.BREAKPOINTS.length; i++) {
+  breakpoints.push(
+    {
+      label:CONSTANTS.BREAKPOINTS[i].class + ":",
+      detail:"max-width: " + CONSTANTS.BREAKPOINTS[i].value + "px;",
+      documentation:"References the small breakpoint set at " + CONSTANTS.BREAKPOINTS[i].value + "px."
+    }
+  );
+}
 
 let container = [
   {
