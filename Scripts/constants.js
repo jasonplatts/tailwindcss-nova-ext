@@ -195,7 +195,50 @@ const CLASS_FRACTIONALS = [
   }
 ];
 
+const CLASS_SIZES = [
+  {
+    class:"xs",
+    value:"20",
+  },
+  {
+    class:"sm",
+    value:"24",
+  },
+  {
+    class:"md",
+    value:"28",
+  },
+  {
+    class:"lg",
+    value:"32",
+  },
+  {
+    class:"xl",
+    value:"36",
+  },
+  {
+    class:"2xl",
+    value:"42",
+  },
+  {
+    class:"3xl",
+    value:"48",
+  },
+  {
+    class:"4xl",
+    value:"56",
+  },
+  {
+    class:"5xl",
+    value:"64",
+  },
+  {
+    class:"6xl",
+    value:"72",
+  }
+];
 
 exports.BREAKPOINTS = BREAKPOINTS
 exports.CLASS_REMS = CLASS_REMS
 exports.CLASS_FRACTIONALS = CLASS_FRACTIONALS
+exports.CLASS_SIZES = CLASS_SIZES

@@ -55,10 +55,69 @@ width.push(
   }
 );
 
+/*        MIN-WIDTH CLASSES        */
+
+let minWidth = [];
+
+minWidth.push(
+  {
+    label:"min-w-0",
+    detail:"min-width: 0;",
+    documentation:"Set the minimum element width to 0."
+  },
+  {
+    label:"min-w-full",
+    detail:"min-width: 100%;",
+    documentation:"Set the minimum element width to 100%."
+  }
+);
+
+/*        MAX-WIDTH CLASSES        */
+
+let maxWidth = [];
+
+maxWidth.push(
+  {
+    label:"max-w-none",
+    detail:"max-width: none;",
+    documentation:"Set the maximum element width to none."
+  }
+);
+
+for(i = 0; i < CONSTANTS.CLASS_SIZES.length; i++) {
+  maxWidth.push(
+    {
+      label:"max-w-" + CONSTANTS.CLASS_SIZES[i].class,
+      detail:"max-width: " + CONSTANTS.CLASS_SIZES[i].value + "rem;",
+      documentation:"Set the maximum element width to " + CONSTANTS.CLASS_SIZES[i].value + "rem."
+    }
+  );
+}
+
+maxWidth.push(
+  {
+    label:"max-w-full",
+    detail:"max-width: 100%;",
+    documentation:"Set the maximum element width to 100%."
+  }
+);
+
+for(i = 0; i < CONSTANTS.BREAKPOINTS.length; i++) {
+  maxWidth.push(
+    {
+      label:"max-w-screen-" + CONSTANTS.BREAKPOINTS[i].class,
+      detail:"max-width: " + CONSTANTS.BREAKPOINTS[i].value + "px;",
+      documentation:"Set the maximum element width to " + CONSTANTS.BREAKPOINTS[i].value + " pixels."
+    }
+  );
+}
+
 let classes = [];
 
 classes = classes.concat(
- width
+ width,
+ minWidth,
+ maxWidth
 );
 
 exports.classes = classes;
