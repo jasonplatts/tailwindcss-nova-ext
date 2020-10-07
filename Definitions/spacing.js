@@ -404,12 +404,77 @@ margin.push(
   }
 );
 
+/*        SPACE BETWEEN CLASSES        */
+
+let spaceBetween = [];
+
+for(i = 0; i < CONSTANTS.CLASS_REMS.length; i++) {
+  spaceBetween.push(
+    {
+      label:"space-y-" + CONSTANTS.CLASS_REMS[i].class,
+      detail:"margin-top: " + CONSTANTS.CLASS_REMS[i].value + "rem;",
+      documentation:"Sets the vertical space between child elements to " + CONSTANTS.CLASS_REMS[i].value + "rem."
+    },
+    {
+      label:"-space-y-" + CONSTANTS.CLASS_REMS[i].class,
+      detail:"margin-top: -" + CONSTANTS.CLASS_REMS[i].value + "rem;",
+      documentation:"Sets the vertical space between child elements to -" + CONSTANTS.CLASS_REMS[i].value + "rem."
+    },
+    {
+      label:"space-x-" + CONSTANTS.CLASS_REMS[i].class,
+      detail:"margin-left: " + CONSTANTS.CLASS_REMS[i].value + "rem;",
+      documentation:"Sets the horizontal space between child elements to " + CONSTANTS.CLASS_REMS[i].value + "rem."
+    },
+    {
+      label:"-space-x-" + CONSTANTS.CLASS_REMS[i].class,
+      detail:"margin-left: -" + CONSTANTS.CLASS_REMS[i].value + "rem;",
+      documentation:"Sets the horizontal space between child elements to -" + CONSTANTS.CLASS_REMS[i].value + "rem."
+    },
+  );
+}
+
+spaceBetween.push(
+  {
+    label:"space-y-px",
+    detail:"margin-top: 1px;",
+    documentation:"Sets the vertical space between child elements to 1px."
+  },
+  {
+    label:"-space-y-px",
+    detail:"margin-top: -1px;",
+    documentation:"Sets the vertical space between child elements to -1px."
+  },
+  {
+    label:"space-x-px",
+    detail:"margin-left: 1px;",
+    documentation:"Sets the horizontal space between child elements to 1px."
+  },
+  {
+    label:"-space-x-px",
+    detail:"margin-left: -1px;",
+    documentation:"Sets the horizontal space between child elements to -1px."
+  }
+);
+
+spaceBetween.push(
+  {
+    label:"space-y-reverse",
+    detail:"--space-y-reverse: 1;",
+    documentation:"Sets the vertical space to the correct element side if elements are in reverse order (using say flex-row-reverse or flex-col-reverse)."
+  },
+  {
+    label:"space-x-reverse",
+    detail:"--space-x-reverse: 1;",
+    documentation:"Sets the horizontal space to the correct element side if elements are in reverse order (using say flex-row-reverse or flex-col-reverse)."
+  }
+);
 
 let classes = [];
 
 classes = classes.concat(
  padding,
- margin
+ margin,
+ spaceBetween
 );
 
 exports.classes = classes;
