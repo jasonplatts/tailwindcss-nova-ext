@@ -112,12 +112,55 @@ for(i = 0; i < CONSTANTS.BREAKPOINTS.length; i++) {
   );
 }
 
+/*        HEIGHT CLASSES        */
+
+let height = [];
+
+height.push(
+  {
+    label:"h-0",
+    detail:"height: 0;",
+    documentation:"Set the element height to 0."
+  },
+  {
+    label:"h-auto",
+    detail:"height: auto;",
+    documentation:"Let the browser calculate the height of the element."
+  },
+  {
+    label:"h-px",
+    detail:"height: 1px;",
+    documentation:"Set the element to a fixed height of 1px."
+  },
+  {
+    label:"h-full",
+    detail:"height: 100%;",
+    documentation:"Set the element height to 100% of its parent, as long as the parent has a defined height."
+  },
+  {
+    label:"h-screen",
+    detail:"height: 100vh;",
+    documentation:"Set the element span the entire height of the viewport."
+  },
+);
+
+for(i = 0; i < CONSTANTS.CLASS_REMS.length; i++) {
+  height.push(
+    {
+      label:"h-" + CONSTANTS.CLASS_REMS[i].class,
+      detail:"height: " + CONSTANTS.CLASS_REMS[i].value + "rem;",
+      documentation:"Set the element to a fixed height of " + CONSTANTS.CLASS_REMS[i].value + "rem."
+    }
+  );
+}
+
 let classes = [];
 
 classes = classes.concat(
  width,
  minWidth,
- maxWidth
+ maxWidth,
+ height
 );
 
 exports.classes = classes;
