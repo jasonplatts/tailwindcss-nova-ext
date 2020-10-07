@@ -176,6 +176,100 @@ let alignSelf = [
   },
 ];
 
+let placeContent = [
+  {
+    label:"place-content-center",
+    detail:"place-content: center;",
+    documentation:"Pack items in the center of the block axis."
+  },
+  {
+    label:"place-content-start",
+    detail:"place-content: start;",
+    documentation:"Pack items against the start of the block axis."
+  },
+  {
+    label:"place-content-end",
+    detail:"place-content: end;",
+    documentation:"Pack items against the end of the block axis."
+  },
+  {
+    label:"place-content-between",
+    detail:"place-content: space-between;",
+    documentation:"Distribute grid items so as there is an equal amount of space between each row."
+  },
+  {
+    label:"place-content-around",
+    detail:"place-content: space-around;",
+    documentation:"Distribute grid items so as there is an equal amount of space around each row."
+  },
+  {
+    label:"place-content-evenly",
+    detail:"place-content: space-evenly;",
+    documentation:"Distribute grid items so as they are evenly spaced on the block axis."
+  },
+  {
+    label:"place-content-stretch",
+    detail:"place-content: stretch;",
+    documentation:"Stretch grid items along their grid areas on the block axis."
+  }
+];
+
+let placeItems = [
+  {
+    label:"place-items-auto",
+    detail:"place-items: auto;",
+    documentation:"Place grid items automatically in their grid areas."
+  },
+  {
+    label:"place-items-start",
+    detail:"place-items: start;",
+    documentation:"Place grid items on the start of their grid areas on both axis."
+  },
+  {
+    label:"place-items-end",
+    detail:"place-items: end;",
+    documentation:"Place grid items on the end of their grid areas on both axis."
+  },
+  {
+    label:"place-items-center",
+    detail:"place-items: center;",
+    documentation:"Place grid items on the center of their grid areas on both axis."
+  },
+  {
+    label:"place-items-stretch",
+    detail:"place-items: stretch;",
+    documentation:"Stretch items along their grid areas on both axis."
+  }
+];
+
+let placeSelf = [
+  {
+    label:"place-self-auto",
+    detail:"place-self: auto;",
+    documentation:"Align an item based on the value of the container's place-items property."
+  },
+  {
+    label:"place-self-start",
+    detail:"place-self: start;",
+    documentation:"Align an item to the start on both axes."
+  },
+  {
+    label:"place-self-end",
+    detail:"place-self: end;",
+    documentation:"Align an item to the end on both axes."
+  },
+  {
+    label:"place-self-center",
+    detail:"place-self: center;",
+    documentation:"Align an item at the center on both axes."
+  },
+  {
+    label:"place-self-stretch",
+    detail:"place-self: stretch;",
+    documentation:"Stretch an item on both axes."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
@@ -184,7 +278,10 @@ classes = classes.concat(
   justifySelf,
   alignContent,
   alignItems,
-  alignSelf
+  alignSelf,
+  placeContent,
+  placeItems,
+  placeSelf
 );
 
 exports.classes = classes;
