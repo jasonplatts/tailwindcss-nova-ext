@@ -75,6 +75,113 @@ const CLASS_REMS = [
   }
 ];
 
+const CLASS_FRACTIONALS = [
+  {
+    class:"1/2",
+    value:"50"
+  },
+  {
+    class:"1/3",
+    value:"33.333333"
+  },
+  {
+    class:"2/3",
+    value:"66.666667"
+  },
+  {
+    class:"1/4",
+    value:"25"
+  },
+  {
+    class:"2/4",
+    value:"50"
+  },
+  {
+    class:"3/4",
+    value:"75"
+  },
+  {
+    class:"1/5",
+    value:"20"
+  },
+  {
+    class:"2/5",
+    value:"40"
+  },
+  {
+    class:"3/5",
+    value:"60"
+  },
+  {
+    class:"4/5",
+    value:"80"
+  },
+  {
+    class:"1/6",
+    value:"16.666667"
+  },
+  {
+    class:"2/6",
+    value:"33.333333"
+  },
+  {
+    class:"3/6",
+    value:"50"
+  },
+  {
+    class:"4/6",
+    value:"66.666667"
+  },
+  {
+    class:"5/6",
+    value:"83.333333"
+  },
+  {
+    class:"1/12",
+    value:"8.333333"
+  },
+  {
+    class:"2/12",
+    value:"16.666667"
+  },
+  {
+    class:"3/12",
+    value:"25"
+  },
+  {
+    class:"4/12",
+    value:"33.333333"
+  },
+  {
+    class:"5/12",
+    value:"41.666667"
+  },
+  {
+    class:"6/12",
+    value:"50"
+  },
+  {
+    class:"7/12",
+    value:"58.333333"
+  },
+  {
+    class:"8/12",
+    value:"66.666667"
+  },
+  {
+    class:"9/12",
+    value:"75"
+  },
+  {
+    class:"10/12",
+    value:"83.333333"
+  },
+  {
+    class:"11/12",
+    value:"91.666667"
+  }
+];
+
 
 exports.SM_BREAKPOINT = SM_BREAKPOINT
 exports.MD_BREAKPOINT = MD_BREAKPOINT
@@ -82,3 +189,4 @@ exports.LG_BREAKPOINT = LG_BREAKPOINT
 exports.XL_BREAKPOINT = XL_BREAKPOINT
 
 exports.CLASS_REMS = CLASS_REMS
+exports.CLASS_FRACTIONALS = CLASS_FRACTIONALS
