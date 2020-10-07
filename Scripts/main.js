@@ -15,6 +15,7 @@ class CompletionProvider {
     this.imports.push(require('../Definitions/flexbox.js'));
     this.imports.push(require('../Definitions/grid.js'));
     this.imports.push(require('../Definitions/box-alignment.js'));
+    this.imports.push(require('../Definitions/spacing.js'));
     this.imports.push(require('../Definitions/backgrounds.js'));
   }
   
