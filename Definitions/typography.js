@@ -51,6 +51,21 @@ let fontSmoothing = [
   }
 ];
 
+/*        FONT STYLE CLASSES        */
+
+let fontStyle = [
+  {
+    label:"italic",
+    detail:"font-style: italic;",
+    documentation:"Make text italic."
+  },
+  {
+    label:"not-italic",
+    detail:"font-style: normal;",
+    documentation:"Display text normally. Typically used to reset italic text at different breakpoints."
+  }
+];
+
 /*        TEXT COLOR CLASSES        */
 
 let textColor = [];
@@ -86,6 +101,7 @@ classes = classes.concat(
   fontFamily,
   fontSize,
   fontSmoothing,
+  fontStyle,
   textColor
 );
 
