@@ -228,6 +228,26 @@ for(i = 0; i < FIXED_LINE_HEIGHTS.length; i++) {
   );  
 }
 
+/*        LIST STYLE CLASSES        */
+
+let listStyleTypes = [
+  {
+    label:"list-none",
+    detail:"list-style-type: none;",
+    documentation:"Remove any list styling."
+  },
+  {
+    label:"list-disc",
+    detail:"list-style-type: disc;",
+    documentation:"Create a bulleted list."
+  },
+  {
+    label:"list-decimal",
+    detail:"list-style-type: decimal;",
+    documentation:"Create a numbered list."
+  }
+];
+
 /*        TEXT COLOR CLASSES        */
 
 let textColor = [];
@@ -268,6 +288,7 @@ classes = classes.concat(
   fontVariantNumeric,
   letterSpacing,
   lineHeights,
+  listStyleTypes,
   textColor
 );
 
