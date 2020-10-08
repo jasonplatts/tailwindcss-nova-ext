@@ -263,6 +263,35 @@ let listStylePositions = [
   }
 ];
 
+/*        PLACEHOLDER COLOR CLASSES        */
+
+let placeholderColor = [];
+
+placeholderColor.push(
+  {
+    label:"placeholder-transparent",
+    color: new Color("rgb", [0, 0, 0, 0]),
+    detail:"color: transparent;",
+    documentation:"Set the placeholder color of an element to transparent."
+  },
+  {
+    label:"placeholder-current",
+    detail:"color: currentColor;",
+    documentation:"Set the placeholder color of an element to the currentColor."
+  }
+);
+
+for(i = 0; i < COLORS.COLORS.length; i++) {
+  placeholderColor.push(
+    {
+      label:`placeholder-${COLORS.COLORS[i].class}`,
+      color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
+      detail:`color: #${COLORS.COLORS[i].value};`,
+      documentation:`Set the placeholder color of an element to #${COLORS.COLORS[i].value}.`
+    }
+  );  
+}
+
 /*        TEXT COLOR CLASSES        */
 
 let textColor = [];
@@ -305,6 +334,7 @@ classes = classes.concat(
   lineHeights,
   listStyleTypes,
   listStylePositions,
+  placeholderColor,
   textColor
 );
 
