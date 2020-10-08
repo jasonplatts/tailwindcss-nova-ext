@@ -1,6 +1,5 @@
-const COLORS = require('../Scripts/colors.js');
+const COLORS    = require('../Scripts/colors.js');
 const FUNCTIONS = require('../Scripts/functions.js');
-const CONSTANTS = require('../Scripts/constants.js');
 
 /*        FONT FAMILY CLASSES        */
 
@@ -24,14 +23,27 @@ let fontFamily = [
 
 /*        FONT SIZE CLASSES        */
 
+const FONT_SIZES = [
+  { name:"xs",   value:"0.75" },
+  { name:"sm",   value:"0.875" },
+  { name:"base", value:"1" },
+  { name:"lg",   value:"1.125" },
+  { name:"xl",   value:"1.25" },
+  { name:"2xl",  value:"1.5" },
+  { name:"3xl",  value:"1.875" },
+  { name:"4xl",  value:"2.25" },
+  { name:"5xl",  value:"3" },
+  { name:"6xl",  value:"4" }
+];
+
 let fontSize = [];
 
-for(i = 0; i < CONSTANTS.FONT_SIZES.length; i++) {  
+for(i = 0; i < FONT_SIZES.length; i++) {  
   fontSize.push(
     {
-      label:"text-" + CONSTANTS.FONT_SIZES[i].name,
-      detail:"font-size: " + CONSTANTS.FONT_SIZES[i].value + "rem;",
-      documentation:"Set the text color of an element to #" + CONSTANTS.FONT_SIZES[i].value + "."
+      label:"text-" + FONT_SIZES[i].name,
+      detail:"font-size: " + FONT_SIZES[i].value + "rem;",
+      documentation:"Set the text color of an element to #" + FONT_SIZES[i].value + "."
     }
   );
 }
@@ -68,14 +80,26 @@ let fontStyle = [
 
 /*        FONT WEIGHT CLASSES        */
 
+const FONT_WEIGHTS = [
+  { name:"hairline",  value:"100" },
+  { name:"thin",      value:"200" },
+  { name:"light",     value:"300" },
+  { name:"normal",    value:"400" },
+  { name:"medium",    value:"500" },
+  { name:"semibold",  value:"600" },
+  { name:"bold",      value:"700" },
+  { name:"extrabold", value:"800" },
+  { name:"black",     value:"900" }
+];
+
 let fontWeight = [];
 
-for(i = 0; i < CONSTANTS.FONT_WEIGHTS.length; i++) {  
+for(i = 0; i < FONT_WEIGHTS.length; i++) {  
   fontWeight.push(
     {
-      label:"font-" + CONSTANTS.FONT_WEIGHTS[i].name,
-      detail:"font-weight: " + CONSTANTS.FONT_WEIGHTS[i].value + ";",
-      documentation:"Set font weight to " + CONSTANTS.FONT_WEIGHTS[i].name + "."
+      label:"font-" + FONT_WEIGHTS[i].name,
+      detail:"font-weight: " + FONT_WEIGHTS[i].value + ";",
+      documentation:"Set font weight to " + FONT_WEIGHTS[i].name + "."
     }
   );
 }
@@ -132,38 +156,33 @@ let fontVariantNumeric = [
 
 /*        LETTER SPACING CLASSES        */
 
-let letterSpacing = [
-  {
-    label:"tracking-tighter",
-    detail:"letter-spacing: -0.05em;",
-    documentation:"Set the letter spacing of an element to -0.05em."
-  },
-  {
-    label:"tracking-tight",
-    detail:"letter-spacing: -0.025em;",
-    documentation:"Set the letter spacing of an element to -0.025em."
-  },
+const FONT_TRACKING_OPTIONS = [
+  {name:"tighter", value:"-0.05"},
+  {name:"tight",   value:"-0.025"},
+  {name:"wide",    value:"0.025"},
+  {name:"wider",   value:"0.05"},
+  {name:"widest",  value:"0.1"}
+];
+
+let letterSpacing = [];
+
+letterSpacing.push(
   {
     label:"tracking-normal",
     detail:"letter-spacing: 0;",
     documentation:"Set the letter spacing of an element to 0."
-  },
-  {
-    label:"tracking-wide",
-    detail:"letter-spacing: 0.025em;",
-    documentation:"Set the letter spacing of an element to 0.025em."
-  },
-  {
-    label:"tracking-wider",
-    detail:"letter-spacing: 0.05em;",
-    documentation:"Set the letter spacing of an element to 0.05em."
-  },
-  {
-    label:"tracking-widest",
-    detail:"letter-spacing: 0.1em;",
-    documentation:"Set the letter spacing of an element to 0.1em."
-  }
-];
+  }  
+); 
+
+for(i = 0; i < FONT_TRACKING_OPTIONS.length; i++) {
+  letterSpacing.push(
+    {
+      label:"tracking-" + FONT_TRACKING_OPTIONS[i].name,
+      detail:"letter-spacing: " + FONT_TRACKING_OPTIONS[i].value + "em;",
+      documentation:"Set the letter spacing of an element to " + FONT_TRACKING_OPTIONS[i].value + "em."
+    }
+  );
+}
 
 /*        TEXT COLOR CLASSES        */
 
