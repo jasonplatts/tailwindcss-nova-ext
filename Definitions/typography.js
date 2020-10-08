@@ -248,6 +248,21 @@ let listStyleTypes = [
   }
 ];
 
+/*        LIST STYLE POSITION CLASSES        */
+
+let listStylePositions = [
+  {
+    label:"list-inside",
+    detail:"list-style-position: inside;",
+    documentation:"Set the position of the list markers inside the list element."
+  },
+  {
+    label:"list-outside",
+    detail:"list-style-position: outside;",
+    documentation:"Set the position of the list markers outside the list element."
+  }
+];
+
 /*        TEXT COLOR CLASSES        */
 
 let textColor = [];
@@ -289,6 +304,7 @@ classes = classes.concat(
   letterSpacing,
   lineHeights,
   listStyleTypes,
+  listStylePositions,
   textColor
 );
 
