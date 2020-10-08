@@ -292,6 +292,29 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
   );  
 }
 
+/*        PLACEHOLDER OPACITY CLASSES        */
+
+const PLACEHOLDER_OPACITIES = [
+  { name:"0",   value:"0" },
+  { name:"25",  value:"0.25" },
+  { name:"50",  value:"0.5" },
+  { name:"75",  value:"0.75" },
+  { name:"100", value:"1" }
+];
+
+let placeholderOpacity = [];
+
+for(i = 0; i < PLACEHOLDER_OPACITIES.length; i++) {
+  placeholderOpacity.push(
+    {
+      label:`placeholder-opacity-${PLACEHOLDER_OPACITIES[i].name}`,
+      color: new Color("rgb", [0, 0, 0, parseFloat(PLACEHOLDER_OPACITIES[i].value)]),
+      detail:`--placeholder-opacity: ${PLACEHOLDER_OPACITIES[i].value};`,
+      documentation:`Set the opacity of the placeholder color to ${PLACEHOLDER_OPACITIES[i].value}.`
+    }
+  );  
+}
+
 /*        TEXT COLOR CLASSES        */
 
 let textColor = [];
@@ -335,6 +358,7 @@ classes = classes.concat(
   listStyleTypes,
   listStylePositions,
   placeholderColor,
+  placeholderOpacity,
   textColor
 );
 
