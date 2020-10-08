@@ -238,7 +238,51 @@ const CLASS_SIZES = [
   }
 ];
 
+const FONT_SIZES = [
+  {
+    name:"xs",
+    value:"0.75",
+  },
+  {
+    name:"sm",
+    value:"0.875",
+  },
+  {
+    name:"base",
+    value:"1",
+  },
+  {
+    name:"lg",
+    value:"1.125",
+  },
+  {
+    name:"xl",
+    value:"1.25",
+  },
+  {
+    name:"2xl",
+    value:"1.5",
+  },
+  {
+    name:"3xl",
+    value:"1.875",
+  },
+  {
+    name:"4xl",
+    value:"2.25",
+  },
+  {
+    name:"5xl",
+    value:"3",
+  },
+  {
+    name:"6xl",
+    value:"4",
+  }
+];
+
 exports.BREAKPOINTS = BREAKPOINTS
 exports.CLASS_REMS = CLASS_REMS
 exports.CLASS_FRACTIONALS = CLASS_FRACTIONALS
 exports.CLASS_SIZES = CLASS_SIZES
+exports.FONT_SIZES = FONT_SIZES
