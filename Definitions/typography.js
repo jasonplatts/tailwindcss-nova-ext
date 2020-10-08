@@ -315,6 +315,31 @@ for(i = 0; i < PLACEHOLDER_OPACITIES.length; i++) {
   );  
 }
 
+/*        TEXT ALIGN CLASSES        */
+
+let textAlign = [
+  {
+    label:"text-left",
+    detail:"text-align: left;",
+    documentation:"Set the text alignment of an element to the left."
+  },
+  {
+    label:"text-center",
+    detail:"text-align: center;",
+    documentation:"Set the text alignment of an element to the center."
+  },
+  {
+    label:"text-right",
+    detail:"text-align: right;",
+    documentation:"Set the text alignment of an element to the right."
+  },
+  {
+    label:"text-justify",
+    detail:"text-align: justify;",
+    documentation:"Set the text alignment of an element to justified."
+  }
+];
+
 /*        TEXT COLOR CLASSES        */
 
 let textColor = [];
@@ -359,6 +384,7 @@ classes = classes.concat(
   listStylePositions,
   placeholderColor,
   placeholderOpacity,
+  textAlign,
   textColor
 );
 
