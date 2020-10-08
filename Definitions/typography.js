@@ -369,6 +369,49 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
   );
 }
 
+/*        TEXT OPACITY CLASSES        */
+
+const TEXT_OPACITIES = [
+  { name:"0",   value:"0" },
+  { name:"25",  value:"0.25" },
+  { name:"50",  value:"0.5" },
+  { name:"75",  value:"0.75" },
+  { name:"100", value:"1" }
+];
+
+let textOpacity = [];
+
+for(i = 0; i < TEXT_OPACITIES.length; i++) {
+  textOpacity.push(
+    {
+      label:`text-opacity-${TEXT_OPACITIES[i].name}`,
+      color: new Color("rgb", [0, 0, 0, parseFloat(TEXT_OPACITIES[i].value)]),
+      detail:`--text-opacity: ${TEXT_OPACITIES[i].value};`,
+      documentation:`Set the opacity of the element's text color to ${TEXT_OPACITIES[i].value}.`
+    }
+  );  
+}
+
+/*        TEXT DECORATION CLASSES        */
+
+let textDecoration = [
+  {
+    label:"underline",
+    detail:"text-decoration: underline;",
+    documentation:"Set the text decoration to underline."
+  },
+  {
+    label:"line-through",
+    detail:"text-decoration: line-through;",
+    documentation:"Set the text decoration to line-through so that it appears to be striked out."
+  },
+  {
+    label:"no-underline",
+    detail:"text-decoration: none;",
+    documentation:"Removes the text decoration (underline and/or line-through)."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
@@ -385,7 +428,9 @@ classes = classes.concat(
   placeholderColor,
   placeholderOpacity,
   textAlign,
-  textColor
+  textColor,
+  textOpacity,
+  textDecoration
 );
 
 exports.classes = classes;
