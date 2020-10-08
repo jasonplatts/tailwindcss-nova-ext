@@ -472,6 +472,61 @@ let verticalAlign = [
   }
 ];
 
+/*        WHITESPACE CLASSES        */
+
+let whitespace = [
+  {
+    label:"whitespace-normal",
+    detail:"white-space: normal;",
+    documentation:"Set element text to wrap normally within an element. Newlines and spaces will be collapsed."
+  },
+  {
+    label:"whitespace-no-wrap",
+    detail:"white-space: nowrap;",
+    documentation:"Prevent text from wrapping within an element. Newlines and spaces will be collapsed."
+  },
+  {
+    label:"whitespace-pre",
+    detail:"white-space: pre;",
+    documentation:"Preserve newlines and spaces within an element. Text will not be wrapped."
+  },
+  {
+    label:"whitespace-pre-line",
+    detail:"white-space: pre-line;",
+    documentation:"Preserve newlines, but not spaces within an element. Text will be wrapped normally."
+  },
+  {
+    label:"whitespace-pre-wrap",
+    detail:"white-space: pre-wrap;",
+    documentation:"Preserve newlines and spaces within an element. Text will be wrapped normally."
+  }
+];
+
+/*        WORD BREAK CLASSES        */
+
+let wordBreak = [
+  {
+    label:"break-normal",
+    detail:"overflow-wrap: normal; word-break: normal;",
+    documentation:"Set text within an element to only add line breaks at normal word break points."
+  },
+  {
+    label:"break-words",
+    detail:"overflow-wrap: break-word;",
+    documentation:"Set text within an element to add line breaks mid-word if needed."
+  },
+  {
+    label:"break-all",
+    detail:"word-break: break-all;",
+    documentation:"Set text within an element to add line break whenever necessary, without trying to preserve whole words."
+  },
+  {
+    label:"truncate",
+    detail:"overflow: hidden; text-overflow: ellipsis; white-space: nowrap;",
+    documentation:"Set overflowing text within an element to truncate with an ellipsis (…) if needed."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
@@ -492,7 +547,9 @@ classes = classes.concat(
   textOpacity,
   textDecoration,
   textTransform,
-  verticalAlign
+  verticalAlign,
+  whitespace,
+  wordBreak
 );
 
 exports.classes = classes;
