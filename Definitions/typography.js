@@ -184,6 +184,50 @@ for(i = 0; i < FONT_TRACKING_OPTIONS.length; i++) {
   );
 }
 
+/*        LINE HEIGHT CLASSES        */
+
+const RELATIVE_LINE_HEIGHTS = [
+  { name:"3",       value:".75" },
+  { name:"4",       value:"1" },
+  { name:"5",       value:"1.25" },
+  { name:"6",       value:"1.5" },
+  { name:"7",       value:"1.75" },
+  { name:"8",       value:"2" },
+  { name:"9",       value:"2.25" },
+  { name:"10",      value:"2.5" }
+];
+
+const FIXED_LINE_HEIGHTS = [
+  { name:"none",    value:"1" },
+  { name:"tight",   value:"1.25" },
+  { name:"snug",    value:"1.375" },
+  { name:"normal",  value:"1.5" },
+  { name:"relaxed", value:"1.625" },
+  { name:"loose",   value:"2" }
+];
+
+let lineHeights = [];
+
+for(i = 0; i < RELATIVE_LINE_HEIGHTS.length; i++) {
+  lineHeights.push(
+    {
+      label:`leading-${RELATIVE_LINE_HEIGHTS[i].name}`,
+      detail:`line-height: ${RELATIVE_LINE_HEIGHTS[i].value}rem;`,
+      documentation:`Set a relative element line height of ${RELATIVE_LINE_HEIGHTS[i].value} rem.`
+    }
+  );  
+}
+
+for(i = 0; i < FIXED_LINE_HEIGHTS.length; i++) {
+  lineHeights.push(
+    {
+      label:`leading-${FIXED_LINE_HEIGHTS[i].name}`,
+      detail:`line-height: ${FIXED_LINE_HEIGHTS[i].value};`,
+      documentation:`Set a fixed element line height of ${FIXED_LINE_HEIGHTS[i].value}.`
+    }
+  );  
+}
+
 /*        TEXT COLOR CLASSES        */
 
 let textColor = [];
@@ -223,6 +267,7 @@ classes = classes.concat(
   fontWeight,
   fontVariantNumeric,
   letterSpacing,
+  lineHeights,
   textColor
 );
 
