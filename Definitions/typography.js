@@ -4,7 +4,6 @@ const CONSTANTS = require('../Scripts/constants.js');
 
 /*        FONT FAMILY CLASSES        */
 
-
 let fontFamily = [
   {
     label:"font-sans",
@@ -36,6 +35,21 @@ for(i = 0; i < CONSTANTS.FONT_SIZES.length; i++) {
     }
   );
 }
+
+/*        FONT SMOOTHING CLASSES        */
+
+let fontSmoothing = [
+  {
+    label:"antialiased",
+    detail:"-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;",
+    documentation:"Render text using grayscale antialiasing."
+  },
+  {
+    label:"subpixel-antialiased",
+    detail:"-webkit-font-smoothing: auto; -moz-osx-font-smoothing: auto;",
+    documentation:"Render text using subpixel antialiasing."
+  }
+];
 
 /*        TEXT COLOR CLASSES        */
 
@@ -69,9 +83,10 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
 let classes = [];
 
 classes = classes.concat(
-  textColor,
   fontFamily,
-  fontSize
+  fontSize,
+  fontSmoothing,
+  textColor
 );
 
 exports.classes = classes;
