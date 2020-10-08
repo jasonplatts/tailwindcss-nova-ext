@@ -37,10 +37,17 @@ class CompletionProvider {
           var item = new CompletionItem(definitionObject.label, CompletionItemKind.StyleClass);
         }
         
-        if (definitionObject.hasOwnProperty('color')) { item.color = definitionObject.color; };
-        // TODO: Truncate long detail and documentation strings.
-        if (definitionObject.hasOwnProperty('detail')) { item.detail = definitionObject.detail; };
-        if (definitionObject.hasOwnProperty('documentation')) { item.documentation = definitionObject.documentation; };
+        if (definitionObject.hasOwnProperty('color')) {
+          item.color = definitionObject.color;
+        };
+        
+        if (definitionObject.hasOwnProperty('detail')) {
+          item.detail = FUNCTIONS.truncateString(definitionObject.detail, 35);
+        };
+        
+        if (definitionObject.hasOwnProperty('documentation')) { 
+          item.documentation = FUNCTIONS.truncateString(definitionObject.documentation, 125);
+        };
         
         // TODO: Account for completions of first class attribute entries and responsive class entries.
         item.range = currentWordRange;

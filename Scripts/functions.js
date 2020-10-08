@@ -39,5 +39,14 @@ var getRangeOfCurrentWord = function(editor, context) {
   return new Range(context.position - lastWordBeforeCursor.length, context.position);
 }
 
+var truncateString = function(string, maxLength) {
+  if(string.length > maxLength) {
+    return string.slice(0, maxLength) + "...";
+  } else {
+    return string;
+  }
+}
+
 exports.convertHexToRgbColorObject = convertHexToRgbColorObject;
 exports.getRangeOfCurrentWord = getRangeOfCurrentWord;
+exports.truncateString = truncateString;
