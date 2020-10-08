@@ -412,6 +412,31 @@ let textDecoration = [
   }
 ];
 
+/*        TEXT TRANSFORM CLASSES        */
+
+let textTransform = [
+  {
+    label:"uppercase",
+    detail:"text-transform: uppercase;",
+    documentation:"SSet the element text uppercase."
+  },
+  {
+    label:"lowercase",
+    detail:"text-transform: lowercase;",
+    documentation:"Set the element text lowercase."
+  },
+  {
+    label:"capitalize",
+    detail:"text-transform: capitalize;",
+    documentation:"Set the element text capitalized."
+  },
+  {
+    label:"normal-case",
+    detail:"text-transform: none;",
+    documentation:"Preserve the original casing. Typically used to reset capitalization at different breakpoints."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
@@ -430,7 +455,8 @@ classes = classes.concat(
   textAlign,
   textColor,
   textOpacity,
-  textDecoration
+  textDecoration,
+  textTransform
 );
 
 exports.classes = classes;
