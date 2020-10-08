@@ -80,7 +80,7 @@ for(i = 0; i < CONSTANTS.FONT_WEIGHTS.length; i++) {
   );
 }
 
-/*        FONT VARIANT NUMERIC        */
+/*        FONT VARIANT NUMERIC CLASSES       */
 
 let fontVariantNumeric = [
   {
@@ -130,6 +130,41 @@ let fontVariantNumeric = [
   }
 ];
 
+/*        LETTER SPACING CLASSES        */
+
+let letterSpacing = [
+  {
+    label:"tracking-tighter",
+    detail:"letter-spacing: -0.05em;",
+    documentation:"Set the letter spacing of an element to -0.05em."
+  },
+  {
+    label:"tracking-tight",
+    detail:"letter-spacing: -0.025em;",
+    documentation:"Set the letter spacing of an element to -0.025em."
+  },
+  {
+    label:"tracking-normal",
+    detail:"letter-spacing: 0;",
+    documentation:"Set the letter spacing of an element to 0."
+  },
+  {
+    label:"tracking-wide",
+    detail:"letter-spacing: 0.025em;",
+    documentation:"Set the letter spacing of an element to 0.025em."
+  },
+  {
+    label:"tracking-wider",
+    detail:"letter-spacing: 0.05em;",
+    documentation:"Set the letter spacing of an element to 0.05em."
+  },
+  {
+    label:"tracking-widest",
+    detail:"letter-spacing: 0.1em;",
+    documentation:"Set the letter spacing of an element to 0.1em."
+  }
+];
+
 /*        TEXT COLOR CLASSES        */
 
 let textColor = [];
@@ -168,6 +203,7 @@ classes = classes.concat(
   fontStyle,
   fontWeight,
   fontVariantNumeric,
+  letterSpacing,
   textColor
 );
 
