@@ -281,8 +281,48 @@ const FONT_SIZES = [
   }
 ];
 
+const FONT_WEIGHTS = [
+  {
+    name:"hairline",
+    value:"100",
+  },
+  {
+    name:"thin",
+    value:"200",
+  },
+  {
+    name:"light",
+    value:"300",
+  },
+  {
+    name:"normal",
+    value:"400",
+  },
+  {
+    name:"medium",
+    value:"500",
+  },
+  {
+    name:"semibold",
+    value:"600",
+  },
+  {
+    name:"bold",
+    value:"700",
+  },
+  {
+    name:"extrabold",
+    value:"800",
+  },
+  {
+    name:"black",
+    value:"900",
+  }
+];
+
 exports.BREAKPOINTS = BREAKPOINTS
 exports.CLASS_REMS = CLASS_REMS
 exports.CLASS_FRACTIONALS = CLASS_FRACTIONALS
 exports.CLASS_SIZES = CLASS_SIZES
 exports.FONT_SIZES = FONT_SIZES
+exports.FONT_WEIGHTS = FONT_WEIGHTS

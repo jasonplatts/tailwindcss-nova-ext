@@ -57,14 +57,28 @@ let fontStyle = [
   {
     label:"italic",
     detail:"font-style: italic;",
-    documentation:"Make text italic."
+    documentation:"Set text to italic."
   },
   {
     label:"not-italic",
     detail:"font-style: normal;",
-    documentation:"Display text normally. Typically used to reset italic text at different breakpoints."
+    documentation:"Set text to display normally. Typically used to reset italic text at different breakpoints."
   }
 ];
+
+/*        FONT WEIGHT CLASSES        */
+
+let fontWeight = [];
+
+for(i = 0; i < CONSTANTS.FONT_WEIGHTS.length; i++) {  
+  fontWeight.push(
+    {
+      label:"font-" + CONSTANTS.FONT_WEIGHTS[i].name,
+      detail:"font-weight: " + CONSTANTS.FONT_WEIGHTS[i].value + ";",
+      documentation:"Set font weight to " + CONSTANTS.FONT_WEIGHTS[i].name + "."
+    }
+  );
+}
 
 /*        TEXT COLOR CLASSES        */
 
@@ -102,6 +116,7 @@ classes = classes.concat(
   fontSize,
   fontSmoothing,
   fontStyle,
+  fontWeight,
   textColor
 );
 
