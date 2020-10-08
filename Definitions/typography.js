@@ -418,7 +418,7 @@ let textTransform = [
   {
     label:"uppercase",
     detail:"text-transform: uppercase;",
-    documentation:"SSet the element text uppercase."
+    documentation:"Set the element text uppercase."
   },
   {
     label:"lowercase",
@@ -434,6 +434,41 @@ let textTransform = [
     label:"normal-case",
     detail:"text-transform: none;",
     documentation:"Preserve the original casing. Typically used to reset capitalization at different breakpoints."
+  }
+];
+
+/*        VERTICAL ALIGN CLASSES        */
+
+let verticalAlign = [
+  {
+    label:"align-baseline",
+    detail:"vertical-align: baseline;",
+    documentation:"Align the baseline of an element with the baseline of its parent."
+  },
+  {
+    label:"align-top",
+    detail:"vertical-align: top;",
+    documentation:"Align the top of an element and its descendants with the top of the entire line."
+  },
+  {
+    label:"align-middle",
+    detail:"vertical-align: middle;",
+    documentation:"Align the middle of an element with the baseline plus half the x-height of the parent."
+  },
+  {
+    label:"align-bottom",
+    detail:"vertical-align: bottom;",
+    documentation:"Align the bottom of an element and its descendants with the bottom of the entire line."
+  },
+  {
+    label:"align-text-top",
+    detail:"vertical-align: text-top;",
+    documentation:"Align the top of an element with the top of the parent element's font."
+  },
+  {
+    label:"align-text-bottom",
+    detail:"vertical-align: text-bottom;",
+    documentation:"Align the bottom of an element with the bottom of the parent element's font."
   }
 ];
 
@@ -456,7 +491,8 @@ classes = classes.concat(
   textColor,
   textOpacity,
   textDecoration,
-  textTransform
+  textTransform,
+  verticalAlign
 );
 
 exports.classes = classes;
