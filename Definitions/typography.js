@@ -80,6 +80,56 @@ for(i = 0; i < CONSTANTS.FONT_WEIGHTS.length; i++) {
   );
 }
 
+/*        FONT VARIANT NUMERIC        */
+
+let fontVariantNumeric = [
+  {
+    label:"normal-nums",
+    detail:"font-variant-numeric: normal;",
+    documentation:"Reset numeric font variants. Typically used to reset a font feature at a particular breakpoint."
+  },
+  {
+    label:"ordinal",
+    detail:"font-variant-numeric: ordinal;",
+    documentation:"Enable special glyphs for ordinal markers, such as a superscript \"st\" after a number."
+  },
+  {
+    label:"slashed-zero",
+    detail:"font-variant-numeric: slashed-zero;",
+    documentation:"Force a 0 with a slash. Useful when a clear distinction is needed between o and 0."
+  },
+  {
+    label:"lining-nums",
+    detail:"font-variant-numeric: lining-nums;",
+    documentation:"Use numeric glyphs that are aligned by their baseline. Corresponds to the lnum OpenType feature. Default for most fonts."
+  },
+  {
+    label:"oldstyle-nums",
+    detail:"font-variant-numeric: oldstyle-nums;",
+    documentation:"Use numeric glyphs where some numbers have descenders. Corresponds to the onum OpenType feature."
+  },
+  {
+    label:"proportional-nums",
+    detail:"font-variant-numeric: proportional-nums;",
+    documentation:"Use numeric glyphs that have proportional widths. Corresponds to the pnum OpenType feature."
+  },
+  {
+    label:"tabular-nums",
+    detail:"font-variant-numeric: tabular-nums;",
+    documentation:"Use numeric glyphs that have uniform/tabular widths. Corresponds to the tnum OpenType feature."
+  },
+  {
+    label:"diagonal-fractions",
+    detail:"font-variant-numeric: diagonal-fractions;",
+    documentation:"Replace numbers separated by a slash with common diagonal fractions. Corresponds to the frac OpenType feature."
+  },
+  {
+    label:"stacked-fractions",
+    detail:"font-variant-numeric: stacked-fractions;",
+    documentation:"Replace numbers separated by a slash with common stacked fractions. Corresponds to the frac OpenType feature, but not frequently supported."
+  }
+];
+
 /*        TEXT COLOR CLASSES        */
 
 let textColor = [];
@@ -117,6 +167,7 @@ classes = classes.concat(
   fontSmoothing,
   fontStyle,
   fontWeight,
+  fontVariantNumeric,
   textColor
 );
 

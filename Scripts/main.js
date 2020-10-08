@@ -46,7 +46,7 @@ class CompletionProvider {
         };
         
         if (definitionObject.hasOwnProperty('documentation')) { 
-          item.documentation = FUNCTIONS.truncateString(definitionObject.documentation, 125);
+          item.documentation = FUNCTIONS.truncateString(definitionObject.documentation, 120);
         };
         
         // TODO: Account for completions of first class attribute entries and responsive class entries.
