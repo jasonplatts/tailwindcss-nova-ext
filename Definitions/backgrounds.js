@@ -260,6 +260,75 @@ let backgroundImage = [
   }
 ];
 
+/*        BACKGROUND COLOR STOP CLASSES        */
+
+let gradientColorStops = [];
+
+gradientColorStops.push(
+  {
+    label:"from-transparent",
+    color: new Color("rgb", [0, 0, 0, 0]),
+    detail:"--gradient-from-color: transparent;",
+    documentation:"Set the first gradient stop of an element to transparent. Use with via-{color} and to-{color} classes."
+  },
+  {
+    label:"from-current",
+    detail:"--gradient-from-color: currentColor;",
+    documentation:"Set the first gradient stop of an element to the currentColor. Use with via-{color} and to-{color} classes."
+  },
+  {
+    label:"via-transparent",
+    color: new Color("rgb", [0, 0, 0, 0]),
+    detail:"--gradient-via-color: transparent;",
+    documentation:"Set the middle gradient stop of an element to transparent. Use with from-{color} and to-{color} classes."
+  },
+  {
+    label:"via-current",
+    detail:"--gradient-via-color: currentColor;",
+    documentation:"Set the middle gradient stop of an element to the currentColor. Use with from-{color} and to-{color} classes."
+  },
+  {
+    label:"to-transparent",
+    color: new Color("rgb", [0, 0, 0, 0]),
+    detail:"--gradient-to-color: transparent;",
+    documentation:"Set the last gradient stop of an element to transparent. Use with from-{color} and via-{color} classes."
+  },
+  {
+    label:"to-current",
+    detail:"--gradient-to-color: currentColor;",
+    documentation:"Set the last gradient stop of an element to the currentColor. Use with from-{color} and via-{color} classes."
+  }
+);
+
+for(i = 0; i < COLORS.COLORS.length; i++) {  
+  gradientColorStops.push(
+    {
+      label:"from-" + COLORS.COLORS[i].class,
+      color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
+      detail:"--gradient-from-color: #" + COLORS.COLORS[i].value + ";",
+      documentation:"Set the first gradient stop of an element to #" + COLORS.COLORS[i].value + ". Use with via-{color} and to-{color} classes."
+    }
+  );
+  
+  gradientColorStops.push(
+    {
+      label:"via-" + COLORS.COLORS[i].class,
+      color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
+      detail:"--gradient-via-color: #" + COLORS.COLORS[i].value + ";",
+      documentation:"Set the middle gradient stop of an element to #" + COLORS.COLORS[i].value + ". Use with from-{color} and to-{color} classes."
+    }
+  );
+
+  gradientColorStops.push(
+    {
+      label:"to-" + COLORS.COLORS[i].class,
+      color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
+      detail:"--gradient-to-color: #" + COLORS.COLORS[i].value + ";",
+      documentation:"Set the last gradient stop of an element to #" + COLORS.COLORS[i].value + ". Use with from-{color} and via-{color} classes."
+    }
+  );
+}
+
 let classes = [];
 
 classes = classes.concat(
@@ -270,7 +339,8 @@ classes = classes.concat(
   backgroundPosition,
   backgroundRepeat,
   backgroundSize,
-  backgroundImage
+  backgroundImage,
+  gradientColorStops
 );
 
 exports.classes = classes;
