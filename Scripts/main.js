@@ -42,7 +42,7 @@ class CompletionProvider {
         };
         
         if (definitionObject.hasOwnProperty('detail')) {
-          item.detail = FUNCTIONS.truncateString(definitionObject.detail, 35);
+          item.detail = FUNCTIONS.truncateString(definitionObject.detail, 32);
         };
         
         if (definitionObject.hasOwnProperty('documentation')) { 
