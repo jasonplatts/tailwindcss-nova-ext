@@ -210,6 +210,56 @@ let backgroundSize = [
   }
 ];
 
+/*        BACKGROUND IMAGE CLASSES        */
+
+let backgroundImage = [
+  {
+    label:"bg-none",
+    detail:"background-image: none;",
+    documentation:"Remove the element's background image."
+  },
+  {
+    label:"bg-gradient-to-t",
+    detail:"background-image: linear-gradient(to top, var(--gradient-color-stops));",
+    documentation:"Set a linear gradient background with a bottom to top direction. Use with gradient color stop classes."
+  },
+  {
+    label:"bg-gradient-to-tr",
+    detail:"background-image: linear-gradient(to top right, var(--gradient-color-stops));",
+    documentation:"Set a linear gradient background with a bottom left to top right direction. Use with gradient color stop classes."
+  },
+  {
+    label:"bg-gradient-to-r",
+    detail:"background-image: linear-gradient(to right, var(--gradient-color-stops));",
+    documentation:"Set a linear gradient background with a left to right direction. Use with gradient color stop classes."
+  },
+  {
+    label:"bg-gradient-to-br",
+    detail:"background-image: linear-gradient(to bottom right, var(--gradient-color-stops));",
+    documentation:"Set a linear gradient background with a top left to bottom right direction. Use with gradient color stop classes."
+  },
+  {
+    label:"bg-gradient-to-b",
+    detail:"background-image: linear-gradient(to bottom, var(--gradient-color-stops));",
+    documentation:"Set a linear gradient background with a top to bottom direction. Use with gradient color stop classes."
+  },
+  {
+    label:"bg-gradient-to-bl",
+    detail:"background-image: linear-gradient(to bottom left, var(--gradient-color-stops));",
+    documentation:"Set a linear gradient background with a top right to bottom left direction. Use with gradient color stop classes."
+  },
+  {
+    label:"bg-gradient-to-l",
+    detail:"background-image: linear-gradient(to left, var(--gradient-color-stops));",
+    documentation:"Set a linear gradient background with a right to left direction. Use with gradient color stop classes."
+  },
+  {
+    label:"bg-gradient-to-tl",
+    detail:"linear-gradient(to top left, var(--gradient-color-stops));",
+    documentation:"Set a linear gradient background with a bottom right to top left direction. Use with gradient color stop classes."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
@@ -219,7 +269,8 @@ classes = classes.concat(
   backgroundOpacity,
   backgroundPosition,
   backgroundRepeat,
-  backgroundSize
+  backgroundSize,
+  backgroundImage
 );
 
 exports.classes = classes;
