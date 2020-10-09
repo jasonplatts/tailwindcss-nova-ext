@@ -190,6 +190,26 @@ let backgroundRepeat = [
   }
 ];
 
+/*        BACKGROUND SIZE CLASSES        */
+
+let backgroundSize = [
+  {
+    label:"bg-auto",
+    detail:"background-size: auto;",
+    documentation:"Display the background image at its default size."
+  },
+  {
+    label:"bg-cover",
+    detail:"background-size: cover;",
+    documentation:"Scale the background image until it fills the background layer."
+  },
+  {
+    label:"bg-contain",
+    detail:"background-size: contain;",
+    documentation:"Scale the background image to the outer edges without cropping or stretching."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
@@ -198,7 +218,8 @@ classes = classes.concat(
   backgroundColor,
   backgroundOpacity,
   backgroundPosition,
-  backgroundRepeat
+  backgroundRepeat,
+  backgroundSize
 );
 
 exports.classes = classes;
