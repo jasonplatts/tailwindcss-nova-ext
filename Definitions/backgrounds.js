@@ -75,11 +75,43 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
   );
 }
 
+/*        BACKGROUND OPACITY CLASSES        */
+
+let backgroundOpacity = [
+  {
+    label:"bg-opacity-0",
+    detail:"--bg-opacity: 0;",
+    documentation:"Set an element's background color opacity to 0."
+  },
+  {
+    label:"bg-opacity-25",
+    detail:"--bg-opacity: 0.25;",
+    documentation:"Set an element's background color opacity to 0.25."
+  },
+  {
+    label:"bg-opacity-50",
+    detail:"--bg-opacity: 0.5;",
+    documentation:"Set an element's background color opacity to 0.5."
+  },
+  {
+    label:"bg-opacity-75",
+    detail:"--bg-opacity: 0.75;",
+    documentation:"Set an element's background color opacity to 0.75."
+  },
+  {
+    label:"bg-opacity-100",
+    detail:"--bg-opacity: 1;",
+    documentation:"Set an element's background color opacity to 1."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
+  backgroundAttachment,
+  backgroundClip,
   backgroundColor,
-  backgroundAttachment
+  backgroundOpacity
 );
 
 exports.classes = classes;
