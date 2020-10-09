@@ -105,13 +105,64 @@ let backgroundOpacity = [
   }
 ];
 
+/*        BACKGROUND POSITION CLASSES        */
+
+let backgroundPosition = [
+  {
+    label:"bg-bottom",
+    detail:"background-position: bottom;",
+    documentation:"Set the position of an element's background image to bottom."
+  },
+  {
+    label:"bg-center",
+    detail:"background-position: center;",
+    documentation:"Set the position of an element's background image to center."
+  },
+  {
+    label:"bg-left",
+    detail:"background-position: left;",
+    documentation:"Set the position of an element's background image to left."
+  },
+  {
+    label:"bg-left-bottom",
+    detail:"background-position: left-bottom;",
+    documentation:"Set the position of an element's background image to left bottom."
+  },
+  {
+    label:"bg-left-top",
+    detail:"background-position: left-top;",
+    documentation:"Set the position of an element's background image to left top."
+  },
+  {
+    label:"bg-right",
+    detail:"background-position: right;",
+    documentation:"Set the position of an element's background image to right."
+  },
+  {
+    label:"bg-right-bottom",
+    detail:"background-position: right-bottom;",
+    documentation:"Set the position of an element's background image to right bottom."
+  },
+  {
+    label:"bg-right-top",
+    detail:"background-position: right-top;",
+    documentation:"Set the position of an element's background image to right top."
+  },
+  {
+    label:"bg-top",
+    detail:"background-position: top;",
+    documentation:"Set the position of an element's background image to top."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
   backgroundAttachment,
   backgroundClip,
   backgroundColor,
-  backgroundOpacity
+  backgroundOpacity,
+  backgroundPosition
 );
 
 exports.classes = classes;
