@@ -155,6 +155,41 @@ let backgroundPosition = [
   }
 ];
 
+/*        BACKGROUND REPEAT CLASSES        */
+
+let backgroundRepeat = [
+  {
+    label:"bg-repeat",
+    detail:"background-repeat: repeat;",
+    documentation:"Repeat the background image both vertically and horizontally."
+  },
+  {
+    label:"bg-no-repeat",
+    detail:"background-repeat: no-repeat;",
+    documentation:"Set the background image to not repeat."
+  },
+  {
+    label:"bg-repeat-x",
+    detail:"background-repeat: repeat-x;",
+    documentation:"Repeat the background image only horizontally."
+  },
+  {
+    label:"bg-repeat-y",
+    detail:"background-repeat: repeat-y;",
+    documentation:"Repeat the background image only vertically."
+  },
+  {
+    label:"bg-repeat-round",
+    detail:"background-repeat: repeat-round;",
+    documentation:"Repeat the background image stretching each of the images as needed to prevent any whitespace inbetween."
+  },
+  {
+    label:"bg-repeat-space",
+    detail:"background-repeat: repeat-space;",
+    documentation:"Repeat the background image without clipping. Any whitespace is distributed inbetween the images."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
@@ -162,7 +197,8 @@ classes = classes.concat(
   backgroundClip,
   backgroundColor,
   backgroundOpacity,
-  backgroundPosition
+  backgroundPosition,
+  backgroundRepeat
 );
 
 exports.classes = classes;
