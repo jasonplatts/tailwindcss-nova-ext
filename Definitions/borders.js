@@ -3,11 +3,11 @@ const FUNCTIONS = require('../Scripts/functions.js');
 
 /*        BORDER RADIUS CLASSES        */
 
-let borderRemSizes = [];
-borderRemSizes["sm"]       = "0.125rem" 
-borderRemSizes["default"]  = "0.25rem"
-borderRemSizes["md"]       = "0.375rem"
-borderRemSizes["lg"]       = "0.5rem"
+let borderRaidusSizes = [];
+borderRaidusSizes["sm"]       = "0.125rem" 
+borderRaidusSizes["default"]  = "0.25rem"
+borderRaidusSizes["md"]       = "0.375rem"
+borderRaidusSizes["lg"]       = "0.5rem"
 
 let borderFullSize         = "9999px"
 
@@ -112,7 +112,7 @@ borderRadius.push(
 );
 
 // Sm, Md, Lg, and Full Size Classes
-for(const [key, value] of Object.entries(borderRemSizes)){
+for(const [key, value] of Object.entries(borderRaidusSizes)){
   let labelAffix = "";
   
   if(key!=="default") {
@@ -168,10 +168,58 @@ for(const [key, value] of Object.entries(borderRemSizes)){
   );
 }
 
+/*        BORDER WIDTH CLASSES        */
+
+let borderWidthSizes = [];
+borderWidthSizes["0"] = "0";
+borderWidthSizes["2"] = "2px";
+borderWidthSizes["4"] = "4px";
+borderWidthSizes["8"] = "8px";
+borderWidthSizes["default"] = "1px";
+
+let borderWidth = [];
+
+for(const [key, value] of Object.entries(borderWidthSizes)) {
+  let labelAffix = "";
+  
+  if(key!=="default") {
+    labelAffix = `-${key}`;
+  }
+
+  borderWidth.push(
+    {
+      label:`border${labelAffix}`,
+      detail:`border-width: ${value};`,
+      documentation:`Set the border width for all sides of an element to ${value}.`
+    },
+    {
+      label:`border-t${labelAffix}`,
+      detail:`border-top-width: ${value};`,
+      documentation:`Set the top border width of an element to ${value}.`
+    },
+    {
+      label:`border-r${labelAffix}`,
+      detail:`border-right-width: ${value};`,
+      documentation:`Set the right border width of an element to ${value}.`
+    },
+    {
+      label:`border-b${labelAffix}`,
+      detail:`border-bottom-width: ${value};`,
+      documentation:`Set the bottom border width of an element to ${value}.`
+    },
+    {
+      label:`border-l${labelAffix}`,
+      detail:`border-left-width: ${value};`,
+      documentation:`Set the left border width of an element to ${value}.`
+    }
+  ); 
+}
+
 let classes = [];
 
 classes = classes.concat(
-  borderRadius
+  borderRadius,
+  borderWidth
 );
 
 exports.classes = classes;
