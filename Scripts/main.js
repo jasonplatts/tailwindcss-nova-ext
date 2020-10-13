@@ -19,6 +19,7 @@ class CompletionProvider {
     this.imports.push(require('../Definitions/sizing.js'));
     this.imports.push(require('../Definitions/typography.js'));
     this.imports.push(require('../Definitions/backgrounds.js'));
+    this.imports.push(require('../Definitions/borders.js'));
   }
   
   provideCompletionItems(editor, context) {
