@@ -59,7 +59,7 @@ backgroundColor.push(
   },
   {
     label:"bg-current",
-    detail:"color: currentColor;",
+    detail:"background-color: currentColor;",
     documentation:"Set the background color of an element to the currentColor."
   }
 );
