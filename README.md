@@ -1,8 +1,8 @@
-# Panic Nova Tailwind CSS Completions Extension
+# Tailwind CSS Extension for Panic's Nova Code Editor
 
-Provides Tailwind CSS (v1.8.x) class completions for Panic's macOS code editor, Nova.
+Provides Tailwind CSS (v1.x) class completions for Panic's macOS code editor, Nova.
 
-<img src="https://user-images.githubusercontent.com/48892071/95214713-2de38c00-07be-11eb-86b2-cdd2a404600c.jpeg" width="400" alt="Example Tailwind CSS Completion">
+<img src="https://user-images.githubusercontent.com/48892071/95874998-875c3580-0d3f-11eb-879b-1171e1ce459a.png" width="800" alt="Example Tailwind CSS Completion">
 
 Thank you to Tailwind Labs, Adam Wathan, and Steve Schroger for their contribution to the development community, including Tailwind CSS, Headless UI, and Tailwind UI. *This extension is not created, maintained, or endorsed by Tailwind Labs. To request features or report bugs, please see the section below.*
 
