@@ -75,7 +75,6 @@ for(i = 0; i < ROTATE_SCALE.length; i++) {
 /*        TRANSLATE CLASSES        */
 
 const TRANSLATE_SCALE = [
-  { name:"0",    value:"0rem" },
   { name:"1",    value:"0.25rem" },
   { name:"2",    value:"0.5rem" },
   { name:"3",    value:"0.75rem" },
@@ -100,27 +99,90 @@ const TRANSLATE_SCALE = [
 
 let translate = [];
 
+translate.push(
+  {
+    label:`translate-x-0`,
+    detail:`--transform-translate-x: 0;`,
+    documentation:`Set an element's x-axis translate amount to 0. The transform utility must first be used.`
+  },
+  {
+    label:`translate-y-0`,
+    detail:`--transform-translate-y: 0;`,
+    documentation:`Set an element's y-axis translate amount to 0. The transform utility must first be used.`
+  }
+);
+
 for(i = 0; i < TRANSLATE_SCALE.length; i++) {
   translate.push(
     {
       label:`translate-x-${TRANSLATE_SCALE[i].name}`,
       detail:`--transform-translate-x: ${TRANSLATE_SCALE[i].value};`,
-      documentation:`Set an element's x axis translate amount to ${TRANSLATE_SCALE[i].value}. The transform utility must first be used.`
+      documentation:`Set an element's x-axis translate amount to ${TRANSLATE_SCALE[i].value}. The transform utility must first be used.`
     },
     {
       label:`-translate-x-${TRANSLATE_SCALE[i].name}`,
       detail:`--transform-translate-x: -${TRANSLATE_SCALE[i].value};`,
-      documentation:`Set an element's x axis translate amount to -${TRANSLATE_SCALE[i].value}. The transform utility must first be used.`
+      documentation:`Set an element's x-axis translate amount to -${TRANSLATE_SCALE[i].value}. The transform utility must first be used.`
     },
     {
       label:`translate-y-${TRANSLATE_SCALE[i].name}`,
       detail:`--transform-translate-y: ${TRANSLATE_SCALE[i].value};`,
-      documentation:`Set an element's y axis translate amount to ${TRANSLATE_SCALE[i].value}. The transform utility must first be used.`
+      documentation:`Set an element's y-axis translate amount to ${TRANSLATE_SCALE[i].value}. The transform utility must first be used.`
     },
     {
       label:`-translate-y-${TRANSLATE_SCALE[i].name}`,
       detail:`--transform-translate-y: -${TRANSLATE_SCALE[i].value};`,
-      documentation:`Set an element's y axis translate amount to -${TRANSLATE_SCALE[i].value}. The transform utility must first be used.`
+      documentation:`Set an element's y-axis translate amount to -${TRANSLATE_SCALE[i].value}. The transform utility must first be used.`
+    }
+  );
+}
+
+/*        SKEW CLASSES        */
+
+const SKEW_SCALE = [
+  { name:"1",  value:"1deg" },
+  { name:"2",  value:"2deg" },
+  { name:"3",  value:"3deg" },
+  { name:"6",  value:"6deg" },
+  { name:"12", value:"12deg" }
+];
+
+let skew = [];
+
+skew.push(
+  {
+    label:`skew-x-0`,
+    detail:`--transform-skew-x: 0;`,
+    documentation:`Set an element's x-axis skew angle to 0. The transform utility must first be used.`
+  },
+  {
+    label:`skew-y-0`,
+    detail:`--transform-skew-y: 0;`,
+    documentation:`Set an element's y-axis skew angle to 0. The transform utility must first be used.`
+  }
+);
+
+for(i = 0; i < SKEW_SCALE.length; i++) {
+  skew.push(
+    {
+      label:`skew-x-${SKEW_SCALE[i].name}`,
+      detail:`--transform-skew-x: ${SKEW_SCALE[i].value};`,
+      documentation:`Set an element's x-axis skew angle to ${SKEW_SCALE[i].value}. The transform utility must first be used.`
+    },
+    {
+      label:`-skew-x-${SKEW_SCALE[i].name}`,
+      detail:`--transform-skew-x: -${SKEW_SCALE[i].value};`,
+      documentation:`Set an element's x-axis skew angle to -${SKEW_SCALE[i].value}. The transform utility must first be used.`
+    },
+    {
+      label:`skew-y-${SKEW_SCALE[i].name}`,
+      detail:`--transform-skew-y: ${SKEW_SCALE[i].value};`,
+      documentation:`Set an element's y-axis skew angle to ${SKEW_SCALE[i].value}. The transform utility must first be used.`
+    },
+    {
+      label:`-skew-y-${SKEW_SCALE[i].name}`,
+      detail:`--transform-skew-y: -${SKEW_SCALE[i].value};`,
+      documentation:`Set an element's y-axis skew angle to -${SKEW_SCALE[i].value}. The transform utility must first be used.`
     }
   );
 }
@@ -130,7 +192,8 @@ let classes = [];
 classes = classes.concat(
   scale,
   rotate,
-  translate
+  translate,
+  skew
 );
 
 exports.classes = classes;
