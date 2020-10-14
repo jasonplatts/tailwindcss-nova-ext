@@ -113,13 +113,46 @@ for(i = 0; i < TRANSITION_DELAYS.length; i++) {
   );
 }
 
+/*        ANIMATION CLASSES        */
+
+let animation = [
+  {
+    label:"animate-none",
+    detail:"animation: none;",
+    documentation:"Remove all of an element's CSS animations."
+  },
+  {
+    label:"animate-spin",
+    detail:"animation: spin 1s linear infinite;",
+    documentation:"Add a linear spin animation to an element, such as a loading indicator."
+  },
+  {
+    label:"animate-ping",
+    detail:"animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;",
+    documentation:"Set an element to scale and fade like a radar ping or ripple of water. Useful for things like notification badges."
+  },
+  {
+    label:"animate-pulse",
+    detail:"animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;",
+    documentation:"Set an element to gently fade in and out. Useful for things like skeleton loaders."
+  },
+  {
+    label:"animate-bounce",
+    detail:"animation: bounce 1s infinite;",
+    documentation:"Set an element to bounce up and down. Useful for things like \"sroll down\" indicators."
+  }
+];
+
+//TODO: Add prefers-reduced-motion motion-safe and motion-reduce variants when enabled in tailwind config.
+
 let classes = [];
 
 classes = classes.concat(
   transitionProperty,
   transitionDuration,
   transitionTimingFunction,
-  transitionDelay
+  transitionDelay,
+  animation
 );
 
 exports.classes = classes;
