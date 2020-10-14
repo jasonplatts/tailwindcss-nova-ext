@@ -62,12 +62,64 @@ for(i = 0; i < TRANSITION_DURATIONS.length; i++) {
     }
   );
 }
-  
+
+/*        TRANSITION TIMING FUNCTION CLASSES        */
+
+let transitionTimingFunction = [
+  {
+    label:"ease-linear",
+    detail:"transition-timing-function: linear;",
+    documentation:"Set an element's easing curve to linear."
+  },
+  {
+    label:"ease-in",
+    detail:"transition-timing-function: cubic-bezier(0.4, 0, 1, 1);",
+    documentation:"Set an element's easing curve to ease-in."
+  },
+  {
+    label:"ease-out",
+    detail:"transition-timing-function: cubic-bezier(0, 0, 0.2, 1);",
+    documentation:"Set an element's easing curve to ease-out."
+  },
+  {
+    label:"ease-in-out",
+    detail:"transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);",
+    documentation:"Set an element's easing curve to ease-in-out."
+  }
+];
+
+/*        TRANSITION DELAY CLASSES        */
+
+const TRANSITION_DELAYS = [
+  { name:"75"  , value:"75ms" },
+  { name:"100" , value:"100ms" },
+  { name:"150" , value:"150ms" },
+  { name:"200" , value:"200ms" },
+  { name:"300" , value:"300ms" },
+  { name:"500" , value:"500ms" },
+  { name:"700" , value:"700ms" },
+  { name:"1000", value:"1000ms" }
+];
+
+let transitionDelay = [];
+
+for(i = 0; i < TRANSITION_DELAYS.length; i++) {
+  transitionDelay.push(
+    {
+      label:`delay-${TRANSITION_DELAYS[i].name}`,
+      detail:`transition-delay: ${TRANSITION_DELAYS[i].value};`,
+      documentation:`Set an element's transition-delay to ${TRANSITION_DELAYS[i].value}.`
+    }
+  );
+}
+
 let classes = [];
 
 classes = classes.concat(
   transitionProperty,
-  transitionDuration
+  transitionDuration,
+  transitionTimingFunction,
+  transitionDelay
 );
 
 exports.classes = classes;
