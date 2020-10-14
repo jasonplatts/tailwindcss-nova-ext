@@ -65,4 +65,8 @@ class CompletionProvider {
 }
 
 nova.assistants.registerCompletionAssistant("html", new CompletionProvider());
+nova.assistants.registerCompletionAssistant("html+erb", new CompletionProvider());
+nova.assistants.registerCompletionAssistant("html+haml", new CompletionProvider());
+nova.assistants.registerCompletionAssistant("php", new CompletionProvider());
+nova.assistants.registerCompletionAssistant("vue", new CompletionProvider());
 
