@@ -81,11 +81,66 @@ for(i = 0; i < NEGATIVE_ROTATIONS.length; i++) {
   );
 }
 
+
+/*        TRANSLATE CLASSES        */
+
+const TRANSLATE_SCALE = [
+  { name:"0",    value:"0rem" },
+  { name:"1",    value:"0.25rem" },
+  { name:"2",    value:"0.5rem" },
+  { name:"3",    value:"0.75rem" },
+  { name:"4",    value:"1rem" },
+  { name:"5",    value:"1.25rem" },
+  { name:"6",    value:"1.5rem" },
+  { name:"8",    value:"2rem" },
+  { name:"10",   value:"2.5rem" },
+  { name:"12",   value:"3rem" },
+  { name:"16",   value:"4rem" },
+  { name:"20",   value:"5rem" },
+  { name:"24",   value:"6rem" },
+  { name:"32",   value:"8rem" },
+  { name:"40",   value:"10rem" },
+  { name:"48",   value:"12rem" },
+  { name:"56",   value:"14rem" },
+  { name:"64",   value:"16rem" },
+  { name:"px",   value:"1px" },
+  { name:"full", value:"100%" },
+  { name:"1/2",  value:"50%" }
+];
+
+let translate = [];
+
+for(i = 0; i < TRANSLATE_SCALE.length; i++) {
+  translate.push(
+    {
+      label:`translate-x-${TRANSLATE_SCALE[i].name}`,
+      detail:`--transform-translate-x: ${TRANSLATE_SCALE[i].value};`,
+      documentation:`Set an element's x axis translate amount to ${TRANSLATE_SCALE[i].value}. The transform utility must first be used.`
+    },
+    {
+      label:`-translate-x-${TRANSLATE_SCALE[i].name}`,
+      detail:`--transform-translate-x: -${TRANSLATE_SCALE[i].value};`,
+      documentation:`Set an element's x axis translate amount to -${TRANSLATE_SCALE[i].value}. The transform utility must first be used.`
+    },
+    {
+      label:`translate-y-${TRANSLATE_SCALE[i].name}`,
+      detail:`--transform-translate-y: ${TRANSLATE_SCALE[i].value};`,
+      documentation:`Set an element's y axis translate amount to ${TRANSLATE_SCALE[i].value}. The transform utility must first be used.`
+    },
+    {
+      label:`-translate-y-${TRANSLATE_SCALE[i].name}`,
+      detail:`--transform-translate-y: -${TRANSLATE_SCALE[i].value};`,
+      documentation:`Set an element's y axis translate amount to -${TRANSLATE_SCALE[i].value}. The transform utility must first be used.`
+    }
+  );
+}
+
 let classes = [];
   
 classes = classes.concat(
   scale,
-  rotate
+  rotate,
+  translate
 );
 
 exports.classes = classes;
