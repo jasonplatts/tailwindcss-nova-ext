@@ -21,6 +21,7 @@ class CompletionProvider {
     this.imports.push(require('../Definitions/backgrounds.js'));
     this.imports.push(require('../Definitions/borders.js'));
     this.imports.push(require('../Definitions/tables.js'));
+    this.imports.push(require('../Definitions/effects.js'));
   }
   
   provideCompletionItems(editor, context) {
