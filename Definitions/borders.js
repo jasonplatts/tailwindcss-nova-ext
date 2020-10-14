@@ -215,11 +215,41 @@ for(const [key, value] of Object.entries(borderWidthSizes)) {
   ); 
 }
 
+/*        BORDER COLOR CLASSES        */
+
+let borderColor = [];
+
+borderColor.push(
+  {
+    label:"border-transparent",
+    color: new Color("rgb", [0, 0, 0, 0]),
+    detail:"border-color: transparent;",
+    documentation:"Set the border color of an element to transparent."
+  },
+  {
+    label:"border-current",
+    detail:"border-color: currentColor;",
+    documentation:"Set the border color of an element to the currentColor."
+  }
+);
+
+for(i = 0; i < COLORS.COLORS.length; i++) {  
+  borderColor.push(
+    {
+      label:"border-" + COLORS.COLORS[i].class,
+      color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
+      detail:"border-color: #" + COLORS.COLORS[i].value + ";",
+      documentation:"Set the border color of an element to #" + COLORS.COLORS[i].value + "."
+    }
+  );
+}
+
 let classes = [];
 
 classes = classes.concat(
   borderRadius,
-  borderWidth
+  borderWidth,
+  borderColor
 );
 
 exports.classes = classes;
