@@ -278,6 +278,36 @@ let borderOpacity = [
     documentation:"Set the opacity of an element's border to 1."
   }
 ];
+
+/*        BORDER STYLE CLASSES        */
+
+let borderStyle = [
+  {
+    label:"border-solid",
+    detail:"border-style: solid;",
+    documentation:"Set an element's border style to solid."
+  },
+  {
+    label:"border-dashed",
+    detail:"border-style: dashed;",
+    documentation:"Set an element's border style to dashed."
+  },
+  {
+    label:"border-dotted",
+    detail:"border-style: dotted;",
+    documentation:"Set an element's border style to dotted."
+  },
+  {
+    label:"border-double",
+    detail:"border-style: double;",
+    documentation:"Set an element's border style to double."
+  },
+  {
+    label:"border-none",
+    detail:"border-style: none;",
+    documentation:"Remove an element's border style."
+  }
+];
  
 let classes = [];
 
@@ -285,7 +315,8 @@ classes = classes.concat(
   borderRadius,
   borderWidth,
   borderColor,
-  borderOpacity
+  borderOpacity,
+  borderStyle
 );
 
 exports.classes = classes;
