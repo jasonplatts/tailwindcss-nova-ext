@@ -374,6 +374,70 @@ divideWidth = [
   }
 ];
 
+/*        DIVIDE COLOR CLASSES        */
+
+let divideColor = [];
+
+divideColor.push(
+  {
+    label:"divide-transparent",
+    color: new Color("rgb", [0, 0, 0, 0]),
+    detail:"border-color: transparent;",
+    documentation:"Set the border color between elements using divide utilities to transparent."
+  },
+  {
+    label:"divide-current",
+    detail:"border-color: currentColor;",
+    documentation:"Set the border color between elements using divide utilities to the currentColor."
+  }
+);
+
+for(i = 0; i < COLORS.COLORS.length; i++) {  
+  divideColor.push(
+    {
+      label:"divide-" + COLORS.COLORS[i].class,
+      color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
+      detail:"border-color: #" + COLORS.COLORS[i].value + ";",
+      documentation:"Set the border color between elements using divide utilities to #" + COLORS.COLORS[i].value + "."
+    }
+  );
+}
+
+/*        DIVIDE OPACITY CLASSES        */
+
+let divideOpacity = [
+  {
+    label:"divide-opacity-0",
+    color: new Color("rgb", [0, 0, 0, 0]),
+    detail:"--divide-opacity: 0;",
+    documentation:"Set the opacity of the borders between elements using the divide utilities to 0."
+  },
+  {
+    label:"divide-opacity-25",
+    color: new Color("rgb", [0, 0, 0, 0.25]),
+    detail:"--divide-opacity: 0.25;",
+    documentation:"Set the opacity of the borders between elements using the divide utilities to 0.25."
+  },
+  {
+    label:"divide-opacity-50",
+    color: new Color("rgb", [0, 0, 0, 0.5]),
+    detail:"--divide-opacity: 0.5;",
+    documentation:"Set the opacity of the borders between elements using the divide utilities to 0.5."
+  },
+  {
+    label:"divide-opacity-75",
+    color: new Color("rgb", [0, 0, 0, 0.75]),
+    detail:"--divide-opacity: 0.75;",
+    documentation:"Set the opacity of the borders between elements using the divide utilities to 0.75."
+  },
+  {
+    label:"divide-opacity-100",
+    color: new Color("rgb", [0, 0, 0, 1]),
+    detail:"--divide-opacity: 1;",
+    documentation:"Set the opacity of the borders between elements using the divide utilities to 1."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
@@ -382,7 +446,9 @@ classes = classes.concat(
   borderColor,
   borderOpacity,
   borderStyle,
-  divideWidth
+  divideWidth,
+  divideColor,
+  divideOpacity
 );
 
 exports.classes = classes;
