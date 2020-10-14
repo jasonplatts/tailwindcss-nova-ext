@@ -438,6 +438,36 @@ let divideOpacity = [
   }
 ];
 
+/*        DIVIDE STYLE CLASSES        */
+
+let divideStyle = [
+  {
+    label:"divide-solid",
+    detail:"border-style: solid;",
+    documentation:"Set the styles of the borders between elements using the divide utilities to solid."
+  },
+  {
+    label:"divide-dashed",
+    detail:"border-style: dashed;",
+    documentation:"Set the styles of the borders between elements using the divide utilities to dashed."
+  },
+  {
+    label:"divide-dotted",
+    detail:"border-style: dotted;",
+    documentation:"Set the styles of the borders between elements using the divide utilities to dotted."
+  },
+  {
+    label:"divide-double",
+    detail:"border-style: double;",
+    documentation:"Set the styles of the borders between elements using the divide utilities to double."
+  },
+  {
+    label:"divide-none",
+    detail:"border-style: none;",
+    documentation:"Remove the styles of the borders between elements using the divide utilities."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
@@ -448,7 +478,8 @@ classes = classes.concat(
   borderStyle,
   divideWidth,
   divideColor,
-  divideOpacity
+  divideOpacity,
+  divideStyle
 );
 
 exports.classes = classes;
