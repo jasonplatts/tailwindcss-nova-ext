@@ -244,12 +244,48 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
   );
 }
 
+/*        BORDER OPACITY CLASSES        */
+
+let borderOpacity = [
+  {
+    label:"border-opacity-0",
+    color: new Color("rgb", [0, 0, 0, 0]),
+    detail:"--border-opacity: 0;",
+    documentation:"Set the opacity of an element's border to 0."
+  },
+  {
+    label:"border-opacity-25",
+    color: new Color("rgb", [0, 0, 0, 0.25]),
+    detail:"--border-opacity: 0.25;",
+    documentation:"Set the opacity of an element's border to 0.25."
+  },
+  {
+    label:"border-opacity-50",
+    color: new Color("rgb", [0, 0, 0, 0.5]),
+    detail:"--border-opacity: 0.5;",
+    documentation:"Set the opacity of an element's border to 0.5."
+  },
+  {
+    label:"border-opacity-75",
+    color: new Color("rgb", [0, 0, 0, 0.75]),
+    detail:"--border-opacity: 0.75;",
+    documentation:"Set the opacity of an element's border to 0.75."
+  },
+  {
+    label:"border-opacity-100",
+    color: new Color("rgb", [0, 0, 0, 1]),
+    detail:"--border-opacity: 1;",
+    documentation:"Set the opacity of an element's border to 1."
+  }
+];
+ 
 let classes = [];
 
 classes = classes.concat(
   borderRadius,
   borderWidth,
-  borderColor
+  borderColor,
+  borderOpacity
 );
 
 exports.classes = classes;
