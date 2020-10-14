@@ -308,7 +308,72 @@ let borderStyle = [
     documentation:"Remove an element's border style."
   }
 ];
- 
+
+/*        DIVIDE WIDTH CLASSES        */
+
+divideWidth = [
+  {
+    label:"divide-y-0",
+    detail:"border-top-width: 0;",
+    documentation:"Set border width between vertical (stacked) children elements to 0."
+  },
+  {
+    label:"divide-x-0",
+    detail:"border-left-width: 0;",
+    documentation:"Set border width between horizontal children elements to 0."
+  },
+  {
+    label:"divide-y-2",
+    detail:"border-top-width: 2px;",
+    documentation:"Set border width between vertical (stacked) children elements to 2px."
+  },
+  {
+    label:"divide-x-2",
+    detail:"border-left-width: 2px;",
+    documentation:"Set border width between horizontal children elements to 2px."
+  },
+  {
+    label:"divide-y-4",
+    detail:"border-top-width: 4px;",
+    documentation:"Set border width between vertical (stacked) children elements to 4px."
+  },
+  {
+    label:"divide-x-4",
+    detail:"border-left-width: 4px;",
+    documentation:"Set border width between horizontal children elements to 4px."
+  },
+  {
+    label:"divide-y-8",
+    detail:"border-top-width: 8px;",
+    documentation:"Set border width between vertical (stacked) children elements to 8px."
+  },
+  {
+    label:"divide-x-8",
+    detail:"border-left-width: 8px;",
+    documentation:"Set border width between horizontal children elements to 8px."
+  },
+  {
+    label:"divide-y",
+    detail:"border-top-width: 1px;",
+    documentation:"Set border width between vertical (stacked) children elements to 1px."
+  },
+  {
+    label:"divide-x",
+    detail:"border-left-width: 1px;",
+    documentation:"Set border width between horizontal children elements to 1px."
+  },
+  {
+    label:"divide-x-reverse",
+    detail:"--divide-x-reverse: 1;",
+    documentation:"Set border width between horizontal children elements to 0. Use when elements are in reverse order, such as flex-row-reverse."
+  },
+  {
+    label:"divide-x-reverse",
+    detail:"--divide-x-reverse: 1;",
+    documentation:"Set border width between horizontal children elements to 0. Use when elements are in reverse order, such as flex-row-reverse."
+  }
+];
+
 let classes = [];
 
 classes = classes.concat(
@@ -316,7 +381,8 @@ classes = classes.concat(
   borderWidth,
   borderColor,
   borderOpacity,
-  borderStyle
+  borderStyle,
+  divideWidth
 );
 
 exports.classes = classes;
