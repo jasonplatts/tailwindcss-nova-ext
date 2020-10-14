@@ -187,13 +187,64 @@ for(i = 0; i < SKEW_SCALE.length; i++) {
   );
 }
 
+/*        TRANSFORM ORIGIN CLASSES        */
+
+let transformOrigin = [
+  {
+    label:"origin-center",
+    detail:"transform-origin: center;",
+    documentation:"Set an element's transform origin to center. The transform origin is the point of the element that the transition pivots."
+  },
+  {
+    label:"origin-top",
+    detail:"transform-origin: top;",
+    documentation:"Set an element's transform origin to top. The transform origin is the point of the element that the transition pivots."
+  },
+  {
+    label:"origin-top-right",
+    detail:"transform-origin: top right;",
+    documentation:"Set an element's transform origin to top right. The transform origin is the point of the element that the transition pivots."
+  },
+  {
+    label:"origin-right",
+    detail:"transform-origin: right;",
+    documentation:"Set an element's transform origin to right. The transform origin is the point of the element that the transition pivots."
+  },
+  {
+    label:"origin-bottom-right",
+    detail:"transform-origin: bottom right;",
+    documentation:"Set an element's transform origin to bottom right. The transform origin is the point of the element that the transition pivots."
+  },
+  {
+    label:"origin-bottom",
+    detail:"transform-origin: bottom;",
+    documentation:"Set an element's transform origin to bottom. The transform origin is the point of the element that the transition pivots."
+  },
+  {
+    label:"origin-bottom-left",
+    detail:"transform-origin: bottom left;",
+    documentation:"Set an element's transform origin to bottom left. The transform origin is the point of the element that the transition pivots."
+  },
+  {
+    label:"origin-left",
+    detail:"transform-origin: left;",
+    documentation:"Set an element's transform origin to left. The transform origin is the point of the element that the transition pivots."
+  },
+  {
+    label:"origin-top-left",
+    detail:"transform-origin: top left;",
+    documentation:"Set an element's transform origin to top left. The transform origin is the point of the element that the transition pivots."
+  }
+];
+  
 let classes = [];
   
 classes = classes.concat(
   scale,
   rotate,
   translate,
-  skew
+  skew,
+  transformOrigin
 );
 
 exports.classes = classes;
