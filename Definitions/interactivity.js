@@ -67,13 +67,29 @@ let outline = [
     documentation:"Use to add a black 2px dotted border around the element. Useful as an accessible general purpose custom focus style."
   }
 ];
+
+/*        POINTER EVENTS CLASSES        */
+
+let pointerEvents = [
+  {
+    label:"pointer-events-none",
+    detail:"pointer-events: none;",
+    documentation:"Use to make an element ignore pointer events. Events still trigger on child elements and pass-through those below target."
+  },
+  {
+    label:"pointer-events-auto",
+    detail:"pointer-events: auto;",
+    documentation:"Use to revert to the default browser behavior for pointer events (like :hover and click)."
+  }
+];
    
 let classes = [];
   
 classes = classes.concat(
   appearance,
   cursor,
-  outline
+  outline,
+  pointerEvents
 );
 
 exports.classes = classes;
