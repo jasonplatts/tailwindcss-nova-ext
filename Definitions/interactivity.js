@@ -107,6 +107,31 @@ let resize = [
     documentation:"Use to make an element horizontally and vertically resizeable."
   },
 ];
+
+/*        USER SELECT CLASSES        */
+
+let userSelect = [
+  {
+    label:"select-none",
+    detail:"user-select: none;",
+    documentation:"Use to prevent selecting text in an element and its children."
+  },
+  {
+    label:"select-text",
+    detail:"user-select: text;",
+    documentation:"Use to allow selecting text in an element and its children."
+  },
+  {
+    label:"select-all",
+    detail:"user-select: all;",
+    documentation:"Use to automatically select all the text in an element when a user clicks."
+  },
+  {
+    label:"select-auto",
+    detail:"user-select: auto;",
+    documentation:"Use to use the default browser behavior for selecting text. Useful for undoing other classes at different breakpoints."
+  },
+];
    
 let classes = [];
   
@@ -115,7 +140,8 @@ classes = classes.concat(
   cursor,
   outline,
   pointerEvents,
-  resize
+  resize,
+  userSelect
 );
 
 exports.classes = classes;
