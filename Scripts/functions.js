@@ -17,26 +17,29 @@ var convertHexToRgbColorObject = function(hex) {
   return convertRgbToColorObject(rgbArray);
 }
 
+function getCurrentWord(context) {
+  const WORD_BREAK_CHARS = [" ", "\"", ":"];
+  
+  let currentWord = "";
+  let wordStartDetected = false;
+  let charCount = context.line.length - 1;
+  
+  while(wordStartDetected == false) {
+    if (WORD_BREAK_CHARS.includes(context.line.charAt(charCount)) == false) {
+      currentWord = context.line.charAt(charCount) + currentWord;
+      charCount--;
+    } else {
+      wordStartDetected = true;
+    }
+  }
+  
+  return currentWord;
+}
+
 var getRangeOfCurrentWord = function(editor, context) {
-  /*
-    The purpose of this function is to correctly identify the range of the class name being entered by
-    the user, including hyphens.
-    
-    The problem it solves is that an autocomplete will insert the entire label and will not replace any
-    of the class name typed before a hyphen because Nova considers it a separate word. For example: If
-    a user types “bg-re” and then uses the autocomplete to select “bg-red-100”, the inserted class will
-    be “bg-bg-red-100”.
-  */
-  let lineWordArray;
-  let lastWordBeforeCursor;
+  let currentWord = getCurrentWord(context);
   
-  lineWordArray = context.line.split(" ");
-  
-  if (lineWordArray.length > 0) {
-    lastWordBeforeCursor = lineWordArray[lineWordArray.length - 1];
-  };
-  
-  return new Range(context.position - lastWordBeforeCursor.length, context.position);
+  return new Range(context.position - currentWord.length, context.position);
 }
 
 var truncateString = function(string, maxLength) {
