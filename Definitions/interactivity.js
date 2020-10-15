@@ -82,6 +82,31 @@ let pointerEvents = [
     documentation:"Use to revert to the default browser behavior for pointer events (like :hover and click)."
   }
 ];
+
+/*        RESIZE CLASSES        */
+
+let resize = [
+  {
+    label:"resize-none",
+    detail:"resize: none;",
+    documentation:"Use to prevent an element from being resizable."
+  },
+  {
+    label:"resize-y",
+    detail:"resize: vertical;",
+    documentation:"Use to make an element vertically resizeable."
+  },
+  {
+    label:"resize-x",
+    detail:"resize: horizontal;",
+    documentation:"Use to make an element horizontally resizeable."
+  },
+  {
+    label:"resize",
+    detail:"resize: both;",
+    documentation:"Use to make an element horizontally and vertically resizeable."
+  },
+];
    
 let classes = [];
   
@@ -89,7 +114,8 @@ classes = classes.concat(
   appearance,
   cursor,
   outline,
-  pointerEvents
+  pointerEvents,
+  resize
 );
 
 exports.classes = classes;
