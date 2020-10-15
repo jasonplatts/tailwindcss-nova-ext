@@ -25,6 +25,7 @@ class CompletionProvider {
     this.imports.push(require('../Definitions/transitions-and-animation.js'));
     this.imports.push(require('../Definitions/transforms.js'));
     this.imports.push(require('../Definitions/interactivity.js'));
+    this.imports.push(require('../Definitions/svg.js'));
   }
   
   provideCompletionItems(editor, context) {
