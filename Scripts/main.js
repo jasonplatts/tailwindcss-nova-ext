@@ -57,7 +57,6 @@ class CompletionProvider {
           item.documentation = FUNCTIONS.truncateString(definitionObject.documentation, 120);
         };
         
-        // TODO: Account for completions of first class attribute entries and responsive class entries.
         item.range = currentWordRange;
         
         items.push(item);
@@ -73,4 +72,8 @@ nova.assistants.registerCompletionAssistant("html+erb", new CompletionProvider()
 nova.assistants.registerCompletionAssistant("html+haml", new CompletionProvider());
 nova.assistants.registerCompletionAssistant("php", new CompletionProvider());
 nova.assistants.registerCompletionAssistant("vue", new CompletionProvider());
+nova.assistants.registerCompletionAssistant("js", new CompletionProvider());
+nova.assistants.registerCompletionAssistant("jsx", new CompletionProvider());
+nova.assistants.registerCompletionAssistant("ts", new CompletionProvider());
+nova.assistants.registerCompletionAssistant("tsx", new CompletionProvider());
 
