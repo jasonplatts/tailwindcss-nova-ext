@@ -18,11 +18,32 @@ let stroke = [
   }
 ];
 
+/*        STROKE WIDTH CLASSES        */
+
+let strokeWidth = [
+  {
+    label:"stroke-0",
+    detail:"stroke-width: 0;",
+    documentation:"Set the stroke width of an SVG to 0."
+  },
+  {
+    label:"stroke-1",
+    detail:"stroke-width: 1;",
+    documentation:"Set the stroke width of an SVG to 1."
+  },
+  {
+    label:"stroke-2",
+    detail:"stroke-width: 2;",
+    documentation:"Set the stroke width of an SVG to 2."
+  }
+];
+
 let classes = [];
   
 classes = classes.concat(
   fill,
-  stroke
+  stroke,
+  strokeWidth
 );
 
 exports.classes = classes;
