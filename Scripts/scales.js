@@ -115,49 +115,5 @@ const DEFAULT_SPACING_SCALE = [
   }
 ];
 
-const CLASS_SIZES = [
-  {
-    name:"xs",
-    value:"20",
-  },
-  {
-    name:"sm",
-    value:"24",
-  },
-  {
-    name:"md",
-    value:"28",
-  },
-  {
-    name:"lg",
-    value:"32",
-  },
-  {
-    name:"xl",
-    value:"36",
-  },
-  {
-    name:"2xl",
-    value:"42",
-  },
-  {
-    name:"3xl",
-    value:"48",
-  },
-  {
-    name:"4xl",
-    value:"56",
-  },
-  {
-    name:"5xl",
-    value:"64",
-  },
-  {
-    name:"6xl",
-    value:"72",
-  }
-];
-
 exports.BREAKPOINTS = BREAKPOINTS
 exports.DEFAULT_SPACING_SCALE = DEFAULT_SPACING_SCALE
-exports.CLASS_SIZES = CLASS_SIZES

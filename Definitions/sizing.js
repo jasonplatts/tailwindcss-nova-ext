@@ -171,6 +171,49 @@ minWidth.push(
 
 /*        MAX-WIDTH CLASSES        */
 
+const MAX_WIDTH_SCALE = [
+  {
+    name:"xs",
+    value:"20",
+  },
+  {
+    name:"sm",
+    value:"24",
+  },
+  {
+    name:"md",
+    value:"28",
+  },
+  {
+    name:"lg",
+    value:"32",
+  },
+  {
+    name:"xl",
+    value:"36",
+  },
+  {
+    name:"2xl",
+    value:"42",
+  },
+  {
+    name:"3xl",
+    value:"48",
+  },
+  {
+    name:"4xl",
+    value:"56",
+  },
+  {
+    name:"5xl",
+    value:"64",
+  },
+  {
+    name:"6xl",
+    value:"72",
+  }
+];
+
 let maxWidth = [];
 
 maxWidth.push(
@@ -181,12 +224,12 @@ maxWidth.push(
   }
 );
 
-for(i = 0; i < SCALES.CLASS_SIZES.length; i++) {
+for(i = 0; i < MAX_WIDTH_SCALE.length; i++) {
   maxWidth.push(
     {
-      label:"max-w-" + SCALES.CLASS_SIZES[i].name,
-      detail:"max-width: " + SCALES.CLASS_SIZES[i].value + "rem;",
-      documentation:"Set the maximum element width to " + SCALES.CLASS_SIZES[i].value + "rem."
+      label:"max-w-" + MAX_WIDTH_SCALE[i].name,
+      detail:"max-width: " + MAX_WIDTH_SCALE[i].value + "rem;",
+      documentation:"Set the maximum element width to " + MAX_WIDTH_SCALE[i].value + "rem."
     }
   );
 }
