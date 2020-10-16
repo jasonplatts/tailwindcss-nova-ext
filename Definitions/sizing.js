@@ -2,6 +2,113 @@ const SCALES = require('../Scripts/scales.js');
 
 /*        WIDTH CLASSES        */
 
+const FRACTIONAL_WIDTH_SCALE = [
+  {
+    name:"1/2",
+    value:"50"
+  },
+  {
+    name:"1/3",
+    value:"33.333333"
+  },
+  {
+    name:"2/3",
+    value:"66.666667"
+  },
+  {
+    name:"1/4",
+    value:"25"
+  },
+  {
+    name:"2/4",
+    value:"50"
+  },
+  {
+    name:"3/4",
+    value:"75"
+  },
+  {
+    name:"1/5",
+    value:"20"
+  },
+  {
+    name:"2/5",
+    value:"40"
+  },
+  {
+    name:"3/5",
+    value:"60"
+  },
+  {
+    name:"4/5",
+    value:"80"
+  },
+  {
+    name:"1/6",
+    value:"16.666667"
+  },
+  {
+    name:"2/6",
+    value:"33.333333"
+  },
+  {
+    name:"3/6",
+    value:"50"
+  },
+  {
+    name:"4/6",
+    value:"66.666667"
+  },
+  {
+    name:"5/6",
+    value:"83.333333"
+  },
+  {
+    name:"1/12",
+    value:"8.333333"
+  },
+  {
+    name:"2/12",
+    value:"16.666667"
+  },
+  {
+    name:"3/12",
+    value:"25"
+  },
+  {
+    name:"4/12",
+    value:"33.333333"
+  },
+  {
+    name:"5/12",
+    value:"41.666667"
+  },
+  {
+    name:"6/12",
+    value:"50"
+  },
+  {
+    name:"7/12",
+    value:"58.333333"
+  },
+  {
+    name:"8/12",
+    value:"66.666667"
+  },
+  {
+    name:"9/12",
+    value:"75"
+  },
+  {
+    name:"10/12",
+    value:"83.333333"
+  },
+  {
+    name:"11/12",
+    value:"91.666667"
+  }
+];
+
 let width = [];
 
 width.push(
@@ -22,12 +129,12 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   );
 }
 
-for(i = 0; i < SCALES.CLASS_FRACTIONALS.length; i++) {
+for(i = 0; i < FRACTIONAL_WIDTH_SCALE.length; i++) {
   width.push(
     {
-      label:"w-" + SCALES.CLASS_FRACTIONALS[i].name,
-      detail:"width: " + SCALES.CLASS_FRACTIONALS[i].value + "%;",
-      documentation:"Set the element to a fluid width of " + SCALES.CLASS_FRACTIONALS[i].value + "%."
+      label:"w-" + FRACTIONAL_WIDTH_SCALE[i].name,
+      detail:"width: " + FRACTIONAL_WIDTH_SCALE[i].value + "%;",
+      documentation:"Set the element to a fluid width of " + FRACTIONAL_WIDTH_SCALE[i].value + "%."
     }
   );
 }

@@ -115,113 +115,6 @@ const DEFAULT_SPACING_SCALE = [
   }
 ];
 
-const CLASS_FRACTIONALS = [
-  {
-    name:"1/2",
-    value:"50"
-  },
-  {
-    name:"1/3",
-    value:"33.333333"
-  },
-  {
-    name:"2/3",
-    value:"66.666667"
-  },
-  {
-    name:"1/4",
-    value:"25"
-  },
-  {
-    name:"2/4",
-    value:"50"
-  },
-  {
-    name:"3/4",
-    value:"75"
-  },
-  {
-    name:"1/5",
-    value:"20"
-  },
-  {
-    name:"2/5",
-    value:"40"
-  },
-  {
-    name:"3/5",
-    value:"60"
-  },
-  {
-    name:"4/5",
-    value:"80"
-  },
-  {
-    name:"1/6",
-    value:"16.666667"
-  },
-  {
-    name:"2/6",
-    value:"33.333333"
-  },
-  {
-    name:"3/6",
-    value:"50"
-  },
-  {
-    name:"4/6",
-    value:"66.666667"
-  },
-  {
-    name:"5/6",
-    value:"83.333333"
-  },
-  {
-    name:"1/12",
-    value:"8.333333"
-  },
-  {
-    name:"2/12",
-    value:"16.666667"
-  },
-  {
-    name:"3/12",
-    value:"25"
-  },
-  {
-    name:"4/12",
-    value:"33.333333"
-  },
-  {
-    name:"5/12",
-    value:"41.666667"
-  },
-  {
-    name:"6/12",
-    value:"50"
-  },
-  {
-    name:"7/12",
-    value:"58.333333"
-  },
-  {
-    name:"8/12",
-    value:"66.666667"
-  },
-  {
-    name:"9/12",
-    value:"75"
-  },
-  {
-    name:"10/12",
-    value:"83.333333"
-  },
-  {
-    name:"11/12",
-    value:"91.666667"
-  }
-];
-
 const CLASS_SIZES = [
   {
     name:"xs",
@@ -267,5 +160,4 @@ const CLASS_SIZES = [
 
 exports.BREAKPOINTS = BREAKPOINTS
 exports.DEFAULT_SPACING_SCALE = DEFAULT_SPACING_SCALE
-exports.CLASS_FRACTIONALS = CLASS_FRACTIONALS
 exports.CLASS_SIZES = CLASS_SIZES
