@@ -236,7 +236,7 @@ borderColor.push(
 for(i = 0; i < COLORS.COLORS.length; i++) {  
   borderColor.push(
     {
-      label:"border-" + COLORS.COLORS[i].class,
+      label:"border-" + COLORS.COLORS[i].name,
       color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
       detail:"border-color: #" + COLORS.COLORS[i].value + ";",
       documentation:"Set the border color of an element to #" + COLORS.COLORS[i].value + "."
@@ -395,7 +395,7 @@ divideColor.push(
 for(i = 0; i < COLORS.COLORS.length; i++) {  
   divideColor.push(
     {
-      label:"divide-" + COLORS.COLORS[i].class,
+      label:"divide-" + COLORS.COLORS[i].name,
       color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
       detail:"border-color: #" + COLORS.COLORS[i].value + ";",
       documentation:"Set the border color between elements using divide utilities to #" + COLORS.COLORS[i].value + "."

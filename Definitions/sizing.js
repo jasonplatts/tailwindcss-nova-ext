@@ -1,4 +1,4 @@
-const CONSTANTS = require('../Scripts/constants.js');
+const SCALES = require('../Scripts/scales.js');
 
 /*        WIDTH CLASSES        */
 
@@ -6,38 +6,28 @@ let width = [];
 
 width.push(
   {
-    label:"w-0",
-    detail:"width: 0;",
-    documentation:"Set the element width to 0."
-  },
-  {
     label:"w-auto",
     detail:"width: auto;",
-    documentation:"Let the browser calculate the width for the element."
-  },
-  {
-    label:"w-px",
-    detail:"width: 1px;",
-    documentation:"Set the element to a fixed width of 1px."
-  }  
+    documentation:"Use to let the browser calculate and select the width for the element."
+  }
 );
 
-for(i = 0; i < CONSTANTS.CLASS_REMS.length; i++) {
+for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   width.push(
     {
-      label:"w-" + CONSTANTS.CLASS_REMS[i].class,
-      detail:"width: " + CONSTANTS.CLASS_REMS[i].value + "rem;",
-      documentation:"Set the element to a fixed width of " + CONSTANTS.CLASS_REMS[i].value + "rem."
+      label:`w-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
+      detail:`width: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
+      documentation:`Set the element to a fixed width of ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
     }
   );
 }
 
-for(i = 0; i < CONSTANTS.CLASS_FRACTIONALS.length; i++) {
+for(i = 0; i < SCALES.CLASS_FRACTIONALS.length; i++) {
   width.push(
     {
-      label:"w-" + CONSTANTS.CLASS_FRACTIONALS[i].class,
-      detail:"width: " + CONSTANTS.CLASS_FRACTIONALS[i].value + "%;",
-      documentation:"Set the element to a fluid width of " + CONSTANTS.CLASS_FRACTIONALS[i].value + "%."
+      label:"w-" + SCALES.CLASS_FRACTIONALS[i].name,
+      detail:"width: " + SCALES.CLASS_FRACTIONALS[i].value + "%;",
+      documentation:"Set the element to a fluid width of " + SCALES.CLASS_FRACTIONALS[i].value + "%."
     }
   );
 }
@@ -84,12 +74,12 @@ maxWidth.push(
   }
 );
 
-for(i = 0; i < CONSTANTS.CLASS_SIZES.length; i++) {
+for(i = 0; i < SCALES.CLASS_SIZES.length; i++) {
   maxWidth.push(
     {
-      label:"max-w-" + CONSTANTS.CLASS_SIZES[i].class,
-      detail:"max-width: " + CONSTANTS.CLASS_SIZES[i].value + "rem;",
-      documentation:"Set the maximum element width to " + CONSTANTS.CLASS_SIZES[i].value + "rem."
+      label:"max-w-" + SCALES.CLASS_SIZES[i].name,
+      detail:"max-width: " + SCALES.CLASS_SIZES[i].value + "rem;",
+      documentation:"Set the maximum element width to " + SCALES.CLASS_SIZES[i].value + "rem."
     }
   );
 }
@@ -102,12 +92,12 @@ maxWidth.push(
   }
 );
 
-for(i = 0; i < CONSTANTS.BREAKPOINTS.length; i++) {
+for(i = 0; i < SCALES.BREAKPOINTS.length; i++) {
   maxWidth.push(
     {
-      label:"max-w-screen-" + CONSTANTS.BREAKPOINTS[i].class,
-      detail:"max-width: " + CONSTANTS.BREAKPOINTS[i].value + "px;",
-      documentation:"Set the maximum element width to " + CONSTANTS.BREAKPOINTS[i].value + " pixels."
+      label:"max-w-screen-" + SCALES.BREAKPOINTS[i].name,
+      detail:"max-width: " + SCALES.BREAKPOINTS[i].value + "px;",
+      documentation:"Set the maximum element width to " + SCALES.BREAKPOINTS[i].value + " pixels."
     }
   );
 }
@@ -118,19 +108,9 @@ let height = [];
 
 height.push(
   {
-    label:"h-0",
-    detail:"height: 0;",
-    documentation:"Set the element height to 0."
-  },
-  {
     label:"h-auto",
     detail:"height: auto;",
-    documentation:"Let the browser calculate the height of the element."
-  },
-  {
-    label:"h-px",
-    detail:"height: 1px;",
-    documentation:"Set the element to a fixed height of 1px."
+    documentation:"Use to let the browser determine the height for the element."
   },
   {
     label:"h-full",
@@ -144,12 +124,12 @@ height.push(
   },
 );
 
-for(i = 0; i < CONSTANTS.CLASS_REMS.length; i++) {
+for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   height.push(
     {
-      label:"h-" + CONSTANTS.CLASS_REMS[i].class,
-      detail:"height: " + CONSTANTS.CLASS_REMS[i].value + "rem;",
-      documentation:"Set the element to a fixed height of " + CONSTANTS.CLASS_REMS[i].value + "rem."
+      label:`h-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
+      detail:`height: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
+      documentation:`Set an element to a fixed height of ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
     }
   );
 }

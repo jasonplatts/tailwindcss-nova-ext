@@ -1,4 +1,4 @@
-const CONSTANTS = require('../Scripts/constants.js');
+const SCALES = require('../Scripts/scales.js');
 
 /*        GRID TEMPLATE COLUMNS CLASSES        */
 
@@ -189,83 +189,35 @@ let gridAutoFlow = [
 
 let gap = [];
 
-gap.push(
-  {
-    label:"gap-0",
-    detail:"gap: 0;",
-    documentation:"Changes the grid gutter size to 0."
-  }
-);
-
-for(i = 0; i < CONSTANTS.CLASS_REMS.length; i++) {
+for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   gap.push(
     {
-      label:"gap-" + CONSTANTS.CLASS_REMS[i].class,
-      detail:"gap: " + CONSTANTS.CLASS_REMS[i].value + "rem;",
-      documentation:"Changes the grid gutter size to " + CONSTANTS.CLASS_REMS[i].value + "rem."  
+      label:`gap-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
+      detail:`gap: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
+      documentation:`Change the gutter size in a grid layout to ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`  
     }
   );
 }
 
-gap.push(
-  {
-    label:"gap-px",
-    detail:"gap: 1px;",
-    documentation:"Changes the grid gutter size to 1px."
-  }
-);
-
-gap.push(
-  {
-    label:"gap-x-0",
-    detail:"column-gap: 0;",
-    documentation:"Changes the grid gutter size between columns to 0."
-  }
-);
-
-for(i = 0; i < CONSTANTS.CLASS_REMS.length; i++) {
+for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   gap.push(
     {
-      label:"gap-x-" + CONSTANTS.CLASS_REMS[i].class,
-      detail:"column-gap: " + CONSTANTS.CLASS_REMS[i].value + "rem;",
-      documentation:"Changes the grid gutter size to betweens columns to " + CONSTANTS.CLASS_REMS[i].value + "rem."  
+      label:`gap-x-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
+      detail:`column-gap: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
+      documentation:`Change the gutter size between columns in grid layouts to ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`  
     }
   );
 }
 
-gap.push(
-  {
-    label:"gap-x-px",
-    detail:"column-gap: 1px;",
-    documentation:"Changes the grid gutter size between columns to 1px."
-  }
-);
-
-gap.push(
-  {
-    label:"gap-y-0",
-    detail:"row-gap: 0;",
-    documentation:"Changes the grid gutter size between rows to 0."
-  }
-);
-
-for(i = 0; i < CONSTANTS.CLASS_REMS.length; i++) {
+for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   gap.push(
     {
-      label:"gap-y-" + CONSTANTS.CLASS_REMS[i].class,
-      detail:"row-gap: " + CONSTANTS.CLASS_REMS[i].value + "rem;",
-      documentation:"Changes the grid gutter size to betweens rows to " + CONSTANTS.CLASS_REMS[i].value + "rem."  
+      label:`gap-y-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
+      detail:`row-gap: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
+      documentation:`Change the gutter size between rows in grid layouts to ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`  
     }
   );
 }
-
-gap.push(
-  {
-    label:"gap-y-px",
-    detail:"row-gap: 1px;",
-    documentation:"Changes the grid gutter size between rows to 1px."
-  }
-);
 
 let classes = [];
 

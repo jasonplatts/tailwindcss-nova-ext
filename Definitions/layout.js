@@ -1,11 +1,11 @@
-const CONSTANTS = require('../Scripts/constants.js');
+const CONSTANTS = require('../Scripts/scales.js');
 
 let breakpoints = [];
 
 for(i = 0; i < CONSTANTS.BREAKPOINTS.length; i++) {
   breakpoints.push(
     {
-      label:CONSTANTS.BREAKPOINTS[i].class + ":",
+      label:CONSTANTS.BREAKPOINTS[i].name + ":",
       detail:"max-width: " + CONSTANTS.BREAKPOINTS[i].value + "px;",
       documentation:"References the small breakpoint set at " + CONSTANTS.BREAKPOINTS[i].value + "px."
     }
@@ -16,7 +16,7 @@ let container = [
   {
     label:"container",
     detail:"width: 100%; or max-width: breakpoint;",
-    documentation:"Sets the max-width of an element to 100% or the preceding breakpoint width."
+    documentation:"Sets the max-width of an element to match the min-width of the current breakpoint. Useful for fixed screen size designs."
   }
 ]
 

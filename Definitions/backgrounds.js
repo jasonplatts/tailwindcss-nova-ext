@@ -67,7 +67,7 @@ backgroundColor.push(
 for(i = 0; i < COLORS.COLORS.length; i++) {  
   backgroundColor.push(
     {
-      label:"bg-" + COLORS.COLORS[i].class,
+      label:"bg-" + COLORS.COLORS[i].name,
       color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
       detail:"background-color: #" + COLORS.COLORS[i].value + ";",
       documentation:"Set the background color of an element to #" + COLORS.COLORS[i].value + "."
@@ -303,7 +303,7 @@ gradientColorStops.push(
 for(i = 0; i < COLORS.COLORS.length; i++) {  
   gradientColorStops.push(
     {
-      label:"from-" + COLORS.COLORS[i].class,
+      label:"from-" + COLORS.COLORS[i].name,
       color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
       detail:"--gradient-from-color: #" + COLORS.COLORS[i].value + ";",
       documentation:"Set the first gradient stop of an element to #" + COLORS.COLORS[i].value + ". Use with via-{color} and to-{color} classes."
@@ -312,7 +312,7 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
   
   gradientColorStops.push(
     {
-      label:"via-" + COLORS.COLORS[i].class,
+      label:"via-" + COLORS.COLORS[i].name,
       color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
       detail:"--gradient-via-color: #" + COLORS.COLORS[i].value + ";",
       documentation:"Set the middle gradient stop of an element to #" + COLORS.COLORS[i].value + ". Use with from-{color} and to-{color} classes."
@@ -321,7 +321,7 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
 
   gradientColorStops.push(
     {
-      label:"to-" + COLORS.COLORS[i].class,
+      label:"to-" + COLORS.COLORS[i].name,
       color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
       detail:"--gradient-to-color: #" + COLORS.COLORS[i].value + ";",
       documentation:"Set the last gradient stop of an element to #" + COLORS.COLORS[i].value + ". Use with from-{color} and via-{color} classes."

@@ -284,7 +284,7 @@ placeholderColor.push(
 for(i = 0; i < COLORS.COLORS.length; i++) {
   placeholderColor.push(
     {
-      label:`placeholder-${COLORS.COLORS[i].class}`,
+      label:`placeholder-${COLORS.COLORS[i].name}`,
       color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
       detail:`color: #${COLORS.COLORS[i].value};`,
       documentation:`Set the placeholder color of an element to #${COLORS.COLORS[i].value}.`
@@ -361,7 +361,7 @@ textColor.push(
 for(i = 0; i < COLORS.COLORS.length; i++) {  
   textColor.push(
     {
-      label:"text-" + COLORS.COLORS[i].class,
+      label:"text-" + COLORS.COLORS[i].name,
       color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
       detail:"color: #" + COLORS.COLORS[i].value + ";",
       documentation:"Set the text color of an element to #" + COLORS.COLORS[i].value + "."
