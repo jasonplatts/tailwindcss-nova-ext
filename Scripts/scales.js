@@ -1,19 +1,23 @@
 const BREAKPOINTS = [
   {
     name:"sm",
-    value:640
+    size:"small",
+    value:"640px"
   },
   {
     name:"md",
-    value:768
+    size:"medium",
+    value:"768px"
   },
   {
     name:"lg",
-    value:1024
+    size:"large",
+    value:"1024px"
   },
   {
     name:"xl",
-    value:1280
+    size:"extra large",
+    value:"1280px"
   }
 ];
 

@@ -5,9 +5,9 @@ let breakpoints = [];
 for(i = 0; i < CONSTANTS.BREAKPOINTS.length; i++) {
   breakpoints.push(
     {
-      label:CONSTANTS.BREAKPOINTS[i].name + ":",
-      detail:"max-width: " + CONSTANTS.BREAKPOINTS[i].value + "px;",
-      documentation:"References the small breakpoint set at " + CONSTANTS.BREAKPOINTS[i].value + "px."
+      label:`${CONSTANTS.BREAKPOINTS[i].name}:`,
+      detail:`max-width: ${CONSTANTS.BREAKPOINTS[i].value};`,
+      documentation:`Set the current breakpoint to ${CONSTANTS.BREAKPOINTS[i].size} (${CONSTANTS.BREAKPOINTS[i].value}).`
     }
   );
 }
@@ -15,8 +15,8 @@ for(i = 0; i < CONSTANTS.BREAKPOINTS.length; i++) {
 let container = [
   {
     label:"container",
-    detail:"width: 100%; or max-width: breakpoint;",
-    documentation:"Sets the max-width of an element to match the min-width of the current breakpoint. Useful for fixed screen size designs."
+    detail:"width: 100%; (max-width: breakpoint;)",
+    documentation:"Sets the element width to 100%. If preceeding breakpoint, sets the max-width to the min-width of the current breakpoint."
   }
 ]
 
