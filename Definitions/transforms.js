@@ -19,17 +19,17 @@ for(i = 0; i < SCALES.length; i++) {
     {
       label:`scale-${SCALES[i].name}`,
       detail:`--transform-scale-x: ${SCALES[i].value}; --transform-scale-y: ${SCALES[i].value};`,
-      documentation:`Sets an element's scale x and y percentages to ${SCALES[i].value}. The transform utility must first be specified.`
+      documentation:`Set an element's scale x and y percentages to ${SCALES[i].value}. The transform utility must first be specified.`
     },
     {
       label:`scale-x-${SCALES[i].name}`,
       detail:`--transform-scale-x: ${SCALES[i].value};`,
-      documentation:`Sets an element's scale x percentages to ${SCALES[i].value}. The transform utility must first be specified.`
+      documentation:`Set an element's scale x percentages to ${SCALES[i].value}. The transform utility must first be specified.`
     },
     {
       label:`scale-y-${SCALES[i].name}`,
       detail:`--transform-scale-y: ${SCALES[i].value};`,
-      documentation:`Sets an element's scale y percentage to ${SCALES[i].value}. The transform utility must first be specified.`
+      documentation:`Set an element's scale y percentage to ${SCALES[i].value}. The transform utility must first be specified.`
     }
   )
 }
