@@ -24,16 +24,16 @@ let fontFamily = [
 /*        FONT SIZE CLASSES        */
 
 const FONT_SIZES = [
-  { name:"xs",   value:"0.75" },
-  { name:"sm",   value:"0.875" },
-  { name:"base", value:"1" },
-  { name:"lg",   value:"1.125" },
-  { name:"xl",   value:"1.25" },
-  { name:"2xl",  value:"1.5" },
-  { name:"3xl",  value:"1.875" },
-  { name:"4xl",  value:"2.25" },
-  { name:"5xl",  value:"3" },
-  { name:"6xl",  value:"4" }
+  { name:"xs",   value:"0.75rem" },
+  { name:"sm",   value:"0.875rem" },
+  { name:"base", value:"1rem" },
+  { name:"lg",   value:"1.125rem" },
+  { name:"xl",   value:"1.25rem" },
+  { name:"2xl",  value:"1.5rem" },
+  { name:"3xl",  value:"1.875rem" },
+  { name:"4xl",  value:"2.25rem" },
+  { name:"5xl",  value:"3rem" },
+  { name:"6xl",  value:"4rem" }
 ];
 
 let fontSize = [];
@@ -41,9 +41,9 @@ let fontSize = [];
 for(i = 0; i < FONT_SIZES.length; i++) {  
   fontSize.push(
     {
-      label:"text-" + FONT_SIZES[i].name,
-      detail:"font-size: " + FONT_SIZES[i].value + "rem;",
-      documentation:"Set the font size of an element to " + FONT_SIZES[i].value + "rem."
+      label:`text-${FONT_SIZES[i].name}`,
+      detail:`font-size: ${FONT_SIZES[i].value};`,
+      documentation:`Set the font size of an element to ${FONT_SIZES[i].value}.`
     }
   );
 }
@@ -157,29 +157,22 @@ let fontVariantNumeric = [
 /*        LETTER SPACING CLASSES        */
 
 const FONT_TRACKING_OPTIONS = [
-  {name:"tighter", value:"-0.05"},
-  {name:"tight",   value:"-0.025"},
-  {name:"wide",    value:"0.025"},
-  {name:"wider",   value:"0.05"},
-  {name:"widest",  value:"0.1"}
+  {name:"tighter", value:"-0.05em"},
+  {name:"tight",   value:"-0.025em"},
+  {name:"normal",  value:"0"},
+  {name:"wide",    value:"0.025em"},
+  {name:"wider",   value:"0.05em"},
+  {name:"widest",  value:"0.1em"}
 ];
 
 let letterSpacing = [];
 
-letterSpacing.push(
-  {
-    label:"tracking-normal",
-    detail:"letter-spacing: 0;",
-    documentation:"Set the letter spacing of an element to 0."
-  }  
-); 
-
 for(i = 0; i < FONT_TRACKING_OPTIONS.length; i++) {
   letterSpacing.push(
     {
-      label:"tracking-" + FONT_TRACKING_OPTIONS[i].name,
-      detail:"letter-spacing: " + FONT_TRACKING_OPTIONS[i].value + "em;",
-      documentation:"Set the letter spacing of an element to " + FONT_TRACKING_OPTIONS[i].value + "em."
+      label:`tracking-${FONT_TRACKING_OPTIONS[i].name}`,
+      detail:`letter-spacing: ${FONT_TRACKING_OPTIONS[i].value};`,
+      documentation:`Set the letter spacing of an element to ${FONT_TRACKING_OPTIONS[i].value}.`
     }
   );
 }
