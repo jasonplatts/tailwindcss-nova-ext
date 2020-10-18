@@ -115,7 +115,7 @@ width.push(
   {
     label:"w-auto",
     detail:"width: auto;",
-    documentation:"Use to let the browser calculate and select the width for the element."
+    documentation:"Let the browser calculate and select the width for the element."
   }
 );
 
@@ -124,7 +124,7 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
     {
       label:`w-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
       detail:`width: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set the element to a fixed width of ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+      documentation:`Set an element to a fixed width of ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
     }
   );
 }
@@ -134,7 +134,7 @@ for(i = 0; i < FRACTIONAL_WIDTH_SCALE.length; i++) {
     {
       label:"w-" + FRACTIONAL_WIDTH_SCALE[i].name,
       detail:"width: " + FRACTIONAL_WIDTH_SCALE[i].value + "%;",
-      documentation:"Set the element to a fluid width of " + FRACTIONAL_WIDTH_SCALE[i].value + "%."
+      documentation:"Set an element to a fluid width of " + FRACTIONAL_WIDTH_SCALE[i].value + "%."
     }
   );
 }
@@ -143,12 +143,12 @@ width.push(
   {
     label:"w-full",
     detail:"width: 100%;",
-    documentation:"Set the element width to 100%."
+    documentation:"Set an element width to 100%."
   },
   {
     label:"w-screen",
     detail:"width: 100vw;",
-    documentation:"Set the element to span the entire width of the viewport."
+    documentation:"Make an element span the entire width of the viewport."
   }
 );
 
@@ -260,17 +260,17 @@ height.push(
   {
     label:"h-auto",
     detail:"height: auto;",
-    documentation:"Use to let the browser determine the height for the element."
+    documentation:"Let the browser determine the height for the element."
   },
   {
     label:"h-full",
     detail:"height: 100%;",
-    documentation:"Set the element height to 100% of its parent, as long as the parent has a defined height."
+    documentation:"Set an element's height to 100% of its parent, as long as the parent has a defined height."
   },
   {
     label:"h-screen",
     detail:"height: 100vh;",
-    documentation:"Set the element to span the entire height of the viewport."
+    documentation:"Make an element to span the entire height of the viewport."
   },
 );
 
