@@ -4,7 +4,7 @@ let fill = [
   {
     label:"fill-current",
     detail:"fill: currentColor;",
-    documentation:"Use to set the fill color of an SVG to the current text color."
+    documentation:"Set the fill color of an SVG to the current text color."
   }
 ];
 
@@ -14,7 +14,7 @@ let stroke = [
   {
     label:"stroke-current",
     detail:"stroke: currentColor;",
-    documentation:"Use to set the stroke color of an SVG to the current text color."
+    documentation:"Set the stroke color of an SVG to the current text color."
   }
 ];
 
