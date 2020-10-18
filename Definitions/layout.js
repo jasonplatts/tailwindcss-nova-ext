@@ -30,12 +30,12 @@ let boxSizing = [
   {
     label:"box-border",
     detail:"box-sizing: border-box;",
-    documentation:"Set an element's box-sizing to border-box to include the element's borders and padding in a specified height or width."
+    documentation:"Set an element's box-sizing to border-box to include an element's borders and padding in a specified height or width."
   },
   {
     label:"box-content",
     detail:"box-sizing: content-box;",
-    documentation:"Set an element's box-sizing to content-box to exclude the element's borders and padding in a specified height or width."
+    documentation:"Set an element's box-sizing to content-box to exclude an element's borders and padding in a specified height or width."
   }
 ];
 
@@ -252,7 +252,7 @@ let overflow = [
   {
     label:"overflow-visible",
     detail:"overflow: visible;",
-    documentation:"Prevent content within an element from being clipped. Content overflowing the bounds of the element will then be visible."
+    documentation:"Prevent content within an element from being clipped. Content overflowing the bounds of an element will then be visible."
   },  
   {
     label:"overflow-scroll",

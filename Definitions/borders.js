@@ -18,7 +18,7 @@ borderRadius.push(
   {
     label:`rounded-none`,
     detail:"border-radius: 0;",
-    documentation:"Remove any border radius (rounded corners) applied to the element."
+    documentation:"Remove any border radius (rounded corners) applied to an element."
   },
   {
     label:"rounded-t-none",

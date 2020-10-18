@@ -115,7 +115,7 @@ width.push(
   {
     label:"w-auto",
     detail:"width: auto;",
-    documentation:"Let the browser calculate and select the width for the element."
+    documentation:"Let the browser calculate and select the width for an element."
   }
 );
 
@@ -260,7 +260,7 @@ height.push(
   {
     label:"h-auto",
     detail:"height: auto;",
-    documentation:"Let the browser determine the height for the element."
+    documentation:"Let the browser determine the height for an element."
   },
   {
     label:"h-full",

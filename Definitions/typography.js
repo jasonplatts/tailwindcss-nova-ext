@@ -380,7 +380,7 @@ for(i = 0; i < TEXT_OPACITIES.length; i++) {
       label:`text-opacity-${TEXT_OPACITIES[i].name}`,
       color: new Color("rgb", [0, 0, 0, parseFloat(TEXT_OPACITIES[i].value)]),
       detail:`--text-opacity: ${TEXT_OPACITIES[i].value};`,
-      documentation:`Set the opacity of the element's text color to ${TEXT_OPACITIES[i].value}.`
+      documentation:`Set the opacity of an element's text color to ${TEXT_OPACITIES[i].value}.`
     }
   );  
 }
@@ -411,17 +411,17 @@ let textTransform = [
   {
     label:"uppercase",
     detail:"text-transform: uppercase;",
-    documentation:"Set the element text uppercase."
+    documentation:"Set an element's text to uppercase."
   },
   {
     label:"lowercase",
     detail:"text-transform: lowercase;",
-    documentation:"Set the element text lowercase."
+    documentation:"Set an element's text to lowercase."
   },
   {
     label:"capitalize",
     detail:"text-transform: capitalize;",
-    documentation:"Set the element text capitalized."
+    documentation:"Set an element's text to capitalized."
   },
   {
     label:"normal-case",

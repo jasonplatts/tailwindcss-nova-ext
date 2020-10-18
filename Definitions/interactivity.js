@@ -59,12 +59,12 @@ let outline = [
   {
     label:"outline-white",
     detail:"outline: 2px dotted white; outline-offset: 2px;",
-    documentation:"Add a white 2px dotted border around the element. Useful as an accessible general purpose custom focus style."
+    documentation:"Add a white 2px dotted border around an element. Useful as an accessible general purpose custom focus style."
   },
   {
     label:"outline-black",
     detail:"outline: 2px dotted black; outline-offset: 2px;",
-    documentation:"Add a black 2px dotted border around the element. Useful as an accessible general purpose custom focus style."
+    documentation:"Add a black 2px dotted border around an element. Useful as an accessible general purpose custom focus style."
   }
 ];
 

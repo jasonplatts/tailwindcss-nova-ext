@@ -115,7 +115,7 @@ margin.push(
   {
     label:"m-auto",
     detail:"margin: 1px;",
-    documentation:"Set the element's margin automatically, which is often used to center an element."
+    documentation:"Set an element's margin automatically. Often used to center an element."
   },
   {
     label:"my-auto",
@@ -184,12 +184,12 @@ spaceBetween.push(
   {
     label:"space-y-reverse",
     detail:"--space-y-reverse: 1;",
-    documentation:"If elements are in reverse order (eg: flex-col-reverse), set the vertical space to the correct side of the element."
+    documentation:"If elements are in reverse order (eg: flex-col-reverse), set the vertical space to the correct side of an element."
   },
   {
     label:"space-x-reverse",
     detail:"--space-x-reverse: 1;",
-    documentation:"If elements are in reverse order (eg: flex-row-reverse), set the horizontal space to the correct side of the element."
+    documentation:"If elements are in reverse order (eg: flex-row-reverse), set the horizontal space to the correct side of an element."
   }
 );
 

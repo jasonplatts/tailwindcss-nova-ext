@@ -216,7 +216,7 @@ let backgroundImage = [
   {
     label:"bg-none",
     detail:"background-image: none;",
-    documentation:"Remove the element's background image."
+    documentation:"Remove an element's background image."
   },
   {
     label:"bg-gradient-to-t",
