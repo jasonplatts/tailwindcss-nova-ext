@@ -3,7 +3,7 @@
   "name": "Tailwind CSS",
   "organization": "Jason Platts",
   "description": "This extension provides completions for Tailwind CSS classes.",
-  "version": "1.0 beta",
+  "version": "1.0",
   "license":"MIT",
   "repository":"https://github.com/jasonplatts/tailwindcss-nova-ext",
   "bugs":"https://github.com/jasonplatts/tailwindcss-nova-ext/issues",
