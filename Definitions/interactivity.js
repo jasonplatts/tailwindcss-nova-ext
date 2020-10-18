@@ -54,17 +54,17 @@ let outline = [
   {
     label:"outline-none",
     detail:"outline: 2px solid transparent; outline-offset: 2px;",
-    documentation:"Use to hide the default browser outline on focused elements. Custom focus styling should be applied for accessibility."
+    documentation:"Hide the default browser outline on focused elements. Custom focus styling should be applied for accessibility."
   },
   {
     label:"outline-white",
     detail:"outline: 2px dotted white; outline-offset: 2px;",
-    documentation:"Use to add a white 2px dotted border around the element. Useful as an accessible general purpose custom focus style."
+    documentation:"Add a white 2px dotted border around the element. Useful as an accessible general purpose custom focus style."
   },
   {
     label:"outline-black",
     detail:"outline: 2px dotted black; outline-offset: 2px;",
-    documentation:"Use to add a black 2px dotted border around the element. Useful as an accessible general purpose custom focus style."
+    documentation:"Add a black 2px dotted border around the element. Useful as an accessible general purpose custom focus style."
   }
 ];
 
@@ -74,12 +74,12 @@ let pointerEvents = [
   {
     label:"pointer-events-none",
     detail:"pointer-events: none;",
-    documentation:"Use to make an element ignore pointer events. Events still trigger on child elements and pass-through those below target."
+    documentation:"Make an element ignore pointer events. Events still trigger on child elements and pass-through those below target."
   },
   {
     label:"pointer-events-auto",
     detail:"pointer-events: auto;",
-    documentation:"Use to revert to the default browser behavior for pointer events (like :hover and click)."
+    documentation:"Revert to the default browser behavior for pointer events (like :hover and click)."
   }
 ];
 
@@ -89,22 +89,22 @@ let resize = [
   {
     label:"resize-none",
     detail:"resize: none;",
-    documentation:"Use to prevent an element from being resizable."
+    documentation:"Prevent an element from being resizable."
   },
   {
     label:"resize-y",
     detail:"resize: vertical;",
-    documentation:"Use to make an element vertically resizeable."
+    documentation:"Make an element vertically resizeable."
   },
   {
     label:"resize-x",
     detail:"resize: horizontal;",
-    documentation:"Use to make an element horizontally resizeable."
+    documentation:"Make an element horizontally resizeable."
   },
   {
     label:"resize",
     detail:"resize: both;",
-    documentation:"Use to make an element horizontally and vertically resizeable."
+    documentation:"Make an element horizontally and vertically resizeable."
   },
 ];
 
@@ -114,22 +114,22 @@ let userSelect = [
   {
     label:"select-none",
     detail:"user-select: none;",
-    documentation:"Use to prevent selecting text in an element and its children."
+    documentation:"Prevent selecting text in an element and its children."
   },
   {
     label:"select-text",
     detail:"user-select: text;",
-    documentation:"Use to allow selecting text in an element and its children."
+    documentation:"Allow selecting text in an element and its children."
   },
   {
     label:"select-all",
     detail:"user-select: all;",
-    documentation:"Use to automatically select all the text in an element when a user clicks."
+    documentation:"Automatically select all the text in an element when a user clicks."
   },
   {
     label:"select-auto",
     detail:"user-select: auto;",
-    documentation:"Use to use the default browser behavior for selecting text. Useful for undoing other classes at different breakpoints."
+    documentation:"Use the default browser behavior for selecting text. Useful for undoing other classes at different breakpoints."
   },
 ];
    
