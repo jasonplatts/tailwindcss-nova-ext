@@ -4,12 +4,12 @@ let borderCollapse = [
   {
     label:"border-collapse",
     detail:"border-collapse: collapse;",
-    documentation:"Combines adjacent table cell borders into a single border when possible."
+    documentation:"Combine adjacent table cell borders into a single border when possible."
   },
   {
     label:"border-separate",
     detail:"border-collapse: separate;",
-    documentation:"Forces each table cell to display its own separate borders."
+    documentation:"Force each table cell to display its own separate borders."
   }
 ];
 
