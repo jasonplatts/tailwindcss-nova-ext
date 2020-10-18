@@ -54,7 +54,7 @@ class CompletionProvider {
         };
         
         if (definitionObject.hasOwnProperty('documentation')) { 
-          item.documentation = FUNCTIONS.truncateString(definitionObject.documentation, 120);
+          item.documentation = FUNCTIONS.truncateString(definitionObject.documentation, 128);
         };
         
         item.range = currentWordRange;
