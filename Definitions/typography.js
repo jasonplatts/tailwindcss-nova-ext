@@ -43,7 +43,7 @@ for(i = 0; i < FONT_SIZES.length; i++) {
     {
       label:"text-" + FONT_SIZES[i].name,
       detail:"font-size: " + FONT_SIZES[i].value + "rem;",
-      documentation:"Set the text color of an element to #" + FONT_SIZES[i].value + "."
+      documentation:"Set the font size of an element to " + FONT_SIZES[i].value + "rem."
     }
   );
 }
