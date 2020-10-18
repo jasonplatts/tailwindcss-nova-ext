@@ -184,12 +184,12 @@ spaceBetween.push(
   {
     label:"space-y-reverse",
     detail:"--space-y-reverse: 1;",
-    documentation:"If your elements are in reverse order (eg: flex-col-reverse), set the vertical space to the correct side of the element."
+    documentation:"If elements are in reverse order (eg: flex-col-reverse), set the vertical space to the correct side of the element."
   },
   {
     label:"space-x-reverse",
     detail:"--space-x-reverse: 1;",
-    documentation:"If your elements are in reverse order (eg: flex-row-reverse), set the horizontal space to the correct side of the element."
+    documentation:"If elements are in reverse order (eg: flex-row-reverse), set the horizontal space to the correct side of the element."
   }
 );
 
