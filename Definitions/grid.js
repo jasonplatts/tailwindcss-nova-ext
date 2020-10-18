@@ -7,9 +7,9 @@ let gridTemplateColumns = [];
 for(i = 1; i <= 12; i++) {  
   gridTemplateColumns.push(
     {
-      label:"grid-cols-" + i,
-      detail:"grid-template-columns: repeat(" + i + ", minmax(0, 1fr));",
-      documentation:"Creates a " + i + " column grid."
+      label:`grid-cols-${i}`,
+      detail:`grid-template-columns: repeat(${i}, minmax(0, 1fr));`,
+      documentation:`Create a grid with ${i} equally sized columns.`
     }
   );
 }
@@ -18,7 +18,7 @@ gridTemplateColumns.push(
   {
     label:"grid-cols-none",
     detail:"grid-template-columns: none;",
-    documentation:"Indicates no explicit grid column template."
+    documentation:"Specify no explicit grid column template."
   }
 )
 
@@ -30,16 +30,16 @@ gridColumnStartEnd.push(
   {
     label:"col-auto",
     detail:"grid-column: auto;",
-    documentation:"Indicates no explicit grid item placement or column span (default span of 1)."
+    documentation:"Specify no explicit grid item placement or column span."
   }
 )
 
 for(i = 1; i <= 12; i++) {
   gridColumnStartEnd.push(
     {
-      label:"col-span-" + i,
-      detail:"grid-column: span " + i + " / span" + i + ";",
-      documentation:"Makes an element span " + i + " columns."
+      label:`col-span-${i}`,
+      detail:`grid-column: span ${i} / span ${i};`,
+      documentation:`Make an element span ${i} columns.`
     }
   )
 }
@@ -47,9 +47,9 @@ for(i = 1; i <= 12; i++) {
 for(i = 1; i <= 13; i++) {
   gridColumnStartEnd.push(
     {
-      label:"col-start-" + i,
-      detail:"grid-column-start: " + i + ";",
-      documentation:"Makes an element start at column " + i + "."
+      label:`col-start-${i}`,
+      detail:`grid-column-start: ${i};`,
+      documentation:`Make an element start at grid line ${i}.`
     }
   )
 }
@@ -58,16 +58,16 @@ gridColumnStartEnd.push(
   {
     label:"col-start-auto",
     detail:"grid-column-start: auto;",
-    documentation:"Indicates no explicit grid item column start placement."
+    documentation:"Specify no explicit grid item column start placement."
   }
 )
 
 for(i = 1; i <= 13; i++) {
   gridColumnStartEnd.push(
     {
-      label:"col-end-" + i,
-      detail:"grid-column-end: " + i + ";",
-      documentation:"Makes an element end at column " + i + "."
+      label:`col-end-${i}`,
+      detail:`grid-column-end: ${i};`,
+      documentation:`Make an element end at grid line ${i}.`
     }
   )
 }
@@ -76,7 +76,7 @@ gridColumnStartEnd.push(
   {
     label:"col-end-auto",
     detail:"grid-column-end: auto;",
-    documentation:"Indicates no explicit grid item column end placement."
+    documentation:"Specify no explicit grid item column end placement."
   }
 )
 
@@ -87,9 +87,9 @@ let gridTemplateRows = [];
 for(i = 1; i <= 6; i++) {  
   gridTemplateRows.push(
     {
-      label:"grid-rows-" + i,
-      detail:"grid-template-rows: repeat(" + i + ", minmax(0, 1fr));",
-      documentation:"Creates a grid with " + i + " rows."
+      label:`grid-rows-${i}`,
+      detail:`grid-template-rows: repeat(${i}, minmax(0, 1fr));`,
+      documentation:`Create a grid with ${i} equally sized rows.`
     }
   );
 }
@@ -98,7 +98,7 @@ gridTemplateRows.push(
   {
     label:"grid-rows-none",
     detail:"grid-template-rows: none;",
-    documentation:"Indicates no explicit grid row template."
+    documentation:"Specify no explicit grid row template."
   }
 )
 
@@ -110,16 +110,16 @@ gridRowStartEnd.push(
   {
     label:"row-auto",
     detail:"grid-row: auto;",
-    documentation:"Indicates no explicit grid item placement or row span (default span of 1)."
+    documentation:"Specify no explicit grid item placement or row span."
   }
 )
 
 for(i = 1; i <= 12; i++) {
   gridRowStartEnd.push(
     {
-      label:"row-span-" + i,
-      detail:"grid-row: span " + i + " / span" + i + ";",
-      documentation:"Makes an element span " + i + " rows."
+      label:`row-span-${i}`,
+      detail:`grid-row: span ${i} / span ${i};`,
+      documentation:`Make an element span ${i} rows.`
     }
   )
 }
@@ -127,9 +127,9 @@ for(i = 1; i <= 12; i++) {
 for(i = 1; i <= 13; i++) {
   gridRowStartEnd.push(
     {
-      label:"row-start-" + i,
-      detail:"grid-row-start: " + i + ";",
-      documentation:"Makes an element start at row " + i + "."
+      label:`row-start-${i}`,
+      detail:`grid-row-start: ${i};`,
+      documentation:`Make an element start at grid line ${i}.`
     }
   )
 }
@@ -138,16 +138,16 @@ gridRowStartEnd.push(
   {
     label:"row-start-auto",
     detail:"grid-row-start: auto;",
-    documentation:"Indicates no explicit grid item row start placement."
+    documentation:"Specify no explicit grid item row start placement."
   }
 )
 
 for(i = 1; i <= 13; i++) {
   gridRowStartEnd.push(
     {
-      label:"row-end-" + i,
-      detail:"grid-row-end: " + i + ";",
-      documentation:"Makes an element end at row " + i + "."
+      label:`row-end-${i}`,
+      detail:`grid-row-end: ${i};`,
+      documentation:`Make an element end at grid line ${i}.`
     }
   )
 }
@@ -156,7 +156,7 @@ gridRowStartEnd.push(
   {
     label:"row-end-auto",
     detail:"grid-row-end: auto;",
-    documentation:"Indicates no explicit grid item row end placement."
+    documentation:"Specify no explicit grid item row end placement."
   }
 )
 
@@ -166,22 +166,72 @@ let gridAutoFlow = [
   {
     label:"grid-flow-row",
     detail:"grid-auto-flow: row;",
-    documentation:"Specifies that grid items fill each row, adding new rows as necessary."
+    documentation:"Specify that grid items fill each row, adding new rows as needed."
   },
   {
     label:"grid-flow-col",
     detail:"grid-auto-flow: column;",
-    documentation:"Specifies that grid items fill each column, adding new columns as necessary."
+    documentation:"Specify that grid items fill each column, adding new columns as needed."
   },
   {
     label:"grid-flow-row-dense",
     detail:"grid-auto-flow: row dense;",
-    documentation:"Specifies that grid items fill each row using an algorithm that attempts to fill holes earlier in the grid."
+    documentation:"Specify that grid items fill each row using an algorithm that attempts to fill holes earlier in the grid."
   },
   {
     label:"grid-flow-col-dense",
     detail:"grid-auto-flow: column dense;",
-    documentation:"Specifies that grid items fill each column using an algorithm that attempts to fill holes earlier in the grid."
+    documentation:"Specify that grid items fill each column using an algorithm that attempts to fill holes earlier in the grid."
+  }
+];
+
+/*        GRID AUTO COLUMNS CLASSES        */
+
+let gridAutoColumns = [
+  {
+    label:"auto-cols-auto",
+    detail:"grid-auto-columns: auto;",
+    documentation:"Specify that in an implicitly-created grid, column size should be determined by the size of the parent container."
+  },
+  {
+    label:"auto-cols-min",
+    detail:"grid-auto-columns: min-content;",
+    documentation:"Specify that in an implicitly-created grid, column size should be determined by the smallest item in the column."
+  },
+  {
+    label:"auto-cols-max",
+    detail:"grid-auto-columns: max-content;",
+    documentation:"Specify that in an implicitly-created grid, column size should be determined by the largest item in the column."
+  },
+  {
+    label:"auto-cols-fr",
+    detail:"grid-auto-columns: minmax(0, 1fr);",
+    documentation:"Specify that implicit grid columns should have no minimum size and a maximum size no larger than one part of available space."
+  }
+];
+
+/*        GRID AUTO ROWS CLASSES        */
+
+let gridAutoRows = [
+  {
+    label:"auto-rows-auto",
+    detail:"grid-auto-rows: auto;",
+    documentation:"Specify that in an implicitly-created grid, row size should be determined by the size of the parent container."
+  },
+  {
+    label:"auto-rows-min",
+    detail:"grid-auto-rows: min-content;",
+    documentation:"Specify that in an implicitly-created grid, row size should be determined by the smallest item in the row."
+  },
+  {
+    label:"auto-rows-max",
+    detail:"grid-auto-rows: max-content;",
+    documentation:"Specify that in an implicitly-created grid, row size should be determined by the largest item in the row."
+  },
+  {
+    label:"auto-rows-fr",
+    detail:"grid-auto-rows: minmax(0, 1fr);",
+    documentation:"Specify that implicit grid rows should have no minimum size and a maximum size no larger than one part of available space."
   }
 ];
 
@@ -227,6 +277,8 @@ classes = classes.concat(
   gridTemplateRows,
   gridRowStartEnd,
   gridAutoFlow,
+  gridAutoColumns,
+  gridAutoRows,
   gap
 );
 
