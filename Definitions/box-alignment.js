@@ -1,3 +1,5 @@
+/*        JUSTIFY CONTENT CLASSES        */
+
 let justifyContent = [
   {
     label:"justify-start",
@@ -31,6 +33,8 @@ let justifyContent = [
   }
 ];
 
+/*        JUSTIFY ITEMS CLASSES        */
+
 let justifyItems = [
   {
     label:"justify-items-auto",
@@ -59,6 +63,8 @@ let justifyItems = [
   },
 ];
 
+/*        JUSTIFY SELF CLASSES        */
+
 let justifySelf = [
   {
     label:"justify-self-auto",
@@ -86,6 +92,8 @@ let justifySelf = [
     documentation:"Stretch a grid item to fill the grid area on its inline axis."
   },
 ];
+
+/*        ALIGN CONTENT CLASSES        */
 
 let alignContent = [
   {
@@ -120,6 +128,8 @@ let alignContent = [
   }
 ];
 
+/*        ALIGN ITEMS CLASSES        */
+
 let alignItems = [
   {
     label:"items-start",
@@ -148,6 +158,8 @@ let alignItems = [
   },
 ];
 
+/*        ALIGN SELF CLASSES        */
+
 let alignSelf = [
   {
     label:"self-auto",
@@ -175,6 +187,8 @@ let alignSelf = [
     documentation:"Stretch an item to fill the container's cross axis, regardless of the container's align-items value."
   },
 ];
+
+/*        PLACE CONTENT CLASSES        */
 
 let placeContent = [
   {
@@ -214,6 +228,8 @@ let placeContent = [
   }
 ];
 
+/*        PLACE ITEMS CLASSES        */
+
 let placeItems = [
   {
     label:"place-items-auto",
@@ -241,6 +257,8 @@ let placeItems = [
     documentation:"Stretch items along their grid areas on both axis."
   }
 ];
+
+/*        PLACE SELF CLASSES        */
 
 let placeSelf = [
   {
