@@ -17,14 +17,13 @@ var convertHexToRgbColorObject = function(hex) {
   return convertRgbToColorObject(rgbArray);
 }
 
-function getCurrentWord(context) {
+function getCurrentWord(context) {  
   const WORD_BREAK_CHARS = [" ", "\"", ":"];
-  
   let currentWord = "";
   let wordStartDetected = false;
   let charCount = context.line.length - 1;
   
-  while(wordStartDetected == false) {
+  while(wordStartDetected == false && charCount > 0) {
     if (WORD_BREAK_CHARS.includes(context.line.charAt(charCount)) == false) {
       currentWord = context.line.charAt(charCount) + currentWord;
       charCount--;
@@ -38,7 +37,7 @@ function getCurrentWord(context) {
 
 var getRangeOfCurrentWord = function(editor, context) {
   let currentWord = getCurrentWord(context);
-  
+
   return new Range(context.position - currentWord.length, context.position);
 }
 
