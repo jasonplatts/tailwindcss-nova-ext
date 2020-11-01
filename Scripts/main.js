@@ -72,6 +72,7 @@ nova.assistants.registerCompletionAssistant("html+erb", new CompletionProvider()
 nova.assistants.registerCompletionAssistant("html+haml", new CompletionProvider());
 nova.assistants.registerCompletionAssistant("php", new CompletionProvider());
 nova.assistants.registerCompletionAssistant("vue", new CompletionProvider());
+nova.assistants.registerCompletionAssistant("svelte", new CompletionProvider());
 nova.assistants.registerCompletionAssistant("js", new CompletionProvider());
 nova.assistants.registerCompletionAssistant("jsx", new CompletionProvider());
 nova.assistants.registerCompletionAssistant("ts", new CompletionProvider());
