@@ -1,3 +1,7 @@
+## Version 1.3
+
+* Added support for Liquid files.
+
 ## Version 1.2
 
 * Added support for Twig, Blade, and Svelte files.
