@@ -67,7 +67,7 @@ class CompletionProvider {
 }
 
 let fileTypes = [ "html", "html+erb", "haml", "php", "blade", "twig",
-"vue", "js", "jsx", "ts", "tsx", "svelte"];
+"vue", "js", "jsx", "ts", "tsx", "svelte", "liquid"];
 
 fileTypes.forEach(type => {
   nova.assistants.registerCompletionAssistant(type, new CompletionProvider());
