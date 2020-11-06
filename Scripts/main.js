@@ -1,4 +1,3 @@
-
 exports.activate = function() {
 
 }
@@ -67,13 +66,11 @@ class CompletionProvider {
   }
 }
 
-nova.assistants.registerCompletionAssistant("html", new CompletionProvider());
-nova.assistants.registerCompletionAssistant("html+erb", new CompletionProvider());
-nova.assistants.registerCompletionAssistant("html+haml", new CompletionProvider());
-nova.assistants.registerCompletionAssistant("php", new CompletionProvider());
-nova.assistants.registerCompletionAssistant("vue", new CompletionProvider());
-nova.assistants.registerCompletionAssistant("js", new CompletionProvider());
-nova.assistants.registerCompletionAssistant("jsx", new CompletionProvider());
-nova.assistants.registerCompletionAssistant("ts", new CompletionProvider());
-nova.assistants.registerCompletionAssistant("tsx", new CompletionProvider());
+let fileTypes = [ "html", "html+erb", "haml", "php", "blade", "twig",
+"vue", "js", "jsx", "ts", "tsx", "svelte"];
+
+fileTypes.forEach(type => {
+  nova.assistants.registerCompletionAssistant(type, new CompletionProvider());
+});
+
 
