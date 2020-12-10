@@ -1,4 +1,4 @@
-const CONSTANTS = require('../Scripts/scales.js');
+const CONSTANTS = require('./scales.js');
 
 /*        BREAKPOINT CLASSES        */
 

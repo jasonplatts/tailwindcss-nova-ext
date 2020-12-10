@@ -17,6 +17,24 @@
   ],
   
   "entitlements": {
-    
-  }
+    "filesystem": "readonly"
+  },
+  
+  "config-workspace": [
+    {
+      "key": "tailwindcss.version.section",
+      "title": "Tailwind CSS Version",
+      "type": "section",
+      "children": [
+        {
+          "key": "tailwindcss.version",
+          "title": "Version",
+          "description": "Select the version of Tailwind CSS to be used in the current workspace.",
+          "type": "enum",
+          "values": ["2.0", "1.9"],
+          "default": "2.0"
+        }
+      ]
+    }
+  ]
 }

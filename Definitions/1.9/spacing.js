@@ -1,4 +1,4 @@
-const SCALES = require('../Scripts/scales.js');
+const SCALES = require('./scales.js');
 
 /*        PADDING CLASSES        */
 

@@ -49,6 +49,18 @@ var truncateString = function(string, maxLength) {
   }
 }
 
+var getVersion = function getVersion() {
+  let version = nova.workspace.config.get("tailwindcss.version");
+
+  if (version == null) {
+    let definitionArray = nova.fs.listdir(nova.extension.path + "/Definitions");
+    version = definitionArray.sort(function(a, b) {return b-a})[0];
+  }
+  
+  return version;
+}
+
 exports.convertHexToRgbColorObject = convertHexToRgbColorObject;
 exports.getRangeOfCurrentWord = getRangeOfCurrentWord;
 exports.truncateString = truncateString;
+exports.getVersion = getVersion;

@@ -1,3 +1,6 @@
+console.clear();
+const FUNCTIONS = require('../Scripts/functions.js');
+
 exports.activate = function() {
 
 }
@@ -8,28 +11,29 @@ exports.deactivate = function() {
 
 class CompletionProvider {
   constructor() {
+    let version = FUNCTIONS.getVersion();
+    
     this.imports = [];
     
-    this.imports.push(require('../Definitions/layout.js'));
-    this.imports.push(require('../Definitions/flexbox.js'));
-    this.imports.push(require('../Definitions/grid.js'));
-    this.imports.push(require('../Definitions/box-alignment.js'));
-    this.imports.push(require('../Definitions/spacing.js'));
-    this.imports.push(require('../Definitions/sizing.js'));
-    this.imports.push(require('../Definitions/typography.js'));
-    this.imports.push(require('../Definitions/backgrounds.js'));
-    this.imports.push(require('../Definitions/borders.js'));
-    this.imports.push(require('../Definitions/tables.js'));
-    this.imports.push(require('../Definitions/effects.js'));
-    this.imports.push(require('../Definitions/transitions-and-animation.js'));
-    this.imports.push(require('../Definitions/transforms.js'));
-    this.imports.push(require('../Definitions/interactivity.js'));
-    this.imports.push(require('../Definitions/svg.js'));
-    this.imports.push(require('../Definitions/accessibility.js'));
+    this.imports.push(require(`../Definitions/${version}/layout.js`));
+    this.imports.push(require(`../Definitions/${version}/flexbox.js`));
+    this.imports.push(require(`../Definitions/${version}/grid.js`));
+    this.imports.push(require(`../Definitions/${version}/box-alignment.js`));
+    this.imports.push(require(`../Definitions/${version}/spacing.js`));
+    this.imports.push(require(`../Definitions/${version}/sizing.js`));
+    this.imports.push(require(`../Definitions/${version}/typography.js`));
+    this.imports.push(require(`../Definitions/${version}/backgrounds.js`));
+    this.imports.push(require(`../Definitions/${version}/borders.js`));
+    this.imports.push(require(`../Definitions/${version}/tables.js`));
+    this.imports.push(require(`../Definitions/${version}/effects.js`));
+    this.imports.push(require(`../Definitions/${version}/transitions-and-animation.js`));
+    this.imports.push(require(`../Definitions/${version}/transforms.js`));
+    this.imports.push(require(`../Definitions/${version}/interactivity.js`));
+    this.imports.push(require(`../Definitions/${version}/svg.js`));
+    this.imports.push(require(`../Definitions/${version}/accessibility.js`));
   }
   
   provideCompletionItems(editor, context) {
-    const FUNCTIONS = require('../Scripts/functions.js');
     let currentWordRange = FUNCTIONS.getRangeOfCurrentWord(editor, context);
     
     let items = [];

@@ -1,5 +1,5 @@
-const COLORS = require('../Scripts/colors.js');
-const FUNCTIONS = require('../Scripts/functions.js');
+const COLORS = require('./colors.js');
+const FUNCTIONS = require('../../Scripts/functions.js');
 
 /*        BORDER RADIUS CLASSES        */
 
