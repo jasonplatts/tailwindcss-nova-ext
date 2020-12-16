@@ -60,7 +60,21 @@ var getVersion = function getVersion() {
   return version;
 }
 
+var getVersionDefinitionFiles = function getVersionDefinitionFiles() {
+  let path = nova.extension.path + "/Definitions/" + getVersion();
+  let definitions = nova.fs.listdir(path);
+  
+  definitions = definitions.filter((definition) => { 
+    if (nova.fs.stat(path + "/" + definition).isFile()) {
+      return definition;
+    }
+  });
+  
+  return definitions;
+}
+
 exports.convertHexToRgbColorObject = convertHexToRgbColorObject;
 exports.getRangeOfCurrentWord = getRangeOfCurrentWord;
 exports.truncateString = truncateString;
 exports.getVersion = getVersion;
+exports.getVersionDefinitionFiles = getVersionDefinitionFiles;

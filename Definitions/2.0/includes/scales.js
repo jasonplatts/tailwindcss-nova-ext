@@ -18,6 +18,11 @@ const BREAKPOINTS = [
     name:"xl",
     size:"extra large",
     value:"1280px"
+  },
+  {
+    name:"2xl",
+    size:"2 extra large",
+    value:"1536px"
   }
 ];
 

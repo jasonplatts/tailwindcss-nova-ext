@@ -1,4 +1,4 @@
-const COLORS = require('./colors.js');
+const COLORS = require('./includes/colors.js');
 const FUNCTIONS = require('../../Scripts/functions.js');
 
 /*        BACKGROUND ATTACHMENT CLASSES        */

@@ -1,4 +1,4 @@
-const SCALES = require('./scales.js');
+const SCALES = require('./includes/scales.js');
 
 /*        WIDTH CLASSES        */
 

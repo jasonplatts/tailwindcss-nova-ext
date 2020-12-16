@@ -1,4 +1,4 @@
-const CONSTANTS = require('./scales.js');
+const CONSTANTS = require('./includes/scales.js');
 
 /*        BREAKPOINT CLASSES        */
 
@@ -181,7 +181,7 @@ let clear = [
     label:"clear-both",
     detail:"clear: both;",
     documentation:"Position an element below all preceding floated elements."
-  }, 
+  },
   {
     label:"clear-none",
     detail:"clear: none;",

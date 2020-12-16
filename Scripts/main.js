@@ -1,6 +1,9 @@
 console.clear();
 const FUNCTIONS = require('../Scripts/functions.js');
 
+// TODO: Add config support. Eg: Add prefers-reduced-motion motion-safe and motion-reduce variants when enabled in tailwind config.
+// FIXME: Detect config change and load relevant version definitions
+
 exports.activate = function() {
 
 }
@@ -12,25 +15,14 @@ exports.deactivate = function() {
 class CompletionProvider {
   constructor() {
     let version = FUNCTIONS.getVersion();
+    let definitions = FUNCTIONS.getVersionDefinitionFiles();
     
     this.imports = [];
     
-    this.imports.push(require(`../Definitions/${version}/layout.js`));
-    this.imports.push(require(`../Definitions/${version}/flexbox.js`));
-    this.imports.push(require(`../Definitions/${version}/grid.js`));
-    this.imports.push(require(`../Definitions/${version}/box-alignment.js`));
-    this.imports.push(require(`../Definitions/${version}/spacing.js`));
-    this.imports.push(require(`../Definitions/${version}/sizing.js`));
-    this.imports.push(require(`../Definitions/${version}/typography.js`));
-    this.imports.push(require(`../Definitions/${version}/backgrounds.js`));
-    this.imports.push(require(`../Definitions/${version}/borders.js`));
-    this.imports.push(require(`../Definitions/${version}/tables.js`));
-    this.imports.push(require(`../Definitions/${version}/effects.js`));
-    this.imports.push(require(`../Definitions/${version}/transitions-and-animation.js`));
-    this.imports.push(require(`../Definitions/${version}/transforms.js`));
-    this.imports.push(require(`../Definitions/${version}/interactivity.js`));
-    this.imports.push(require(`../Definitions/${version}/svg.js`));
-    this.imports.push(require(`../Definitions/${version}/accessibility.js`));
+    // Autoload definitions for the specific Tailwind version.
+    definitions.forEach(definition => {
+      this.imports.push(require(`../Definitions/${version}/${definition}`));
+    });
   }
   
   provideCompletionItems(editor, context) {

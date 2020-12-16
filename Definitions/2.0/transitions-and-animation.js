@@ -143,8 +143,6 @@ let animation = [
   }
 ];
 
-//TODO: Add prefers-reduced-motion motion-safe and motion-reduce variants when enabled in tailwind config.
-
 let classes = [];
 
 classes = classes.concat(

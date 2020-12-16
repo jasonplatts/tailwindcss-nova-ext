@@ -223,47 +223,6 @@ const GREEN = [
   }
 ];
 
-currentColorPrefix = "teal-";
-
-const TEAL = [
-  {
-    name:currentColorPrefix + "100",
-    value:"e6fffa"
-  },
-  {
-    name:currentColorPrefix + "200",
-    value:"b2f5ea"
-  },
-  {
-    name:currentColorPrefix + "300",
-    value:"81e6d9"
-  },
-  {
-    name:currentColorPrefix + "400",
-    value:"4fd1c5"
-  },
-  {
-    name:currentColorPrefix + "500",
-    value:"38b2ac"
-  },
-  {
-    name:currentColorPrefix + "600",
-    value:"319795"
-  },
-  {
-    name:currentColorPrefix + "700",
-    value:"2c7a7b"
-  },
-  {
-    name:currentColorPrefix + "800",
-    value:"285e61"
-  },
-  {
-    name:currentColorPrefix + "900",
-    value:"234e52"
-  }
-];
-
 currentColorPrefix = "blue-";
 
 const BLUE = [
@@ -438,7 +397,6 @@ colors = colors.concat(
   ORANGE,
   YELLOW,
   GREEN,
-  TEAL,
   BLUE,
   INDIGO,
   PURPLE,
