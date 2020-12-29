@@ -50,7 +50,7 @@ var truncateString = function(string, maxLength) {
 }
 
 var getVersion = function getVersion() {
-  let version = nova.workspace.config.get("tailwindcss.version");
+  let version = nova.workspace.config.get("tailwindcss.workspace.version");
 
   if (version == null) {
     let definitionArray = nova.fs.listdir(nova.extension.path + "/Definitions");

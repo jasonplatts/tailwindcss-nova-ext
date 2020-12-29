@@ -11,9 +11,6 @@ module.exports.CompletionProvider = class CompletionProvider {
     definitions.forEach(definition => {
       this.imports.push(require(`../../Definitions/${version}/${definition}`));
     });
-    
-    console.clear();
-    console.log("Current Tailwind Version", version);
   }
   
   provideCompletionItems(editor, context) {

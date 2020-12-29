@@ -1,16 +1,34 @@
 const { CompletionProvider } = require("classes/CompletionProvider.js");
+const FUNCTIONS = require('./functions.js');
+const SUPPORTED_FILE_TYPES = [ "html", "html+erb", "haml", "php", "blade", "twig",
+"vue", "js", "jsx", "ts", "tsx", "svelte", "liquid"];
+let registeredCompletionAssistants = [];
+
+console.clear();
+console.log("Current Tailwind Version", FUNCTIONS.getVersion());
 
 exports.activate = function() {
-  let fileTypes = [ "html", "html+erb", "haml", "php", "blade", "twig",
-  "vue", "js", "jsx", "ts", "tsx", "svelte", "liquid"];
+  registerCompletionAssistants();  
   
-  fileTypes.forEach(fileType => {
-    nova.assistants.registerCompletionAssistant(fileType, new CompletionProvider());
+  nova.workspace.config.observe("tailwindcss.workspace.version", reloadCompletionAssistants);
+}
+
+function registerCompletionAssistants() {
+  SUPPORTED_FILE_TYPES.forEach(fileType => {
+    registeredCompletionAssistants.push(
+      nova.assistants.registerCompletionAssistant(fileType, new CompletionProvider())
+    );
   });
 }
 
-exports.deactivate = function() {
+function unregisterCompletionAssistants() {
+  registeredCompletionAssistants.forEach(assistant => { assistant.dispose(); });
+  registeredCompletionAssistants = [];
+}
 
+function reloadCompletionAssistants() {
+  unregisterCompletionAssistants();
+  registerCompletionAssistants();
 }
 
 // FIXME: Detect config change and load relevant version definitions
