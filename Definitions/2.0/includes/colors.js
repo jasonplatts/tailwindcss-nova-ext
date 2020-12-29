@@ -22,40 +22,44 @@ currentColorPrefix = "gray-";
 
 const GRAY = [
   {
+    name:currentColorPrefix + "50",
+    value:"F9FAFB"
+  },
+  {
     name:currentColorPrefix + "100",
-    value:"f7fafc"
+    value:"F3F4F6"
   },
   {
     name:currentColorPrefix + "200",
-    value:"edf2f7"
+    value:"E5E7EB"
   },
   {
     name:currentColorPrefix + "300",
-    value:"e2e8f0"
+    value:"D1D5DB"
   },
   {
     name:currentColorPrefix + "400",
-    value:"cbd5e0"
+    value:"9CA3AF"
   },
   {
     name:currentColorPrefix + "500",
-    value:"a0aec0"
+    value:"6B7280"
   },
   {
     name:currentColorPrefix + "600",
-    value:"718096"
+    value:"4B5563"
   },
   {
     name:currentColorPrefix + "700",
-    value:"4a5568"
+    value:"374151"
   },
   {
     name:currentColorPrefix + "800",
-    value:"2d3748"
+    value:"1F2937"
   },
   {
     name:currentColorPrefix + "900",
-    value:"1a202c"
+    value:"111827"
   }
 ];
 
@@ -63,81 +67,44 @@ currentColorPrefix = "red-";
 
 const RED = [
   {
+    name:currentColorPrefix + "50",
+    value:"FEF2F2"
+  },
+  {
     name:currentColorPrefix + "100",
-    value:"fff5f5"
+    value:"FEE2E2"
   },
   {
     name:currentColorPrefix + "200",
-    value:"fed7d7"
+    value:"FECACA"
   },
   {
     name:currentColorPrefix + "300",
-    value:"feb2b2"
+    value:"FCA5A5"
   },
   {
     name:currentColorPrefix + "400",
-    value:"fc8181"
+    value:"F87171"
   },
   {
     name:currentColorPrefix + "500",
-    value:"f56565"
+    value:"EF4444"
   },
   {
     name:currentColorPrefix + "600",
-    value:"e53e3e"
+    value:"DC2626"
   },
   {
     name:currentColorPrefix + "700",
-    value:"c53030"
+    value:"B91C1C"
   },
   {
     name:currentColorPrefix + "800",
-    value:"9b2c2c"
+    value:"991B1B"
   },
   {
     name:currentColorPrefix + "900",
-    value:"742a2a"
-  }
-];
-
-currentColorPrefix = "orange-";
-
-const ORANGE = [
-  {
-    name:currentColorPrefix + "100",
-    value:"fffaf0"
-  },
-  {
-    name:currentColorPrefix + "200",
-    value:"feebc8"
-  },
-  {
-    name:currentColorPrefix + "300",
-    value:"fbd38d"
-  },
-  {
-    name:currentColorPrefix + "400",
-    value:"f6ad55"
-  },
-  {
-    name:currentColorPrefix + "500",
-    value:"ed8936"
-  },
-  {
-    name:currentColorPrefix + "600",
-    value:"dd6b20"
-  },
-  {
-    name:currentColorPrefix + "700",
-    value:"c05621"
-  },
-  {
-    name:currentColorPrefix + "800",
-    value:"9c4221"
-  },
-  {
-    name:currentColorPrefix + "900",
-    value:"7b341e"
+    value:"7F1D1D"
   }
 ];
 
@@ -145,40 +112,44 @@ currentColorPrefix = "yellow-";
 
 const YELLOW = [
   {
+    name:currentColorPrefix + "50",
+    value:"FFFBEB"
+  },
+  {
     name:currentColorPrefix + "100",
-    value:"fffff0"
+    value:"FEF3C7"
   },
   {
     name:currentColorPrefix + "200",
-    value:"fefcbf"
+    value:"FDE68A"
   },
   {
     name:currentColorPrefix + "300",
-    value:"faf089"
+    value:"FCD34D"
   },
   {
     name:currentColorPrefix + "400",
-    value:"f6e05e"
+    value:"FBBF24"
   },
   {
     name:currentColorPrefix + "500",
-    value:"ecc94b"
+    value:"F59E0B"
   },
   {
     name:currentColorPrefix + "600",
-    value:"d69e2e"
+    value:"D97706"
   },
   {
     name:currentColorPrefix + "700",
-    value:"b7791f"
+    value:"B45309"
   },
   {
     name:currentColorPrefix + "800",
-    value:"975a16"
+    value:"92400E"
   },
   {
     name:currentColorPrefix + "900",
-    value:"744210"
+    value:"78350F"
   }
 ];
 
@@ -186,40 +157,44 @@ currentColorPrefix = "green-";
 
 const GREEN = [
   {
+    name:currentColorPrefix + "50",
+    value:"ECFDF5"
+  },
+  {
     name:currentColorPrefix + "100",
-    value:"f0fff4"
+    value:"D1FAE5"
   },
   {
     name:currentColorPrefix + "200",
-    value:"c6f6d5"
+    value:"A7F3D0"
   },
   {
     name:currentColorPrefix + "300",
-    value:"9ae6b4"
+    value:"6EE7B7"
   },
   {
     name:currentColorPrefix + "400",
-    value:"68d391"
+    value:"34D399"
   },
   {
     name:currentColorPrefix + "500",
-    value:"48bb78"
+    value:"10B981"
   },
   {
     name:currentColorPrefix + "600",
-    value:"38a169"
+    value:"059669"
   },
   {
     name:currentColorPrefix + "700",
-    value:"2f855a"
+    value:"047857"
   },
   {
     name:currentColorPrefix + "800",
-    value:"276749"
+    value:"065F46"
   },
   {
     name:currentColorPrefix + "900",
-    value:"22543d"
+    value:"064E3B"
   }
 ];
 
@@ -227,40 +202,44 @@ currentColorPrefix = "blue-";
 
 const BLUE = [
   {
+    name:currentColorPrefix + "50",
+    value:"EFF6FF"
+  },
+  {
     name:currentColorPrefix + "100",
-    value:"ebf8ff"
+    value:"DBEAFE"
   },
   {
     name:currentColorPrefix + "200",
-    value:"bee3f8"
+    value:"BFDBFE"
   },
   {
     name:currentColorPrefix + "300",
-    value:"90cdf4"
+    value:"93C5FD"
   },
   {
     name:currentColorPrefix + "400",
-    value:"63b3ed"
+    value:"60A5FA"
   },
   {
     name:currentColorPrefix + "500",
-    value:"4299e1"
+    value:"3B82F6"
   },
   {
     name:currentColorPrefix + "600",
-    value:"3182ce"
+    value:"2563EB"
   },
   {
     name:currentColorPrefix + "700",
-    value:"2b6cb0"
+    value:"1D4ED8"
   },
   {
     name:currentColorPrefix + "800",
-    value:"2c5282"
+    value:"1E40AF"
   },
   {
     name:currentColorPrefix + "900",
-    value:"2a4365"
+    value:"1E3A8A"
   }
 ];
 
@@ -268,40 +247,44 @@ currentColorPrefix = "indigo-";
 
 const INDIGO = [
   {
+    name:currentColorPrefix + "50",
+    value:"EEF2FF"
+  },
+  {
     name:currentColorPrefix + "100",
-    value:"ebf4ff"
+    value:"E0E7FF"
   },
   {
     name:currentColorPrefix + "200",
-    value:"c3dafe"
+    value:"C7D2FE"
   },
   {
     name:currentColorPrefix + "300",
-    value:"a3bffa"
+    value:"A5B4FC"
   },
   {
     name:currentColorPrefix + "400",
-    value:"7f9cf5"
+    value:"818CF8"
   },
   {
     name:currentColorPrefix + "500",
-    value:"667eea"
+    value:"6366F1"
   },
   {
     name:currentColorPrefix + "600",
-    value:"5a67d8"
+    value:"4F46E5"
   },
   {
     name:currentColorPrefix + "700",
-    value:"4c51bf"
+    value:"4338CA"
   },
   {
     name:currentColorPrefix + "800",
-    value:"434190"
+    value:"3730A3"
   },
   {
     name:currentColorPrefix + "900",
-    value:"3c366b"
+    value:"312E81"
   }
 ];
 
@@ -309,40 +292,44 @@ currentColorPrefix = "purple-";
 
 const PURPLE = [
   {
+    name:currentColorPrefix + "50",
+    value:"F5F3FF"
+  },
+  {
     name:currentColorPrefix + "100",
-    value:"faf5ff"
+    value:"EDE9FE"
   },
   {
     name:currentColorPrefix + "200",
-    value:"e9d8fd"
+    value:"DDD6FE"
   },
   {
     name:currentColorPrefix + "300",
-    value:"d6bcfa"
+    value:"C4B5FD"
   },
   {
     name:currentColorPrefix + "400",
-    value:"b794f4"
+    value:"A78BFA"
   },
   {
     name:currentColorPrefix + "500",
-    value:"9f7aea"
+    value:"8B5CF6"
   },
   {
     name:currentColorPrefix + "600",
-    value:"805ad5"
+    value:"7C3AED"
   },
   {
     name:currentColorPrefix + "700",
-    value:"6b46c1"
+    value:"6D28D9"
   },
   {
     name:currentColorPrefix + "800",
-    value:"553c9a"
+    value:"5B21B6"
   },
   {
     name:currentColorPrefix + "900",
-    value:"44337a"
+    value:"4C1D95"
   }
 ];
 
@@ -350,40 +337,44 @@ currentColorPrefix = "pink-";
 
 const PINK = [
   {
+    name:currentColorPrefix + "50",
+    value:"FDF2F8"
+  },
+  {
     name:currentColorPrefix + "100",
-    value:"fff5f7"
+    value:"FCE7F3"
   },
   {
     name:currentColorPrefix + "200",
-    value:"fed7e2"
+    value:"FBCFE8"
   },
   {
     name:currentColorPrefix + "300",
-    value:"fbb6ce"
+    value:"F9A8D4"
   },
   {
     name:currentColorPrefix + "400",
-    value:"f687b3"
+    value:"F472B6"
   },
   {
     name:currentColorPrefix + "500",
-    value:"ed64a6"
+    value:"EC4899"
   },
   {
     name:currentColorPrefix + "600",
-    value:"d53f8c"
+    value:"DB2777"
   },
   {
     name:currentColorPrefix + "700",
-    value:"b83280"
+    value:"BE185D"
   },
   {
     name:currentColorPrefix + "800",
-    value:"97266d"
+    value:"9D174D"
   },
   {
     name:currentColorPrefix + "900",
-    value:"702459"
+    value:"831843"
   }
 ];
 
@@ -394,7 +385,6 @@ colors = colors.concat(
   WHITE,
   GRAY,
   RED,
-  ORANGE,
   YELLOW,
   GREEN,
   BLUE,
