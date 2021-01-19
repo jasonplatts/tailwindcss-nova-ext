@@ -30,5 +30,3 @@ function reloadCompletionAssistants() {
   unregisterCompletionAssistants();
   registerCompletionAssistants();
 }
-
-// FIXME: Detect config change and load relevant version definitions

@@ -29,7 +29,7 @@ const BREAKPOINTS = [
 const DEFAULT_SPACING_SCALE = [
   {
     name:"0",
-    size:"0",
+    size:"0px",
     pixels:"0px"
   },
   {
@@ -204,5 +204,25 @@ const DEFAULT_SPACING_SCALE = [
   }
 ];
 
+const NEGATIVE_DEFAULT_SPACING_SCALE = DEFAULT_SPACING_SCALE.map((element) => {
+    // While map is creating a new array, it is filling it with pointers
+    // to the same objects. Avoid this by assigning objects as needed.
+    let newElement;
+    
+    if (element.name !== "0") {
+      newElement = {
+        name: element.name,
+        size: "-" + element.size,
+        pixels: "-" + element.pixels
+      }
+    } else {
+      newElement = Object.assign(element);
+    }
+    
+    return newElement;
+  }
+);
+
 exports.BREAKPOINTS = BREAKPOINTS
 exports.DEFAULT_SPACING_SCALE = DEFAULT_SPACING_SCALE
+exports.NEGATIVE_DEFAULT_SPACING_SCALE = NEGATIVE_DEFAULT_SPACING_SCALE
