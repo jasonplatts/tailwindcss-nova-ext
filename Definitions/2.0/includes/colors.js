@@ -1,19 +1,19 @@
 let currentColorPrefix;
 
-currentColorPrefix = "black-";
+currentColorPrefix = "black";
 
 const BLACK = [
   {
-    name:currentColorPrefix + "100",
+    name:currentColorPrefix,
     value:"000"
   }
 ];
 
-currentColorPrefix = "white-";
+currentColorPrefix = "white";
 
 const WHITE = [
   {
-    name:currentColorPrefix + "100",
+    name:currentColorPrefix,
     value:"fff"
   }
 ];
