@@ -1,3 +1,4 @@
+const FUNCTIONS = require('./includes/functions.js');
 const SCALES = require('./includes/scales.js');
 
 /*        BREAKPOINT CLASSES        */
@@ -9,7 +10,7 @@ for(i = 0; i < SCALES.BREAKPOINTS.length; i++) {
     {
       label:`${SCALES.BREAKPOINTS[i].name}:`,
       detail:`max-width: ${SCALES.BREAKPOINTS[i].value};`,
-      documentation:`Set the current breakpoint to ${SCALES.BREAKPOINTS[i].size} (${SCALES.BREAKPOINTS[i].value}).`
+      documentation:`Set the current breakpoint to ${SCALES.BREAKPOINTS[i].desc} (${SCALES.BREAKPOINTS[i].value}).`
     }
   );
 }
@@ -377,90 +378,51 @@ let position = [
 ];
 
 /*        TOP/RIGHT/BOTTOM/LEFT CLASSES        */
-const TRBL_FRACTIONAL_SCALE = [
-  {
-    name:"1/2",
-    size:"50%"
-  },
-  {
-    name:"1/3",
-    size:"33.333333%"
-  },
-  {
-    name:"2/3",
-    size:"66.666667%"
-  },
-  {
-    name:"1/4",
-    size:"25%"
-  },
-  {
-    name:"2/4",
-    size:"50%"
-  },
-  {
-    name:"3/4",
-    size:"75%"
-  },
-  {
-    name:"full",
-    size:"100%"
-  }
-];
-
-const FRAC_DEF_SCALE = [...TRBL_FRACTIONAL_SCALE, ...SCALES.DEFAULT_SPACING_SCALE];
+const COMBINED_SCALE = [...SCALES.CORE_DEFAULT_FRACTIONAL_SCALE, ...SCALES.DEFAULT_SPACING_SCALE];
 
 let topRightBottomLeft = [];
 
 function addTopRightBottomLeftClasses(negative = "") {
   let objectsArray = [];
   
-  for(i = 0; i < FRAC_DEF_SCALE.length; i++) {
-    let negativeSizePrefix = "";
-    
-    if (negative == "-") {
-      if (FRAC_DEF_SCALE[i].size !== "0px") {
-        negativeSizePrefix = "-";
-      } else {
-        negativeSizePrefix = "";
-      }
-    }
+  for(i = 0; i < COMBINED_SCALE.length; i++) {
+    let prefix = FUNCTIONS.getValuePrefix(negative, COMBINED_SCALE[i].value);
     
     objectsArray.push(
       {
-        label:`${negative}inset-${FRAC_DEF_SCALE[i].name}`,
-        detail:`top: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size}; right: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size}; bottom: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size}; left: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size};`,
-        documentation:`Set an absolutely positioned element ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size} from all edges of the nearest positioned parent.`
+        label:`${negative}inset-${COMBINED_SCALE[i].name}`,
+        detail:`top: ${prefix}${COMBINED_SCALE[i].value}; right: ${prefix}${COMBINED_SCALE[i].value}; bottom: ${prefix}${COMBINED_SCALE[i].value}; left: ${prefix}${COMBINED_SCALE[i].value};`,
+        documentation:`Set an absolutely positioned element ${prefix}${COMBINED_SCALE[i].value} from all edges of the nearest positioned parent.`
       },
       {
-        label:`${negative}inset-y-${FRAC_DEF_SCALE[i].name}`,
-        detail:`top: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size}; bottom: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size};`,
-        documentation:`Set an absolutely positioned element ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size} from the top and bottom edges of the nearest positioned parent.`
+        label:`${negative}inset-y-${COMBINED_SCALE[i].name}`,
+        detail:`top: ${prefix}${COMBINED_SCALE[i].value}; bottom: ${prefix}${COMBINED_SCALE[i].value};`,
+        documentation:`Set an absolutely positioned element ${prefix}${COMBINED_SCALE[i].value} from the top and bottom edges of the nearest positioned parent.`
       },
       {
-        label:`${negative}inset-x-${FRAC_DEF_SCALE[i].name}`,
-        detail:`right: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size}; left: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size};`,
-        documentation:`Set an absolutely positioned element ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size} from the left and right edges of the nearest positioned parent.`
+        label:`${negative}inset-x-${COMBINED_SCALE[i].name}`,
+        detail:`right: ${prefix}${COMBINED_SCALE[i].value}; left: ${prefix}${COMBINED_SCALE[i].value};`,
+        documentation:`Set an absolutely positioned element ${prefix}${COMBINED_SCALE[i].value} from the left and right edges of the nearest positioned parent.`
       },
       {
-        label:`${negative}top-${FRAC_DEF_SCALE[i].name}`,
-        detail:`top: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size};`,
-        documentation:`Set an absolutely positioned element ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size} from the top edge of the nearest positioned parent.`
+        label:`${negative}top-${COMBINED_SCALE[i].name}`,
+        detail:`top: ${prefix}${COMBINED_SCALE[i].value};`,
+        documentation:`Set an absolutely positioned element ${prefix}${COMBINED_SCALE[i].value} from the top edge of the nearest positioned parent.`
       },
       {
-        label:`${negative}right-${FRAC_DEF_SCALE[i].name}`,
-        detail:`right: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size};`,
-        documentation:`Set an absolutely positioned element ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size} from the right edge of the nearest positioned parent.`
+        label:`${negative}right-${COMBINED_SCALE[i].name}`,
+        detail:`right: ${prefix}${COMBINED_SCALE[i].value};`,
+        documentation:`Set an absolutely positioned element ${prefix}${COMBINED_SCALE[i].value} from the right edge of the nearest positioned parent.`
       },
       {
-        label:`${negative}bottom-${FRAC_DEF_SCALE[i].name}`,
-        detail:`bottom: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size};`,
-        documentation:`Set an absolutely positioned element ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size} from the bottom edge of the nearest positioned parent.`
+        label:`${negative}bottom-${COMBINED_SCALE[i].name}`,
+        detail:`bottom: ${prefix}${COMBINED_SCALE[i].value};`,
+        documentation:`Set an absolutely positioned element ${prefix}${COMBINED_SCALE[i].value} from the bottom edge of the nearest positioned parent.`
       },
       {
-        label:`${negative}left-${FRAC_DEF_SCALE[i].name}`,
-        detail:`left: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size};`,
-        documentation:`Set an absolutely positioned element ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size} from the left edge of the nearest positioned parent.`
+        label:`${negative}left-${COMBINED_SCALE[i].name}`,
+        detail:`left: ${prefix}${COMBINED_SCALE[i].value};`,
+        documentation:`Set an absolutely positioned element ${prefix}${COMBINED_SCALE[i].value} from the left edge of the nearest positioned parent.`
       }
     );
   }

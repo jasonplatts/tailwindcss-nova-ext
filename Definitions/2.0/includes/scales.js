@@ -1,208 +1,91 @@
 const BREAKPOINTS = [
-  {
-    name:"sm",
-    size:"small",
-    value:"640px"
-  },
-  {
-    name:"md",
-    size:"medium",
-    value:"768px"
-  },
-  {
-    name:"lg",
-    size:"large",
-    value:"1024px"
-  },
-  {
-    name:"xl",
-    size:"extra large",
-    value:"1280px"
-  },
-  {
-    name:"2xl",
-    size:"2 extra large",
-    value:"1536px"
-  }
+  { name:"sm", desc:"small", value:"640px" },
+  { name:"md", desc:"medium", value:"768px" },
+  { name:"lg", desc:"large", value:"1024px" },
+  { name:"xl", desc:"extra large", value:"1280px" },
+  { name:"2xl", desc:"2 extra large", value:"1536px" }
 ];
 
 const DEFAULT_SPACING_SCALE = [
-  {
-    name:"0",
-    size:"0px",
-    pixels:"0px"
-  },
-  {
-    name:"px",
-    size:"1px",
-    pixels:"1px"
-  },
-  {
-    name:"0.5",
-    size:"0.125rem",
-    pixels:"2px"
-  },
-  {
-    name:"1",
-    size:"0.25rem",
-    pixels:"4px"
-  },
-  {
-    name:"1.5",
-    size:"0.375rem",
-    pixels:"6px"
-  },
-  {
-    name:"2",
-    size:"0.5rem",
-    pixels:"8px"
-  },
-  {
-    name:"2.5",
-    size:"0.625rem",
-    pixels:"10px"
-  },
-  {
-    name:"3",
-    size:"0.75rem",
-    pixels:"12px"
-  },
-  {
-    name:"3.5",
-    size:"0.875rem",
-    pixels:"14px"
-  },
-  {
-    name:"4",
-    size:"1rem",
-    pixels:"16px"
-  },
-  {
-    name:"5",
-    size:"1.25rem",
-    pixels:"20px"
-  },
-  {
-    name:"6",
-    size:"1.5rem",
-    pixels:"24px"
-  },
-  {
-    name:"7",
-    size:"1.75rem",
-    pixels:"28px"
-  },
-  {
-    name:"8",
-    size:"2rem",
-    pixels:"32px"
-  },
-  {
-    name:"9",
-    size:"2.25rem",
-    pixels:"36px"
-  },
-  {
-    name:"10",
-    size:"2.5rem",
-    pixels:"40px"
-  },
-  {
-    name:"11",
-    size:"2.75rem",
-    pixels:"44px"
-  },
-  {
-    name:"12",
-    size:"3rem",
-    pixels:"48px"
-  },
-  {
-    name:"14",
-    size:"3.5rem",
-    pixels:"56px"
-  },
-  {
-    name:"16",
-    size:"4rem",
-    pixels:"64px"
-  },
-  {
-    name:"20",
-    size:"5rem",
-    pixels:"80px"
-  },
-  {
-    name:"24",
-    size:"6rem",
-    pixels:"96px"
-  },
-  {
-    name:"28",
-    size:"7rem",
-    pixels:"112px"
-  },
-  {
-    name:"32",
-    size:"8rem",
-    pixels:"128px"
-  },
-  {
-    name:"36",
-    size:"9rem",
-    pixels:"144px"
-  },
-  {
-    name:"40",
-    size:"10rem",
-    pixels:"160px"
-  },
-  {
-    name:"44",
-    size:"11rem",
-    pixels:"176px"
-  },
-  {
-    name:"48",
-    size:"12rem",
-    pixels:"192px"
-  },
-  {
-    name:"52",
-    size:"13rem",
-    pixels:"208px"
-  },
-  {
-    name:"56",
-    size:"14rem",
-    pixels:"224px"
-  },
-  {
-    name:"60",
-    size:"15rem",
-    pixels:"240px"
-  },
-  {
-    name:"64",
-    size:"16rem",
-    pixels:"256px"
-  },
-  {
-    name:"72",
-    size:"18rem",
-    pixels:"288px"
-  },
-  {
-    name:"80",
-    size:"20rem",
-    pixels:"320px"
-  },
-  {
-    name:"96",
-    size:"24rem",
-    pixels:"384px"
-  }
+  { name:"0", value:"0px" },
+  { name:"px", value:"1px" },
+  { name:"0.5", value:"0.125rem" },
+  { name:"1", value:"0.25rem" },
+  { name:"1.5", value:"0.375rem" },
+  { name:"2", value:"0.5rem" },
+  { name:"2.5", value:"0.625rem" },
+  { name:"3", value:"0.75rem" },
+  { name:"3.5", value:"0.875rem" },
+  { name:"4", value:"1rem" },
+  { name:"5", value:"1.25rem" },
+  { name:"6", value:"1.5rem" },
+  { name:"7", value:"1.75rem" },
+  { name:"8", value:"2rem" },
+  { name:"9", value:"2.25rem" },
+  { name:"10", value:"2.5rem" },
+  { name:"11", value:"2.75rem" },
+  { name:"12", value:"3rem" },
+  { name:"14", value:"3.5rem" },
+  { name:"16", value:"4rem" },
+  { name:"20", value:"5rem" },
+  { name:"24", value:"6rem" },
+  { name:"28", value:"7rem" },
+  { name:"32", value:"8rem" },
+  { name:"36", value:"9rem" },
+  { name:"40", value:"10rem" },
+  { name:"44", value:"11rem" },
+  { name:"48", value:"12rem" },
+  { name:"52", value:"13rem" },
+  { name:"56", value:"14rem" },
+  { name:"60", value:"15rem" },
+  { name:"64", value:"16rem" },
+  { name:"72", value:"18rem" },
+  { name:"80", value:"20rem" },
+  { name:"96", value:"24rem" }
+];
+
+const CORE_DEFAULT_FRACTIONAL_SCALE = [
+  { name:"1/2", value:"50%" },
+  { name:"1/3", value:"33.333333%" },
+  { name:"2/3", value:"66.666667%" },
+  { name:"1/4", value:"25%" },
+  { name:"2/4", value:"50%" },
+  { name:"3/4", value:"75%" },
+  { name:"full", value:"100%" }
+];
+
+const FIFTHS_FRACTIONAL_SCALE = [
+  { name:"1/5", value:"20%" },
+  { name:"2/5", value:"40%" },
+  { name:"3/5", value:"60%" },
+  { name:"4/5", value:"80%" }
+];
+
+const SIXTHS_FRACTIONAL_SCALE = [
+  { name:"1/6", value:"16.666667%" },
+  { name:"2/6", value:"33.333333%" },
+  { name:"3/6", value:"50%" },
+  { name:"4/6", value:"66.666667%" },
+  { name:"5/6", value:"83.333333%" }
+];
+
+const TWELFTHS_FRACTIONAL_SCALE = [
+  { name:"1/12", value:"8.333333%" },
+  { name:"2/12", value:"16.666667%" },
+  { name:"3/12", value:"25%" },
+  { name:"4/12", value:"33.333333%" },
+  { name:"5/12", value:"41.666667%" },
+  { name:"6/12", value:"50%" },
+  { name:"7/12", value:"58.333333%" },
+  { name:"8/12", value:"66.666667%" },
+  { name:"9/12", value:"75%" },
+  { name:"10/12", value:"83.333333%" },
+  { name:"11/12", value:"91.666667%" }
 ];
 
 exports.BREAKPOINTS = BREAKPOINTS
 exports.DEFAULT_SPACING_SCALE = DEFAULT_SPACING_SCALE
+exports.CORE_DEFAULT_FRACTIONAL_SCALE = CORE_DEFAULT_FRACTIONAL_SCALE
+exports.FIFTHS_FRACTIONAL_SCALE = FIFTHS_FRACTIONAL_SCALE
+exports.SIXTHS_FRACTIONAL_SCALE = SIXTHS_FRACTIONAL_SCALE
+exports.TWELFTHS_FRACTIONAL_SCALE = TWELFTHS_FRACTIONAL_SCALE
