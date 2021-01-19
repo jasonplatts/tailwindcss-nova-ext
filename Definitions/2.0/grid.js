@@ -44,6 +44,14 @@ for(i = 1; i <= 12; i++) {
   )
 }
 
+gridColumnStartEnd.push(
+  {
+    label:`col-span-full`,
+    detail:`grid-column: 1 / -1;`,
+    documentation:`Make an element span all columns.`
+  }
+)
+
 for(i = 1; i <= 13; i++) {
   gridColumnStartEnd.push(
     {
@@ -114,7 +122,7 @@ gridRowStartEnd.push(
   }
 )
 
-for(i = 1; i <= 12; i++) {
+for(i = 1; i <= 6; i++) {
   gridRowStartEnd.push(
     {
       label:`row-span-${i}`,
@@ -124,7 +132,15 @@ for(i = 1; i <= 12; i++) {
   )
 }
 
-for(i = 1; i <= 13; i++) {
+gridRowStartEnd.push(
+  {
+    label:`row-span-full`,
+    detail:`grid-row: 1 / -1;`,
+    documentation:`Make an element span all rows.`
+  }
+)
+
+for(i = 1; i <= 7; i++) {
   gridRowStartEnd.push(
     {
       label:`row-start-${i}`,
@@ -142,7 +158,7 @@ gridRowStartEnd.push(
   }
 )
 
-for(i = 1; i <= 13; i++) {
+for(i = 1; i <= 7; i++) {
   gridRowStartEnd.push(
     {
       label:`row-end-${i}`,
