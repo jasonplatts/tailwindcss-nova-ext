@@ -37,7 +37,7 @@ let flexWrap = [
     documentation:"Wrap flex items in the reverse direction."
   },
   {
-    label:"flex-no-wrap",
+    label:"flex-nowrap",
     detail:"flex-wrap: nowrap;",
     documentation:"Prevent flex items from wrapping, causing inflexible items to overflow their container if necessary."
   }
