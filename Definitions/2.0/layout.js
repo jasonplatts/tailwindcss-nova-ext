@@ -408,27 +408,68 @@ const TRBL_FRACTIONAL_SCALE = [
   }
 ];
 
-const COMBINED_FRACTIONAL_DEFAULT_SCALE = [...TRBL_FRACTIONAL_SCALE, ...SCALES.DEFAULT_SPACING_SCALE];
-
-const NEGATIVE_TRBL_FRACTIONAL_SCALE = TRBL_FRACTIONAL_SCALE.map((element) => {
-    // While map is creating a new array, it is filling it with pointers
-    // to the same objects. Avoid this by assigning objects as needed.
-    let newElement;
-    
-    if (element.name !== "0") {
-      newElement = {
-        name: element.name,
-        size: "-" + element.size
-      }
-    } else {
-      newElement = Object.assign(element);
-    }
-    
-    return newElement;
-  }
-);
+const FRAC_DEF_SCALE = [...TRBL_FRACTIONAL_SCALE, ...SCALES.DEFAULT_SPACING_SCALE];
 
 let topRightBottomLeft = [];
+
+function addTopRightBottomLeftClasses(negative = "") {
+  let objectsArray = [];
+  
+  for(i = 0; i < FRAC_DEF_SCALE.length; i++) {
+    let negativeSizePrefix = "";
+    
+    if (negative == "-") {
+      if (FRAC_DEF_SCALE[i].size !== "0px") {
+        negativeSizePrefix = "-";
+      } else {
+        negativeSizePrefix = "";
+      }
+    }
+    
+    objectsArray.push(
+      {
+        label:`${negative}inset-${FRAC_DEF_SCALE[i].name}`,
+        detail:`top: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size}; right: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size}; bottom: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size}; left: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size};`,
+        documentation:`Set an absolutely positioned element ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size} from all edges of the nearest positioned parent.`
+      },
+      {
+        label:`${negative}inset-y-${FRAC_DEF_SCALE[i].name}`,
+        detail:`top: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size}; bottom: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size};`,
+        documentation:`Set an absolutely positioned element ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size} from the top and bottom edges of the nearest positioned parent.`
+      },
+      {
+        label:`${negative}inset-x-${FRAC_DEF_SCALE[i].name}`,
+        detail:`right: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size}; left: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size};`,
+        documentation:`Set an absolutely positioned element ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size} from the left and right edges of the nearest positioned parent.`
+      },
+      {
+        label:`${negative}top-${FRAC_DEF_SCALE[i].name}`,
+        detail:`top: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size};`,
+        documentation:`Set an absolutely positioned element ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size} from the top edge of the nearest positioned parent.`
+      },
+      {
+        label:`${negative}right-${FRAC_DEF_SCALE[i].name}`,
+        detail:`right: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size};`,
+        documentation:`Set an absolutely positioned element ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size} from the right edge of the nearest positioned parent.`
+      },
+      {
+        label:`${negative}bottom-${FRAC_DEF_SCALE[i].name}`,
+        detail:`bottom: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size};`,
+        documentation:`Set an absolutely positioned element ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size} from the bottom edge of the nearest positioned parent.`
+      },
+      {
+        label:`${negative}left-${FRAC_DEF_SCALE[i].name}`,
+        detail:`left: ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size};`,
+        documentation:`Set an absolutely positioned element ${negativeSizePrefix}${FRAC_DEF_SCALE[i].size} from the left edge of the nearest positioned parent.`
+      }
+    );
+  }
+  
+  return objectsArray;
+}
+
+topRightBottomLeft = addTopRightBottomLeftClasses();
+topRightBottomLeft = [...topRightBottomLeft, ...addTopRightBottomLeftClasses("-")];
 
 topRightBottomLeft.push(
   {
@@ -467,199 +508,6 @@ topRightBottomLeft.push(
     documentation:"Let the browser determine the left position of an absolutely positioned element."
   }
 );
-
-// FRACTIONAL CLASSES
-for(i = 0; i < TRBL_FRACTIONAL_SCALE.length; i++) {
-  // INSET CLASSES
-  topRightBottomLeft.push(
-    {
-      label:`inset-${TRBL_FRACTIONAL_SCALE[i].name}`,
-      detail:`top: ${TRBL_FRACTIONAL_SCALE[i].size}; right: ${TRBL_FRACTIONAL_SCALE[i].size}; bottom: ${TRBL_FRACTIONAL_SCALE[i].size}; left: ${TRBL_FRACTIONAL_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${TRBL_FRACTIONAL_SCALE[i].size} from all edges of the nearest positioned parent.`
-    },
-    {
-      label:`inset-y-${TRBL_FRACTIONAL_SCALE[i].name}`,
-      detail:`top: ${TRBL_FRACTIONAL_SCALE[i].size}; bottom: ${TRBL_FRACTIONAL_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${TRBL_FRACTIONAL_SCALE[i].size} from the top and bottom edges of the nearest positioned parent.`
-    },
-    {
-      label:`inset-x-${TRBL_FRACTIONAL_SCALE[i].name}`,
-      detail:`right: ${TRBL_FRACTIONAL_SCALE[i].size}; left: ${TRBL_FRACTIONAL_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${TRBL_FRACTIONAL_SCALE[i].size} from the left and right edges of the nearest positioned parent.`
-    }
-  )
-}
-
-function generateItem(label, detail, documentation, negative) {
-  let itemArray;
-}
-
-// DEFAULT SPACING CLASSES
-for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
-  // INSET CLASSES
-  topRightBottomLeft.push(
-    {
-      label:`inset-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`top: ${SCALES.DEFAULT_SPACING_SCALE[i].size}; right: ${SCALES.DEFAULT_SPACING_SCALE[i].size}; bottom: ${SCALES.DEFAULT_SPACING_SCALE[i].size}; left: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${SCALES.DEFAULT_SPACING_SCALE[i].size} from all edges of the nearest positioned parent.`
-    },
-    {
-      label:`-inset-${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`top: ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size}; right: ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size}; bottom: ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size}; left: ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size} from all edges of the nearest positioned parent.`
-    },
-    {
-      label:`inset-y-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`top: ${SCALES.DEFAULT_SPACING_SCALE[i].size}; bottom: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${SCALES.DEFAULT_SPACING_SCALE[i].size} from the top and bottom edges of the nearest positioned parent.`
-    },
-    {
-      label:`-inset-y-${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`top: ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size}; bottom: ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size} from the top and bottom edges of the nearest positioned parent.`
-    },
-    {
-      label:`inset-x-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`right: ${SCALES.DEFAULT_SPACING_SCALE[i].size}; left: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${SCALES.DEFAULT_SPACING_SCALE[i].size} from the left and right edges of the nearest positioned parent.`
-    },
-    {
-      label:`-inset-x-${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`right: ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size}; left: ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size} from the left and right edges of the nearest positioned parent.`
-    },
-  );
-  
-  // TOP CLASSES
-  topRightBottomLeft.push(
-    {
-      label:`top-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`top: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${SCALES.DEFAULT_SPACING_SCALE[i].size} from the top edge of the nearest positioned parent.`
-    },
-    {
-      label:`-top-${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`top: ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size} from the top edge of the nearest positioned parent.`
-    }   
-  );
- 
-  // RIGHT CLASSES
-  topRightBottomLeft.push(
-    {
-      label:`right-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`right: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${SCALES.DEFAULT_SPACING_SCALE[i].size} from the right edge of the nearest positioned parent.`
-    },
-    {
-      label:`-right-${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`right: ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size} from the right edge of the nearest positioned parent.`
-    }   
-  );
-
-  // BOTTOM CLASSES
-  topRightBottomLeft.push(
-    {
-      label:`bottom-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`bottom: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${SCALES.DEFAULT_SPACING_SCALE[i].size} from the bottom edge of the nearest positioned parent.`
-    },
-    {
-      label:`-bottom-${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`bottom: ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size} from the bottom edge of the nearest positioned parent.`
-    }   
-  );
-
-  // LEFT CLASSES
-  topRightBottomLeft.push(
-    {
-      label:`left-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`left: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${SCALES.DEFAULT_SPACING_SCALE[i].size} from the left edge of the nearest positioned parent.`
-    },
-    {
-      label:`-left-${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`left: ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set an absolutely positioned element ${SCALES.NEGATIVE_DEFAULT_SPACING_SCALE[i].size} from the left edge of the nearest positioned parent.`
-    }   
-  );
-}
-
-
-// let topRightBottomLeft = [
-//   {
-//     label:"inset-0",
-//     detail:"top: 0; right: 0; bottom: 0; left: 0;",
-//     documentation:"Anchor absolutely positioned elements against edges of the nearest positioned parent."
-//   },
-//   {
-//     label:"inset-auto",
-//     detail:"top: auto; right: auto; bottom: auto; left: auto;",
-//     documentation:"Let the browser determine the top, right, bottom, and left position of an absolutely positioned element."
-//   },
-//   {
-//     label:"inset-y-0",
-//     detail:"top: 0; bottom: 0;",
-//     documentation:"Anchor absolutely positioned elements against top and bottom edges of the nearest positioned parent."
-//   },
-//   {
-//     label:"inset-x-0",
-//     detail:"right: 0; left: 0;",
-//     documentation:"Anchor absolutely positioned elements against left and right edges of the nearest positioned parent."
-//   },
-//   {
-//     label:"inset-y-auto",
-//     detail:"top: auto; bottom: auto;",
-//     documentation:"Let the browser determine the top and bottom position of an absolutely positioned element."
-//   },
-//   {
-//     label:"inset-x-auto",
-//     detail:"right: auto; left: auto;",
-//     documentation:"Let the browser determine the left and right position of an absolutely positioned element."
-//   },
-//   {
-//     label:"top-0",
-//     detail:"top: 0;",
-//     documentation:"Anchor absolutely positioned elements against the top edge of the nearest positioned parent."
-//   },
-//   {
-//     label:"right-0",
-//     detail:"right: 0;",
-//     documentation:"Anchor absolutely positioned elements against the right edge of the nearest positioned parent."
-//   },
-//   {
-//     label:"bottom-0",
-//     detail:"bottom: 0;",
-//     documentation:"Anchor absolutely positioned elements against the bottom edge of the nearest positioned parent."
-//   },
-//   {
-//     label:"left-0",
-//     detail:"left: 0;",
-//     documentation:"Anchor absolutely positioned elements against the left edge of the nearest positioned parent."
-//   },
-//   {
-//     label:"top-auto",
-//     detail:"top: auto;",
-//     documentation:"Let the browser determine the top position of an absolutely positioned element."
-//   },
-//   {
-//     label:"right-auto",
-//     detail:"right: auto;",
-//     documentation:"Let the browser determine the right position of an absolutely positioned element."
-//   },
-//   {
-//     label:"bottom-auto",
-//     detail:"bottom: auto;",
-//     documentation:"Let the browser determine the bottom position of an absolutely positioned element."
-//   },
-//   {
-//     label:"left-auto",
-//     detail:"left: auto;",
-//     documentation:"Let the browser determine the left position of an absolutely positioned element."
-//   }
-// ];
 
 /*        VISIBILITY CLASSES        */
 
