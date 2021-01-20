@@ -1,22 +1,23 @@
 const COLORS    = require('./includes/colors.js');
 const FUNCTIONS = require('../../Scripts/functions.js');
+const SCALES = require('./includes/scales.js');
 
 /*        FONT FAMILY CLASSES        */
 
 let fontFamily = [
   {
     label:"font-sans",
-    detail:"font-family: font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";",
+    detail:`font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";`,
     documentation:"Apply a sans-serif font family."
   },
   {
     label:"font-serif",
-    detail:"font-family: Georgia, Cambria, \"Times New Roman\", Times, serif;",
+    detail:`font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;`,
     documentation:"Apply a serif font family."
   },
   {
     label:"font-mono",
-    detail:"font-family: Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace;",
+    detail:`font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;`,
     documentation:"Apply a monospaced font family."
   }
 ];
@@ -24,16 +25,19 @@ let fontFamily = [
 /*        FONT SIZE CLASSES        */
 
 const FONT_SIZES = [
-  { name:"xs",   value:"0.75rem" },
-  { name:"sm",   value:"0.875rem" },
-  { name:"base", value:"1rem" },
-  { name:"lg",   value:"1.125rem" },
-  { name:"xl",   value:"1.25rem" },
-  { name:"2xl",  value:"1.5rem" },
-  { name:"3xl",  value:"1.875rem" },
-  { name:"4xl",  value:"2.25rem" },
-  { name:"5xl",  value:"3rem" },
-  { name:"6xl",  value:"4rem" }
+  { name:"xs", size:"0.75rem", lineHeight:"1rem" },
+  { name:"sm", size:"0.875rem", lineHeight:"1.25rem" },
+  { name:"base", size:"1rem", lineHeight:"1.5rem" },
+  { name:"lg", size:"1.125rem", lineHeight:"1.75rem" },
+  { name:"xl", size:"1.25rem", lineHeight:"1.75rem" },
+  { name:"2xl", size:"1.5rem", lineHeight:"2rem" },
+  { name:"3xl", size:"1.875rem", lineHeight:"2.25rem" },
+  { name:"4xl", size:"2.25rem", lineHeight:"2.5rem" },
+  { name:"5xl", size:"3rem", lineHeight:"1" },
+  { name:"6xl", size:"3.75rem", lineHeight:"1" },
+  { name:"7xl", size:"4.5rem", lineHeight:"1" },
+  { name:"8xl", size:"6rem", lineHeight:"1" },
+  { name:"9xl", size:"8rem", lineHeight:"1" }
 ];
 
 let fontSize = [];
@@ -42,8 +46,8 @@ for(i = 0; i < FONT_SIZES.length; i++) {
   fontSize.push(
     {
       label:`text-${FONT_SIZES[i].name}`,
-      detail:`font-size: ${FONT_SIZES[i].value};`,
-      documentation:`Set the font size of an element to ${FONT_SIZES[i].value}.`
+      detail:`font-size: ${FONT_SIZES[i].size}; line-height: ${FONT_SIZES[i].lineHeight};`,
+      documentation:`Set the font size of an element to ${FONT_SIZES[i].size} and the line-height to ${FONT_SIZES[i].lineHeight}.`
     }
   );
 }
@@ -81,15 +85,15 @@ let fontStyle = [
 /*        FONT WEIGHT CLASSES        */
 
 const FONT_WEIGHTS = [
-  { name:"hairline",  value:"100" },
-  { name:"thin",      value:"200" },
-  { name:"light",     value:"300" },
-  { name:"normal",    value:"400" },
-  { name:"medium",    value:"500" },
-  { name:"semibold",  value:"600" },
-  { name:"bold",      value:"700" },
+  { name:"thin", value:"100" },
+  { name:"extralight", value:"200" },
+  { name:"light", value:"300" },
+  { name:"normal", value:"400" },
+  { name:"medium", value:"500" },
+  { name:"semibold", value:"600" },
+  { name:"bold", value:"700" },
   { name:"extrabold", value:"800" },
-  { name:"black",     value:"900" }
+  { name:"black", value:"900" }
 ];
 
 let fontWeight = [];
@@ -287,23 +291,15 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
 
 /*        PLACEHOLDER OPACITY CLASSES        */
 
-const PLACEHOLDER_OPACITIES = [
-  { name:"0",   value:"0" },
-  { name:"25",  value:"0.25" },
-  { name:"50",  value:"0.5" },
-  { name:"75",  value:"0.75" },
-  { name:"100", value:"1" }
-];
-
 let placeholderOpacity = [];
 
-for(i = 0; i < PLACEHOLDER_OPACITIES.length; i++) {
+for(i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
   placeholderOpacity.push(
     {
-      label:`placeholder-opacity-${PLACEHOLDER_OPACITIES[i].name}`,
-      color: new Color("rgb", [0, 0, 0, parseFloat(PLACEHOLDER_OPACITIES[i].value)]),
-      detail:`--placeholder-opacity: ${PLACEHOLDER_OPACITIES[i].value};`,
-      documentation:`Set the opacity of the placeholder color to ${PLACEHOLDER_OPACITIES[i].value}.`
+      label:`placeholder-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
+      color: new Color("rgb", [0, 0, 0, parseFloat(SCALES.DEFAULT_OPACITY_SCALE[i].value)]),
+      detail:`--placeholder-opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
+      documentation:`Set the opacity of the placeholder color to ${SCALES.DEFAULT_OPACITY_SCALE[i].value}.`
     }
   );  
 }
@@ -364,23 +360,15 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
 
 /*        TEXT OPACITY CLASSES        */
 
-const TEXT_OPACITIES = [
-  { name:"0",   value:"0" },
-  { name:"25",  value:"0.25" },
-  { name:"50",  value:"0.5" },
-  { name:"75",  value:"0.75" },
-  { name:"100", value:"1" }
-];
-
 let textOpacity = [];
 
-for(i = 0; i < TEXT_OPACITIES.length; i++) {
+for(i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
   textOpacity.push(
     {
-      label:`text-opacity-${TEXT_OPACITIES[i].name}`,
-      color: new Color("rgb", [0, 0, 0, parseFloat(TEXT_OPACITIES[i].value)]),
-      detail:`--text-opacity: ${TEXT_OPACITIES[i].value};`,
-      documentation:`Set the opacity of an element's text color to ${TEXT_OPACITIES[i].value}.`
+      label:`text-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
+      color: new Color("rgb", [0, 0, 0, parseFloat(SCALES.DEFAULT_OPACITY_SCALE[i].value)]),
+      detail:`--text-opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
+      documentation:`Set the opacity of an element's text color to ${SCALES.DEFAULT_OPACITY_SCALE[i].value}.`
     }
   );  
 }
@@ -427,6 +415,26 @@ let textTransform = [
     label:"normal-case",
     detail:"text-transform: none;",
     documentation:"Preserve the original casing. Typically used to reset capitalization at different breakpoints."
+  }
+];
+
+/*        TEXT OVERFLOW CLASSES        */
+
+let textOverflow = [
+  {
+    label:"truncate",
+    detail:"overflow: hidden; text-overflow: ellipsis; white-space: nowrap;",
+    documentation:"Set overflowing text within an element to truncate with an ellipsis (…) if needed."
+  },
+  {
+    label:"overflow-ellipsis",
+    detail:"text-overflow: ellipsis;",
+    documentation:"Set overflowing text within an element to truncate with an ellipsis (…) if needed."
+  },
+  {
+    label:"overflow-clip",
+    detail:"text-overflow: clip;",
+    documentation:"Set overflowing text to truncate at the limit of the content area."
   }
 ];
 
@@ -512,11 +520,6 @@ let wordBreak = [
     label:"break-all",
     detail:"word-break: break-all;",
     documentation:"Set text within an element to add line break whenever necessary, without trying to preserve whole words."
-  },
-  {
-    label:"truncate",
-    detail:"overflow: hidden; text-overflow: ellipsis; white-space: nowrap;",
-    documentation:"Set overflowing text within an element to truncate with an ellipsis (…) if needed."
   }
 ];
 
@@ -540,6 +543,7 @@ classes = classes.concat(
   textOpacity,
   textDecoration,
   textTransform,
+  textOverflow,
   verticalAlign,
   whitespace,
   wordBreak

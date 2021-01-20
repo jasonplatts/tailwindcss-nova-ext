@@ -83,9 +83,28 @@ const TWELFTHS_FRACTIONAL_SCALE = [
   { name:"11/12", value:"91.666667%" }
 ];
 
+const DEFAULT_OPACITY_SCALE = [
+  { name:"0",   value:"0" },
+  { name:"5",   value:"0.05" },
+  { name:"10",  value:"0.1" },
+  { name:"20",  value:"0.2" },
+  { name:"25",  value:"0.25" },
+  { name:"30",  value:"0.3" },
+  { name:"40",  value:"0.4" },
+  { name:"50",  value:"0.5" },
+  { name:"60",  value:"0.6" },
+  { name:"70",  value:"0.7" },
+  { name:"75",  value:"0.75" },
+  { name:"80",  value:"0.8" },
+  { name:"90",  value:"0.9" },
+  { name:"95",  value:"0.95" },
+  { name:"100", value:"1" }
+];
+
 exports.BREAKPOINTS = BREAKPOINTS
 exports.DEFAULT_SPACING_SCALE = DEFAULT_SPACING_SCALE
 exports.CORE_DEFAULT_FRACTIONAL_SCALE = CORE_DEFAULT_FRACTIONAL_SCALE
 exports.FIFTHS_FRACTIONAL_SCALE = FIFTHS_FRACTIONAL_SCALE
 exports.SIXTHS_FRACTIONAL_SCALE = SIXTHS_FRACTIONAL_SCALE
 exports.TWELFTHS_FRACTIONAL_SCALE = TWELFTHS_FRACTIONAL_SCALE
+exports.DEFAULT_OPACITY_SCALE = DEFAULT_OPACITY_SCALE
