@@ -1,216 +1,111 @@
 const COLORS = require('./includes/colors.js');
 const FUNCTIONS = require('../../Scripts/functions.js');
+const SCALES = require('./includes/scales.js');
 
 /*        BORDER RADIUS CLASSES        */
 
-let borderRaidusSizes = [];
-borderRaidusSizes["sm"]       = "0.125rem" 
-borderRaidusSizes["default"]  = "0.25rem"
-borderRaidusSizes["md"]       = "0.375rem"
-borderRaidusSizes["lg"]       = "0.5rem"
-
-let borderFullSize         = "9999px"
+const BORDER_RADIUS_SCALE = [
+  { name:"-none", value:"0px" },
+  { name:"-sm", value:"0.125rem" },
+  { name:"", value:"0.25rem" },
+  { name:"-md", value:"0.375rem" },
+  { name:"-lg", value:"0.5rem" },
+  { name:"-xl", value:"0.75rem" },
+  { name:"-2xl", value:"1rem" },
+  { name:"-3xl", value:"1.5rem" },
+  { name:"-full", value:"9999px" },
+];
 
 let borderRadius = [];
 
-// None Classes -- No breakpoint options for None Classes
-borderRadius.push(
-  {
-    label:`rounded-none`,
-    detail:"border-radius: 0;",
-    documentation:"Remove any border radius (rounded corners) applied to an element."
-  },
-  {
-    label:"rounded-t-none",
-    detail:"border-top-left-radius: 0; border-top-right-radius: 0;",
-    documentation:"Remove any top left and top right border radius (rounded corners) applied to an element."
-  },
-  {
-    label:"rounded-r-none",
-    detail:"border-top-right-radius: 0; border-bottom-right-radius: 0;",
-    documentation:"Remove any top right and bottom right border radius (rounded corners) applied to an element."
-  },
-  {
-    label:"rounded-b-none",
-    detail:"border-bottom-right-radius: 0; border-bottom-left-radius: 0;",
-    documentation:"Remove any bottom left and bottom right border radius (rounded corners) applied to an element."
-  },
-  {
-    label:"rounded-l-none",
-    detail:"border-top-left-radius: 0; border-bottom-left-radius: 0;",
-    documentation:"Remove any top left and bottom left border radius (rounded corners) applied to an element."
-  },
-  {
-    label:"rounded-tl-none",
-    detail:"border-top-left-radius: 0;",
-    documentation:"Remove any top left border radius (rounded corners) applied to an element."
-  },
-  {
-    label:"rounded-tr-none",
-    detail:"border-top-right-radius: 0;",
-    documentation:"Remove any top right border radius (rounded corners) applied to an element."
-  },
-  {
-    label:"rounded-br-none",
-    detail:"border-bottom-right-radius: 0;",
-    documentation:"Remove any bottom right border radius (rounded corners) applied to an element."
-  },
-  {
-    label:"rounded-bl-none",
-    detail:"border-bottom-left-radius: 0;",
-    documentation:"Remove any bottom left border radius (rounded corners) applied to an element."
-  }
-);
-
-// Full Classes -- No breakpoint options for Full Classes
-borderRadius.push(
-  {
-    label:`rounded-full`,
-    detail:`border-radius: ${borderFullSize};`,
-    documentation:`Set an element's border radius (rounded corners) to ${borderFullSize}.`
-  },
-  {
-    label:`rounded-t-full`,
-    detail:`border-top-left-radius: ${borderFullSize}; border-top-right-radius: ${borderFullSize};`,
-    documentation:`Set an element's top left and top right border radius (rounded corners) to ${borderFullSize}.`
-  },
-  {
-    label:`rounded-r-full`,
-    detail:`border-top-right-radius: ${borderFullSize}; border-bottom-right-radius: ${borderFullSize};`,
-    documentation:`Set an element's top right and bottom right border radius (rounded corners) to ${borderFullSize}.`
-  },
-  {
-    label:`rounded-b-full`,
-    detail:`border-bottom-right-radius: ${borderFullSize}; border-bottom-left-radius: ${borderFullSize};`,
-    documentation:`Set an element's bottom left and bottom right border radius (rounded corners) to ${borderFullSize}.`
-  },
-  {
-    label:`rounded-l-full`,
-    detail:`border-top-left-radius: ${borderFullSize}; border-bottom-left-radius: ${borderFullSize};`,
-    documentation:`Set an element's top left and bottom left border radius (rounded corners) to ${borderFullSize}.`
-  },
-  {
-    label:`rounded-tl-full`,
-    detail:`border-top-left-radius: ${borderFullSize};`,
-    documentation:`Set an element's top left border radius (rounded corners) to ${borderFullSize}.`
-  },
-  {
-    label:`rounded-tr-full`,
-    detail:`border-top-right-radius: ${borderFullSize};`,
-    documentation:`Set an element's top right border radius (rounded corners) to ${borderFullSize}.`
-  },
-  {
-    label:`rounded-br-full`,
-    detail:`border-bottom-right-radius: ${borderFullSize};`,
-    documentation:`Set an element's bottom right border radius (rounded corners) to ${borderFullSize}.`
-  },
-  {
-    label:`rounded-bl-full`,
-    detail:`border-bottom-left-radius: ${borderFullSize};`,
-    documentation:`Set an element's bottom left border radius (rounded corners) to ${borderFullSize}.`
-  }
-);
-
-// Sm, Md, Lg, and Full Size Classes
-for(const [key, value] of Object.entries(borderRaidusSizes)){
-  let labelAffix = "";
-  
-  if(key!=="default") {
-    labelAffix = `-${key}`;
-  }
-  
+for(i = 0; i < BORDER_RADIUS_SCALE.length; i++) {
   borderRadius.push(
     {
-      label:`rounded${labelAffix}`,
-      detail:`border-radius: ${value};`,
-      documentation:`Set an element's border radius (rounded corners) to ${value}.`
+      label:`rounded${BORDER_RADIUS_SCALE[i].name}`,
+      detail:`border-radius: ${BORDER_RADIUS_SCALE[i].value};`,
+      documentation:`Set the border radius to ${BORDER_RADIUS_SCALE[i].value}.`
     },
     {
-      label:`rounded-t${labelAffix}`,
-      detail:`border-top-left-radius: ${value}; border-top-right-radius: ${value};`,
-      documentation:`Set an element's top left and top right border radius (rounded corners) to ${value}.`
+      label:`rounded-t${BORDER_RADIUS_SCALE[i].name}`,
+      detail:`border-top-left-radius: ${BORDER_RADIUS_SCALE[i].value}; border-top-right-radius: ${BORDER_RADIUS_SCALE[i].value};`,
+      documentation:`Set the top left and top right border radius to ${BORDER_RADIUS_SCALE[i].value}.`
     },
     {
-      label:`rounded-r${labelAffix}`,
-      detail:`border-top-right-radius: ${value}; border-bottom-right-radius: ${value};`,
-      documentation:`Set an element's top right and bottom right border radius (rounded corners) to ${value}.`
+      label:`rounded-r${BORDER_RADIUS_SCALE[i].name}`,
+      detail:`border-top-right-radius: ${BORDER_RADIUS_SCALE[i].value}; border-bottom-right-radius: ${BORDER_RADIUS_SCALE[i].value};`,
+      documentation:`Set the top right and bottom right border radius to ${BORDER_RADIUS_SCALE[i].value}.`
     },
     {
-      label:`rounded-b${labelAffix}`,
-      detail:`border-bottom-right-radius: ${value}; border-bottom-left-radius: ${value};`,
-      documentation:`Set an element's bottom left and bottom right border radius (rounded corners) to ${value}.`
+      label:`rounded-b${BORDER_RADIUS_SCALE[i].name}`,
+      detail:`border-bottom-right-radius: ${BORDER_RADIUS_SCALE[i].value}; border-bottom-left-radius: ${BORDER_RADIUS_SCALE[i].value};`,
+      documentation:`Set the bottom left and bottom right border radius to ${BORDER_RADIUS_SCALE[i].value}.`
     },
     {
-      label:`rounded-l${labelAffix}`,
-      detail:`border-top-left-radius: ${value}; border-bottom-left-radius: ${value};`,
-      documentation:`Set an element's top left and bottom left border radius (rounded corners) to ${value}.`
+      label:`rounded-l${BORDER_RADIUS_SCALE[i].name}`,
+      detail:`border-top-left-radius: ${BORDER_RADIUS_SCALE[i].value}; border-bottom-left-radius: ${BORDER_RADIUS_SCALE[i].value};`,
+      documentation:`Set the top left and bottom left border radius to ${BORDER_RADIUS_SCALE[i].value}.`
     },
     {
-      label:`rounded-tl${labelAffix}`,
-      detail:`border-top-left-radius: ${value};`,
-      documentation:`Set an element's top left border radius (rounded corners) to ${value}.`
+      label:`rounded-tl${BORDER_RADIUS_SCALE[i].name}`,
+      detail:`border-top-left-radius: ${BORDER_RADIUS_SCALE[i].value};`,
+      documentation:`Set the top left border radius to ${BORDER_RADIUS_SCALE[i].value}.`
     },
     {
-      label:`rounded-tr${labelAffix}`,
-      detail:`border-top-right-radius: ${value};`,
-      documentation:`Set an element's top right border radius (rounded corners) to ${value}.`
+      label:`rounded-tr${BORDER_RADIUS_SCALE[i].name}`,
+      detail:`border-top-right-radius: ${BORDER_RADIUS_SCALE[i].value};`,
+      documentation:`Set the top right border radius to ${BORDER_RADIUS_SCALE[i].value}.`
     },
     {
-      label:`rounded-br${labelAffix}`,
-      detail:`border-bottom-right-radius: ${value};`,
-      documentation:`Set an element's bottom right border radius (rounded corners) to ${value}.`
+      label:`rounded-br${BORDER_RADIUS_SCALE[i].name}`,
+      detail:`border-bottom-right-radius: ${BORDER_RADIUS_SCALE[i].value};`,
+      documentation:`Set the bottom right border radius to ${BORDER_RADIUS_SCALE[i].value}.`
     },
     {
-      label:`rounded-bl${labelAffix}`,
-      detail:`border-bottom-left-radius: ${value};`,
-      documentation:`Set an element's bottom left border radius (rounded corners) to ${value}.`
+      label:`rounded-bl${BORDER_RADIUS_SCALE[i].name}`,
+      detail:`border-bottom-left-radius: ${BORDER_RADIUS_SCALE[i].value};`,
+      documentation:`Set the bottom left border radius to ${BORDER_RADIUS_SCALE[i].value}.`
     }
-  );
+  ); 
 }
 
 /*        BORDER WIDTH CLASSES        */
 
-let borderWidthSizes = [];
-borderWidthSizes["0"] = "0";
-borderWidthSizes["2"] = "2px";
-borderWidthSizes["4"] = "4px";
-borderWidthSizes["8"] = "8px";
-borderWidthSizes["default"] = "1px";
+const BORDER_WIDTH_SCALE = [
+  { name:"-0", value:"0px" },
+  { name:"-2", value:"2px" },
+  { name:"-4", value:"4px" },
+  { name:"-8", value:"8px" },
+  { name:"", value:"1px" }
+];
 
 let borderWidth = [];
 
-for(const [key, value] of Object.entries(borderWidthSizes)) {
-  let labelAffix = "";
-  
-  if(key!=="default") {
-    labelAffix = `-${key}`;
-  }
-
+for(i = 0; i < BORDER_WIDTH_SCALE.length; i++) {
   borderWidth.push(
     {
-      label:`border${labelAffix}`,
-      detail:`border-width: ${value};`,
-      documentation:`Set the border width for all sides of an element to ${value}.`
+      label:`border${BORDER_WIDTH_SCALE[i].name}`,
+      detail:`border-width: ${BORDER_WIDTH_SCALE[i].value};`,
+      documentation:`Set the border width for all sides of an element to ${BORDER_WIDTH_SCALE[i].value}.`
     },
     {
-      label:`border-t${labelAffix}`,
-      detail:`border-top-width: ${value};`,
-      documentation:`Set the top border width of an element to ${value}.`
+      label:`border-t${BORDER_WIDTH_SCALE[i].name}`,
+      detail:`border-top-width: ${BORDER_WIDTH_SCALE[i].value};`,
+      documentation:`Set the top border width of an element to ${BORDER_WIDTH_SCALE[i].value}.`
     },
     {
-      label:`border-r${labelAffix}`,
-      detail:`border-right-width: ${value};`,
-      documentation:`Set the right border width of an element to ${value}.`
+      label:`border-r${BORDER_WIDTH_SCALE[i].name}`,
+      detail:`border-right-width: ${BORDER_WIDTH_SCALE[i].value};`,
+      documentation:`Set the right border width of an element to ${BORDER_WIDTH_SCALE[i].value}.`
     },
     {
-      label:`border-b${labelAffix}`,
-      detail:`border-bottom-width: ${value};`,
-      documentation:`Set the bottom border width of an element to ${value}.`
+      label:`border-b${BORDER_WIDTH_SCALE[i].name}`,
+      detail:`border-bottom-width: ${BORDER_WIDTH_SCALE[i].value};`,
+      documentation:`Set the bottom border width of an element to ${BORDER_WIDTH_SCALE[i].value}.`
     },
     {
-      label:`border-l${labelAffix}`,
-      detail:`border-left-width: ${value};`,
-      documentation:`Set the left border width of an element to ${value}.`
+      label:`border-l${BORDER_WIDTH_SCALE[i].name}`,
+      detail:`border-left-width: ${BORDER_WIDTH_SCALE[i].value};`,
+      documentation:`Set the left border width of an element to ${BORDER_WIDTH_SCALE[i].value}.`
     }
   ); 
 }
@@ -246,38 +141,18 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
 
 /*        BORDER OPACITY CLASSES        */
 
-let borderOpacity = [
-  {
-    label:"border-opacity-0",
-    color: new Color("rgb", [0, 0, 0, 0]),
-    detail:"--border-opacity: 0;",
-    documentation:"Set the opacity of an element's border to 0."
-  },
-  {
-    label:"border-opacity-25",
-    color: new Color("rgb", [0, 0, 0, 0.25]),
-    detail:"--border-opacity: 0.25;",
-    documentation:"Set the opacity of an element's border to 0.25."
-  },
-  {
-    label:"border-opacity-50",
-    color: new Color("rgb", [0, 0, 0, 0.5]),
-    detail:"--border-opacity: 0.5;",
-    documentation:"Set the opacity of an element's border to 0.5."
-  },
-  {
-    label:"border-opacity-75",
-    color: new Color("rgb", [0, 0, 0, 0.75]),
-    detail:"--border-opacity: 0.75;",
-    documentation:"Set the opacity of an element's border to 0.75."
-  },
-  {
-    label:"border-opacity-100",
-    color: new Color("rgb", [0, 0, 0, 1]),
-    detail:"--border-opacity: 1;",
-    documentation:"Set the opacity of an element's border to 1."
-  }
-];
+let borderOpacity = [];
+
+for(i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+  borderOpacity.push(
+    {
+      label:`border-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
+      color: new Color("rgb", [0, 0, 0, parseFloat(SCALES.DEFAULT_OPACITY_SCALE[i].value)]),
+      detail:`--border-opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
+      documentation:`Set the opacity of an element's border to ${SCALES.DEFAULT_OPACITY_SCALE[i].value}.`
+    }
+  );
+}
 
 /*        BORDER STYLE CLASSES        */
 
@@ -311,68 +186,43 @@ let borderStyle = [
 
 /*        DIVIDE WIDTH CLASSES        */
 
-divideWidth = [
-  {
-    label:"divide-y-0",
-    detail:"border-top-width: 0;",
-    documentation:"Set border width between vertical (stacked) children elements to 0."
-  },
-  {
-    label:"divide-x-0",
-    detail:"border-left-width: 0;",
-    documentation:"Set border width between horizontal children elements to 0."
-  },
-  {
-    label:"divide-y-2",
-    detail:"border-top-width: 2px;",
-    documentation:"Set border width between vertical (stacked) children elements to 2px."
-  },
-  {
-    label:"divide-x-2",
-    detail:"border-left-width: 2px;",
-    documentation:"Set border width between horizontal children elements to 2px."
-  },
-  {
-    label:"divide-y-4",
-    detail:"border-top-width: 4px;",
-    documentation:"Set border width between vertical (stacked) children elements to 4px."
-  },
-  {
-    label:"divide-x-4",
-    detail:"border-left-width: 4px;",
-    documentation:"Set border width between horizontal children elements to 4px."
-  },
-  {
-    label:"divide-y-8",
-    detail:"border-top-width: 8px;",
-    documentation:"Set border width between vertical (stacked) children elements to 8px."
-  },
-  {
-    label:"divide-x-8",
-    detail:"border-left-width: 8px;",
-    documentation:"Set border width between horizontal children elements to 8px."
-  },
-  {
-    label:"divide-y",
-    detail:"border-top-width: 1px;",
-    documentation:"Set border width between vertical (stacked) children elements to 1px."
-  },
-  {
-    label:"divide-x",
-    detail:"border-left-width: 1px;",
-    documentation:"Set border width between horizontal children elements to 1px."
-  },
-  {
-    label:"divide-x-reverse",
-    detail:"--divide-x-reverse: 1;",
-    documentation:"Set border width between horizontal children elements to 0. Use when elements are in reverse order, such as flex-row-reverse."
-  },
-  {
-    label:"divide-x-reverse",
-    detail:"--divide-x-reverse: 1;",
-    documentation:"Set border width between horizontal children elements to 0. Use when elements are in reverse order, such as flex-row-reverse."
-  }
+const DIVIDE_WIDTH_SCALE = [
+  { name:"-0", value:"0px" },
+  { name:"-2", value:"2px" },
+  { name:"-4", value:"4px" },
+  { name:"-8", value:"8px" },
+  { name:"", value:"1px" }
 ];
+
+divideWidth = [];
+
+for(i = 0; i < DIVIDE_WIDTH_SCALE.length; i++) {
+  divideWidth.push(
+    {
+      label:`divide-y${DIVIDE_WIDTH_SCALE[i].name}`,
+      detail:`border-top-width: ${DIVIDE_WIDTH_SCALE[i].value};`,
+      documentation:`Set border width between vertical (stacked) children elements to ${DIVIDE_WIDTH_SCALE[i].value}.`
+    },
+    {
+      label:`divide-x${DIVIDE_WIDTH_SCALE[i].name}`,
+      detail:`border-left-width: ${DIVIDE_WIDTH_SCALE[i].value};`,
+      documentation:`Set border width between horizontal children elements to ${DIVIDE_WIDTH_SCALE[i].value}.`
+    }
+  );
+}
+
+divideWidth.push(
+  {
+    label:`divide-x-reverse`,
+    detail:`--divide-x-reverse: 1;`,
+    documentation:`Set border width between horizontal children elements to 0. Use when elements are in reverse order, such as flex-row-reverse.`
+  },
+  {
+    label:`divide-x-reverse`,
+    detail:`--divide-x-reverse: 1;`,
+    documentation:`Set border width between horizontal children elements to 0. Use when elements are in reverse order, such as flex-row-reverse.`
+  }
+);
 
 /*        DIVIDE COLOR CLASSES        */
 
@@ -405,38 +255,18 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
 
 /*        DIVIDE OPACITY CLASSES        */
 
-let divideOpacity = [
-  {
-    label:"divide-opacity-0",
-    color: new Color("rgb", [0, 0, 0, 0]),
-    detail:"--divide-opacity: 0;",
-    documentation:"Set the opacity of the borders between elements using the divide utilities to 0."
-  },
-  {
-    label:"divide-opacity-25",
-    color: new Color("rgb", [0, 0, 0, 0.25]),
-    detail:"--divide-opacity: 0.25;",
-    documentation:"Set the opacity of the borders between elements using the divide utilities to 0.25."
-  },
-  {
-    label:"divide-opacity-50",
-    color: new Color("rgb", [0, 0, 0, 0.5]),
-    detail:"--divide-opacity: 0.5;",
-    documentation:"Set the opacity of the borders between elements using the divide utilities to 0.5."
-  },
-  {
-    label:"divide-opacity-75",
-    color: new Color("rgb", [0, 0, 0, 0.75]),
-    detail:"--divide-opacity: 0.75;",
-    documentation:"Set the opacity of the borders between elements using the divide utilities to 0.75."
-  },
-  {
-    label:"divide-opacity-100",
-    color: new Color("rgb", [0, 0, 0, 1]),
-    detail:"--divide-opacity: 1;",
-    documentation:"Set the opacity of the borders between elements using the divide utilities to 1."
-  }
-];
+let divideOpacity = [];
+
+for(i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+  borderOpacity.push(
+    {
+      label:`divide-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
+      color: new Color("rgb", [0, 0, 0, parseFloat(SCALES.DEFAULT_OPACITY_SCALE[i].value)]),
+      detail:`--divide-opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
+      documentation:`Set the opacity of the borders between elements using the divide utilities to ${SCALES.DEFAULT_OPACITY_SCALE[i].value}.`
+    }
+  );
+}
 
 /*        DIVIDE STYLE CLASSES        */
 
@@ -468,6 +298,132 @@ let divideStyle = [
   }
 ];
 
+/*        RING WIDTH CLASSES        */
+
+let ringWidth = [];
+
+const RING_WIDTH_SCALE = [
+  { name:"-0", value:"0px" },
+  { name:"-1", value:"1px" },
+  { name:"-2", value:"2px" },
+  { name:"-4", value:"4px" },
+  { name:"-8", value:"8px" },
+  { name:"", value:"3px" },
+];
+
+for(i = 0; i < RING_WIDTH_SCALE.length; i++) {
+  ringWidth.push(
+    {
+      label:`ring${RING_WIDTH_SCALE[i].name}`,
+      detail:`box-shadow: ${RING_WIDTH_SCALE[i].value};`,
+      documentation:`Apply a solid box-shadow of ${RING_WIDTH_SCALE[i].value}.`
+    }
+  );
+}
+
+ringWidth.push(
+  {
+    label:"ring-inset",
+    detail:"--tw-ring-inset: inset;",
+    documentation:"Force a ring to render on the inside of an element instead of the outside."
+  }
+);
+
+/*        RING COLOR CLASSES        */
+
+let ringColor = [];
+
+ringColor.push(
+  {
+    label:"ring-transparent",
+    color: new Color("rgb", [0, 0, 0, 0]),
+    detail:"ring-color: transparent;",
+    documentation:"Set the outline ring color to transparent."
+  },
+  {
+    label:"ring-current",
+    detail:"ring-color: currentColor;",
+    documentation:"Set the outline ring color to the currentColor."
+  }
+);
+
+for(i = 0; i < COLORS.COLORS.length; i++) {  
+  ringColor.push(
+    {
+      label:`ring-${COLORS.COLORS[i].name}`,
+      color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
+      detail:`--tw-ring-color: #"${COLORS.COLORS[i].value};`,
+      documentation:`Set the outline ring color to #${COLORS.COLORS[i].value}.`
+    }
+  );
+}
+
+/*        RING OPACITY CLASSES        */
+
+let ringOpacity = [];
+
+for(i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+  ringOpacity.push(
+    {
+      label:`ring-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
+      color: new Color("rgb", [0, 0, 0, parseFloat(SCALES.DEFAULT_OPACITY_SCALE[i].value)]),
+      detail:`--tw-ring-opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
+      documentation:`Set the opacity of an element's outline ring to ${SCALES.DEFAULT_OPACITY_SCALE[i].value}.`
+    }
+  );
+}
+
+/*        RING OFFSET WIDTH CLASSES        */
+
+const RING_OFFSET_WIDTH_SCALE = [
+  { name:"0", value:"0px" },
+  { name:"1", value:"1px" },
+  { name:"2", value:"2px" },
+  { name:"4", value:"4px" },
+  { name:"8", value:"8px" },
+];
+
+let ringOffsetWidth = [];
+
+for(i = 0; i < RING_OFFSET_WIDTH_SCALE.length; i++) {
+  ringOffsetWidth.push(
+    {
+      label:`ring-offset-${RING_OFFSET_WIDTH_SCALE[i].name}`,
+      detail:`--tw-ring-offset-width: ${RING_OFFSET_WIDTH_SCALE[i].value}`,
+      documentation:`Set the outline ring width to ${RING_OFFSET_WIDTH_SCALE[i].value}. Use to simulate an offset.`
+    }
+  );
+}
+
+/*        RING OFFSET COLOR CLASSES        */
+
+let ringOffsetColor = [];
+
+ringOffsetColor.push(
+  {
+    label:"ring-offset-transparent",
+    color: new Color("rgb", [0, 0, 0, 0]),
+    detail:"ring-color: transparent;",
+    documentation:"Set the outline ring color to transparent."
+  },
+  {
+    label:"ring-offset-current",
+    detail:"ring-color: currentColor;",
+    documentation:"Set the outline ring color to the currentColor."
+  }
+);
+
+for(i = 0; i < COLORS.COLORS.length; i++) {  
+  ringOffsetColor.push(
+    {
+      label:`ring-offset-${COLORS.COLORS[i].name}`,
+      color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
+      detail:`--tw-ring-offset-color: #"${COLORS.COLORS[i].value};`,
+      documentation:`Set the outline ring offset color to #${COLORS.COLORS[i].value}.`
+    }
+  );
+}
+
 let classes = [];
 
 classes = classes.concat(
@@ -479,7 +435,12 @@ classes = classes.concat(
   divideWidth,
   divideColor,
   divideOpacity,
-  divideStyle
+  divideStyle,
+  ringWidth,
+  ringColor,
+  ringOpacity,
+  ringOffsetWidth,
+  ringOffsetColor
 );
 
 exports.classes = classes;
