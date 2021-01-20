@@ -1,5 +1,6 @@
 const COLORS = require('./includes/colors.js');
 const FUNCTIONS = require('../../Scripts/functions.js');
+const SCALES = require('./includes/scales.js');
 
 /*        BACKGROUND ATTACHMENT CLASSES        */
 
@@ -30,12 +31,12 @@ let backgroundClip = [
     documentation:"Clip an element's background up to and including the border."
   },
   {
-    label:"bg-clip-local",
+    label:"bg-clip-padding",
     detail:"background-clip: padding-box;",
     documentation:"Clip an element's background up to the inside edge of the border."
   },
   {
-    label:"bg-clip-scroll",
+    label:"bg-clip-content",
     detail:"background-clip: content-box;",
     documentation:"Clip an element's background up to the edge of the content box."
   },
@@ -67,43 +68,28 @@ backgroundColor.push(
 for(i = 0; i < COLORS.COLORS.length; i++) {  
   backgroundColor.push(
     {
-      label:"bg-" + COLORS.COLORS[i].name,
+      label:`bg-${COLORS.COLORS[i].name}`,
       color: FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
-      detail:"background-color: #" + COLORS.COLORS[i].value + ";",
-      documentation:"Set the background color of an element to #" + COLORS.COLORS[i].value + "."
+      detail:`background-color: #${COLORS.COLORS[i].value};`,
+      documentation:`Set the background color of an element to #${COLORS.COLORS[i].value}.`
     }
   );
 }
 
 /*        BACKGROUND OPACITY CLASSES        */
 
-let backgroundOpacity = [
-  {
-    label:"bg-opacity-0",
-    detail:"--bg-opacity: 0;",
-    documentation:"Set an element's background color opacity to 0."
-  },
-  {
-    label:"bg-opacity-25",
-    detail:"--bg-opacity: 0.25;",
-    documentation:"Set an element's background color opacity to 0.25."
-  },
-  {
-    label:"bg-opacity-50",
-    detail:"--bg-opacity: 0.5;",
-    documentation:"Set an element's background color opacity to 0.5."
-  },
-  {
-    label:"bg-opacity-75",
-    detail:"--bg-opacity: 0.75;",
-    documentation:"Set an element's background color opacity to 0.75."
-  },
-  {
-    label:"bg-opacity-100",
-    detail:"--bg-opacity: 1;",
-    documentation:"Set an element's background color opacity to 1."
-  }
-];
+let backgroundOpacity = [];
+
+for(i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+  backgroundOpacity.push(
+    {
+      label:`bg-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
+      color: new Color("rgb", [0, 0, 0, parseFloat(SCALES.DEFAULT_OPACITY_SCALE[i].value)]),
+      detail:`--bg-opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
+      documentation:`Set the background opacity to ${SCALES.DEFAULT_OPACITY_SCALE[i].value}.`
+    }
+  );
+}
 
 /*        BACKGROUND POSITION CLASSES        */
 
