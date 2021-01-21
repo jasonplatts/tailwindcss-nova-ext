@@ -1,11 +1,8 @@
+const SCALES = require('./includes/scales.js');
+
 /*        BOX SHADOW CLASSES        */
 
 let boxShadow = [
-  {
-    label:"shadow-xs",
-    detail:"box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);",
-    documentation:"Apply the xs outer box shadow to an element."
-  },
   {
     label:"shadow-sm",
     detail:"box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);",
@@ -42,11 +39,6 @@ let boxShadow = [
     documentation:"Apply a subtle inset box shadow to an element. Useful for form controls or wells."
   },
   {
-    label:"shadow-outline",
-    detail:"box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);",
-    documentation:"Apply a focus-ring-style shadow to an element. Combine with focus:outline-none for a style that follows the border radius."
-  },
-  {
     label:"shadow-none",
     detail:"box-shadow: none;",
     documentation:"Remove any existing box shadow styling on an element."
@@ -55,22 +47,14 @@ let boxShadow = [
 
 /*        OPACITY CLASSES        */
 
-const OPACITIES = [
-  { name:"0",   value:"0" },
-  { name:"25",  value:"0.25" },
-  { name:"50",  value:"0.5" },
-  { name:"75",  value:"0.75" },
-  { name:"100", value:"1" },
-];
-
 let opacity = [];
 
-for(i = 0; i < OPACITIES.length; i++) {
+for(i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
   opacity.push(
     {
-      label:`opacity-${OPACITIES[i].name}`,
-      detail:`opacity: ${OPACITIES[i].value};`,
-      documentation:`Set the opacity of an element to ${OPACITIES[i].value}.`
+      label:`opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
+      detail:`opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
+      documentation:`Set the opacity of an element to ${SCALES.DEFAULT_OPACITY_SCALE[i].value}.`
     }
   );
 }
