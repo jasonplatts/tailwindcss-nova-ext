@@ -1,3 +1,9 @@
+## Version 2.0
+
+* Added Tailwind CSS 2.0 support.
+* Added support for changing the Tailwind CSS version in the workspace preferences.
+* Increased the quality of the extension icon.
+
 ## Version 1.3
 
 * Added support for Liquid files.
