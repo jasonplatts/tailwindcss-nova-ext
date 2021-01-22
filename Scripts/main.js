@@ -11,8 +11,8 @@ exports.activate = function() {
 }
 
 function registerCompletionAssistants() {
-  console.clear();
-  console.log("Current Tailwind Version", FUNCTIONS.getVersion());
+  // console.clear();
+  // console.log("Current Tailwind Version", FUNCTIONS.getVersion());
   
   SUPPORTED_FILE_TYPES.forEach(fileType => {
     registeredCompletionAssistants.push(
