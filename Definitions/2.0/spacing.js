@@ -8,8 +8,8 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   padding.push(
     {
       label:`p-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`padding: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set the padding on all sides of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+      detail:`padding: ${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+      documentation:`Set the padding on all sides of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
     }
   )
 }
@@ -18,13 +18,13 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   padding.push(
     {
       label:`py-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`padding-top: ${SCALES.DEFAULT_SPACING_SCALE[i].size}; padding-bottom: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set the vertical padding of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+      detail:`padding-top: ${SCALES.DEFAULT_SPACING_SCALE[i].value}; padding-bottom: ${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+      documentation:`Set the vertical padding of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
     },
     {
       label:`px-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`padding-left: ${SCALES.DEFAULT_SPACING_SCALE[i].size}; padding-right: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set the horizontal padding of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+      detail:`padding-left: ${SCALES.DEFAULT_SPACING_SCALE[i].value}; padding-right: ${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+      documentation:`Set the horizontal padding of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
     }
   );
 }
@@ -33,23 +33,23 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   padding.push(
     {
       label:`pt-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`padding-top: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set the top padding of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+      detail:`padding-top: ${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+      documentation:`Set the top padding of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
     },
     {
       label:`pr-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`padding-right: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set the right padding of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+      detail:`padding-right: ${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+      documentation:`Set the right padding of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
     },
     {
       label:`pb-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`padding-bottom: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set the bottom padding of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+      detail:`padding-bottom: ${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+      documentation:`Set the bottom padding of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
     },
     {
       label:`pl-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`padding-left: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Set the left padding of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+      detail:`padding-left: ${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+      documentation:`Set the left padding of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
     }
   );
 }
@@ -62,7 +62,7 @@ function addMarginClasses(negative = "") {
     let negativeSizePrefix = "";
     
     if (negative == "-") {
-      if (SCALES.DEFAULT_SPACING_SCALE[i].size !== "0px") {
+      if (SCALES.DEFAULT_SPACING_SCALE[i].value !== "0px") {
         negativeSizePrefix = "-";
       } else {
         negativeSizePrefix = "";
@@ -72,38 +72,38 @@ function addMarginClasses(negative = "") {
     objectsArray.push(
       {
         label:`${negative}m-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-        detail:`margin: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-        documentation:`Set the margin on all sides of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+        detail:`margin: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+        documentation:`Set the margin on all sides of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
       },
       {
         label:`${negative}my-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-        detail:`margin-top: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size}; margin-bottom: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-        documentation:`Set the vertical margin of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+        detail:`margin-top: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value}; margin-bottom: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+        documentation:`Set the vertical margin of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
       },
       {
         label:`${negative}mx-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-        detail:`margin-left: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size}; margin-right: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-        documentation:`Set the horizontal margin of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+        detail:`margin-left: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value}; margin-right: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+        documentation:`Set the horizontal margin of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
       },
       {
         label:`${negative}mt-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-        detail:`margin-top: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-        documentation:`Set the top margin of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+        detail:`margin-top: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+        documentation:`Set the top margin of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
       },
       {
         label:`${negative}mr-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-        detail:`margin-right: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-        documentation:`Set the right margin of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+        detail:`margin-right: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+        documentation:`Set the right margin of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
       },
       {
         label:`${negative}mb-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-        detail:`margin-bottom: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-        documentation:`Set the bottom margin of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+        detail:`margin-bottom: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+        documentation:`Set the bottom margin of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
       },
       {
         label:`${negative}ml-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-        detail:`margin-left: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-        documentation:`Set the left margin of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].size}.`
+        detail:`margin-left: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+        documentation:`Set the left margin of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
       },
     );
   } 
@@ -117,7 +117,7 @@ margin = [...margin, ...addMarginClasses("-")];
 margin.push(
   {
     label:"m-auto",
-    detail:"margin: 1px;",
+    detail:"margin: auto;",
     documentation:"Set an element's margin automatically. Often used to center an element."
   },
   {

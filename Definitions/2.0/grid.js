@@ -259,8 +259,8 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   gap.push(
     {
       label:`gap-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`gap: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Change the gutter size in a grid layout to ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`  
+      detail:`gap: ${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+      documentation:`Change the gutter size in a grid layout to ${SCALES.DEFAULT_SPACING_SCALE[i].value}.`  
     }
   );
 }
@@ -269,8 +269,8 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   gap.push(
     {
       label:`gap-x-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`column-gap: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Change the gutter size between columns in grid layouts to ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`  
+      detail:`column-gap: ${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+      documentation:`Change the gutter size between columns in grid layouts to ${SCALES.DEFAULT_SPACING_SCALE[i].value}.`  
     }
   );
 }
@@ -279,8 +279,8 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   gap.push(
     {
       label:`gap-y-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-      detail:`row-gap: ${SCALES.DEFAULT_SPACING_SCALE[i].size};`,
-      documentation:`Change the gutter size between rows in grid layouts to ${SCALES.DEFAULT_SPACING_SCALE[i].size}.`  
+      detail:`row-gap: ${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
+      documentation:`Change the gutter size between rows in grid layouts to ${SCALES.DEFAULT_SPACING_SCALE[i].value}.`  
     }
   );
 }
