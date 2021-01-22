@@ -33,7 +33,7 @@ module.exports.CompletionProvider = class CompletionProvider {
         };
         
         if (definitionObject.hasOwnProperty('detail')) {
-          item.detail = FUNCTIONS.truncateString(definitionObject.detail, 20);
+          item.detail = FUNCTIONS.truncateString(definitionObject.detail, 30);
         };
         
         if (definitionObject.hasOwnProperty('documentation')) { 
