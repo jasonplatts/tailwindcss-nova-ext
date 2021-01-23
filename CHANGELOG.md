@@ -1,3 +1,7 @@
+## Version 2.0.1
+
+* Fixed issue with causing some classes to display undefined values.
+
 ## Version 2.0
 
 * Added Tailwind CSS 2.0 support.
