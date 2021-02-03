@@ -1,6 +1,6 @@
 const { CompletionProvider } = require("classes/CompletionProvider.js");
 const FUNCTIONS = require('./functions.js');
-const SUPPORTED_FILE_TYPES = [ "html", "html+erb", "haml", "php", "blade", "twig",
+const SUPPORTED_FILE_TYPES = [ "html", "html+erb", "html+eex", "haml", "php", "blade", "twig",
 "vue", "js", "jsx", "ts", "tsx", "svelte", "liquid"];
 let registeredCompletionAssistants = [];
 
