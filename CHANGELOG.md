@@ -1,3 +1,7 @@
+## Version 2.1
+
+* Added support for embedded Elixir files.
+
 ## Version 2.0.1
 
 * Fixed issue with causing some classes to display undefined values.
