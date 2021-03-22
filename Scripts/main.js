@@ -1,7 +1,7 @@
 const { CompletionProvider } = require("classes/CompletionProvider.js");
 const FUNCTIONS = require('./functions.js');
 const SUPPORTED_FILE_TYPES = [ "html", "html+erb", "html+eex", "haml", "php", "blade", "twig",
-"vue", "js", "jsx", "ts", "tsx", "svelte", "liquid"];
+"vue", "js", "jsx", "ts", "tsx", "svelte", "liquid", "jade", "pug"];
 let registeredCompletionAssistants = [];
 
 exports.activate = function() {
