@@ -1,3 +1,7 @@
+## Version 2.2
+
+* Added support for jade and pug files.
+
 ## Version 2.1
 
 * Added support for embedded Elixir files.
