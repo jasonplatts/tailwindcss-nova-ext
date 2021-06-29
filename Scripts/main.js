@@ -1,32 +1,32 @@
-const { CompletionProvider } = require("classes/CompletionProvider.js");
-const FUNCTIONS = require('./functions.js');
-const SUPPORTED_FILE_TYPES = [ "html", "html+erb", "html+eex", "haml", "php", "blade", "twig",
-"vue", "js", "jsx", "ts", "tsx", "svelte", "liquid", "jade", "pug"];
-let registeredCompletionAssistants = [];
+const { CompletionProvider } = require('classes/CompletionProvider.js')
+const FUNCTIONS = require('./functions.js')
+const SUPPORTED_FILE_TYPES = [ 'html', 'html+erb', 'html+eex', 'haml', 'php', 'blade', 'twig',
+  'vue', 'js', 'jsx', 'ts', 'tsx', 'svelte', 'liquid', 'jade', 'pug']
+let registeredCompletionAssistants = []
 
 exports.activate = function() {
-  registerCompletionAssistants();  
-  
-  nova.workspace.config.observe("tailwindcss.workspace.version", reloadCompletionAssistants);
+  registerCompletionAssistants()
+
+  nova.workspace.config.observe('tailwindcss.workspace.version', reloadCompletionAssistants)
 }
 
 function registerCompletionAssistants() {
   // console.clear();
-  // console.log("Current Tailwind Version", FUNCTIONS.getVersion());
-  
+  // console.log('Current Tailwind Version', FUNCTIONS.getVersion());
+
   SUPPORTED_FILE_TYPES.forEach(fileType => {
     registeredCompletionAssistants.push(
       nova.assistants.registerCompletionAssistant(fileType, new CompletionProvider())
-    );
-  });
+    )
+  })
 }
 
 function unregisterCompletionAssistants() {
-  registeredCompletionAssistants.forEach(assistant => { assistant.dispose(); });
-  registeredCompletionAssistants = [];
+  registeredCompletionAssistants.forEach(assistant => { assistant.dispose() })
+  registeredCompletionAssistants = []
 }
 
 function reloadCompletionAssistants() {
-  unregisterCompletionAssistants();
-  registerCompletionAssistants();
+  unregisterCompletionAssistants()
+  registerCompletionAssistants()
 }
