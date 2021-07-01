@@ -23,26 +23,32 @@
 
   "sidebars": [
     {
-      "id": "tailwind",
+      "id": "tw-sidebar",
       "name": "Tailwind CSS",
       "smallImage": "tailwind-small",
       "largeImage": "tailwind-large",
       "sections": [
         {
-          "id": "tailwindBackgrounds",
-          "name": "Backgrounds",
+          "id": "tw-sidebar-classes",
+          "name": "Tailwind CSS",
           "headerCommands": [
             {
-              "title": "View Docs",
+              "title": "View Docs…",
+              "tooltip": "View Tailwind CSS Documentation",
+              "image": "__builtin.remote",
               "command": "tailwind.test"
             }
           ],
-          "placeholderText": "No Backgrounds"
-        },
-        {
-          "id": "tailwind-borders",
-          "name": "Borders",
-          "placeholderText": "No Borders"
+          "contextCommands": [
+            {
+              "title": "Insert",
+              "command": "tw-sidebar.insert"
+            },
+            {
+              "title": "Go to Docs...",
+              "command": "tw-sidebar.goToDocs"
+            }
+          ]
         }
       ]
     }
