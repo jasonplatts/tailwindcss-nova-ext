@@ -24,7 +24,6 @@ The extension defaults to the latest version of Tailwind CSS with definitions. H
 ## Planned Future Features
 
 * Support for Tailwind CSS customization.
-* Linting.
 
 ## Report a Bug or Feature Request
 

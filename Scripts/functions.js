@@ -1,3 +1,5 @@
+'use strict'
+
 function convertHexToRgbArray(hex) {
   let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
   hex = hex.replace(shorthandRegex, function(m, r, g, b) {
@@ -12,8 +14,8 @@ function convertRgbToColorObject(colorArray) {
   return new Color('rgb', [colorArray[0]/255, colorArray[1]/255, colorArray[2]/255])
 }
 
-var convertHexToRgbColorObject = function(hex) {
-  rgbArray = convertHexToRgbArray(hex)
+exports.convertHexToRgbColorObject = function(hex) {
+  let rgbArray = convertHexToRgbArray(hex)
   return convertRgbToColorObject(rgbArray)
 }
 
@@ -35,13 +37,31 @@ function getCurrentWord(context) {
   return currentWord
 }
 
-var getRangeOfCurrentWord = function(editor, context) {
+/*
+Format extension errors in the console.
+*/
+exports.showConsoleError = function showConsoleError(error) {
+  let prefix = ''
+  console.error(prefix, error)
+}
+
+exports.showNotification = function showNotification(title, body) {
+  let notification = new NotificationRequest('tailwind-notification')
+
+  notification.title   = title
+  notification.body    = body
+  notification.actions = [nova.localize('OK')]
+
+  nova.notifications.add(notification)
+}
+
+exports.getRangeOfCurrentWord = function(editor, context) {
   let currentWord = getCurrentWord(context)
 
   return new Range(context.position - currentWord.length, context.position)
 }
 
-var truncateString = function(string, maxLength) {
+exports.truncateString = function(string, maxLength) {
   if(string.length > maxLength) {
     return string.slice(0, maxLength) + '...'
   } else {
@@ -49,7 +69,7 @@ var truncateString = function(string, maxLength) {
   }
 }
 
-var getVersion = function getVersion() {
+exports.getVersion = function getVersion() {
   let version = nova.workspace.config.get('tailwindcss.workspace.version')
 
   if (version == null) {
@@ -60,8 +80,8 @@ var getVersion = function getVersion() {
   return version
 }
 
-var getVersionDefinitionFiles = function getVersionDefinitionFiles() {
-  let path = nova.extension.path + '/Definitions/' + getVersion()
+exports.getVersionDefinitionFiles = function getVersionDefinitionFiles() {
+  let path = nova.extension.path + '/Definitions/' + this.getVersion()
   let definitions = nova.fs.listdir(path)
 
   definitions = definitions.filter((definition) => {
@@ -72,9 +92,3 @@ var getVersionDefinitionFiles = function getVersionDefinitionFiles() {
 
   return definitions
 }
-
-exports.convertHexToRgbColorObject = convertHexToRgbColorObject
-exports.getRangeOfCurrentWord = getRangeOfCurrentWord
-exports.truncateString = truncateString
-exports.getVersion = getVersion
-exports.getVersionDefinitionFiles = getVersionDefinitionFiles

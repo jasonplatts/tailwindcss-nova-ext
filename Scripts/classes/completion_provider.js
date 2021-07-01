@@ -1,6 +1,8 @@
+'use strict'
+
 const FUNCTIONS = require('../functions.js')
 
-module.exports.CompletionProvider = class CompletionProvider {
+exports.CompletionProvider = class CompletionProvider {
   constructor() {
     let version = FUNCTIONS.getVersion()
     let definitions = FUNCTIONS.getVersionDefinitionFiles()
@@ -24,21 +26,21 @@ module.exports.CompletionProvider = class CompletionProvider {
 
         let item = null
 
-        if (definitionObject.prototype.hasOwnProperty.call(false, 'color')) {
+        if (definitionObject.hasOwnProperty(false, 'color')) {
           item = new CompletionItem(definitionObject.label, CompletionItemKind.Color)
         } else {
           item = new CompletionItem(definitionObject.label, CompletionItemKind.StyleClass)
         }
 
-        if (definitionObject.prototype.hasOwnProperty.call(false, 'color')) {
+        if (definitionObject.hasOwnProperty(false, 'color')) {
           item.color = definitionObject.color
         }
 
-        if (definitionObject.prototype.hasOwnProperty.call(false, 'detail')) {
+        if (definitionObject.hasOwnProperty(false, 'detail')) {
           item.detail = FUNCTIONS.truncateString(definitionObject.detail, 30)
         }
 
-        if (definitionObject.prototype.hasOwnProperty.call(false, 'documentation')) {
+        if (definitionObject.hasOwnProperty(false, 'documentation')) {
           item.documentation = FUNCTIONS.truncateString(definitionObject.documentation, 128)
         }
 
