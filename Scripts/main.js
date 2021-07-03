@@ -1,20 +1,17 @@
 'use strict'
 
-const { CompletionProvider } = require('classes/completion_provider.js')
-const { DataProvider }       = require('classes/data_provider.js')
-const { List }               = require('classes/list.js')
-
 const FUNCTIONS              = require('./functions.js')
-const SUPPORTED_FILE_TYPES   = [ 'html', 'html+erb', 'html+eex', 'haml', 'php', 'blade', 'twig',
-  'vue', 'js', 'jsx', 'ts', 'tsx', 'svelte', 'liquid', 'jade', 'pug']
+const { Configuration }      = require('./configuration.js')
+const { CompletionProvider } = require('./completion_provider.js')
+const { DataProvider }       = require('./data_provider.js')
+const { List }               = require('./list.js')
 
-var completionAssistant = null
-
-var list = null
-var backgroundsTreeView = null
-var backgroundsDataProvider = null
-
-var treeViewDisposables = new CompositeDisposable()
+var config                   = null
+var completionAssistant      = null
+var list                     = null
+var backgroundsTreeView      = null
+var backgroundsDataProvider  = null
+var treeViewDisposables      = new CompositeDisposable()
 
 exports.activate = async function() {
   if (nova.inDevMode()) {
@@ -23,25 +20,26 @@ exports.activate = async function() {
   }
 
   try {
+    config = new Configuration()
+
     await registerCompletionAssistant()
+    await registerTreeView()
 
-    list = new List()
-    await list.loadDefinitions()
-    await registerTreeViews()
-
-    nova.workspace.config.observe('tailwindcss.workspace.version', reloadCompletionAssistant)
+    nova.workspace.config.onDidChange('tailwindcss.workspace.version', reloadCompletionAssistant)
   } catch (error) {
     FUNCTIONS.showConsoleError(error)
   }
-
 }
 
 exports.deactivate = function() {
   completionAssistant.dispose()
-  // treeViewDisposables.dispose()
+  treeViewDisposables.dispose()
 }
 
-async function registerTreeViews() {
+async function registerTreeView() {
+  list = new List()
+  await list.loadDefinitions()
+
   backgroundsDataProvider = new DataProvider(list.items)
 
   backgroundsTreeView = new TreeView('tw-sidebar-classes', {
@@ -54,7 +52,12 @@ async function registerTreeViews() {
 }
 
 async function registerCompletionAssistant() {
-  completionAssistant = nova.assistants.registerCompletionAssistant(SUPPORTED_FILE_TYPES, new CompletionProvider())
+  let completionProvider = new CompletionProvider(config.getVersion(), config.getVersionDefinitionFiles())
+
+  await completionProvider.loadDefinitions()
+  await completionProvider.loadCompletionItems()
+
+  completionAssistant = nova.assistants.registerCompletionAssistant(Configuration.SUPPORTED_FILE_TYPES, completionProvider)
 
   return true
 }

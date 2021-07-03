@@ -1,6 +1,6 @@
 'use strict'
 
-const FUNCTIONS           = require('../functions.js')
+const FUNCTIONS           = require('./functions.js')
 // const { Configuration }   = require('./configuration.js')
 const { ListItem }        = require('./list_item.js')
 
@@ -28,13 +28,13 @@ exports.List = class List {
     //     let temp = eval(newString)
     //     // let temp = JSON.stringify(contents)
     //     console.log('contents', temp.theme.extend.colors['rails-blue'][900])
-    let definition = require(`../../Definitions/${this._version}/${this._definition}`)
+    let definition = require(`../Definitions/${this._version}/${this._definition}`)
     // console.log('obj', JSON.stringify(this.obj))
-    console.log('obj', definition.classes[0].label)
+    // console.log('obj', definition.classes[0].label)
     let item = new ListItem(definition.classes[0].label)
     item.descriptiveText = 'test'
     this._items = [...this._items, item]
-    console.log(this.items[0].name)
+    // console.log(this.items[0].name)
 
     return true
   }

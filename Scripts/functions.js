@@ -37,14 +37,34 @@ function getCurrentWord(context) {
   return currentWord
 }
 
+exports.getRangeOfCurrentWord = function(editor, context) {
+  let currentWord = getCurrentWord(context)
+
+  return new Range(context.position - currentWord.length, context.position)
+}
+
 /*
-Format extension errors in the console.
+  Truncates a string to a specified length.
+*/
+exports.truncateString = function(string, maxLength) {
+  if(string.length > maxLength) {
+    return string.slice(0, maxLength) + '…'
+  } else {
+    return string
+  }
+}
+
+/*
+  Format extension errors in the console.
 */
 exports.showConsoleError = function showConsoleError(error) {
   let prefix = ''
   console.error(prefix, error)
 }
 
+/*
+  Show notifications to the user.
+*/
 exports.showNotification = function showNotification(title, body) {
   let notification = new NotificationRequest('tailwind-notification')
 
@@ -53,42 +73,4 @@ exports.showNotification = function showNotification(title, body) {
   notification.actions = [nova.localize('OK')]
 
   nova.notifications.add(notification)
-}
-
-exports.getRangeOfCurrentWord = function(editor, context) {
-  let currentWord = getCurrentWord(context)
-
-  return new Range(context.position - currentWord.length, context.position)
-}
-
-exports.truncateString = function(string, maxLength) {
-  if(string.length > maxLength) {
-    return string.slice(0, maxLength) + '...'
-  } else {
-    return string
-  }
-}
-
-exports.getVersion = function getVersion() {
-  let version = nova.workspace.config.get('tailwindcss.workspace.version')
-
-  if (version == null) {
-    let definitionArray = nova.fs.listdir(nova.extension.path + '/Definitions')
-    version = definitionArray.sort(function(a, b) {return b-a})[0]
-  }
-
-  return version
-}
-
-exports.getVersionDefinitionFiles = function getVersionDefinitionFiles() {
-  let path = nova.extension.path + '/Definitions/' + this.getVersion()
-  let definitions = nova.fs.listdir(path)
-
-  definitions = definitions.filter((definition) => {
-    if (nova.fs.stat(path + '/' + definition).isFile()) {
-      return definition
-    }
-  })
-
-  return definitions
 }
