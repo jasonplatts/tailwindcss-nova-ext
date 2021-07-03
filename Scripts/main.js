@@ -1,32 +1,68 @@
-const { CompletionProvider } = require("classes/CompletionProvider.js");
-const FUNCTIONS = require('./functions.js');
-const SUPPORTED_FILE_TYPES = [ "html", "html+erb", "html+eex", "haml", "php", "blade", "twig",
-"vue", "js", "jsx", "ts", "tsx", "svelte", "liquid", "jade", "pug"];
-let registeredCompletionAssistants = [];
+'use strict'
 
-exports.activate = function() {
-  registerCompletionAssistants();  
-  
-  nova.workspace.config.observe("tailwindcss.workspace.version", reloadCompletionAssistants);
+const FUNCTIONS              = require('./functions.js')
+const { Configuration }      = require('./configuration.js')
+const { CompletionProvider } = require('./completion_provider.js')
+const { DataProvider }       = require('./data_provider.js')
+const { List }               = require('./list.js')
+
+var config                   = null
+var completionAssistant      = null
+var list                     = null
+var backgroundsTreeView      = null
+var backgroundsDataProvider  = null
+var treeViewDisposables      = new CompositeDisposable()
+
+exports.activate = async function() {
+  if (nova.inDevMode()) {
+    console.clear()
+    console.log('TAILWIND CSS -- DEV MODE ACTIVE')
+  }
+
+  try {
+    config = new Configuration()
+
+    await registerCompletionAssistant()
+    await registerTreeView()
+
+    nova.workspace.config.onDidChange('tailwindcss.workspace.version', reloadCompletionAssistant)
+  } catch (error) {
+    FUNCTIONS.showConsoleError(error)
+  }
 }
 
-function registerCompletionAssistants() {
-  // console.clear();
-  // console.log("Current Tailwind Version", FUNCTIONS.getVersion());
-  
-  SUPPORTED_FILE_TYPES.forEach(fileType => {
-    registeredCompletionAssistants.push(
-      nova.assistants.registerCompletionAssistant(fileType, new CompletionProvider())
-    );
-  });
+exports.deactivate = function() {
+  completionAssistant.dispose()
+  treeViewDisposables.dispose()
 }
 
-function unregisterCompletionAssistants() {
-  registeredCompletionAssistants.forEach(assistant => { assistant.dispose(); });
-  registeredCompletionAssistants = [];
+async function registerTreeView() {
+  list = new List()
+  await list.loadDefinitions()
+
+  backgroundsDataProvider = new DataProvider(list.items)
+
+  backgroundsTreeView = new TreeView('tw-sidebar-classes', {
+    dataProvider: backgroundsDataProvider
+  })
+
+  treeViewDisposables.add(backgroundsTreeView)
+
+  return true
 }
 
-function reloadCompletionAssistants() {
-  unregisterCompletionAssistants();
-  registerCompletionAssistants();
+async function registerCompletionAssistant() {
+  let completionProvider = new CompletionProvider(config.getVersion(), config.getVersionDefinitionFiles())
+
+  await completionProvider.loadDefinitions()
+  await completionProvider.loadCompletionItems()
+
+  completionAssistant = nova.assistants.registerCompletionAssistant(Configuration.SUPPORTED_FILE_TYPES, completionProvider)
+
+  return true
+}
+
+function reloadCompletionAssistant() {
+  completionAssistant.dispose()
+  registerCompletionAssistant()
 }

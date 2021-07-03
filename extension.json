@@ -9,18 +9,51 @@
   "bugs":"https://github.com/jasonplatts/tailwindcss-nova-ext/issues",
   "funding":"https://github.com/sponsors/jasonplatts",
   "min_runtime": "2.0",
-  "categories": ["completions", "languages"],
-  
+  "categories": ["completions", "languages", "sidebars"],
+
   "main": "main.js",
-  
+
   "activationEvents": [
     "*"
   ],
-  
+
   "entitlements": {
     "filesystem": "readonly"
   },
-  
+
+  "sidebars": [
+    {
+      "id": "tw-sidebar",
+      "name": "Tailwind CSS",
+      "smallImage": "tailwind-small",
+      "largeImage": "tailwind-large",
+      "sections": [
+        {
+          "id": "tw-sidebar-classes",
+          "name": "Tailwind CSS",
+          "headerCommands": [
+            {
+              "title": "View Docs…",
+              "tooltip": "View Tailwind CSS Documentation",
+              "image": "__builtin.remote",
+              "command": "tailwind.test"
+            }
+          ],
+          "contextCommands": [
+            {
+              "title": "Insert",
+              "command": "tw-sidebar.insert"
+            },
+            {
+              "title": "Go to Docs...",
+              "command": "tw-sidebar.goToDocs"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
   "config-workspace": [
     {
       "key": "tailwindcss.version.section",
