@@ -52,10 +52,25 @@ exports.CompletionProvider = class CompletionProvider {
   provideCompletionItems(editor, context) {
     let currentWordRange = FUNCTIONS.getRangeOfCurrentWord(editor, context)
 
+    if (this.bypassSpecialCase(context)) { return }
+
     this._items.forEach(item => {
       item.range = currentWordRange
     })
 
     return this._items
+  }
+  
+  bypassSpecialCase(context) {
+    const rootScope = context.selectors.pop()
+
+    if (rootScope?.matches('vue.html.embedded.script')) {
+      return true
+    }
+    if (rootScope?.matches('vue.html.embedded.style') && !context.line.includes('@apply')) {
+      return true
+    }
+
+    return false
   }
 }
