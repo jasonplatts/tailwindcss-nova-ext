@@ -6,6 +6,10 @@ const FUNCTIONS = require('./functions.js')
   Class handles the retrieval of default and user preference configurations
 */
 exports.Configuration = class Configuration {
+  constructor() {
+    this._definition_files = []
+    this._definitions      = []
+  }
   static get SUPPORTED_FILE_TYPES() {
     return [
       'html', 'html+erb', 'html+eex', 'haml', 'php', 'blade', 'twig',
@@ -17,7 +21,21 @@ exports.Configuration = class Configuration {
     return '2.x'
   }
 
-  getVersionDefinitionFiles() {
+  get defintions() {
+    return this._definitions
+  }
+
+  async loadDefinitions() {
+    await this.getVersionDefinitionFiles()
+
+    this._definition_files.forEach(definition => {
+      this._definitions = [...this._definitions, require(`../Definitions/${Configuration.VERSION}/${definition}`)]
+    })
+
+    return
+  }
+
+  async getVersionDefinitionFiles() {
     let path        = nova.extension.path + '/Definitions/' + Configuration.VERSION
     let definitions = nova.fs.listdir(path)
 
@@ -27,7 +45,9 @@ exports.Configuration = class Configuration {
       }
     })
 
-    return definitions
+    this._definition_files = definitions
+
+    return
   }
 
   async loadTailwindConfig() {

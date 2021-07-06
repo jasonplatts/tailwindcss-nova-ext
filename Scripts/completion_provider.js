@@ -3,24 +3,15 @@
 const FUNCTIONS = require('./functions.js')
 
 exports.CompletionProvider = class CompletionProvider {
-  constructor(version, definition_files) {
-    this._version          = version
-    this._definition_files = definition_files
-    this._imports          = []
-    this._items            = []
-  }
-
-  async importDefinitions() {
-    this._definition_files.forEach(definition => {
-      this._imports = [...this._imports, require(`../Definitions/${this._version}/${definition}`)]
-    })
-
-    return true
+  constructor(version, definitions) {
+    this._version     = version
+    this._definitions = definitions
+    this._items       = []
   }
 
   async loadCompletionItems() {
-    this._imports.forEach(importedDefinitionFile => {
-      for (const [categoryName, category] of Object.entries(importedDefinitionFile)) {
+    this._definitions.forEach(definitionFile => {
+      for (const [categoryName, category] of Object.entries(definitionFile)) {
         for (const [subCategoryName, subCategory] of Object.entries(category)) {
           subCategory.forEach(utilityClass => {
             let item = null

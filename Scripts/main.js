@@ -23,6 +23,7 @@ exports.activate = async function() {
 
   try {
     config = new Configuration()
+    await config.loadDefinitions()
 
     await registerCompletionAssistant()
     // await registerTreeView()
@@ -34,7 +35,7 @@ exports.activate = async function() {
 }
 
 exports.deactivate = function() {
-  // completionAssistant.dispose()
+  completionAssistant.dispose()
   // treeViewDisposables.dispose()
 }
 
@@ -54,9 +55,8 @@ async function registerTreeView() {
 }
 
 async function registerCompletionAssistant() {
-  let completionProvider = new CompletionProvider(Configuration.VERSION, config.getVersionDefinitionFiles())
+  let completionProvider = new CompletionProvider(Configuration.VERSION, config.defintions)
 
-  await completionProvider.importDefinitions()
   await completionProvider.loadCompletionItems()
 
   completionAssistant = nova.assistants.registerCompletionAssistant(Configuration.SUPPORTED_FILE_TYPES, completionProvider)
