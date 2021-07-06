@@ -37,10 +37,6 @@ exports.Configuration = class Configuration {
     return definitions
   }
 
-  get groupBy() {
-    return this._groupBy
-  }
-
   async loadTailwindConfig() {
 
   }

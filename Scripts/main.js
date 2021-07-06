@@ -8,9 +8,11 @@ const { List }               = require('./list.js')
 
 var config                   = null
 var completionAssistant      = null
-var list                     = null
-var backgroundsTreeView      = null
-var backgroundsDataProvider  = null
+var sidebar                  = {
+  list:         null,
+  dataProvider: null,
+  treeView:     null,
+}
 var treeViewDisposables      = new CompositeDisposable()
 
 exports.activate = async function() {
@@ -37,16 +39,16 @@ exports.deactivate = function() {
 }
 
 async function registerTreeView() {
-  list = new List()
-  await list.loadDefinitions()
+  sidebar.list = new List(config.getVersion(), config.getVersionDefinitionFiles())
+  await sidebar.list.loadDefinitions()
 
-  backgroundsDataProvider = new DataProvider(list.items)
+  sidebar.dataProvider = new DataProvider(sidebar.list.items)
 
-  backgroundsTreeView = new TreeView('tw-sidebar-classes', {
-    dataProvider: backgroundsDataProvider
+  sidebar.treeView = new TreeView('tw-sidebar-classes', {
+    dataProvider: sidebar.dataProvider
   })
 
-  treeViewDisposables.add(backgroundsTreeView)
+  treeViewDisposables.add(sidebar.treeView)
 
   return true
 }
@@ -54,7 +56,7 @@ async function registerTreeView() {
 async function registerCompletionAssistant() {
   let completionProvider = new CompletionProvider(config.getVersion(), config.getVersionDefinitionFiles())
 
-  await completionProvider.loadDefinitions()
+  await completionProvider.importDefinitions()
   await completionProvider.loadCompletionItems()
 
   completionAssistant = nova.assistants.registerCompletionAssistant(Configuration.SUPPORTED_FILE_TYPES, completionProvider)

@@ -3,16 +3,15 @@
 const FUNCTIONS = require('./functions.js')
 
 exports.CompletionProvider = class CompletionProvider {
-  constructor(version, definitions) {
-    this._version     = version
-    this._definitions = definitions
-    this._imports     = []
-    this._items = []
+  constructor(version, definition_files) {
+    this._version          = version
+    this._definition_files = definition_files
+    this._imports          = []
+    this._items            = []
   }
 
-  async loadDefinitions() {
-    // Autoload definitions for the specific Tailwind version.
-    this._definitions.forEach(definition => {
+  async importDefinitions() {
+    this._definition_files.forEach(definition => {
       this._imports.push(require(`../Definitions/${this._version}/${definition}`))
     })
 
