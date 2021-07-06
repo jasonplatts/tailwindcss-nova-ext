@@ -26,7 +26,7 @@ exports.activate = async function() {
     await config.loadDefinitions()
 
     await registerCompletionAssistant()
-    // await registerTreeView()
+    await registerTreeView()
 
     nova.workspace.config.onDidChange('tailwindcss.workspace.version', reloadCompletionAssistant)
   } catch (error) {
@@ -36,11 +36,22 @@ exports.activate = async function() {
 
 exports.deactivate = function() {
   completionAssistant.dispose()
-  // treeViewDisposables.dispose()
+  treeViewDisposables.dispose()
+}
+
+async function registerCompletionAssistant() {
+  let completionProvider = new CompletionProvider(Configuration.VERSION, config.defintions)
+
+  await completionProvider.loadCompletionItems()
+
+  completionAssistant = nova.assistants.registerCompletionAssistant(Configuration.SUPPORTED_FILE_TYPES, completionProvider)
+
+  return true
 }
 
 async function registerTreeView() {
-  sidebar.list = new List(Configuration.VERSION, config.getVersionDefinitionFiles())
+  sidebar.list = new List(Configuration.VERSION, config.defintions)
+
   await sidebar.list.loadDefinitions()
 
   sidebar.dataProvider = new DataProvider(sidebar.list.items)
@@ -50,16 +61,6 @@ async function registerTreeView() {
   })
 
   treeViewDisposables.add(sidebar.treeView)
-
-  return true
-}
-
-async function registerCompletionAssistant() {
-  let completionProvider = new CompletionProvider(Configuration.VERSION, config.defintions)
-
-  await completionProvider.loadCompletionItems()
-
-  completionAssistant = nova.assistants.registerCompletionAssistant(Configuration.SUPPORTED_FILE_TYPES, completionProvider)
 
   return true
 }
