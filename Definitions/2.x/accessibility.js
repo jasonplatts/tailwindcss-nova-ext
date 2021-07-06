@@ -1,3 +1,5 @@
+'use strict'
+
 /*        SCREEN READERS CLASSES        */
 
 let screenReaders = [

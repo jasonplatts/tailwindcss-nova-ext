@@ -1,3 +1,5 @@
+'use strict'
+
 /*        BORDER COLLAPSE CLASSES        */
 
 let borderCollapse = [

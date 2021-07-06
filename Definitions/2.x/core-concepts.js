@@ -1,3 +1,5 @@
+'use strict'
+
 /*        HOVER, FOCUS, & OTHER STATES CLASSES        */
 
 let hoverFocusOtherStates = [

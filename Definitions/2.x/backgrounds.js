@@ -1,3 +1,5 @@
+'use strict'
+
 const COLORS    = require('./includes/colors.js')
 const FUNCTIONS = require('../../Scripts/functions.js')
 const SCALES    = require('./includes/scales.js')
@@ -63,7 +65,7 @@ let backgroundColor = [
   }
 ]
 
-for(i = 0; i < COLORS.COLORS.length; i++) {
+for(let i = 0; i < COLORS.COLORS.length; i++) {
   backgroundColor.push(
     {
       label:`bg-${COLORS.COLORS[i].name}`,
@@ -78,7 +80,7 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
 
 let backgroundOpacity = []
 
-for(i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
   backgroundOpacity.push(
     {
       label:`bg-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
@@ -282,7 +284,7 @@ let gradientColorStops = [
   }
 ]
 
-for(i = 0; i < COLORS.COLORS.length; i++) {
+for(let i = 0; i < COLORS.COLORS.length; i++) {
   gradientColorStops.push(
     {
       label:'from-' + COLORS.COLORS[i].name,

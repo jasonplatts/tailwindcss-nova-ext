@@ -1,10 +1,12 @@
+'use strict'
+
 const SCALES = require('./includes/scales.js')
 
 /*        GRID TEMPLATE COLUMNS CLASSES        */
 
 let gridTemplateColumns = []
 
-for(i = 1; i <= 12; i++) {
+for(let i = 1; i <= 12; i++) {
   gridTemplateColumns.push(
     {
       label:`grid-cols-${i}`,
@@ -34,7 +36,7 @@ gridColumnStartEnd.push(
   }
 )
 
-for(i = 1; i <= 12; i++) {
+for(let i = 1; i <= 12; i++) {
   gridColumnStartEnd.push(
     {
       label:`col-span-${i}`,
@@ -52,7 +54,7 @@ gridColumnStartEnd.push(
   }
 )
 
-for(i = 1; i <= 13; i++) {
+for(let i = 1; i <= 13; i++) {
   gridColumnStartEnd.push(
     {
       label:`col-start-${i}`,
@@ -70,7 +72,7 @@ gridColumnStartEnd.push(
   }
 )
 
-for(i = 1; i <= 13; i++) {
+for(let i = 1; i <= 13; i++) {
   gridColumnStartEnd.push(
     {
       label:`col-end-${i}`,
@@ -92,7 +94,7 @@ gridColumnStartEnd.push(
 
 let gridTemplateRows = []
 
-for(i = 1; i <= 6; i++) {
+for(let i = 1; i <= 6; i++) {
   gridTemplateRows.push(
     {
       label:`grid-rows-${i}`,
@@ -122,7 +124,7 @@ gridRowStartEnd.push(
   }
 )
 
-for(i = 1; i <= 6; i++) {
+for(let i = 1; i <= 6; i++) {
   gridRowStartEnd.push(
     {
       label:`row-span-${i}`,
@@ -140,7 +142,7 @@ gridRowStartEnd.push(
   }
 )
 
-for(i = 1; i <= 7; i++) {
+for(let i = 1; i <= 7; i++) {
   gridRowStartEnd.push(
     {
       label:`row-start-${i}`,
@@ -158,7 +160,7 @@ gridRowStartEnd.push(
   }
 )
 
-for(i = 1; i <= 7; i++) {
+for(let i = 1; i <= 7; i++) {
   gridRowStartEnd.push(
     {
       label:`row-end-${i}`,
@@ -255,7 +257,7 @@ let gridAutoRows = [
 
 let gap = []
 
-for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   gap.push(
     {
       label:`gap-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
@@ -265,7 +267,7 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   )
 }
 
-for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   gap.push(
     {
       label:`gap-x-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
@@ -275,7 +277,7 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   )
 }
 
-for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   gap.push(
     {
       label:`gap-y-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,

@@ -1,3 +1,5 @@
+'use strict'
+
 /*        APPEARANCE CLASSES        */
 
 let appearance = [

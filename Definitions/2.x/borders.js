@@ -1,3 +1,5 @@
+'use strict'
+
 const COLORS    = require('./includes/colors.js')
 const FUNCTIONS = require('../../Scripts/functions.js')
 const SCALES    = require('./includes/scales.js')
@@ -18,7 +20,7 @@ const BORDER_RADIUS_SCALE = [
 
 let borderRadius = []
 
-for(i = 0; i < BORDER_RADIUS_SCALE.length; i++) {
+for(let i = 0; i < BORDER_RADIUS_SCALE.length; i++) {
   borderRadius.push(
     {
       label:`rounded${BORDER_RADIUS_SCALE[i].name}`,
@@ -80,7 +82,7 @@ const BORDER_WIDTH_SCALE = [
 
 let borderWidth = []
 
-for(i = 0; i < BORDER_WIDTH_SCALE.length; i++) {
+for(let i = 0; i < BORDER_WIDTH_SCALE.length; i++) {
   borderWidth.push(
     {
       label:`border${BORDER_WIDTH_SCALE[i].name}`,
@@ -126,7 +128,7 @@ let borderColor = [
   }
 ]
 
-for(i = 0; i < COLORS.COLORS.length; i++) {
+for(let i = 0; i < COLORS.COLORS.length; i++) {
   borderColor.push(
     {
       label:'border-' + COLORS.COLORS[i].name,
@@ -141,7 +143,7 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
 
 let borderOpacity = []
 
-for(i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
   borderOpacity.push(
     {
       label:`border-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
@@ -192,9 +194,9 @@ const DIVIDE_WIDTH_SCALE = [
   { name:'',   value:'1px' }
 ]
 
-divideWidth = []
+let divideWidth = []
 
-for(i = 0; i < DIVIDE_WIDTH_SCALE.length; i++) {
+for(let i = 0; i < DIVIDE_WIDTH_SCALE.length; i++) {
   divideWidth.push(
     {
       label:`divide-y${DIVIDE_WIDTH_SCALE[i].name}`,
@@ -240,7 +242,7 @@ divideColor.push(
   }
 )
 
-for(i = 0; i < COLORS.COLORS.length; i++) {
+for(let i = 0; i < COLORS.COLORS.length; i++) {
   divideColor.push(
     {
       label:'divide-' + COLORS.COLORS[i].name,
@@ -255,7 +257,7 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
 
 let divideOpacity = []
 
-for(i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
   divideOpacity.push(
     {
       label:`divide-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
@@ -309,7 +311,7 @@ const RING_WIDTH_SCALE = [
   { name:'', value:'3px' },
 ]
 
-for(i = 0; i < RING_WIDTH_SCALE.length; i++) {
+for(let i = 0; i < RING_WIDTH_SCALE.length; i++) {
   ringWidth.push(
     {
       label:`ring${RING_WIDTH_SCALE[i].name}`,
@@ -343,7 +345,7 @@ let ringColor = [
   }
 ]
 
-for(i = 0; i < COLORS.COLORS.length; i++) {
+for(let i = 0; i < COLORS.COLORS.length; i++) {
   ringColor.push(
     {
       label:`ring-${COLORS.COLORS[i].name}`,
@@ -358,7 +360,7 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
 
 let ringOpacity = []
 
-for(i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
   ringOpacity.push(
     {
       label:`ring-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
@@ -381,7 +383,7 @@ const RING_OFFSET_WIDTH_SCALE = [
 
 let ringOffsetWidth = []
 
-for(i = 0; i < RING_OFFSET_WIDTH_SCALE.length; i++) {
+for(let i = 0; i < RING_OFFSET_WIDTH_SCALE.length; i++) {
   ringOffsetWidth.push(
     {
       label:`ring-offset-${RING_OFFSET_WIDTH_SCALE[i].name}`,
@@ -407,7 +409,7 @@ let ringOffsetColor = [
   }
 ]
 
-for(i = 0; i < COLORS.COLORS.length; i++) {
+for(let i = 0; i < COLORS.COLORS.length; i++) {
   ringOffsetColor.push(
     {
       label:`ring-offset-${COLORS.COLORS[i].name}`,

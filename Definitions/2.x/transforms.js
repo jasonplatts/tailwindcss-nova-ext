@@ -1,3 +1,5 @@
+'use strict'
+
 const FUNCTIONS = require('./includes/functions.js')
 const SCALES    = require('./includes/scales.js')
 
@@ -87,7 +89,7 @@ const SCALES_SCALE = [
 
 let scale = []
 
-for(i = 0; i < SCALES_SCALE.length; i++) {
+for(let i = 0; i < SCALES_SCALE.length; i++) {
   scale.push(
     {
       label:`scale-${SCALES_SCALE[i].name}`,
@@ -130,7 +132,7 @@ rotate.push(
   }
 )
 
-for(i = 0; i < ROTATE_SCALE.length; i++) {
+for(let i = 0; i < ROTATE_SCALE.length; i++) {
   rotate.push(
     {
       label:`rotate-${ROTATE_SCALE[i].name}`,
@@ -154,7 +156,7 @@ let translate = []
 function addTranslateClasses(negative = '') {
   let objectsArray = []
 
-  for(i = 0; i < TRANSLATE_SCALE.length; i++) {
+  for(let i = 0; i < TRANSLATE_SCALE.length; i++) {
     let prefix = FUNCTIONS.getValuePrefix(negative, TRANSLATE_SCALE[i].value)
 
     objectsArray.push(
@@ -201,7 +203,7 @@ skew.push(
   }
 )
 
-for(i = 0; i < SKEW_SCALE.length; i++) {
+for(let i = 0; i < SKEW_SCALE.length; i++) {
   skew.push(
     {
       label:`skew-x-${SKEW_SCALE[i].name}`,

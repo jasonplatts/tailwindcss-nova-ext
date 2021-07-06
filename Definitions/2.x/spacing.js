@@ -1,10 +1,12 @@
+'use strict'
+
 const SCALES = require('./includes/scales.js')
 
 /*        PADDING CLASSES        */
 
 let padding = []
 
-for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   padding.push(
     {
       label:`p-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
@@ -14,7 +16,7 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   )
 }
 
-for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   padding.push(
     {
       label:`py-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
@@ -29,7 +31,7 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   )
 }
 
-for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   padding.push(
     {
       label:`pt-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
@@ -59,7 +61,7 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
 function addMarginClasses(negative = '') {
   let objectsArray = []
 
-  for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
+  for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
     let negativeSizePrefix = ''
 
     if (negative == '-') {
@@ -158,7 +160,7 @@ margin.push(
 function addSpaceBetweenClasses(negative = '') {
   let objectsArray = []
 
-  for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
+  for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
     objectsArray.push(
       {
         label:`${negative}space-y-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,

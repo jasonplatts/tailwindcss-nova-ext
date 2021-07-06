@@ -1,3 +1,5 @@
+'use strict'
+
 const SCALES = require('./includes/scales.js')
 
 /*        BOX SHADOW CLASSES        */
@@ -49,7 +51,7 @@ let boxShadow = [
 
 let opacity = []
 
-for(i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
   opacity.push(
     {
       label:`opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,

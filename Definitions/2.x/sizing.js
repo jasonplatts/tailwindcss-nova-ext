@@ -1,3 +1,5 @@
+'use strict'
+
 const SCALES = require('./includes/scales.js')
 
 /*        WIDTH CLASSES        */
@@ -20,7 +22,7 @@ width.push(
   }
 )
 
-for(i = 0; i < COMBINED_WIDTH_SCALE.length; i++) {
+for(let i = 0; i < COMBINED_WIDTH_SCALE.length; i++) {
   width.push(
     {
       label:`w-${COMBINED_WIDTH_SCALE[i].name}`,
@@ -104,7 +106,7 @@ const MAX_WIDTH_SCALE = [
 
 let maxWidth = []
 
-for(i = 0; i < MAX_WIDTH_SCALE.length; i++) {
+for(let i = 0; i < MAX_WIDTH_SCALE.length; i++) {
   maxWidth.push(
     {
       label:`max-w-${MAX_WIDTH_SCALE[i].name}`,
@@ -138,7 +140,7 @@ height.push(
   }
 )
 
-for(i = 0; i < COMBINED_HEIGHT_SCALE.length; i++) {
+for(let i = 0; i < COMBINED_HEIGHT_SCALE.length; i++) {
   height.push(
     {
       label:`h-${COMBINED_HEIGHT_SCALE[i].name}`,
@@ -172,7 +174,7 @@ let minHeight = [
 
 let maxHeight = []
 
-for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   height.push(
     {
       label:`max-h-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,

@@ -1,3 +1,5 @@
+'use strict'
+
 const FUNCTIONS = require('./includes/functions.js')
 const SCALES    = require('./includes/scales.js')
 
@@ -5,7 +7,7 @@ const SCALES    = require('./includes/scales.js')
 
 let breakpoints = []
 
-for(i = 0; i < SCALES.BREAKPOINTS.length; i++) {
+for(let i = 0; i < SCALES.BREAKPOINTS.length; i++) {
   breakpoints.push(
     {
       label:`${SCALES.BREAKPOINTS[i].name}:`,
@@ -222,7 +224,7 @@ const OBJECT_POSITIONS = ['bottom', 'center', 'left', 'left-bottom',
 
 let objectPosition = []
 
-for(i = 0; i < OBJECT_POSITIONS.length; i++) {
+for(let i = 0; i < OBJECT_POSITIONS.length; i++) {
   objectPosition.push(
     {
       label:`object-${OBJECT_POSITIONS[i]}`,
@@ -385,7 +387,7 @@ let topRightBottomLeft = []
 function addTopRightBottomLeftClasses(negative = '') {
   let objectsArray = []
 
-  for(i = 0; i < COMBINED_SCALE.length; i++) {
+  for(let i = 0; i < COMBINED_SCALE.length; i++) {
     let prefix = FUNCTIONS.getValuePrefix(negative, COMBINED_SCALE[i].value)
 
     objectsArray.push(
@@ -492,7 +494,7 @@ const STACK_SCALE = ['0', '10', '20', '30', '40', '50']
 
 let zIndex = []
 
-for(i = 0; i < STACK_SCALE.length; i++) {
+for(let i = 0; i < STACK_SCALE.length; i++) {
   zIndex.push(
     {
       label:`z-${STACK_SCALE[i]}`,

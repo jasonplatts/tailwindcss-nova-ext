@@ -1,3 +1,5 @@
+'use strict'
+
 /*        JUSTIFY CONTENT CLASSES        */
 
 let justifyContent = [

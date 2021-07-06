@@ -1,3 +1,5 @@
+'use strict'
+
 /*        FILL CLASSES        */
 
 let fill = [

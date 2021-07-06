@@ -1,3 +1,5 @@
+'use strict'
+
 const COLORS    = require('./includes/colors.js')
 const FUNCTIONS = require('../../Scripts/functions.js')
 const SCALES    = require('./includes/scales.js')
@@ -42,7 +44,7 @@ const FONT_SIZES = [
 
 let fontSize = []
 
-for(i = 0; i < FONT_SIZES.length; i++) {
+for(let i = 0; i < FONT_SIZES.length; i++) {
   fontSize.push(
     {
       label:`text-${FONT_SIZES[i].name}`,
@@ -98,7 +100,7 @@ const FONT_WEIGHTS = [
 
 let fontWeight = []
 
-for(i = 0; i < FONT_WEIGHTS.length; i++) {
+for(let i = 0; i < FONT_WEIGHTS.length; i++) {
   fontWeight.push(
     {
       label:'font-' + FONT_WEIGHTS[i].name,
@@ -171,7 +173,7 @@ const FONT_TRACKING_OPTIONS = [
 
 let letterSpacing = []
 
-for(i = 0; i < FONT_TRACKING_OPTIONS.length; i++) {
+for(let i = 0; i < FONT_TRACKING_OPTIONS.length; i++) {
   letterSpacing.push(
     {
       label:`tracking-${FONT_TRACKING_OPTIONS[i].name}`,
@@ -205,7 +207,7 @@ const FIXED_LINE_HEIGHTS = [
 
 let lineHeights = []
 
-for(i = 0; i < RELATIVE_LINE_HEIGHTS.length; i++) {
+for(let i = 0; i < RELATIVE_LINE_HEIGHTS.length; i++) {
   lineHeights.push(
     {
       label:`leading-${RELATIVE_LINE_HEIGHTS[i].name}`,
@@ -215,7 +217,7 @@ for(i = 0; i < RELATIVE_LINE_HEIGHTS.length; i++) {
   )
 }
 
-for(i = 0; i < FIXED_LINE_HEIGHTS.length; i++) {
+for(let i = 0; i < FIXED_LINE_HEIGHTS.length; i++) {
   lineHeights.push(
     {
       label:`leading-${FIXED_LINE_HEIGHTS[i].name}`,
@@ -278,7 +280,7 @@ placeholderColor.push(
   }
 )
 
-for(i = 0; i < COLORS.COLORS.length; i++) {
+for(let i = 0; i < COLORS.COLORS.length; i++) {
   placeholderColor.push(
     {
       label:`placeholder-${COLORS.COLORS[i].name}`,
@@ -293,7 +295,7 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
 
 let placeholderOpacity = []
 
-for(i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
   placeholderOpacity.push(
     {
       label:`placeholder-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
@@ -347,7 +349,7 @@ textColor.push(
   }
 )
 
-for(i = 0; i < COLORS.COLORS.length; i++) {
+for(let i = 0; i < COLORS.COLORS.length; i++) {
   textColor.push(
     {
       label:'text-' + COLORS.COLORS[i].name,
@@ -362,7 +364,7 @@ for(i = 0; i < COLORS.COLORS.length; i++) {
 
 let textOpacity = []
 
-for(i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
   textOpacity.push(
     {
       label:`text-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,

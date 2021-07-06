@@ -1,3 +1,5 @@
+'use strict'
+
 /*        FLEX DIRECTION CLASSES        */
 
 let flexDirection = [
@@ -102,7 +104,7 @@ let flexShrink = [
 
 let order = []
 
-for(i = 1; i <= 12; i++) {
+for(let i = 1; i <= 12; i++) {
   order.push(
     {
       label:`order-${i}`,

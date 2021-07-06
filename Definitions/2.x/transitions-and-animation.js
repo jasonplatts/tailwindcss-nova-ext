@@ -1,3 +1,5 @@
+'use strict'
+
 /*        TRANSITION PROPERTY CLASSES        */
 
 let transitionProperty = [
@@ -53,7 +55,7 @@ const TRANSITION_DURATIONS = [
 
 let transitionDuration = []
 
-for(i = 0; i < TRANSITION_DURATIONS.length; i++) {
+for(let i = 0; i < TRANSITION_DURATIONS.length; i++) {
   transitionDuration.push(
     {
       label:`duration-${TRANSITION_DURATIONS[i].name}`,
@@ -103,7 +105,7 @@ const TRANSITION_DELAYS = [
 
 let transitionDelay = []
 
-for(i = 0; i < TRANSITION_DELAYS.length; i++) {
+for(let i = 0; i < TRANSITION_DELAYS.length; i++) {
   transitionDelay.push(
     {
       label:`delay-${TRANSITION_DELAYS[i].name}`,
