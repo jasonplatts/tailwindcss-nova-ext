@@ -39,7 +39,7 @@ exports.deactivate = function() {
 }
 
 async function registerTreeView() {
-  sidebar.list = new List()
+  sidebar.list = new List(config.getVersion(), config.getVersionDefinitionFiles())
   await sidebar.list.loadDefinitions()
 
   sidebar.dataProvider = new DataProvider(sidebar.list.items)
@@ -56,7 +56,7 @@ async function registerTreeView() {
 async function registerCompletionAssistant() {
   let completionProvider = new CompletionProvider(config.getVersion(), config.getVersionDefinitionFiles())
 
-  await completionProvider.loadDefinitions()
+  await completionProvider.importDefinitions()
   await completionProvider.loadCompletionItems()
 
   completionAssistant = nova.assistants.registerCompletionAssistant(Configuration.SUPPORTED_FILE_TYPES, completionProvider)
