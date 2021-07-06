@@ -34,12 +34,12 @@ exports.activate = async function() {
 }
 
 exports.deactivate = function() {
-  completionAssistant.dispose()
+  // completionAssistant.dispose()
   // treeViewDisposables.dispose()
 }
 
 async function registerTreeView() {
-  sidebar.list = new List(config.getVersion(), config.getVersionDefinitionFiles())
+  sidebar.list = new List(Configuration.VERSION, config.getVersionDefinitionFiles())
   await sidebar.list.loadDefinitions()
 
   sidebar.dataProvider = new DataProvider(sidebar.list.items)
@@ -54,7 +54,7 @@ async function registerTreeView() {
 }
 
 async function registerCompletionAssistant() {
-  let completionProvider = new CompletionProvider(config.getVersion(), config.getVersionDefinitionFiles())
+  let completionProvider = new CompletionProvider(Configuration.VERSION, config.getVersionDefinitionFiles())
 
   await completionProvider.importDefinitions()
   await completionProvider.loadCompletionItems()

@@ -13,19 +13,12 @@ exports.Configuration = class Configuration {
     ]
   }
 
-  getVersion() {
-    let version = nova.workspace.config.get('tailwindcss.workspace.version')
-
-    if (version == null) {
-      let definitionArray = nova.fs.listdir(nova.extension.path + '/Definitions')
-      version = definitionArray.sort(function(a, b) {return b-a})[0]
-    }
-
-    return version
+  static get VERSION() {
+    return '2.x'
   }
 
   getVersionDefinitionFiles() {
-    let path = nova.extension.path + '/Definitions/' + this.getVersion()
+    let path        = nova.extension.path + '/Definitions/' + Configuration.VERSION
     let definitions = nova.fs.listdir(path)
 
     definitions = definitions.filter((definition) => {
