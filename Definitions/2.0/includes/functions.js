@@ -1,14 +1,14 @@
 /* Returns a - (negative) prefix for non-zero negative values */
 exports.getValuePrefix = function getValuePrefix(negative, value) {
-  let prefix = "";
-  
-  if (negative == "-") {
-    if (value !== "0px") {
-      prefix = "-";
+  let prefix = ''
+
+  if (negative == '-') {
+    if (value !== '0px') {
+      prefix = '-'
     } else {
-      prefix = "";
+      prefix = ''
     }
   }
-  
-  return prefix;
+
+  return prefix
 }

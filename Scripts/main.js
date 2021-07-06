@@ -25,7 +25,7 @@ exports.activate = async function() {
     config = new Configuration()
 
     await registerCompletionAssistant()
-    await registerTreeView()
+    // await registerTreeView()
 
     nova.workspace.config.onDidChange('tailwindcss.workspace.version', reloadCompletionAssistant)
   } catch (error) {
@@ -35,7 +35,7 @@ exports.activate = async function() {
 
 exports.deactivate = function() {
   completionAssistant.dispose()
-  treeViewDisposables.dispose()
+  // treeViewDisposables.dispose()
 }
 
 async function registerTreeView() {
