@@ -16,11 +16,13 @@ exports.List = class List {
         let categoryItem = new ListItem(FUNCTIONS.camelCaseToUpperCase(categoryName))
 
         categoryItem.collapsibleState = TreeItemCollapsibleState.Collapsed
+        categoryItem.image            = 'sidebar-category'
 
         for (const [subCategoryName, subCategory] of Object.entries(category)) {
           let subCategoryItem = new ListItem(subCategoryName)
 
           subCategoryItem.collapsibleState = TreeItemCollapsibleState.Collapsed
+          subCategoryItem.image            = 'sidebar-subcategory'
 
           categoryItem.children.push(subCategoryItem)
 
