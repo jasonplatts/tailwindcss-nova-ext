@@ -25,7 +25,7 @@ exports.Configuration = class Configuration {
     This is also the name of the directory containing the definition files.
   */
   static get VERSION() {
-    return '2.x'
+    return '2.2.4'
   }
 
   /*
