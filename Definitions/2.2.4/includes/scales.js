@@ -1,4 +1,4 @@
-const BREAKPOINTS = [
+const SCREENS = [
   { name:'sm',  desc:'small',         value:'640px' },
   { name:'md',  desc:'medium',        value:'768px' },
   { name:'lg',  desc:'large',         value:'1024px' },
@@ -101,7 +101,7 @@ const DEFAULT_OPACITY_SCALE = [
   { name:'100', value:'1' }
 ]
 
-exports.BREAKPOINTS                   = BREAKPOINTS
+exports.SCREENS                       = SCREENS
 exports.DEFAULT_SPACING_SCALE         = DEFAULT_SPACING_SCALE
 exports.CORE_DEFAULT_FRACTIONAL_SCALE = CORE_DEFAULT_FRACTIONAL_SCALE
 exports.FIFTHS_FRACTIONAL_SCALE       = FIFTHS_FRACTIONAL_SCALE

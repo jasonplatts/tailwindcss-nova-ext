@@ -3,20 +3,6 @@
 const FUNCTIONS = require('./includes/functions.js')
 const SCALES    = require('./includes/scales.js')
 
-/*        BREAKPOINT CLASSES        */
-
-let breakpoints = []
-
-for(let i = 0; i < SCALES.BREAKPOINTS.length; i++) {
-  breakpoints.push(
-    {
-      label:`${SCALES.BREAKPOINTS[i].name}:`,
-      detail:`max-width: ${SCALES.BREAKPOINTS[i].value};`,
-      documentation:`Set the current breakpoint to ${SCALES.BREAKPOINTS[i].desc} (${SCALES.BREAKPOINTS[i].value}).`
-    }
-  )
-}
-
 /*        CONTAINER CLASSES        */
 
 let container = [
@@ -513,7 +499,6 @@ zIndex.push(
 )
 
 exports.layout = {
-  breakpoints:        breakpoints,
   container:          container,
   boxSizing:          boxSizing,
   display:            display,
