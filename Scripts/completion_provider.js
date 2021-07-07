@@ -3,47 +3,40 @@
 const FUNCTIONS = require('./functions.js')
 
 exports.CompletionProvider = class CompletionProvider {
-  constructor(version, definition_files) {
-    this._version          = version
-    this._definition_files = definition_files
-    this._imports          = []
-    this._items            = []
-  }
-
-  async importDefinitions() {
-    this._definition_files.forEach(definition => {
-      this._imports.push(require(`../Definitions/${this._version}/${definition}`))
-    })
-
-    return true
+  constructor(version, definitions) {
+    this._version     = version
+    this._definitions = definitions
+    this._items       = []
   }
 
   async loadCompletionItems() {
-    for (let fileCount = 0; fileCount < this._imports.length; fileCount++) {
-      for (let i = 0; i < this._imports[fileCount].classes.length; i++) {
-        let definitionObject = this._imports[fileCount].classes[i]
+    this._definitions.forEach(definitionFile => {
+      for (const [categoryName, category] of Object.entries(definitionFile)) {
+        for (const [subCategoryName, subCategory] of Object.entries(category)) {
+          subCategory.forEach(utilityClass => {
+            let item = null
 
-        let item = null
+            if (utilityClass.color !== undefined) {
+              item = new CompletionItem(utilityClass.label, CompletionItemKind.Color)
 
-        if (definitionObject.color !== undefined) {
-          item = new CompletionItem(definitionObject.label, CompletionItemKind.Color)
+              item.color = utilityClass.color
+            } else {
+              item = new CompletionItem(utilityClass.label, CompletionItemKind.StyleClass)
+            }
 
-          item.color = definitionObject.color
-        } else {
-          item = new CompletionItem(definitionObject.label, CompletionItemKind.StyleClass)
+            if (utilityClass.detail !== undefined) {
+              item.detail = FUNCTIONS.truncateString(utilityClass.detail, 30)
+            }
+
+            if (utilityClass.documentation !== undefined) {
+              item.documentation = FUNCTIONS.truncateString(utilityClass.documentation, 128)
+            }
+
+            this._items = [...this._items, item]
+          })
         }
-
-        if (definitionObject.detail !== undefined) {
-          item.detail = FUNCTIONS.truncateString(definitionObject.detail, 30)
-        }
-
-        if (definitionObject.documentation !== undefined) {
-          item.documentation = FUNCTIONS.truncateString(definitionObject.documentation, 128)
-        }
-
-        this._items = [...this._items, item]
       }
-    }
+    })
 
     return true
   }
@@ -59,9 +52,10 @@ exports.CompletionProvider = class CompletionProvider {
 
     return this._items
   }
-  
+
   bypassSpecialCase(context) {
     const rootScope = context.selectors.pop()
+    console.log('root', rootScope)
 
     if (rootScope?.matches('vue.html.embedded.script')) {
       return true

@@ -56,17 +56,15 @@
 
   "config-workspace": [
     {
-      "key": "tailwindcss.version.section",
+      "key": "tailwindcss.config.section",
       "title": "Tailwind CSS Version",
       "type": "section",
       "children": [
         {
-          "key": "tailwindcss.workspace.version",
-          "title": "Version",
-          "description": "Select the version of Tailwind CSS to be used in the current workspace.",
-          "type": "enum",
-          "values": ["2.0", "1.9"],
-          "default": "2.0"
+          "key": "tailwindcss.workspace.tailwindConfig",
+          "title": "Tailwind Config File",
+          "description": "The extension automatically searches for a tailwind.config.js file within the current workspace. If you have changed the name of the configuration file from its default, or otherwise wish to specify its location, you may do so here.",
+          "type": "path"
         }
       ]
     }

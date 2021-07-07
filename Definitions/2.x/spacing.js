@@ -1,10 +1,12 @@
-const SCALES = require('./includes/scales.js');
+'use strict'
+
+const SCALES = require('./includes/scales.js')
 
 /*        PADDING CLASSES        */
 
-let padding = [];
+let padding = []
 
-for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   padding.push(
     {
       label:`p-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
@@ -14,7 +16,7 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   )
 }
 
-for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   padding.push(
     {
       label:`py-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
@@ -26,10 +28,10 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
       detail:`padding-left: ${SCALES.DEFAULT_SPACING_SCALE[i].value}; padding-right: ${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
       documentation:`Set the horizontal padding of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
     }
-  );
+  )
 }
 
-for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
+for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
   padding.push(
     {
       label:`pt-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
@@ -51,24 +53,25 @@ for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
       detail:`padding-left: ${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
       documentation:`Set the left padding of an element to ${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
     }
-  );
+  )
 }
 
 /*        MARGIN CLASSES        */
-function addMarginClasses(negative = "") {
-  let objectsArray = [];
-  
-  for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
-    let negativeSizePrefix = "";
-    
-    if (negative == "-") {
-      if (SCALES.DEFAULT_SPACING_SCALE[i].value !== "0px") {
-        negativeSizePrefix = "-";
+
+function addMarginClasses(negative = '') {
+  let objectsArray = []
+
+  for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
+    let negativeSizePrefix = ''
+
+    if (negative == '-') {
+      if (SCALES.DEFAULT_SPACING_SCALE[i].value !== '0px') {
+        negativeSizePrefix = '-'
       } else {
-        negativeSizePrefix = "";
+        negativeSizePrefix = ''
       }
     }
-    
+
     objectsArray.push(
       {
         label:`${negative}m-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
@@ -105,98 +108,94 @@ function addMarginClasses(negative = "") {
         detail:`margin-left: ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value};`,
         documentation:`Set the left margin of an element to ${negativeSizePrefix}${SCALES.DEFAULT_SPACING_SCALE[i].value}.`
       },
-    );
-  } 
-  
-  return objectsArray;
+    )
+  }
+
+  return objectsArray
 }
-  
-let margin = addMarginClasses();
-margin = [...margin, ...addMarginClasses("-")];
+
+let margin = addMarginClasses()
+margin     = [...margin, ...addMarginClasses('-')]
 
 margin.push(
   {
-    label:"m-auto",
-    detail:"margin: auto;",
-    documentation:"Set an element's margin automatically. Often used to center an element."
+    label:'m-auto',
+    detail:'margin: auto;',
+    documentation:'Set an element\'s margin automatically. Often used to center an element.'
   },
   {
-    label:"my-auto",
-    detail:"margin-top: auto; margin-bottom: auto;",
-    documentation:"Let the browser determine an element's top and bottom margin automatically."
+    label:'my-auto',
+    detail:'margin-top: auto; margin-bottom: auto;',
+    documentation:'Let the browser determine an element\'s top and bottom margin automatically.'
   },
   {
-    label:"mx-auto",
-    detail:"margin-left: auto; margin-right: auto;",
-    documentation:"Let the browser determine an element's left and right margin automatically."
+    label:'mx-auto',
+    detail:'margin-left: auto; margin-right: auto;',
+    documentation:'Let the browser determine an element\'s left and right margin automatically.'
   },
   {
-    label:"mt-auto",
-    detail:"margin-top: auto;",
-    documentation:"Let the browser determine an element's top margin automatically."
+    label:'mt-auto',
+    detail:'margin-top: auto;',
+    documentation:'Let the browser determine an element\'s top margin automatically.'
   },
   {
-    label:"mr-auto",
-    detail:"margin-right: auto;",
-    documentation:"Let the browser determine an element's right margin automatically."
+    label:'mr-auto',
+    detail:'margin-right: auto;',
+    documentation:'Let the browser determine an element\'s right margin automatically.'
   },
   {
-    label:"mb-auto",
-    detail:"margin-bottom: auto;",
-    documentation:"Let the browser determine an element's bottom margin automatically."
+    label:'mb-auto',
+    detail:'margin-bottom: auto;',
+    documentation:'Let the browser determine an element\'s bottom margin automatically.'
   },
   {
-    label:"ml-auto",
-    detail:"margin-left: auto;",
-    documentation:"Let the browser determine an element's left margin automatically."
+    label:'ml-auto',
+    detail:'margin-left: auto;',
+    documentation:'Let the browser determine an element\'s left margin automatically.'
   }
-);
+)
 
 /*        SPACE BETWEEN CLASSES        */
 
-function addSpaceBetweenClasses(negative = "") {
-  let objectsArray = [];
-  
-  for(i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
+function addSpaceBetweenClasses(negative = '') {
+  let objectsArray = []
+
+  for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
     objectsArray.push(
       {
         label:`${negative}space-y-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-        detail:"",
-        documentation:`Set the vertical space between child elements.`
+        detail:'',
+        documentation:'Set the vertical space between child elements.'
       },
       {
         label:`${negative}space-x-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-        detail:"",
-        documentation:"Set the horizontal space between child elements."
+        detail:'',
+        documentation:'Set the horizontal space between child elements.'
       }
-    );  
+    )
   }
-  
-  return objectsArray;
+
+  return objectsArray
 }
 
-let spaceBetween = addSpaceBetweenClasses();
-spaceBetween = [...spaceBetween, ...addSpaceBetweenClasses("-")];
+let spaceBetween = addSpaceBetweenClasses()
+spaceBetween     = [...spaceBetween, ...addSpaceBetweenClasses('-')]
 
 spaceBetween.push(
   {
-    label:"space-y-reverse",
-    detail:"--space-y-reverse: 1;",
-    documentation:"If elements are in reverse order (eg: flex-col-reverse), set the vertical space to the correct side of an element."
+    label:'space-y-reverse',
+    detail:'--space-y-reverse: 1;',
+    documentation:'If elements are in reverse order (eg: flex-col-reverse), set the vertical space to the correct side of an element.'
   },
   {
-    label:"space-x-reverse",
-    detail:"--space-x-reverse: 1;",
-    documentation:"If elements are in reverse order (eg: flex-row-reverse), set the horizontal space to the correct side of an element."
+    label:'space-x-reverse',
+    detail:'--space-x-reverse: 1;',
+    documentation:'If elements are in reverse order (eg: flex-row-reverse), set the horizontal space to the correct side of an element.'
   }
-);
+)
 
-let classes = [];
-
-classes = classes.concat(
- padding,
- margin,
- spaceBetween
-);
-
-exports.classes = classes;
+exports.spacing = {
+  padding:      padding,
+  margin:       margin,
+  spaceBetween: spaceBetween
+}

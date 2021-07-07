@@ -4,45 +4,47 @@ const FUNCTIONS    = require('./functions.js')
 const { ListItem } = require('./list_item.js')
 
 exports.List = class List {
-  constructor(version, definition_files) {
-    this._version          = '2.0'
-    this._definition_files = definition_files
-    this._items            = []
-  }
-
-  async importDefinitions() {
-    this._definition_files.forEach(definition => {
-      let definitionObject = require(`../Definitions/${this._version}/${definition}`)
-      let item             = new ListItem(definition)
-
-      item.collapsibleState = TreeItemCollapsibleState.Collapsed
-      item.image = 'sidebar-category'
-
-      definitionObject.classes.forEach(definition => {
-        let subItem = new ListItem(definition.label)
-
-        if (definition.color !== undefined) {
-          subItem.color = definition.color
-        } else {
-          subItem.image = '__symbol.style-class'
-        }
-
-        subItem.descriptiveText = definition.detail
-        subItem.tooltip         = definition.documentation
-
-        item.children = [...item.children, subItem]
-      })
-
-      this._items = [...this._items, item]
-    })
-
-    return true
+  constructor(version, definitions) {
+    this._version     = version
+    this._definitions = definitions
+    this._items       = []
   }
 
   async loadDefinitions() {
-    await this.importDefinitions()
+    this._definitions.forEach(definitionFile => {
+      for (const [categoryName, category] of Object.entries(definitionFile)) {
+        let categoryItem = new ListItem(categoryName)
 
-    return true
+        categoryItem.collapsibleState = TreeItemCollapsibleState.Collapsed
+
+        for (const [subCategoryName, subCategory] of Object.entries(category)) {
+          let subCategoryItem = new ListItem(subCategoryName)
+
+          subCategoryItem.collapsibleState = TreeItemCollapsibleState.Collapsed
+
+          categoryItem.children.push(subCategoryItem)
+
+          subCategory.forEach(utilityClass => {
+            let utilityClassItem = new ListItem(utilityClass.label)
+
+            if (utilityClass.color !== undefined) {
+              utilityClassItem.color = utilityClass.color
+            } else {
+              utilityClassItem.image = '__symbol.style-class'
+            }
+
+            utilityClassItem.descriptiveText = utilityClass.detail
+            utilityClassItem.tooltip         = utilityClass.documentation
+
+            subCategoryItem.children.push(utilityClassItem)
+          })
+        }
+
+        this._items = [...this._items, categoryItem]
+      }
+    })
+
+    return
   }
 
   async loadTailwindConfigDefinitions() {

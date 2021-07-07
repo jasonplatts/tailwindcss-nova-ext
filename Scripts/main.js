@@ -23,6 +23,7 @@ exports.activate = async function() {
 
   try {
     config = new Configuration()
+    await config.loadDefinitions()
 
     await registerCompletionAssistant()
     await registerTreeView()
@@ -38,8 +39,19 @@ exports.deactivate = function() {
   treeViewDisposables.dispose()
 }
 
+async function registerCompletionAssistant() {
+  let completionProvider = new CompletionProvider(Configuration.VERSION, config.defintions)
+
+  await completionProvider.loadCompletionItems()
+
+  completionAssistant = nova.assistants.registerCompletionAssistant(Configuration.SUPPORTED_FILE_TYPES, completionProvider)
+
+  return true
+}
+
 async function registerTreeView() {
-  sidebar.list = new List(config.getVersion(), config.getVersionDefinitionFiles())
+  sidebar.list = new List(Configuration.VERSION, config.defintions)
+
   await sidebar.list.loadDefinitions()
 
   sidebar.dataProvider = new DataProvider(sidebar.list.items)
@@ -49,17 +61,6 @@ async function registerTreeView() {
   })
 
   treeViewDisposables.add(sidebar.treeView)
-
-  return true
-}
-
-async function registerCompletionAssistant() {
-  let completionProvider = new CompletionProvider(config.getVersion(), config.getVersionDefinitionFiles())
-
-  await completionProvider.importDefinitions()
-  await completionProvider.loadCompletionItems()
-
-  completionAssistant = nova.assistants.registerCompletionAssistant(Configuration.SUPPORTED_FILE_TYPES, completionProvider)
 
   return true
 }
