@@ -44,6 +44,17 @@ exports.getRangeOfCurrentWord = function(editor, context) {
 }
 
 /*
+  Adds spaces to a string in camel case with no spaces.
+*/
+exports.camelCaseToUpperCase = function(string) {
+  let newString = ''
+
+  newString = string.split(/(?=[A-Z])/).join(' ').toUpperCase()
+
+  return newString
+}
+
+/*
   Truncates a string to a specified length.
 */
 exports.truncateString = function(string, maxLength) {

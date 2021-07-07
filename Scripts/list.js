@@ -13,7 +13,7 @@ exports.List = class List {
   async loadDefinitions() {
     this._definitions.forEach(definitionFile => {
       for (const [categoryName, category] of Object.entries(definitionFile)) {
-        let categoryItem = new ListItem(categoryName)
+        let categoryItem = new ListItem(FUNCTIONS.camelCaseToUpperCase(categoryName))
 
         categoryItem.collapsibleState = TreeItemCollapsibleState.Collapsed
 
