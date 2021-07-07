@@ -1,3 +1,9 @@
+## Version 3.0
+
+* Added sidebar for viewing available Tailwind classes.
+* Provided access to Tailwind documentation through the sidebar.
+* Removed support for older versions of Tailwind in order to focus on extension feature enhancements.
+
 ## Version 2.2
 
 * Added support for jade and pug files.
@@ -26,7 +32,7 @@
 
 ## Version 1.1
 
-* Fixed issue causing extension to stop responding when at the beginning of a line.  
+* Fixed issue causing extension to stop responding when at the beginning of a line.
 * Added a minimum supported Nova 2.0 runtime requirement. Nova 2.0 addresses an issue that can cause less accurate autocomplete suggestions.
 
 ## Version 1.0
