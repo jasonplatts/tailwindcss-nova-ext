@@ -126,6 +126,63 @@ const MAX_WIDTH_SCALE = [
   { name:'screen-2xl', value:'1536px' }
 ]
 
+const FONT_SIZES = [
+  { name:'xs',   size:'0.75rem',  lineHeight:'1rem' },
+  { name:'sm',   size:'0.875rem', lineHeight:'1.25rem' },
+  { name:'base', size:'1rem',     lineHeight:'1.5rem' },
+  { name:'lg',   size:'1.125rem', lineHeight:'1.75rem' },
+  { name:'xl',   size:'1.25rem',  lineHeight:'1.75rem' },
+  { name:'2xl',  size:'1.5rem',   lineHeight:'2rem' },
+  { name:'3xl',  size:'1.875rem', lineHeight:'2.25rem' },
+  { name:'4xl',  size:'2.25rem',  lineHeight:'2.5rem' },
+  { name:'5xl',  size:'3rem',     lineHeight:'1' },
+  { name:'6xl',  size:'3.75rem',  lineHeight:'1' },
+  { name:'7xl',  size:'4.5rem',   lineHeight:'1' },
+  { name:'8xl',  size:'6rem',     lineHeight:'1' },
+  { name:'9xl',  size:'8rem',     lineHeight:'1' }
+]
+
+const FONT_WEIGHTS = [
+  { name:'thin',       value:'100' },
+  { name:'extralight', value:'200' },
+  { name:'light',      value:'300' },
+  { name:'normal',     value:'400' },
+  { name:'medium',     value:'500' },
+  { name:'semibold',   value:'600' },
+  { name:'bold',       value:'700' },
+  { name:'extrabold',  value:'800' },
+  { name:'black',      value:'900' }
+]
+
+const FONT_TRACKING_OPTIONS = [
+  {name:'tighter', value:'-0.05em'},
+  {name:'tight',   value:'-0.025em'},
+  {name:'normal',  value:'0'},
+  {name:'wide',    value:'0.025em'},
+  {name:'wider',   value:'0.05em'},
+  {name:'widest',  value:'0.1em'}
+]
+
+const FONT_RELATIVE_LINE_HEIGHTS = [
+  { name:'3',       value:'.75' },
+  { name:'4',       value:'1' },
+  { name:'5',       value:'1.25' },
+  { name:'6',       value:'1.5' },
+  { name:'7',       value:'1.75' },
+  { name:'8',       value:'2' },
+  { name:'9',       value:'2.25' },
+  { name:'10',      value:'2.5' }
+]
+
+const FONT_FIXED_LINE_HEIGHTS = [
+  { name:'none',    value:'1' },
+  { name:'tight',   value:'1.25' },
+  { name:'snug',    value:'1.375' },
+  { name:'normal',  value:'1.5' },
+  { name:'relaxed', value:'1.625' },
+  { name:'loose',   value:'2' }
+]
+
 exports.SCREENS                       = SCREENS
 exports.DEFAULT_SPACING_SCALE         = DEFAULT_SPACING_SCALE
 exports.CORE_DEFAULT_FRACTIONAL_SCALE = CORE_DEFAULT_FRACTIONAL_SCALE
@@ -134,3 +191,8 @@ exports.SIXTHS_FRACTIONAL_SCALE       = SIXTHS_FRACTIONAL_SCALE
 exports.TWELFTHS_FRACTIONAL_SCALE     = TWELFTHS_FRACTIONAL_SCALE
 exports.DEFAULT_OPACITY_SCALE         = DEFAULT_OPACITY_SCALE
 exports.MAX_WIDTH_SCALE               = MAX_WIDTH_SCALE
+exports.FONT_SIZES                    = FONT_SIZES
+exports.FONT_WEIGHTS                  = FONT_WEIGHTS
+exports.FONT_TRACKING_OPTIONS         = FONT_TRACKING_OPTIONS
+exports.FONT_RELATIVE_LINE_HEIGHTS    = FONT_RELATIVE_LINE_HEIGHTS
+exports.FONT_FIXED_LINE_HEIGHTS       = FONT_FIXED_LINE_HEIGHTS
