@@ -101,6 +101,31 @@ const DEFAULT_OPACITY_SCALE = [
   { name:'100', value:'1' }
 ]
 
+const MAX_WIDTH_SCALE = [
+  { name:'0',          value:'0rem' },
+  { name:'none',       value:'none' },
+  { name:'xs',         value:'20rem' },
+  { name:'sm',         value:'24rem' },
+  { name:'md',         value:'28rem' },
+  { name:'lg',         value:'32rem' },
+  { name:'xl',         value:'36rem' },
+  { name:'2xl',        value:'42rem' },
+  { name:'3xl',        value:'48rem' },
+  { name:'4xl',        value:'56rem' },
+  { name:'5xl',        value:'64rem' },
+  { name:'6xl',        value:'72rem' },
+  { name:'7xl',        value:'80rem' },
+  { name:'full',       value:'100%' },
+  { name:'min',        value:'min-content' },
+  { name:'max',        value:'max-content' },
+  { name:'prose',      value:'65ch' },
+  { name:'screen-sm',  value:'640px' },
+  { name:'screen-md',  value:'768px' },
+  { name:'screen-lg',  value:'1024px' },
+  { name:'screen-xl',  value:'1280px' },
+  { name:'screen-2xl', value:'1536px' }
+]
+
 exports.SCREENS                       = SCREENS
 exports.DEFAULT_SPACING_SCALE         = DEFAULT_SPACING_SCALE
 exports.CORE_DEFAULT_FRACTIONAL_SCALE = CORE_DEFAULT_FRACTIONAL_SCALE
@@ -108,3 +133,4 @@ exports.FIFTHS_FRACTIONAL_SCALE       = FIFTHS_FRACTIONAL_SCALE
 exports.SIXTHS_FRACTIONAL_SCALE       = SIXTHS_FRACTIONAL_SCALE
 exports.TWELFTHS_FRACTIONAL_SCALE     = TWELFTHS_FRACTIONAL_SCALE
 exports.DEFAULT_OPACITY_SCALE         = DEFAULT_OPACITY_SCALE
+exports.MAX_WIDTH_SCALE               = MAX_WIDTH_SCALE
