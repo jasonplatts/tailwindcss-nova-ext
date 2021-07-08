@@ -44,12 +44,25 @@ exports.getRangeOfCurrentWord = function(editor, context) {
 }
 
 /*
-  Adds spaces to a string in camel case with no spaces.
+  Converts to uppercase and adds spaces to a string in camel case with no spaces.
 */
 exports.camelCaseToUpperCase = function(string) {
   let newString = ''
 
   newString = string.split(/(?=[A-Z])/).join(' ').toUpperCase()
+
+  return newString
+}
+
+/*
+  Converts to title case and adds spaces to a string in camel case with no spaces.
+*/
+exports.camelCaseToTitleCase = function(string) {
+  let newString = ''
+  let firstChar = string.substr(0, 1)
+
+  newString = string.split(/(?=[A-Z])/).join(' ')
+  newString = firstChar.toUpperCase() + newString.substr(1, newString.length - 1)
 
   return newString
 }

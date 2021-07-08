@@ -19,7 +19,7 @@ exports.List = class List {
         categoryItem.image            = 'sidebar-category'
 
         for (const [subCategoryName, subCategory] of Object.entries(category)) {
-          let subCategoryItem = new ListItem(subCategoryName)
+          let subCategoryItem = new ListItem(FUNCTIONS.camelCaseToTitleCase(subCategoryName))
 
           subCategoryItem.collapsibleState = TreeItemCollapsibleState.Collapsed
           subCategoryItem.image            = 'sidebar-subcategory'
