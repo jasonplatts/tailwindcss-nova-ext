@@ -225,7 +225,58 @@ const RING_OFFSET_WIDTH_SCALE = [
   { name:'1', value:'1px' },
   { name:'2', value:'2px' },
   { name:'4', value:'4px' },
-  { name:'8', value:'8px' },
+  { name:'8', value:'8px' }
+]
+
+const BLUR_SCALE = [
+  { name:'-none', value:'0' },
+  { name:'-sm',   value:'4px' },
+  { name:'',      value:'8px' },
+  { name:'-md',   value:'12px' },
+  { name:'-lg',   value:'16px' },
+  { name:'-xl',   value:'24px' },
+  { name:'-2xl',  value:'40px' },
+  { name:'-3xl',  value:'64px' }
+]
+
+const BRIGHTNESS_SCALE = [
+  { name:'0',   value:'0' },
+  { name:'50',  value:'.5' },
+  { name:'75',  value:'.75' },
+  { name:'90',  value:'.9' },
+  { name:'95',  value:'.95' },
+  { name:'100', value:'1' },
+  { name:'105', value:'1.05' },
+  { name:'110', value:'1.1' },
+  { name:'125', value:'1.25' },
+  { name:'150', value:'1.5' },
+  { name:'200', value:'2' }
+]
+
+const CONTRAST_SCALE = [
+  { name:'0',   value:'0' },
+  { name:'50',  value:'.5' },
+  { name:'75',  value:'.75' },
+  { name:'100', value:'1' },
+  { name:'125', value:'1.25' },
+  { name:'150', value:'1.5' },
+  { name:'200', value:'2' }
+]
+
+const HUE_POSITIVE_SCALE = [
+  { name:'15',  value:'15deg' },
+  { name:'30',  value:'30deg' },
+  { name:'60',  value:'60deg' },
+  { name:'90',  value:'90deg' },
+  { name:'180', value:'180deg' }
+]
+
+const HUE_NEGATIVE_SCALE = [
+  { name:'180', value:'-180deg' },
+  { name:'90',  value:'-90deg' },
+  { name:'60',  value:'-60deg' },
+  { name:'30',  value:'-30deg' },
+  { name:'15',  value:'-15deg' }
 ]
 
 exports.SCREENS                       = SCREENS
@@ -252,3 +303,11 @@ exports.BORDER_WIDTH_SCALE            = BORDER_WIDTH_SCALE
 exports.DIVIDE_WIDTH_SCALE            = DIVIDE_WIDTH_SCALE
 exports.RING_WIDTH_SCALE              = RING_WIDTH_SCALE
 exports.RING_OFFSET_WIDTH_SCALE       = RING_OFFSET_WIDTH_SCALE
+
+/*        FILTER SCALES        */
+
+exports.BLUR_SCALE                    = BLUR_SCALE
+exports.BRIGHTNESS_SCALE              = BRIGHTNESS_SCALE
+exports.CONTRAST_SCALE                = CONTRAST_SCALE
+exports.HUE_POSITIVE_SCALE            = HUE_POSITIVE_SCALE
+exports.HUE_NEGATIVE_SCALE            = HUE_NEGATIVE_SCALE

@@ -43,6 +43,7 @@ exports.Configuration = class Configuration {
       'backgrounds.js',
       'borders.js',
       'effects.js',
+      'filters.js',
       'tables.js',
       'transitions-and-animation.js',
       'transforms.js',
