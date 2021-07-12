@@ -279,6 +279,28 @@ const HUE_NEGATIVE_SCALE = [
   { name:'15',  value:'-15deg' }
 ]
 
+const TRANSITION_DURATION_SCALE = [
+  { name:'75'  , value:'75ms' },
+  { name:'100' , value:'100ms' },
+  { name:'150' , value:'150ms' },
+  { name:'200' , value:'200ms' },
+  { name:'300' , value:'300ms' },
+  { name:'500' , value:'500ms' },
+  { name:'700' , value:'700ms' },
+  { name:'1000', value:'1000ms' }
+]
+
+const TRANSITION_DELAY_SCALE = [
+  { name:'75'  , value:'75ms' },
+  { name:'100' , value:'100ms' },
+  { name:'150' , value:'150ms' },
+  { name:'200' , value:'200ms' },
+  { name:'300' , value:'300ms' },
+  { name:'500' , value:'500ms' },
+  { name:'700' , value:'700ms' },
+  { name:'1000', value:'1000ms' }
+]
+
 exports.SCREENS                       = SCREENS
 exports.DEFAULT_SPACING_SCALE         = DEFAULT_SPACING_SCALE
 exports.CORE_DEFAULT_FRACTIONAL_SCALE = CORE_DEFAULT_FRACTIONAL_SCALE
@@ -311,3 +333,8 @@ exports.BRIGHTNESS_SCALE              = BRIGHTNESS_SCALE
 exports.CONTRAST_SCALE                = CONTRAST_SCALE
 exports.HUE_POSITIVE_SCALE            = HUE_POSITIVE_SCALE
 exports.HUE_NEGATIVE_SCALE            = HUE_NEGATIVE_SCALE
+
+/*        TRANSITION AND ANIMATION SCALES        */
+
+exports.TRANSITION_DURATION_SCALE     = TRANSITION_DURATION_SCALE
+exports.TRANSITION_DELAY_SCALE        = TRANSITION_DELAY_SCALE
