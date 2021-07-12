@@ -36,21 +36,20 @@ exports.Configuration = class Configuration {
     return [
       'core-concepts.js',
       'layout.js',
-      'flexbox.js',
-      'grid.js',
+      'flexbox-and-grid.js',
       'spacing.js',
       'sizing.js',
       'typography.js',
       'backgrounds.js',
       'borders.js',
       'effects.js',
+      'filters.js',
       'tables.js',
       'transitions-and-animation.js',
       'transforms.js',
       'interactivity.js',
       'svg.js',
       'accessibility.js',
-      'box-alignment',
     ]
   }
 

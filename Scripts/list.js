@@ -13,14 +13,16 @@ exports.List = class List {
   async loadDefinitions() {
     this._definitions.forEach(definitionFile => {
       for (const [categoryName, category] of Object.entries(definitionFile)) {
-        let categoryItem = new ListItem(categoryName)
+        let categoryItem = new ListItem(FUNCTIONS.camelCaseToUpperCase(categoryName))
 
         categoryItem.collapsibleState = TreeItemCollapsibleState.Collapsed
+        categoryItem.image            = 'sidebar-category'
 
         for (const [subCategoryName, subCategory] of Object.entries(category)) {
-          let subCategoryItem = new ListItem(subCategoryName)
+          let subCategoryItem = new ListItem(FUNCTIONS.camelCaseToTitleCase(subCategoryName))
 
           subCategoryItem.collapsibleState = TreeItemCollapsibleState.Collapsed
+          subCategoryItem.image            = 'sidebar-subcategory'
 
           categoryItem.children.push(subCategoryItem)
 
