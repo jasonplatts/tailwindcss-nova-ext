@@ -227,9 +227,9 @@ for(let i = 0; i < COLORS.COLORS.length; i++) {
   placeholderColor.push(
     {
       label:         `placeholder-${COLORS.COLORS[i].name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
+      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].hex),
       detail:        `--tw-placeholder-opacity: 1; color: rgba(${COLORS.COLORS[i].rgb}, var(--tw-placeholder-opacity));`,
-      documentation: `Set the placeholder color of an element to #${COLORS.COLORS[i].value}.`
+      documentation: `Set the placeholder color of an element to #${COLORS.COLORS[i].hex}.`
     }
   )
 }
@@ -296,9 +296,9 @@ for(let i = 0; i < COLORS.COLORS.length; i++) {
   textColor.push(
     {
       label:         'text-' + COLORS.COLORS[i].name,
-      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
+      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].hex),
       detail:        `--tw-text-opacity: 1; color: rgba(${COLORS.COLORS[i].rgb}, var(--tw-text-opacity));`,
-      documentation: 'Set the text color of an element to #' + COLORS.COLORS[i].value + '.'
+      documentation: `Set the text color of an element to #${COLORS.COLORS[i].hex}.`
     }
   )
 }

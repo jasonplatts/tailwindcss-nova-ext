@@ -172,9 +172,9 @@ COLORS.COLORS.forEach(color => {
   borderColor.push(
     {
       label:         `border-${color.name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(color.value),
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
       detail:        `--tw-border-opacity: 1; border-color: rgba(${color.rgb}, var(--tw-divide-opacity));`,
-      documentation: `Set the border color of an element to #${color.value}.`
+      documentation: `Set the border color of an element to #${color.hex}.`
     }
   )
 })
@@ -283,9 +283,9 @@ COLORS.COLORS.forEach(color => {
   divideColor.push(
     {
       label:         `divide-${color.name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(color.value),
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
       detail:        `--tw-divide-opacity: 1; border-color: rgba(${color.rgb}, var(--tw-divide-opacity));`,
-      documentation: `Set the border color between elements using divide utilities to #${color.value}.`
+      documentation: `Set the border color between elements using divide utilities to #${color.hex}.`
     }
   )
 })
@@ -377,9 +377,9 @@ COLORS.COLORS.forEach(color => {
   ringColor.push(
     {
       label:         `ring-${color.name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(color.value),
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
       detail:        `--tw-ring-color: rgba(${color.rgb}, var(--tw-ring-opacity));`,
-      documentation: `Set the outline ring color to #${color.value}.`
+      documentation: `Set the outline ring color to #${color.hex}.`
     }
   )
 })
@@ -433,9 +433,9 @@ COLORS.COLORS.forEach(color => {
   ringOffsetColor.push(
     {
       label:         `ring-offset-${color.name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(color.value),
-      detail:        `--tw-ring-offset-color: #${color.value}; box-shadow: 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color), var(--tw-ring-shadow);`,
-      documentation: `Set the outline ring offset color to #${color.value}.`
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+      detail:        `--tw-ring-offset-color: #${color.hex}; box-shadow: 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color), var(--tw-ring-shadow);`,
+      documentation: `Set the outline ring offset color to #${color.hex}.`
     }
   )
 })

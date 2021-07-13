@@ -69,9 +69,9 @@ COLORS.COLORS.forEach(color => {
   backgroundColor.push(
     {
       label:         `bg-${color.name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(color.value),
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
       detail:        `--tw-bg-opacity: 1; background-color: rgba(${color.rgb}, var(--tw-bg-opacity));`,
-      documentation: `Set the background color of an element to #${color.value}.`
+      documentation: `Set the background color of an element to #${color.hex}.`
     }
   )
 })
@@ -288,9 +288,9 @@ COLORS.COLORS.forEach(color => {
   gradientColorStops.push(
     {
       label:         `from-${color.name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(color.value),
-      detail:        `--tw-gradient-from: #${color.value}; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(${color.rgb}, 0));`,
-      documentation: `Set the first gradient stop of an element to #${color.value}. Use with via-{color} and to-{color} classes.`
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+      detail:        `--tw-gradient-from: #${color.hex}; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(${color.rgb}, 0));`,
+      documentation: `Set the first gradient stop of an element to #${color.hex}. Use with via-{color} and to-{color} classes.`
     }
   )
 })
@@ -313,9 +313,9 @@ COLORS.COLORS.forEach(color => {
   gradientColorStops.push(
     {
       label:         `via-${color.name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(color.value),
-      detail:        `--tw-gradient-stops: var(--tw-gradient-from), #${color.value}, var(--tw-gradient-to, rgba(${color.rgb}, 0));`,
-      documentation: `Set the middle gradient stop of an element to #${color.value}. Use with from-{color} and to-{color} classes.`
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+      detail:        `--tw-gradient-stops: var(--tw-gradient-from), #${color.hex}, var(--tw-gradient-to, rgba(${color.rgb}, 0));`,
+      documentation: `Set the middle gradient stop of an element to #${color.hex}. Use with from-{color} and to-{color} classes.`
     }
   )
 })
@@ -338,9 +338,9 @@ COLORS.COLORS.forEach(color => {
   gradientColorStops.push(
     {
       label:         `to-${color.name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(color.value),
-      detail:        `--tw-gradient-to: #${color.value};`,
-      documentation: `Set the last gradient stop of an element to #${color.value}. Use with from-{color} and via-{color} classes.`
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+      detail:        `--tw-gradient-to: #${color.hex};`,
+      documentation: `Set the last gradient stop of an element to #${color.hex}. Use with from-{color} and via-{color} classes.`
     }
   )
 })
