@@ -8,89 +8,149 @@ const SCALES    = require('./includes/scales.js')
 
 let borderRadius = []
 
-for(let i = 0; i < SCALES.BORDER_RADIUS_SCALE.length; i++) {
+SCALES.BORDER_RADIUS_SCALE.forEach(scale => {
   borderRadius.push(
     {
-      label:         `rounded-${SCALES.BORDER_RADIUS_SCALE[i].name}`,
-      detail:        `border-radius: ${SCALES.BORDER_RADIUS_SCALE[i].value};`,
-      documentation: `Set the border radius to ${SCALES.BORDER_RADIUS_SCALE[i].value}.`
-    },
-    {
-      label:         `rounded-t-${SCALES.BORDER_RADIUS_SCALE[i].name}`,
-      detail:        `border-top-left-radius: ${SCALES.BORDER_RADIUS_SCALE[i].value}; border-top-right-radius: ${SCALES.BORDER_RADIUS_SCALE[i].value};`,
-      documentation: `Set the top left and top right border radius to ${SCALES.BORDER_RADIUS_SCALE[i].value}.`
-    },
-    {
-      label:         `rounded-r-${SCALES.BORDER_RADIUS_SCALE[i].name}`,
-      detail:        `border-top-right-radius: ${SCALES.BORDER_RADIUS_SCALE[i].value}; border-bottom-right-radius: ${SCALES.BORDER_RADIUS_SCALE[i].value};`,
-      documentation: `Set the top right and bottom right border radius to ${SCALES.BORDER_RADIUS_SCALE[i].value}.`
-    },
-    {
-      label:         `rounded-b-${SCALES.BORDER_RADIUS_SCALE[i].name}`,
-      detail:        `border-bottom-right-radius: ${SCALES.BORDER_RADIUS_SCALE[i].value}; border-bottom-left-radius: ${SCALES.BORDER_RADIUS_SCALE[i].value};`,
-      documentation: `Set the bottom left and bottom right border radius to ${SCALES.BORDER_RADIUS_SCALE[i].value}.`
-    },
-    {
-      label:         `rounded-l-${SCALES.BORDER_RADIUS_SCALE[i].name}`,
-      detail:        `border-top-left-radius: ${SCALES.BORDER_RADIUS_SCALE[i].value}; border-bottom-left-radius: ${SCALES.BORDER_RADIUS_SCALE[i].value};`,
-      documentation: `Set the top left and bottom left border radius to ${SCALES.BORDER_RADIUS_SCALE[i].value}.`
-    },
-    {
-      label:         `rounded-tl-${SCALES.BORDER_RADIUS_SCALE[i].name}`,
-      detail:        `border-top-left-radius: ${SCALES.BORDER_RADIUS_SCALE[i].value};`,
-      documentation: `Set the top left border radius to ${SCALES.BORDER_RADIUS_SCALE[i].value}.`
-    },
-    {
-      label:         `rounded-tr-${SCALES.BORDER_RADIUS_SCALE[i].name}`,
-      detail:        `border-top-right-radius: ${SCALES.BORDER_RADIUS_SCALE[i].value};`,
-      documentation: `Set the top right border radius to ${SCALES.BORDER_RADIUS_SCALE[i].value}.`
-    },
-    {
-      label:         `rounded-br-${SCALES.BORDER_RADIUS_SCALE[i].name}`,
-      detail:        `border-bottom-right-radius: ${SCALES.BORDER_RADIUS_SCALE[i].value};`,
-      documentation: `Set the bottom right border radius to ${SCALES.BORDER_RADIUS_SCALE[i].value}.`
-    },
-    {
-      label:         `rounded-bl-${SCALES.BORDER_RADIUS_SCALE[i].name}`,
-      detail:        `border-bottom-left-radius: ${SCALES.BORDER_RADIUS_SCALE[i].value};`,
-      documentation: `Set the bottom left border radius to ${SCALES.BORDER_RADIUS_SCALE[i].value}.`
+      label:         `rounded${scale.name}`,
+      detail:        `border-radius: ${scale.value};`,
+      documentation: `Set the border radius to ${scale.value}.`
     }
   )
-}
+})
+
+SCALES.BORDER_RADIUS_SCALE.forEach(scale => {
+  borderRadius.push(
+    {
+      label:         `rounded-t${scale.name}`,
+      detail:        `border-top-left-radius: ${scale.value}; border-top-right-radius: ${scale.value};`,
+      documentation: `Set the top left and top right border radius to ${scale.value}.`
+    }
+  )
+})
+
+SCALES.BORDER_RADIUS_SCALE.forEach(scale => {
+  borderRadius.push(
+    {
+      label:         `rounded-r${scale.name}`,
+      detail:        `border-top-right-radius: ${scale.value}; border-bottom-right-radius: ${scale.value};`,
+      documentation: `Set the top right and bottom right border radius to ${scale.value}.`
+    }
+  )
+})
+
+SCALES.BORDER_RADIUS_SCALE.forEach(scale => {
+  borderRadius.push(
+    {
+      label:         `rounded-b${scale.name}`,
+      detail:        `border-bottom-right-radius: ${scale.value}; border-bottom-left-radius: ${scale.value};`,
+      documentation: `Set the bottom left and bottom right border radius to ${scale.value}.`
+    }
+  )
+})
+
+SCALES.BORDER_RADIUS_SCALE.forEach(scale => {
+  borderRadius.push(
+    {
+      label:         `rounded-l${scale.name}`,
+      detail:        `border-top-left-radius: ${scale.value}; border-bottom-left-radius: ${scale.value};`,
+      documentation: `Set the top left and bottom left border radius to ${scale.value}.`
+    }
+  )
+})
+
+SCALES.BORDER_RADIUS_SCALE.forEach(scale => {
+  borderRadius.push(
+    {
+      label:         `rounded-tl${scale.name}`,
+      detail:        `border-top-left-radius: ${scale.value};`,
+      documentation: `Set the top left border radius to ${scale.value}.`
+    }
+  )
+})
+
+SCALES.BORDER_RADIUS_SCALE.forEach(scale => {
+  borderRadius.push(
+    {
+      label:         `rounded-tr${scale.name}`,
+      detail:        `border-top-right-radius: ${scale.value};`,
+      documentation: `Set the top right border radius to ${scale.value}.`
+    }
+  )
+})
+
+SCALES.BORDER_RADIUS_SCALE.forEach(scale => {
+  borderRadius.push(
+    {
+      label:         `rounded-br${scale.name}`,
+      detail:        `border-bottom-right-radius: ${scale.value};`,
+      documentation: `Set the bottom right border radius to ${scale.value}.`
+    }
+  )
+})
+
+SCALES.BORDER_RADIUS_SCALE.forEach(scale => {
+  borderRadius.push(
+    {
+      label:         `rounded-bl${scale.name}`,
+      detail:        `border-bottom-left-radius: ${scale.value};`,
+      documentation: `Set the bottom left border radius to ${scale.value}.`
+    }
+  )
+})
 
 /*        BORDER WIDTH CLASSES        */
 
 let borderWidth = []
 
-for(let i = 0; i < SCALES.BORDER_WIDTH_SCALE.length; i++) {
+SCALES.BORDER_WIDTH_SCALE.forEach(scale => {
   borderWidth.push(
     {
-      label:         `border${SCALES.BORDER_WIDTH_SCALE[i].name}`,
-      detail:        `border-width: ${SCALES.BORDER_WIDTH_SCALE[i].value};`,
-      documentation: `Set the border width for all sides of an element to ${SCALES.BORDER_WIDTH_SCALE[i].value}.`
-    },
-    {
-      label:         `border-t${SCALES.BORDER_WIDTH_SCALE[i].name}`,
-      detail:        `border-top-width: ${SCALES.BORDER_WIDTH_SCALE[i].value};`,
-      documentation: `Set the top border width of an element to ${SCALES.BORDER_WIDTH_SCALE[i].value}.`
-    },
-    {
-      label:         `border-r${SCALES.BORDER_WIDTH_SCALE[i].name}`,
-      detail:        `border-right-width: ${SCALES.BORDER_WIDTH_SCALE[i].value};`,
-      documentation: `Set the right border width of an element to ${SCALES.BORDER_WIDTH_SCALE[i].value}.`
-    },
-    {
-      label:         `border-b${SCALES.BORDER_WIDTH_SCALE[i].name}`,
-      detail:        `border-bottom-width: ${SCALES.BORDER_WIDTH_SCALE[i].value};`,
-      documentation: `Set the bottom border width of an element to ${SCALES.BORDER_WIDTH_SCALE[i].value}.`
-    },
-    {
-      label:         `border-l${SCALES.BORDER_WIDTH_SCALE[i].name}`,
-      detail:        `border-left-width: ${SCALES.BORDER_WIDTH_SCALE[i].value};`,
-      documentation: `Set the left border width of an element to ${SCALES.BORDER_WIDTH_SCALE[i].value}.`
+      label:         `border${scale.name}`,
+      detail:        `border-width: ${scale.value};`,
+      documentation: `Set the border width for all sides of an element to ${scale.value}.`
     }
   )
-}
+})
+
+SCALES.BORDER_WIDTH_SCALE.forEach(scale => {
+  borderWidth.push(
+    {
+      label:         `border-t${scale.name}`,
+      detail:        `border-top-width: ${scale.value};`,
+      documentation: `Set the top border width of an element to ${scale.value}.`
+    }
+  )
+})
+
+SCALES.BORDER_WIDTH_SCALE.forEach(scale => {
+  borderWidth.push(
+    {
+      label:         `border-r${scale.name}`,
+      detail:        `border-right-width: ${scale.value};`,
+      documentation: `Set the right border width of an element to ${scale.value}.`
+    }
+  )
+})
+
+SCALES.BORDER_WIDTH_SCALE.forEach(scale => {
+  borderWidth.push(
+    {
+      label:         `border-b${scale.name}`,
+      detail:        `border-bottom-width: ${scale.value};`,
+      documentation: `Set the bottom border width of an element to ${scale.value}.`
+    }
+  )
+})
+
+SCALES.BORDER_WIDTH_SCALE.forEach(scale => {
+  borderWidth.push(
+    {
+      label:         `border-l${scale.name}`,
+      detail:        `border-left-width: ${scale.value};`,
+      documentation: `Set the left border width of an element to ${scale.value}.`
+    }
+  )
+})
 
 /*        BORDER COLOR CLASSES        */
 
@@ -108,31 +168,31 @@ let borderColor = [
   }
 ]
 
-for(let i = 0; i < COLORS.COLORS.length; i++) {
+COLORS.COLORS.forEach(color => {
   borderColor.push(
     {
-      label:         `border-${COLORS.COLORS[i].name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
-      detail:        `--tw-border-opacity: 1; border-color: rgba(${FUNCTIONS.convertHexToRgbArray(COLORS.COLORS[i].value).join(', ')}, var(--tw-divide-opacity));`,
-      documentation: `Set the border color of an element to #${COLORS.COLORS[i].value}.`
+      label:         `border-${color.name}`,
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+      detail:        `--tw-border-opacity: 1; border-color: rgba(${color.rgb}, var(--tw-divide-opacity));`,
+      documentation: `Set the border color of an element to #${color.hex}.`
     }
   )
-}
+})
 
 /*        BORDER OPACITY CLASSES        */
 
 let borderOpacity = []
 
-for(let i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+SCALES.DEFAULT_OPACITY_SCALE.forEach(scale => {
   borderOpacity.push(
     {
-      label:         `border-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
-      color:         new Color('rgb', [0, 0, 0, parseFloat(SCALES.DEFAULT_OPACITY_SCALE[i].value)]),
-      detail:        `--tw-border-opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
-      documentation: `Set the opacity of an element's border to ${SCALES.DEFAULT_OPACITY_SCALE[i].value}.`
+      label:         `border-opacity-${scale.name}`,
+      color:         new Color('rgb', [0, 0, 0, parseFloat(scale.value)]),
+      detail:        `--tw-border-opacity: ${scale.value};`,
+      documentation: `Set the opacity of an element's border to ${scale.value}.`
     }
   )
-}
+})
 
 /*        BORDER STYLE CLASSES        */
 
@@ -168,20 +228,25 @@ let borderStyle = [
 
 let divideWidth = []
 
-for(let i = 0; i < SCALES.DIVIDE_WIDTH_SCALE.length; i++) {
+SCALES.DIVIDE_WIDTH_SCALE.forEach(scale => {
   divideWidth.push(
     {
-      label:         `divide-x${SCALES.DIVIDE_WIDTH_SCALE[i].name}`,
-      detail:        `--tw-divide-y-reverse: 0; border-right-width: calc(${SCALES.DIVIDE_WIDTH_SCALE[i].value} * var(--tw-divide-x-reverse)); border-left-width: calc(${SCALES.DIVIDE_WIDTH_SCALE[i].value} * calc(1 - var(--tw-divide-x-reverse)));`,
-      documentation: `Set border width between horizontal children elements to ${SCALES.DIVIDE_WIDTH_SCALE[i].value}.`
-    },
-    {
-      label:         `divide-y${SCALES.DIVIDE_WIDTH_SCALE[i].name}`,
-      detail:        `--tw-divide-y-reverse: 0; border-top-width: calc(${SCALES.DIVIDE_WIDTH_SCALE[i].value} * calc(1 - var(--tw-divide-y-reverse))); border-bottom-width: calc(${SCALES.DIVIDE_WIDTH_SCALE[i].value} * var(--tw-divide-y-reverse));`,
-      documentation: `Set border width between vertical (stacked) children elements to ${SCALES.DIVIDE_WIDTH_SCALE[i].value}.`
+      label:         `divide-x${scale.name}`,
+      detail:        `--tw-divide-y-reverse: 0; border-right-width: calc(${scale.value} * var(--tw-divide-x-reverse)); border-left-width: calc(${scale.value} * calc(1 - var(--tw-divide-x-reverse)));`,
+      documentation: `Set border width between horizontal children elements to ${scale.value}.`
     }
   )
-}
+})
+
+SCALES.DIVIDE_WIDTH_SCALE.forEach(scale => {
+  divideWidth.push(
+    {
+      label:         `divide-y${scale.name}`,
+      detail:        `--tw-divide-y-reverse: 0; border-top-width: calc(${scale.value} * calc(1 - var(--tw-divide-y-reverse))); border-bottom-width: calc(${scale.value} * var(--tw-divide-y-reverse));`,
+      documentation: `Set border width between vertical (stacked) children elements to ${scale.value}.`
+    }
+  )
+})
 
 divideWidth.push(
   {
@@ -214,31 +279,31 @@ divideColor.push(
   }
 )
 
-for(let i = 0; i < COLORS.COLORS.length; i++) {
+COLORS.COLORS.forEach(color => {
   divideColor.push(
     {
-      label:         'divide-' + COLORS.COLORS[i].name,
-      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
-      detail:        `--tw-divide-opacity: 1; border-color: rgba(${FUNCTIONS.convertHexToRgbArray(COLORS.COLORS[i].value).join(', ')}, var(--tw-divide-opacity));`,
-      documentation: 'Set the border color between elements using divide utilities to #' + COLORS.COLORS[i].value + '.'
+      label:         `divide-${color.name}`,
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+      detail:        `--tw-divide-opacity: 1; border-color: rgba(${color.rgb}, var(--tw-divide-opacity));`,
+      documentation: `Set the border color between elements using divide utilities to #${color.hex}.`
     }
   )
-}
+})
 
 /*        DIVIDE OPACITY CLASSES        */
 
 let divideOpacity = []
 
-for(let i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+SCALES.DEFAULT_OPACITY_SCALE.forEach(scale => {
   divideOpacity.push(
     {
-      label:         `divide-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
-      color:         new Color('rgb', [0, 0, 0, parseFloat(SCALES.DEFAULT_OPACITY_SCALE[i].value)]),
-      detail:        `--tw-divide-opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
-      documentation: `Set the opacity of the borders between elements using the divide utilities to ${SCALES.DEFAULT_OPACITY_SCALE[i].value}.`
+      label:         `divide-opacity-${scale.name}`,
+      color:         new Color('rgb', [0, 0, 0, parseFloat(scale.value)]),
+      detail:        `--tw-divide-opacity: ${scale.value};`,
+      documentation: `Set the opacity of the borders between elements using the divide utilities to ${scale.value}.`
     }
   )
-}
+})
 
 /*        DIVIDE STYLE CLASSES        */
 
@@ -274,15 +339,15 @@ let divideStyle = [
 
 let ringWidth = []
 
-for(let i = 0; i < SCALES.RING_WIDTH_SCALE.length; i++) {
+SCALES.RING_WIDTH_SCALE.forEach(scale => {
   ringWidth.push(
     {
-      label:         `ring${SCALES.RING_WIDTH_SCALE[i].name}`,
-      detail:        `box-shadow: var(--tw-ring-inset) 0 0 0 calc(${SCALES.RING_WIDTH_SCALE[i].value} + var(--tw-ring-offset-width)) var(--tw-ring-color);`,
-      documentation: `Apply a solid box-shadow of ${SCALES.RING_WIDTH_SCALE[i].value}.`
+      label:         `ring${scale.name}`,
+      detail:        `box-shadow: var(--tw-ring-inset) 0 0 0 calc(${scale.value} + var(--tw-ring-offset-width)) var(--tw-ring-color);`,
+      documentation: `Apply a solid box-shadow of ${scale.value}.`
     }
   )
-}
+})
 
 ringWidth.push(
   {
@@ -308,45 +373,45 @@ let ringColor = [
   }
 ]
 
-for(let i = 0; i < COLORS.COLORS.length; i++) {
+COLORS.COLORS.forEach(color => {
   ringColor.push(
     {
-      label:         `ring-${COLORS.COLORS[i].name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
-      detail:        `--tw-ring-color: rgba(${FUNCTIONS.convertHexToRgbArray(COLORS.COLORS[i].value).join(', ')}, var(--tw-ring-opacity));`,
-      documentation: `Set the outline ring color to #${COLORS.COLORS[i].value}.`
+      label:         `ring-${color.name}`,
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+      detail:        `--tw-ring-color: rgba(${color.rgb}, var(--tw-ring-opacity));`,
+      documentation: `Set the outline ring color to #${color.hex}.`
     }
   )
-}
+})
 
 /*        RING OPACITY CLASSES        */
 
 let ringOpacity = []
 
-for(let i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+SCALES.DEFAULT_OPACITY_SCALE.forEach(scale => {
   ringOpacity.push(
     {
-      label:         `ring-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
-      color:         new Color('rgb', [0, 0, 0, parseFloat(SCALES.DEFAULT_OPACITY_SCALE[i].value)]),
-      detail:        `--tw-ring-opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
-      documentation: `Set the opacity of an element's outline ring to ${SCALES.DEFAULT_OPACITY_SCALE[i].value}.`
+      label:         `ring-opacity-${scale.name}`,
+      color:         new Color('rgb', [0, 0, 0, parseFloat(scale.value)]),
+      detail:        `--tw-ring-opacity: ${scale.value};`,
+      documentation: `Set the opacity of an element's outline ring to ${scale.value}.`
     }
   )
-}
+})
 
 /*        RING OFFSET WIDTH CLASSES        */
 
 let ringOffsetWidth = []
 
-for(let i = 0; i < SCALES.RING_OFFSET_WIDTH_SCALE.length; i++) {
+SCALES.RING_OFFSET_WIDTH_SCALE.forEach(scale => {
   ringOffsetWidth.push(
     {
-      label:         `ring-offset-${SCALES.RING_OFFSET_WIDTH_SCALE[i].name}`,
-      detail:        `--tw-ring-offset-width: ${SCALES.RING_OFFSET_WIDTH_SCALE[i].value}; box-shadow: 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color), var(--tw-ring-shadow);`,
-      documentation: `Set the outline ring width to ${SCALES.RING_OFFSET_WIDTH_SCALE[i].value}. Use to simulate an offset.`
+      label:         `ring-offset-${scale.name}`,
+      detail:        `--tw-ring-offset-width: ${scale.value}; box-shadow: 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color), var(--tw-ring-shadow);`,
+      documentation: `Set the outline ring width to ${scale.value}. Use to simulate an offset.`
     }
   )
-}
+})
 
 /*        RING OFFSET COLOR CLASSES        */
 
@@ -364,16 +429,16 @@ let ringOffsetColor = [
   }
 ]
 
-for(let i = 0; i < COLORS.COLORS.length; i++) {
+COLORS.COLORS.forEach(color => {
   ringOffsetColor.push(
     {
-      label:         `ring-offset-${COLORS.COLORS[i].name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
-      detail:        `--tw-ring-offset-color: #${COLORS.COLORS[i].value}; box-shadow: 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color), var(--tw-ring-shadow);`,
-      documentation: `Set the outline ring offset color to #${COLORS.COLORS[i].value}.`
+      label:         `ring-offset-${color.name}`,
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+      detail:        `--tw-ring-offset-color: #${color.hex}; box-shadow: 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color), var(--tw-ring-shadow);`,
+      documentation: `Set the outline ring offset color to #${color.hex}.`
     }
   )
-}
+})
 
 exports.borders = {
   borderRadius:    borderRadius,

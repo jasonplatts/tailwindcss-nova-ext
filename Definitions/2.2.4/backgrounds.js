@@ -65,31 +65,31 @@ let backgroundColor = [
   }
 ]
 
-for(let i = 0; i < COLORS.COLORS.length; i++) {
+COLORS.COLORS.forEach(color => {
   backgroundColor.push(
     {
-      label:         `bg-${COLORS.COLORS[i].name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
-      detail:        `background-color: #${COLORS.COLORS[i].value};`,
-      documentation: `Set the background color of an element to #${COLORS.COLORS[i].value}.`
+      label:         `bg-${color.name}`,
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+      detail:        `--tw-bg-opacity: 1; background-color: rgba(${color.rgb}, var(--tw-bg-opacity));`,
+      documentation: `Set the background color of an element to #${color.hex}.`
     }
   )
-}
+})
 
 /*        BACKGROUND OPACITY CLASSES        */
 
 let backgroundOpacity = []
 
-for(let i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
+SCALES.DEFAULT_OPACITY_SCALE.forEach(scale => {
   backgroundOpacity.push(
     {
-      label:         `bg-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
-      color:         new Color('rgb', [0, 0, 0, parseFloat(SCALES.DEFAULT_OPACITY_SCALE[i].value)]),
-      detail:        `--bg-opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
-      documentation: `Set the background opacity to ${SCALES.DEFAULT_OPACITY_SCALE[i].value}.`
+      label:         `bg-opacity-${scale.name}`,
+      color:         new Color('rgb', [0, 0, 0, parseFloat(scale.value)]),
+      detail:        `--tw-bg-opacity: ${scale.value};`,
+      documentation: `Set the background opacity to ${scale.value}.`
     }
   )
-}
+})
 
 /*        BACKGROUND POSITION CLASSES        */
 
@@ -226,112 +226,125 @@ let backgroundImage = [
   },
   {
     label:         'bg-gradient-to-t',
-    detail:        'background-image: linear-gradient(to top, var(--gradient-color-stops));',
+    detail:        'background-image: linear-gradient(to top, var(--tw-gradient-stops));',
     documentation: 'Set a linear gradient background with a bottom to top direction. Use with gradient color stop classes.'
   },
   {
     label:         'bg-gradient-to-tr',
-    detail:        'background-image: linear-gradient(to top right, var(--gradient-color-stops));',
+    detail:        'background-image: linear-gradient(to top right, var(--tw-gradient-stops));',
     documentation: 'Set a linear gradient background with a bottom left to top right direction. Use with gradient color stop classes.'
   },
   {
     label:         'bg-gradient-to-r',
-    detail:        'background-image: linear-gradient(to right, var(--gradient-color-stops));',
+    detail:        'background-image: linear-gradient(to right, var(--tw-gradient-stops));',
     documentation: 'Set a linear gradient background with a left to right direction. Use with gradient color stop classes.'
   },
   {
     label:         'bg-gradient-to-br',
-    detail:        'background-image: linear-gradient(to bottom right, var(--gradient-color-stops));',
+    detail:        'background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));',
     documentation: 'Set a linear gradient background with a top left to bottom right direction. Use with gradient color stop classes.'
   },
   {
     label:         'bg-gradient-to-b',
-    detail:        'background-image: linear-gradient(to bottom, var(--gradient-color-stops));',
+    detail:        'background-image: linear-gradient(to bottom, var(--tw-gradient-stops));',
     documentation: 'Set a linear gradient background with a top to bottom direction. Use with gradient color stop classes.'
   },
   {
     label:         'bg-gradient-to-bl',
-    detail:        'background-image: linear-gradient(to bottom left, var(--gradient-color-stops));',
+    detail:        'background-image: linear-gradient(to bottom left, var(--tw-gradient-stops));',
     documentation: 'Set a linear gradient background with a top right to bottom left direction. Use with gradient color stop classes.'
   },
   {
     label:         'bg-gradient-to-l',
-    detail:        'background-image: linear-gradient(to left, var(--gradient-color-stops));',
+    detail:        'background-image: linear-gradient(to left, var(--tw-gradient-stops));',
     documentation: 'Set a linear gradient background with a right to left direction. Use with gradient color stop classes.'
   },
   {
     label:         'bg-gradient-to-tl',
-    detail:        'linear-gradient(to top left, var(--gradient-color-stops));',
+    detail:        'linear-gradient(to top left, var(--tw-gradient-stops));',
     documentation: 'Set a linear gradient background with a bottom right to top left direction. Use with gradient color stop classes.'
   }
 ]
 
 /*        BACKGROUND COLOR STOP CLASSES        */
 
-let gradientColorStops = [
+let gradientColorStops = []
+
+gradientColorStops.push(
   {
     label:         'from-transparent',
     color:         new Color('rgb', [0, 0, 0, 0]),
-    detail:        '--gradient-from-color: transparent;',
+    detail:        '--tw-gradient-from: transparent; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));',
     documentation: 'Set the first gradient stop of an element to transparent. Use with via-{color} and to-{color} classes.'
   },
   {
     label:         'from-current',
-    detail:        '--gradient-from-color: currentColor;',
+    detail:        '--tw-gradient-from: currentColor; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0));',
     documentation: 'Set the first gradient stop of an element to the currentColor. Use with via-{color} and to-{color} classes.'
-  },
+  }
+)
+
+COLORS.COLORS.forEach(color => {
+  gradientColorStops.push(
+    {
+      label:         `from-${color.name}`,
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+      detail:        `--tw-gradient-from: #${color.hex}; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(${color.rgb}, 0));`,
+      documentation: `Set the first gradient stop of an element to #${color.hex}. Use with via-{color} and to-{color} classes.`
+    }
+  )
+})
+
+gradientColorStops.push(
   {
     label:         'via-transparent',
     color:         new Color('rgb', [0, 0, 0, 0]),
-    detail:        '--gradient-via-color: transparent;',
+    detail:        '--tw-gradient-stops: var(--tw-gradient-from), transparent, var(--tw-gradient-to, rgba(0, 0, 0, 0));',
     documentation: 'Set the middle gradient stop of an element to transparent. Use with from-{color} and to-{color} classes.'
   },
   {
     label:         'via-current',
-    detail:        '--gradient-via-color: currentColor;',
+    detail:        '--tw-gradient-stops: var(--tw-gradient-from), currentColor, var(--tw-gradient-to, rgba(255, 255, 255, 0));',
     documentation: 'Set the middle gradient stop of an element to the currentColor. Use with from-{color} and to-{color} classes.'
-  },
+  }
+)
+
+COLORS.COLORS.forEach(color => {
+  gradientColorStops.push(
+    {
+      label:         `via-${color.name}`,
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+      detail:        `--tw-gradient-stops: var(--tw-gradient-from), #${color.hex}, var(--tw-gradient-to, rgba(${color.rgb}, 0));`,
+      documentation: `Set the middle gradient stop of an element to #${color.hex}. Use with from-{color} and to-{color} classes.`
+    }
+  )
+})
+
+gradientColorStops.push(
   {
     label:         'to-transparent',
     color:         new Color('rgb', [0, 0, 0, 0]),
-    detail:        '--gradient-to-color: transparent;',
+    detail:        '-tw-gradient-to: transparent;',
     documentation: 'Set the last gradient stop of an element to transparent. Use with from-{color} and via-{color} classes.'
   },
   {
     label:         'to-current',
-    detail:        '--gradient-to-color: currentColor;',
+    detail:        '--tw-gradient-to: currentColor;',
     documentation: 'Set the last gradient stop of an element to the currentColor. Use with from-{color} and via-{color} classes.'
   }
-]
+)
 
-for(let i = 0; i < COLORS.COLORS.length; i++) {
+COLORS.COLORS.forEach(color => {
   gradientColorStops.push(
     {
-      label:         `from-${COLORS.COLORS[i].name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
-      detail:        `--gradient-from-color: #${COLORS.COLORS[i].value};`,
-      documentation: 'Set the first gradient stop of an element to #' + COLORS.COLORS[i].value + '. Use with via-{color} and to-{color} classes.'
+      label:         `to-${color.name}`,
+      color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+      detail:        `--tw-gradient-to: #${color.hex};`,
+      documentation: `Set the last gradient stop of an element to #${color.hex}. Use with from-{color} and via-{color} classes.`
     }
   )
+})
 
-  gradientColorStops.push(
-    {
-      label:         `via-${COLORS.COLORS[i].name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
-      detail:        `--gradient-via-color: #${COLORS.COLORS[i].value};`,
-      documentation: 'Set the middle gradient stop of an element to #' + COLORS.COLORS[i].value + '. Use with from-{color} and to-{color} classes.'
-    }
-  )
-
-  gradientColorStops.push(
-    {
-      label:         `to-${COLORS.COLORS[i].name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
-      detail:        `--gradient-to-color: #${COLORS.COLORS[i].value};`,
-      documentation: 'Set the last gradient stop of an element to #' + COLORS.COLORS[i].value + '. Use with from-{color} and via-{color} classes.'
-    }
-  )
-}
 
 exports.backgrounds = {
   backgroundAttachment: backgroundAttachment,

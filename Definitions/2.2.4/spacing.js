@@ -157,42 +157,63 @@ margin.push(
 
 /*        SPACE BETWEEN CLASSES        */
 
-function addSpaceBetweenClasses(negative = '') {
-  let objectsArray = []
+let spaceBetween = []
 
-  for(let i = 0; i < SCALES.DEFAULT_SPACING_SCALE.length; i++) {
-    objectsArray.push(
-      {
-        label:         `${negative}space-y-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-        detail:        '',
-        documentation: 'Set the vertical space between child elements.'
-      },
-      {
-        label:         `${negative}space-x-${SCALES.DEFAULT_SPACING_SCALE[i].name}`,
-        detail:        '',
-        documentation: 'Set the horizontal space between child elements.'
-      }
-    )
+SCALES.DEFAULT_SPACING_SCALE.forEach(scale => {
+  spaceBetween.push(
+    {
+      label:         `space-x-${scale.name}`,
+      detail:        `--tw-space-x-reverse: 0; margin-right: calc(${scale.value} * var(--tw-space-x-reverse)); margin-left: calc(${scale.value} * calc(1 - var(--tw-space-x-reverse)));`,
+      documentation: 'Set horizontal space between child elements.'
+    }
+  )
+})
+
+spaceBetween.push(
+  {
+    label:         'space-x-reverse',
+    detail:        '--tw-space-x-reverse: 1;',
+    documentation: 'If elements are in reverse order (eg: flex-row-reverse), set the horizontal space to the correct side of an element.'
   }
+)
 
-  return objectsArray
-}
+SCALES.DEFAULT_SPACING_SCALE.forEach(scale => {
+  spaceBetween.push(
+    {
+      label:         `-space-x-${scale.name}`,
+      detail:        `--tw-space-x-reverse: 0; margin-right: calc(-${scale.value} * var(--tw-space-x-reverse)); margin-left: calc(-${scale.value} * calc(1 - var(--tw-space-x-reverse)));`,
+      documentation: 'Set negative horizontal space between child elements.'
+    }
+  )
+})
 
-let spaceBetween = addSpaceBetweenClasses()
-spaceBetween     = [...spaceBetween, ...addSpaceBetweenClasses('-')]
+SCALES.DEFAULT_SPACING_SCALE.forEach(scale => {
+  spaceBetween.push(
+    {
+      label:         `space-y-${scale.name}`,
+      detail:        `--tw-space-y-reverse: 0; margin-top: calc(${scale.value} * calc(1 - var(--tw-space-y-reverse))); margin-bottom: calc(${scale.value} * var(--tw-space-y-reverse));`,
+      documentation: 'Set the vertical space between child elements.'
+    },
+  )
+})
 
 spaceBetween.push(
   {
     label:         'space-y-reverse',
-    detail:        '--space-y-reverse: 1;',
+    detail:        '--tw-space-y-reverse: 1;',
     documentation: 'If elements are in reverse order (eg: flex-col-reverse), set the vertical space to the correct side of an element.'
-  },
-  {
-    label:         'space-x-reverse',
-    detail:        '--space-x-reverse: 1;',
-    documentation: 'If elements are in reverse order (eg: flex-row-reverse), set the horizontal space to the correct side of an element.'
   }
 )
+
+SCALES.DEFAULT_SPACING_SCALE.forEach(scale => {
+  spaceBetween.push(
+    {
+      label:         `-space-y-${scale.name}`,
+      detail:        `--tw-space-y-reverse: 0; margin-top: calc(-${scale.value} * calc(1 - var(--tw-space-y-reverse))); margin-bottom: calc(-${scale.value} * var(--tw-space-y-reverse));`,
+      documentation: 'Set the vertical space between child elements.'
+    },
+  )
+})
 
 exports.spacing = {
   padding:      padding,

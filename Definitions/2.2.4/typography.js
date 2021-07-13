@@ -227,9 +227,9 @@ for(let i = 0; i < COLORS.COLORS.length; i++) {
   placeholderColor.push(
     {
       label:         `placeholder-${COLORS.COLORS[i].name}`,
-      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
-      detail:        `color: #${COLORS.COLORS[i].value};`,
-      documentation: `Set the placeholder color of an element to #${COLORS.COLORS[i].value}.`
+      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].hex),
+      detail:        `--tw-placeholder-opacity: 1; color: rgba(${COLORS.COLORS[i].rgb}, var(--tw-placeholder-opacity));`,
+      documentation: `Set the placeholder color of an element to #${COLORS.COLORS[i].hex}.`
     }
   )
 }
@@ -243,7 +243,7 @@ for(let i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
     {
       label:         `placeholder-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
       color:         new Color('rgb', [0, 0, 0, parseFloat(SCALES.DEFAULT_OPACITY_SCALE[i].value)]),
-      detail:        `--placeholder-opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
+      detail:        `--tw-placeholder-opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
       documentation: `Set the opacity of the placeholder color to ${SCALES.DEFAULT_OPACITY_SCALE[i].value}.`
     }
   )
@@ -296,9 +296,9 @@ for(let i = 0; i < COLORS.COLORS.length; i++) {
   textColor.push(
     {
       label:         'text-' + COLORS.COLORS[i].name,
-      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].value),
-      detail:        'color: #' + COLORS.COLORS[i].value + ';',
-      documentation: 'Set the text color of an element to #' + COLORS.COLORS[i].value + '.'
+      color:         FUNCTIONS.convertHexToRgbColorObject(COLORS.COLORS[i].hex),
+      detail:        `--tw-text-opacity: 1; color: rgba(${COLORS.COLORS[i].rgb}, var(--tw-text-opacity));`,
+      documentation: `Set the text color of an element to #${COLORS.COLORS[i].hex}.`
     }
   )
 }
@@ -312,7 +312,7 @@ for(let i = 0; i < SCALES.DEFAULT_OPACITY_SCALE.length; i++) {
     {
       label:         `text-opacity-${SCALES.DEFAULT_OPACITY_SCALE[i].name}`,
       color:         new Color('rgb', [0, 0, 0, parseFloat(SCALES.DEFAULT_OPACITY_SCALE[i].value)]),
-      detail:        `--text-opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
+      detail:        `--tw-text-opacity: ${SCALES.DEFAULT_OPACITY_SCALE[i].value};`,
       documentation: `Set the opacity of an element's text color to ${SCALES.DEFAULT_OPACITY_SCALE[i].value}.`
     }
   )

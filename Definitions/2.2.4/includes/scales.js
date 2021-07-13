@@ -70,15 +70,15 @@ const SIXTHS_FRACTIONAL_SCALE = [
 ]
 
 const TWELFTHS_FRACTIONAL_SCALE = [
-  { name:'1/12', value:'8.333333%' },
-  { name:'2/12', value:'16.666667%' },
-  { name:'3/12', value:'25%' },
-  { name:'4/12', value:'33.333333%' },
-  { name:'5/12', value:'41.666667%' },
-  { name:'6/12', value:'50%' },
-  { name:'7/12', value:'58.333333%' },
-  { name:'8/12', value:'66.666667%' },
-  { name:'9/12', value:'75%' },
+  { name:'1/12',  value:'8.333333%' },
+  { name:'2/12',  value:'16.666667%' },
+  { name:'3/12',  value:'25%' },
+  { name:'4/12',  value:'33.333333%' },
+  { name:'5/12',  value:'41.666667%' },
+  { name:'6/12',  value:'50%' },
+  { name:'7/12',  value:'58.333333%' },
+  { name:'8/12',  value:'66.666667%' },
+  { name:'9/12',  value:'75%' },
   { name:'10/12', value:'83.333333%' },
   { name:'11/12', value:'91.666667%' }
 ]
@@ -164,14 +164,14 @@ const FONT_TRACKING_OPTIONS = [
 ]
 
 const FONT_RELATIVE_LINE_HEIGHTS = [
-  { name:'3',       value:'.75' },
-  { name:'4',       value:'1' },
-  { name:'5',       value:'1.25' },
-  { name:'6',       value:'1.5' },
-  { name:'7',       value:'1.75' },
-  { name:'8',       value:'2' },
-  { name:'9',       value:'2.25' },
-  { name:'10',      value:'2.5' }
+  { name:'3',  value:'.75' },
+  { name:'4',  value:'1' },
+  { name:'5',  value:'1.25' },
+  { name:'6',  value:'1.5' },
+  { name:'7',  value:'1.75' },
+  { name:'8',  value:'2' },
+  { name:'9',  value:'2.25' },
+  { name:'10', value:'2.5' }
 ]
 
 const FONT_FIXED_LINE_HEIGHTS = [
@@ -184,15 +184,15 @@ const FONT_FIXED_LINE_HEIGHTS = [
 ]
 
 const BORDER_RADIUS_SCALE = [
-  { name:'none', value:'0px' },
-  { name:'sm',   value:'0.125rem' },
+  { name:'-none', value:'0px' },
+  { name:'-sm',   value:'0.125rem' },
   { name:'',     value:'0.25rem' },
-  { name:'md',   value:'0.375rem' },
-  { name:'lg',   value:'0.5rem' },
-  { name:'xl',   value:'0.75rem' },
-  { name:'2xl',  value:'1rem' },
-  { name:'3xl',  value:'1.5rem' },
-  { name:'full', value:'9999px' },
+  { name:'-md',   value:'0.375rem' },
+  { name:'-lg',   value:'0.5rem' },
+  { name:'-xl',   value:'0.75rem' },
+  { name:'-2xl',  value:'1rem' },
+  { name:'-3xl',  value:'1.5rem' },
+  { name:'-full', value:'9999px' },
 ]
 
 const BORDER_WIDTH_SCALE = [
@@ -279,6 +279,28 @@ const HUE_NEGATIVE_SCALE = [
   { name:'15',  value:'-15deg' }
 ]
 
+const TRANSITION_DURATION_SCALE = [
+  { name:'75',   value:'75ms' },
+  { name:'100',  value:'100ms' },
+  { name:'150',  value:'150ms' },
+  { name:'200',  value:'200ms' },
+  { name:'300',  value:'300ms' },
+  { name:'500',  value:'500ms' },
+  { name:'700',  value:'700ms' },
+  { name:'1000', value:'1000ms' }
+]
+
+const TRANSITION_DELAY_SCALE = [
+  { name:'75',   value:'75ms' },
+  { name:'100',  value:'100ms' },
+  { name:'150',  value:'150ms' },
+  { name:'200',  value:'200ms' },
+  { name:'500',  value:'500ms' },
+  { name:'300',  value:'300ms' },
+  { name:'700',  value:'700ms' },
+  { name:'1000', value:'1000ms' }
+]
+
 exports.SCREENS                       = SCREENS
 exports.DEFAULT_SPACING_SCALE         = DEFAULT_SPACING_SCALE
 exports.CORE_DEFAULT_FRACTIONAL_SCALE = CORE_DEFAULT_FRACTIONAL_SCALE
@@ -311,3 +333,8 @@ exports.BRIGHTNESS_SCALE              = BRIGHTNESS_SCALE
 exports.CONTRAST_SCALE                = CONTRAST_SCALE
 exports.HUE_POSITIVE_SCALE            = HUE_POSITIVE_SCALE
 exports.HUE_NEGATIVE_SCALE            = HUE_NEGATIVE_SCALE
+
+/*        TRANSITION AND ANIMATION SCALES        */
+
+exports.TRANSITION_DURATION_SCALE     = TRANSITION_DURATION_SCALE
+exports.TRANSITION_DELAY_SCALE        = TRANSITION_DELAY_SCALE
