@@ -79,6 +79,17 @@ exports.truncateString = function(string, maxLength) {
 }
 
 /*
+  Adds a required class to the end of the detail property in each object within the array.
+*/
+exports.addRequiredClass = function(array, requiredClass) {
+  array.forEach(object => {
+    object.documentation = `${object.documentation} *Requires the '${requiredClass}' class.`
+  })
+
+  return array
+}
+
+/*
   Format extension errors in the console.
 */
 exports.showConsoleError = function showConsoleError(error) {
