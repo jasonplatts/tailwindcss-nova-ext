@@ -79,7 +79,18 @@ exports.truncateString = function(string, maxLength) {
 }
 
 /*
-  Adds a required class to the end of the detail property in each object within the array.
+  Adds a string to the end of the documentation property in each object within the array.
+*/
+exports.addStringToDocumentation = function(array, string) {
+  array.forEach(object => {
+    object.documentation = `${object.documentation} ${string}`
+  })
+
+  return array
+}
+
+/*
+  Adds a required class to the end of the documentation property in each object within the array.
 */
 exports.addRequiredClass = function(array, requiredClass) {
   array.forEach(object => {

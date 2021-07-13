@@ -1,25 +1,25 @@
 'use strict'
 
-const FUNCTIONS = require('./includes/functions.js')
+const FUNCTIONS = require('../../Scripts/functions.js')
 const SCALES    = require('./includes/scales.js')
 
 /*        TRANSFORM CLASSES        */
 
 let transform = [
   {
-    label:'transform',
-    detail:'',
-    documentation:'Enable transformations.'
+    label:         'transform',
+    detail:        '--tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));',
+    documentation: 'Add to an element to enable transformations.'
   },
   {
-    label:'transform-gpu',
-    detail:'',
-    documentation:'Enable transformations to be executed on the GPU instead of the CPU.'
+    label:         'transform-gpu',
+    detail:        '--tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; transform: translate3d(var(--tw-translate-x), var(--tw-translate-y), 0) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));',
+    documentation: 'Enable transformations to be executed on the GPU instead of the CPU.'
   },
   {
-    label:'transform-none',
-    detail:'',
-    documentation:'Disable transformations.'
+    label:         'transform-none',
+    detail:        'transform: none;',
+    documentation: 'Disable any transformations applied to an element.'
   }
 ]
 
@@ -27,125 +27,125 @@ let transform = [
 
 let transformOrigin = [
   {
-    label:'origin-center',
-    detail:'transform-origin: center;',
-    documentation:'Set an element\'s transform origin to center. The transform origin is the point of an element where the transition pivots.'
+    label:         'origin-center',
+    detail:        'transform-origin: center;',
+    documentation: 'Set an element\'s transform origin to center.'
   },
   {
-    label:'origin-top',
-    detail:'transform-origin: top;',
-    documentation:'Set an element\'s transform origin to top. The transform origin is the point of an element where the transition pivots.'
+    label:         'origin-top',
+    detail:        'transform-origin: top;',
+    documentation: 'Set an element\'s transform origin to top.'
   },
   {
-    label:'origin-top-right',
-    detail:'transform-origin: top right;',
-    documentation:'Set an element\'s transform origin to top right. The transform origin is the point of an element where the transition pivots.'
+    label:         'origin-top-right',
+    detail:        'transform-origin: top right;',
+    documentation: 'Set an element\'s transform origin to top right.'
   },
   {
-    label:'origin-right',
-    detail:'transform-origin: right;',
-    documentation:'Set an element\'s transform origin to right. The transform origin is the point of an element where the transition pivots.'
+    label:         'origin-right',
+    detail:        'transform-origin: right;',
+    documentation: 'Set an element\'s transform origin to right.'
   },
   {
-    label:'origin-bottom-right',
-    detail:'transform-origin: bottom right;',
-    documentation:'Set an element\'s transform origin to bottom right. The transform origin is the point of an element where the transition pivots.'
+    label:         'origin-bottom-right',
+    detail:        'transform-origin: bottom right;',
+    documentation: 'Set an element\'s transform origin to bottom right.'
   },
   {
-    label:'origin-bottom',
-    detail:'transform-origin: bottom;',
-    documentation:'Set an element\'s transform origin to bottom. The transform origin is the point of an element where the transition pivots.'
+    label:         'origin-bottom',
+    detail:        'transform-origin: bottom;',
+    documentation: 'Set an element\'s transform origin to bottom.'
   },
   {
-    label:'origin-bottom-left',
-    detail:'transform-origin: bottom left;',
-    documentation:'Set an element\'s transform origin to bottom left. The transform origin is the point of an element where the transition pivots.'
+    label:         'origin-bottom-left',
+    detail:        'transform-origin: bottom left;',
+    documentation: 'Set an element\'s transform origin to bottom left.'
   },
   {
-    label:'origin-left',
-    detail:'transform-origin: left;',
-    documentation:'Set an element\'s transform origin to left. The transform origin is the point of an element where the transition pivots.'
+    label:         'origin-left',
+    detail:        'transform-origin: left;',
+    documentation: 'Set an element\'s transform origin to left.'
   },
   {
-    label:'origin-top-left',
-    detail:'transform-origin: top left;',
-    documentation:'Set an element\'s transform origin to top left. The transform origin is the point of an element where the transition pivots.'
+    label:         'origin-top-left',
+    detail:        'transform-origin: top left;',
+    documentation: 'Set an element\'s transform origin to top left.'
   }
 ]
 
+transformOrigin = FUNCTIONS.addStringToDocumentation(transformOrigin, 'The transform origin is the point of an element where the transition pivots.')
+
 /*        SCALE CLASSES        */
-const SCALES_SCALE = [
-  { name:'0',   value:'0' },
-  { name:'50',  value:'.5' },
-  { name:'75',  value:'.75' },
-  { name:'90',  value:'.9' },
-  { name:'95',  value:'.95' },
-  { name:'100', value:'1' },
-  { name:'105', value:'1.05' },
-  { name:'110', value:'1.1' },
-  { name:'125', value:'1.25' },
-  { name:'150', value:'1.5' },
-]
 
 let scale = []
 
-for(let i = 0; i < SCALES_SCALE.length; i++) {
+SCALES.SCALE_SCALE.forEach(scaleObj => {
   scale.push(
     {
-      label:`scale-${SCALES_SCALE[i].name}`,
-      detail:`--transform-scale-x: ${SCALES_SCALE[i].value}; --transform-scale-y: ${SCALES_SCALE[i].value};`,
-      documentation:`Set an element's scale x and y percentages to ${SCALES_SCALE[i].value}. The transform utility must first be specified.`
-    },
-    {
-      label:`scale-x-${SCALES_SCALE[i].name}`,
-      detail:`--transform-scale-x: ${SCALES_SCALE[i].value};`,
-      documentation:`Set an element's scale x percentages to ${SCALES_SCALE[i].value}. The transform utility must first be specified.`
-    },
-    {
-      label:`scale-y-${SCALES_SCALE[i].name}`,
-      detail:`--transform-scale-y: ${SCALES_SCALE[i].value};`,
-      documentation:`Set an element's scale y percentage to ${SCALES_SCALE[i].value}. The transform utility must first be specified.`
+      label:         `scale-${scaleObj.name}`,
+      detail:        `--transform-scale-x: ${scaleObj.value}; --transform-scale-y: ${scaleObj.value};`,
+      documentation: `Set an element's scale x and y percentages to ${scaleObj.value}.`
     }
   )
-}
+})
+
+SCALES.SCALE_SCALE.forEach(scaleObj => {
+  scale.push(
+    {
+      label:         `scale-x-${scaleObj.name}`,
+      detail:        `--transform-scale-x: ${scaleObj.value};`,
+      documentation: `Set an element's scale x percentages to ${scaleObj.value}.`
+    }
+  )
+})
+
+SCALES.SCALE_SCALE.forEach(scaleObj => {
+  scale.push(
+    {
+      label:         `scale-y-${scaleObj.name}`,
+      detail:        `--transform-scale-y: ${scaleObj.value};`,
+      documentation: `Set an element's scale y percentage to ${scaleObj.value}.`
+    }
+  )
+})
 
 /*        ROTATE CLASSES        */
-
-const ROTATE_SCALE = [
-  { name:'1',   value:'1deg' },
-  { name:'2',   value:'2deg' },
-  { name:'3',   value:'3deg' },
-  { name:'6',   value:'6deg' },
-  { name:'12',  value:'12deg' },
-  { name:'45',  value:'45deg' },
-  { name:'90',  value:'90deg' },
-  { name:'180', value:'180deg' }
-]
 
 let rotate = []
 
 rotate.push(
   {
-    label:'rotate-0',
-    detail:'--transform-rotate: 0;',
-    documentation:'Set an element\'s rotation angle to 0. The transform utility must first be used.'
+    label:         'rotate-0',
+    detail:        '--tw-transform-rotate: 0;',
+    documentation: 'Set an element\'s rotation angle to 0deg.'
   }
 )
 
-for(let i = 0; i < ROTATE_SCALE.length; i++) {
+SCALES.ROTATE_SCALE.forEach(scaleObj => {
   rotate.push(
     {
-      label:`rotate-${ROTATE_SCALE[i].name}`,
-      detail:`--transform-rotate: ${ROTATE_SCALE[i].value};`,
-      documentation:`Set an element's rotation angle to ${ROTATE_SCALE[i].value}. The transform utility must first be used.`
-    },
-    {
-      label:`-rotate-${ROTATE_SCALE[i].name}`,
-      detail:`--transform-rotate: -${ROTATE_SCALE[i].value};`,
-      documentation:`Set an element's rotation angle to -${ROTATE_SCALE[i].value}. The transform utility must first be used.`
+      label:         `rotate-${scaleObj.name}`,
+      detail:        `--tw-transform-rotate: ${scaleObj.value};`,
+      documentation: `Set an element's rotation angle to ${scaleObj.value}.`
     }
   )
-}
+})
+
+let negativeRotate = []
+
+SCALES.ROTATE_SCALE.forEach(scaleObj => {
+  negativeRotate.push(
+    {
+      label:         `-rotate-${scaleObj.name}`,
+      detail:        `--tw-transform-rotate: -${scaleObj.value};`,
+      documentation:` Set an element's rotation angle to -${scaleObj.value}.`
+    }
+  )
+})
+
+negativeRotate.reverse()
+
+rotate = [...rotate, ...negativeRotate]
 
 /*        TRANSLATE CLASSES        */
 
@@ -153,80 +153,117 @@ const TRANSLATE_SCALE = [...SCALES.DEFAULT_SPACING_SCALE, ...SCALES.CORE_DEFAULT
 
 let translate = []
 
-function addTranslateClasses(negative = '') {
-  let objectsArray = []
+TRANSLATE_SCALE.forEach(scaleObj => {
+  translate.push(
+    {
+      label:         `translate-x-${scaleObj.name}`,
+      detail:        `--tw-transform-translate-x: ${scaleObj.value};`,
+      documentation: `Set an element's x-axis translate amount to ${scaleObj.value}.`
+    }
+  )
+})
 
-  for(let i = 0; i < TRANSLATE_SCALE.length; i++) {
-    let prefix = FUNCTIONS.getValuePrefix(negative, TRANSLATE_SCALE[i].value)
+TRANSLATE_SCALE.forEach(scaleObj => {
+  translate.push(
+    {
+      label:         `-translate-x-${scaleObj.name}`,
+      detail:        `--tw-transform-translate-x: -${scaleObj.value};`,
+      documentation: `Set an element's x-axis translate amount to -${scaleObj.value}.`
+    }
+  )
+})
 
-    objectsArray.push(
-      {
-        label:`${negative}translate-x-${TRANSLATE_SCALE[i].name}`,
-        detail:`--transform-translate-x: ${prefix}${TRANSLATE_SCALE[i].value};`,
-        documentation:`Set an element's x-axis translate amount to ${prefix}${TRANSLATE_SCALE[i].value}. The transform utility must first be used.`
-      },
-      {
-        label:`${negative}translate-y-${TRANSLATE_SCALE[i].name}`,
-        detail:`--transform-translate-y: ${prefix}${TRANSLATE_SCALE[i].value};`,
-        documentation:`Set an element's y-axis translate amount to ${prefix}${TRANSLATE_SCALE[i].value}. The transform utility must first be used.`
-      }
-    )
-  }
+TRANSLATE_SCALE.forEach(scaleObj => {
+  translate.push(
+    {
+      label:         `translate-y-${scaleObj.name}`,
+      detail:        `--tw-transform-translate-y: ${scaleObj.value};`,
+      documentation: `Set an element's y-axis translate amount to ${scaleObj.value}.`
+    }
+  )
+})
 
-  return objectsArray
-}
-
-translate = [...addTranslateClasses(), ...addTranslateClasses('-')]
+TRANSLATE_SCALE.forEach(scaleObj => {
+  translate.push(
+    {
+      label:         `-translate-y-${scaleObj.name}`,
+      detail:        `--tw-transform-translate-y: -${scaleObj.value};`,
+      documentation: `Set an element's y-axis translate amount to -${scaleObj.value}.`
+    }
+  )
+})
 
 /*        SKEW CLASSES        */
 
-const SKEW_SCALE = [
-  { name:'1',  value:'1deg' },
-  { name:'2',  value:'2deg' },
-  { name:'3',  value:'3deg' },
-  { name:'6',  value:'6deg' },
-  { name:'12', value:'12deg' }
-]
-
-let skew = []
+let skew          = []
+let negativeXSkew = []
+let negativeYSkew = []
 
 skew.push(
   {
-    label:'skew-x-0',
-    detail:'--transform-skew-x: 0;',
-    documentation:'Set an element\'s x-axis skew angle to 0. The transform utility must first be used.'
-  },
-  {
-    label:'skew-y-0',
-    detail:'--transform-skew-y: 0;',
-    documentation:'Set an element\'s y-axis skew angle to 0. The transform utility must first be used.'
+    label:         'skew-x-0',
+    detail:        '--tw-transform-skew-x: 0deg;',
+    documentation: 'Set an element\'s x-axis skew angle to 0.'
   }
 )
 
-for(let i = 0; i < SKEW_SCALE.length; i++) {
+SCALES.SKEW_SCALE.forEach(scaleObj => {
   skew.push(
     {
-      label:`skew-x-${SKEW_SCALE[i].name}`,
-      detail:`--transform-skew-x: ${SKEW_SCALE[i].value};`,
-      documentation:`Set an element's x-axis skew angle to ${SKEW_SCALE[i].value}. The transform utility must first be used.`
-    },
-    {
-      label:`-skew-x-${SKEW_SCALE[i].name}`,
-      detail:`--transform-skew-x: -${SKEW_SCALE[i].value};`,
-      documentation:`Set an element's x-axis skew angle to -${SKEW_SCALE[i].value}. The transform utility must first be used.`
-    },
-    {
-      label:`skew-y-${SKEW_SCALE[i].name}`,
-      detail:`--transform-skew-y: ${SKEW_SCALE[i].value};`,
-      documentation:`Set an element's y-axis skew angle to ${SKEW_SCALE[i].value}. The transform utility must first be used.`
-    },
-    {
-      label:`-skew-y-${SKEW_SCALE[i].name}`,
-      detail:`--transform-skew-y: -${SKEW_SCALE[i].value};`,
-      documentation:`Set an element's y-axis skew angle to -${SKEW_SCALE[i].value}. The transform utility must first be used.`
+      label:         `skew-x-${scaleObj.name}`,
+      detail:        `--tw-transform-skew-x: ${scaleObj.value};`,
+      documentation: `Set an element's x-axis skew angle to ${scaleObj.value}.`
     }
   )
-}
+})
+
+SCALES.SKEW_SCALE.forEach(scaleObj => {
+  negativeXSkew.push(
+    {
+      label:         `-skew-x-${scaleObj.name}`,
+      detail:        `--tw-transform-skew-x: -${scaleObj.value};`,
+      documentation: `Set an element's x-axis skew angle to -${scaleObj.value}.`
+    }
+  )
+})
+
+skew = [...skew, ...negativeXSkew.reverse()]
+
+skew.push(
+  {
+    label:         'skew-y-0',
+    detail:        '--tw-transform-skew-y: 0deg;',
+    documentation: 'Set an element\'s y-axis skew angle to 0.'
+  }
+)
+
+SCALES.SKEW_SCALE.forEach(scaleObj => {
+  skew.push(
+    {
+      label:         `skew-y-${scaleObj.name}`,
+      detail:        `--tw-transform-skew-y: ${scaleObj.value};`,
+      documentation: `Set an element's y-axis skew angle to ${scaleObj.value}.`
+    }
+  )
+})
+
+SCALES.SKEW_SCALE.forEach(scaleObj => {
+  negativeYSkew.push(
+    {
+      label:         `-skew-y-${scaleObj.name}`,
+      detail:        `--tw-transform-skew-y: -${scaleObj.value};`,
+      documentation: `Set an element's y-axis skew angle to -${scaleObj.value}.`
+    }
+  )
+})
+
+skew = [...skew, ...negativeYSkew.reverse()]
+
+transformOrigin = FUNCTIONS.addRequiredClass(transformOrigin, 'transform')
+scale           = FUNCTIONS.addRequiredClass(scale, 'transform')
+rotate          = FUNCTIONS.addRequiredClass(rotate, 'transform')
+translate       = FUNCTIONS.addRequiredClass(translate, 'transform')
+skew            = FUNCTIONS.addRequiredClass(skew, 'transform')
 
 exports.transforms = {
   transform:       transform,

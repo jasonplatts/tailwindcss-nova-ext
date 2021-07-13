@@ -13,7 +13,7 @@ let filter = [
   {
     label:         'filter-none',
     detail:        'filter: none;',
-    documentation: 'Disables any filters applied to an element.'
+    documentation: 'Disable any filters applied to an element.'
   }
 ]
 
