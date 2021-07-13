@@ -1,3 +1,7 @@
+'use strict'
+
+const FUNCTIONS = require('../../../Scripts/functions.js')
+
 let currentColorPrefix
 
 currentColorPrefix = 'black'
@@ -378,7 +382,7 @@ const PINK = [
   }
 ]
 
-exports.COLORS = [
+let colors = [
   ...BLACK,
   ...WHITE,
   ...GRAY,
@@ -390,3 +394,9 @@ exports.COLORS = [
   ...PURPLE,
   ...PINK
 ]
+
+colors.forEach(color => {
+  color.rgb = FUNCTIONS.convertHexToRgbArray(color.value).join(', ')
+})
+
+exports.COLORS = colors

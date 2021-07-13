@@ -184,15 +184,15 @@ const FONT_FIXED_LINE_HEIGHTS = [
 ]
 
 const BORDER_RADIUS_SCALE = [
-  { name:'none', value:'0px' },
-  { name:'sm',   value:'0.125rem' },
+  { name:'-none', value:'0px' },
+  { name:'-sm',   value:'0.125rem' },
   { name:'',     value:'0.25rem' },
-  { name:'md',   value:'0.375rem' },
-  { name:'lg',   value:'0.5rem' },
-  { name:'xl',   value:'0.75rem' },
-  { name:'2xl',  value:'1rem' },
-  { name:'3xl',  value:'1.5rem' },
-  { name:'full', value:'9999px' },
+  { name:'-md',   value:'0.375rem' },
+  { name:'-lg',   value:'0.5rem' },
+  { name:'-xl',   value:'0.75rem' },
+  { name:'-2xl',  value:'1rem' },
+  { name:'-3xl',  value:'1.5rem' },
+  { name:'-full', value:'9999px' },
 ]
 
 const BORDER_WIDTH_SCALE = [
