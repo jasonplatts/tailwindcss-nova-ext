@@ -49,6 +49,8 @@ exports.ListItem = class ListItem {
 
     this.children         = []
     this.parent           = null
+
+    this.urlName          = ''
   }
 
   addChild(element) {

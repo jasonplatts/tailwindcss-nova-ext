@@ -34,9 +34,9 @@
           "headerCommands": [
             {
               "title": "View Docs…",
-              "tooltip": "View Tailwind CSS Documentation",
+              "tooltip": "Open Tailwind CSS Documentation in Browser",
               "image": "__builtin.remote",
-              "command": "tailwind.test"
+              "command": "tailwind.openDocs"
             }
           ],
           "contextCommands": [

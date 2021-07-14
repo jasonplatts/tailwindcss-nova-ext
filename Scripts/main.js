@@ -69,3 +69,11 @@ function reloadCompletionAssistant() {
   completionAssistant.dispose()
   registerCompletionAssistant()
 }
+
+nova.commands.register('tailwind.openDocs', () => {
+  nova.openURL(Configuration.TAILWIND_DOCS_URL)
+})
+
+nova.commands.register('tailwind.doubleClick', () => {
+  nova.openURL(Configuration.TAILWIND_DOCS_URL + FUNCTIONS.camelCaseToLowercaseDash(sidebar.treeView.selection[0].urlName))
+})

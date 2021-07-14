@@ -23,6 +23,7 @@ exports.List = class List {
 
           subCategoryItem.collapsibleState = TreeItemCollapsibleState.Collapsed
           subCategoryItem.image            = 'sidebar-subcategory'
+          subCategoryItem.urlName          = subCategoryName
 
           categoryItem.children.push(subCategoryItem)
 
@@ -37,6 +38,7 @@ exports.List = class List {
 
             utilityClassItem.descriptiveText = utilityClass.detail
             utilityClassItem.tooltip         = utilityClass.documentation
+            utilityClassItem.urlName         = subCategoryName
 
             subCategoryItem.children.push(utilityClassItem)
           })

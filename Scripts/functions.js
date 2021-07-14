@@ -68,6 +68,18 @@ exports.camelCaseToTitleCase = function(string) {
 }
 
 /*
+  Converts to lowercase and adds dashes to a camel case string with no spaces.
+*/
+exports.camelCaseToLowercaseDash = function(string) {
+  let newString = ''
+
+  newString = string.split(/(?=[A-Z])/).join('-')
+  newString = newString.toLowerCase()
+
+  return newString
+}
+
+/*
   Truncates a string to a specified length.
 */
 exports.truncateString = function(string, maxLength) {

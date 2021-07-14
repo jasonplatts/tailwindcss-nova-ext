@@ -21,6 +21,13 @@ exports.Configuration = class Configuration {
   }
 
   /*
+    The base URL for Tailwind documentation.
+  */
+  static get TAILWIND_DOCS_URL() {
+    return 'https://tailwindcss.com/docs/'
+  }
+
+  /*
     The current version of Tailwind supported by the extension.
     This is also the name of the directory containing the definition files.
   */
