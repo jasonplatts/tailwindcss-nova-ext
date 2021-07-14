@@ -1,3 +1,5 @@
+'use strict'
+
 const SCREENS = [
   { name:'sm',  desc:'small',         value:'640px' },
   { name:'md',  desc:'medium',        value:'768px' },
