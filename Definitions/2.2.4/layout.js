@@ -1,6 +1,6 @@
 'use strict'
 
-const FUNCTIONS = require('./includes/functions.js')
+const FUNCTIONS = require('../../Scripts/functions.js')
 const SCALES    = require('./includes/scales.js')
 
 /*        CONTAINER CLASSES        */
@@ -406,98 +406,154 @@ let position = [
 ]
 
 /*        TOP/RIGHT/BOTTOM/LEFT CLASSES        */
-const COMBINED_SCALE = [...SCALES.CORE_DEFAULT_FRACTIONAL_SCALE, ...SCALES.DEFAULT_SPACING_SCALE]
 
 let topRightBottomLeft = []
 
-function addTopRightBottomLeftClasses(negative = '') {
-  let objectsArray = []
-
-  for(let i = 0; i < COMBINED_SCALE.length; i++) {
-    let prefix = FUNCTIONS.getValuePrefix(negative, COMBINED_SCALE[i].value)
-
-    objectsArray.push(
-      {
-        label:         `${negative}inset-${COMBINED_SCALE[i].name}`,
-        detail:        `top: ${prefix}${COMBINED_SCALE[i].value}; right: ${prefix}${COMBINED_SCALE[i].value}; bottom: ${prefix}${COMBINED_SCALE[i].value}; left: ${prefix}${COMBINED_SCALE[i].value};`,
-        documentation: `Set an absolutely positioned element ${prefix}${COMBINED_SCALE[i].value} from all edges of the nearest positioned parent.`
-      },
-      {
-        label:         `${negative}inset-y-${COMBINED_SCALE[i].name}`,
-        detail:        `top: ${prefix}${COMBINED_SCALE[i].value}; bottom: ${prefix}${COMBINED_SCALE[i].value};`,
-        documentation: `Set an absolutely positioned element ${prefix}${COMBINED_SCALE[i].value} from the top and bottom edges of the nearest positioned parent.`
-      },
-      {
-        label:         `${negative}inset-x-${COMBINED_SCALE[i].name}`,
-        detail:        `right: ${prefix}${COMBINED_SCALE[i].value}; left: ${prefix}${COMBINED_SCALE[i].value};`,
-        documentation: `Set an absolutely positioned element ${prefix}${COMBINED_SCALE[i].value} from the left and right edges of the nearest positioned parent.`
-      },
-      {
-        label:         `${negative}top-${COMBINED_SCALE[i].name}`,
-        detail:        `top: ${prefix}${COMBINED_SCALE[i].value};`,
-        documentation: `Set an absolutely positioned element ${prefix}${COMBINED_SCALE[i].value} from the top edge of the nearest positioned parent.`
-      },
-      {
-        label:         `${negative}right-${COMBINED_SCALE[i].name}`,
-        detail:        `right: ${prefix}${COMBINED_SCALE[i].value};`,
-        documentation: `Set an absolutely positioned element ${prefix}${COMBINED_SCALE[i].value} from the right edge of the nearest positioned parent.`
-      },
-      {
-        label:         `${negative}bottom-${COMBINED_SCALE[i].name}`,
-        detail:        `bottom: ${prefix}${COMBINED_SCALE[i].value};`,
-        documentation: `Set an absolutely positioned element ${prefix}${COMBINED_SCALE[i].value} from the bottom edge of the nearest positioned parent.`
-      },
-      {
-        label:         `${negative}left-${COMBINED_SCALE[i].name}`,
-        detail:        `left: ${prefix}${COMBINED_SCALE[i].value};`,
-        documentation: `Set an absolutely positioned element ${prefix}${COMBINED_SCALE[i].value} from the left edge of the nearest positioned parent.`
-      }
-    )
+function addInsetClass(name, value, classPrefix = '', valuePrefix = '') {
+  return {
+    label:         `${classPrefix}inset-${name}`,
+    detail:        `top: ${valuePrefix}${value}; right: ${valuePrefix}${value}; bottom: ${valuePrefix}${value}; left: ${valuePrefix}${value};`,
+    documentation: `Set an absolutely positioned element ${valuePrefix}${value} from all edges of the nearest positioned parent.`
   }
-
-  return objectsArray
 }
 
-topRightBottomLeft = addTopRightBottomLeftClasses()
-topRightBottomLeft = [...topRightBottomLeft, ...addTopRightBottomLeftClasses('-')]
-
-topRightBottomLeft.push(
-  {
-    label:         'inset-auto',
-    detail:        'top: auto; right: auto; bottom: auto; left: auto;',
-    documentation: 'Let the browser determine the top, right, bottom, and left position of an absolutely positioned element.'
-  },
-  {
-    label:         'inset-y-auto',
-    detail:        'top: auto; bottom: auto;',
-    documentation: 'Let the browser determine the top and bottom position of an absolutely positioned element.'
-  },
-  {
-    label:         'inset-x-auto',
-    detail:        'right: auto; left: auto;',
-    documentation: 'Let the browser determine the left and right position of an absolutely positioned element.'
-  },
-  {
-    label:         'top-auto',
-    detail:        'top: auto;',
-    documentation: 'Let the browser determine the top position of an absolutely positioned element.'
-  },
-  {
-    label:         'right-auto',
-    detail:        'right: auto;',
-    documentation: 'Let the browser determine the right position of an absolutely positioned element.'
-  },
-  {
-    label:         'bottom-auto',
-    detail:        'bottom: auto;',
-    documentation: 'Let the browser determine the bottom position of an absolutely positioned element.'
-  },
-  {
-    label:         'left-auto',
-    detail:        'left: auto;',
-    documentation: 'Let the browser determine the left position of an absolutely positioned element.'
+function addInsetXClass(name, value, classPrefix = '', valuePrefix = '') {
+  return {
+    label:         `${classPrefix}inset-x-${name}`,
+    detail:        `right: ${valuePrefix}${value}; left: ${valuePrefix}${value};`,
+    documentation: `Set an absolutely positioned element ${valuePrefix}${value} from the left and right edges of the nearest positioned parent.`
   }
-)
+}
+
+function addInsetYClass(name, value, classPrefix = '', valuePrefix = '') {
+  return {
+    label:         `${classPrefix}inset-y-${name}`,
+    detail:        `top: ${valuePrefix}${value}; bottom: ${valuePrefix}${value};`,
+    documentation: `Set an absolutely positioned element ${valuePrefix}${value} from the top and bottom edges of the nearest positioned parent.`
+  }
+}
+
+function addTopClass(name, value, classPrefix = '', valuePrefix = '') {
+  return {
+    label:         `${classPrefix}top-${name}`,
+    detail:        `top: ${valuePrefix}${value};`,
+    documentation: `Set an absolutely positioned element ${valuePrefix}${value} from the top edge of the nearest positioned parent.`
+  }
+}
+
+function addRightClass(name, value, classPrefix = '', valuePrefix = '') {
+  return {
+    label:         `${classPrefix}right-${name}`,
+    detail:        `right: ${valuePrefix}${value};`,
+    documentation: `Set an absolutely positioned element ${valuePrefix}${value} from the right edge of the nearest positioned parent.`
+  }
+}
+
+function addBottomClass(name, value, classPrefix = '', valuePrefix = '') {
+  return {
+    label:         `${classPrefix}bottom-${name}`,
+    detail:        `bottom: ${valuePrefix}${value};`,
+    documentation: `Set an absolutely positioned element ${valuePrefix}${value} from the bottom edge of the nearest positioned parent.`
+  }
+}
+
+function addLeftClass(name, value, classPrefix = '', valuePrefix = '') {
+  return {
+    label:         `${classPrefix}left-${name}`,
+    detail:        `left: ${valuePrefix}${value};`,
+    documentation: `Set an absolutely positioned element ${valuePrefix}${value} from the left edge of the nearest positioned parent.`
+  }
+}
+
+function addTopRightBottomLeftClasses(scaleArray, isFractional = false) {
+  let classArray = []
+
+  scaleArray.forEach((scale, index) => {
+    let negativeClassPrefix, negativeValuePrefix
+
+    if (scale.name !== '0') {
+      negativeClassPrefix = '-'
+      negativeValuePrefix = '-'
+    } else {
+      negativeClassPrefix = '-'
+      negativeValuePrefix = ''
+    }
+
+    // Add auto classes
+    if (isFractional && index == 0) {
+      classArray.push(
+        {
+          label:         'inset-auto',
+          detail:        'top: auto; right: auto; bottom: auto; left: auto;',
+          documentation: 'Let the browser determine the top, right, bottom, and left position of an absolutely positioned element.'
+        },
+        {
+          label:         'inset-x-auto',
+          detail:        'right: auto; left: auto;',
+          documentation: 'Let the browser determine the left and right position of an absolutely positioned element.'
+        },
+        {
+          label:         'inset-y-auto',
+          detail:        'top: auto; bottom: auto;',
+          documentation: 'Let the browser determine the top and bottom position of an absolutely positioned element.'
+        },
+        {
+          label:         'top-auto',
+          detail:        'top: auto;',
+          documentation: 'Let the browser determine the top position of an absolutely positioned element.'
+        },
+        {
+          label:         'right-auto',
+          detail:        'right: auto;',
+          documentation: 'Let the browser determine the right position of an absolutely positioned element.'
+        },
+        {
+          label:         'bottom-auto',
+          detail:        'bottom: auto;',
+          documentation: 'Let the browser determine the bottom position of an absolutely positioned element.'
+        },
+        {
+          label:         'left-auto',
+          detail:        'left: auto;',
+          documentation: 'Let the browser determine the left position of an absolutely positioned element.'
+        }
+      )
+    }
+
+    // Add inset classes
+    classArray.push(addInsetClass(scale.name, scale.value))
+    classArray.push(addInsetClass(scale.name, scale.value, negativeClassPrefix, negativeValuePrefix))
+
+    // Add inset-x classes
+    classArray.push(addInsetXClass(scale.name, scale.value))
+    classArray.push(addInsetXClass(scale.name, scale.value, negativeClassPrefix, negativeValuePrefix))
+
+    // Add inset-y classes
+    classArray.push(addInsetYClass(scale.name, scale.value))
+    classArray.push(addInsetYClass(scale.name, scale.value, negativeClassPrefix, negativeValuePrefix))
+
+    // Add top classes
+    classArray.push(addTopClass(scale.name, scale.value))
+    classArray.push(addTopClass(scale.name, scale.value, negativeClassPrefix, negativeValuePrefix))
+
+    // Add right classes
+    classArray.push(addRightClass(scale.name, scale.value))
+    classArray.push(addRightClass(scale.name, scale.value, negativeClassPrefix, negativeValuePrefix))
+
+    // Add bottom classes
+    classArray.push(addBottomClass(scale.name, scale.value))
+    classArray.push(addBottomClass(scale.name, scale.value, negativeClassPrefix, negativeValuePrefix))
+
+    // Add left classes
+    classArray.push(addLeftClass(scale.name, scale.value))
+    classArray.push(addLeftClass(scale.name, scale.value, negativeClassPrefix, negativeValuePrefix))
+  })
+
+  return classArray
+}
+
+topRightBottomLeft = [...topRightBottomLeft, ...addTopRightBottomLeftClasses(SCALES.DEFAULT_SPACING_SCALE, false)]
+topRightBottomLeft = [...topRightBottomLeft, ...addTopRightBottomLeftClasses(SCALES.CORE_DEFAULT_FRACTIONAL_SCALE, true)]
 
 /*        VISIBILITY CLASSES        */
 
