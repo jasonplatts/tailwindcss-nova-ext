@@ -75,5 +75,11 @@ nova.commands.register('tailwind.openDocs', () => {
 })
 
 nova.commands.register('tailwind.doubleClick', () => {
+  if (sidebar.treeView.selection[0].children == 0) {
+    nova.workspace.activeTextEditor.insert(sidebar.treeView.selection[0].name)
+  }
+})
+
+nova.commands.register('tailwind.openCategoryDocs', () => {
   nova.openURL(Configuration.TAILWIND_DOCS_URL + FUNCTIONS.camelCaseToLowercaseDash(sidebar.treeView.selection[0].urlName))
 })

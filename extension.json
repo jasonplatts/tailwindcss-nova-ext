@@ -30,7 +30,7 @@
       "sections": [
         {
           "id": "tw-sidebar-classes",
-          "name": "Tailwind CSS",
+          "name": "Tailwind CSS (v2.2.4)",
           "headerCommands": [
             {
               "title": "View Docs…",
@@ -42,11 +42,11 @@
           "contextCommands": [
             {
               "title": "Insert",
-              "command": "tw-sidebar.insert"
+              "command": "tailwind.doubleClick"
             },
             {
               "title": "Go to Docs...",
-              "command": "tw-sidebar.goToDocs"
+              "command": "tailwind.openCategoryDocs"
             }
           ]
         }
