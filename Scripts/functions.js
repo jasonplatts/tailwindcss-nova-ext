@@ -113,6 +113,22 @@ exports.addRequiredClass = function(array, requiredClass) {
 }
 
 /*
+Removes the preceding Volumes and HDD portion of a standard returned path.
+*/
+exports.normalizePath = function normalizePath(path) {
+  // The first element returned from split is anything before the first separator.
+  // This will be empty string if nothing is before the first separator.
+  let firstDirectory = path.split('/', 2)[1]
+
+  if (firstDirectory == 'Volumes') {
+    let newPath = '/' + path.split('/').slice(3).join('/')
+    return newPath
+  } else {
+    return path
+  }
+}
+
+/*
   Format extension errors in the console.
 */
 exports.showConsoleError = function showConsoleError(error) {
