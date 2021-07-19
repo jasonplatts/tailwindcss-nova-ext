@@ -18,7 +18,8 @@
   ],
 
   "entitlements": {
-    "filesystem": "readonly"
+    "filesystem": "readonly",
+    "process": true
   },
 
   "sidebars": [

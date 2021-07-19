@@ -24,6 +24,7 @@ exports.activate = async function() {
   try {
     config = new Configuration()
     await config.loadDefinitions()
+    await config.loadCustomDefinitions()
 
     await registerCompletionAssistant()
     await registerTreeView()
@@ -52,6 +53,7 @@ async function registerCompletionAssistant() {
 async function registerTreeView() {
   sidebar.list = new List(Configuration.VERSION, config.defintions)
 
+  // await sidebar.list.loadCustomDefinitions()
   await sidebar.list.loadDefinitions()
 
   sidebar.dataProvider = new DataProvider(sidebar.list.items)

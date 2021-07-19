@@ -80,4 +80,122 @@ exports.Configuration = class Configuration {
 
     return
   }
+
+  /*
+    Finds tailwind.config.js file within the project directory.
+  */
+  async findTailwindConfigFiles() {
+    return new Promise((resolve, reject) => {
+      let returnValue = {
+        status: 0,
+        stdout: [],
+        stderr: [],
+      }
+
+      // let keywordQuery = "kMDItemTextContent == " + this.keywords.join(" || kMDItemTextContent == ");
+      console.log(FUNCTIONS.normalizePath(nova.workspace.path))
+      let options = {
+        // args: ['-name tailwind.config.js', '-onlyin', nova.workspace.path]
+        args: ['-name', 'tailwind.config.js', '-onlyin', '/Users/jasonplatts/Sites/nova-extensions']
+      }
+
+
+      let process = new Process('/usr/bin/mdfind', options)
+
+      process.onStdout((l) => {
+        returnValue.stdout.push(l.trim())
+      })
+
+      process.onStderr((l) => {
+        returnValue.stderr.push(l.trim())
+      })
+
+      process.onDidExit((status) => {
+        returnValue.status = status
+        if (status === 0) {
+          resolve(returnValue)
+        } else {
+          reject(returnValue)
+        }
+      })
+
+      try {
+        process.start()
+      } catch (e) {
+        returnValue.status = 128
+        returnValue.stderr = [e.message]
+        reject(returnValue)
+      }
+    })
+  }
+
+  /*
+    Reads the contents of the Tailwind config file into a JavaScript
+    object compatible with commonJS. I.E. - No require statements.
+  */
+  async readConfigFile() {
+    let tailwindConfigFile = nova.fs.open('/Users/jasonplatts/Sites/nova-extensions/completions/tailwindcss.novaextension/Sample Files/tailwind.config.js')
+    // let tailwindConfigFile = nova.fs.open(tailwindConfigFiles.stdout[0])
+    let contents = tailwindConfigFile.readlines()
+    tailwindConfigFile.close()
+
+    let newString = ''
+
+    contents.forEach((line) => {
+      if (!line.includes('require(')) {
+        newString = newString + line
+      }
+    })
+
+    let configObject = eval(newString)
+
+    return configObject
+  }
+
+  /*
+    Find and load any custom Tailwind config file.
+  */
+  async loadCustomDefinitions() {
+    let tailwindConfigFiles = await this.findTailwindConfigFiles()
+
+    if (tailwindConfigFiles.stdout.length == 1) {
+      try {
+        let tailwindConfig = await this.readConfigFile()
+
+        if (tailwindConfig.theme.extend.colors) {
+          console.log('exists', Object.keys(tailwindConfig.theme.extend.colors))
+        }
+        console.log('contents', tailwindConfig.theme.extend.colors['rails-blue'][900])
+
+        let userDefined = []
+
+        let colors = []
+
+        // tailwindConfig.theme.extend.colors.forEach(color => {
+        //   colors.push(
+        //
+        //   )
+        // })
+
+        for (const [key, value] of Object.entries(tailwindConfig.theme.extend.colors)) {
+          console.log(`${key}: ${value}`)
+        }
+      } catch (error) {
+        FUNCTIONS.showConsoleError(error)
+      }
+
+    } else if (tailwindConfigSearch.stdout.length > 1) {
+      FUNCTIONS.showNotification('Tailwind Configuration Files',
+        'Multiple Tailwind config files were found. If you wish to include user defined or ' +
+        'modified Tailwind classes, please go to the extension preferences and set the correct ' +
+        '\'tailwind.config.js\' file for this project.')
+    } else {
+      FUNCTIONS.showNotification('Tailwind Configuration Files',
+        'No \'tailwind.config.js\' file was found. If you are using a custom config file name ' +
+        'or it is located elsewhere, please go to the extension preferences and set the correct file. ' +
+        'Otherwise, you can ignore this message and default Tailwind classes will be provided.')
+    }
+
+    return
+  }
 }
