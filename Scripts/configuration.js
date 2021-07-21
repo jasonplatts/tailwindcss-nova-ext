@@ -7,11 +7,10 @@ const FUNCTIONS = require('./functions.js')
 */
 exports.Configuration = class Configuration {
   constructor() {
-    const COLORS = require(`../Definitions/${Configuration.VERSION}/includes/colors.js`)
-    const SCALES = require(`../Definitions/${Configuration.VERSION}/includes/scales.js`)
-
-    this.colors       = COLORS.COLORS
-    this.scales       = SCALES
+    const COLORS      = require(`../Definitions/${Configuration.VERSION}/includes/colors.js`)
+    const SCALES      = require(`../Definitions/${Configuration.VERSION}/includes/scales.js`)
+    this._colors      = COLORS.COLORS
+    this._scales      = SCALES
 
     this._definitions = []
   }
@@ -77,9 +76,25 @@ exports.Configuration = class Configuration {
   }
 
   /*
+    Returns Tailwind colors, including modified colors.
+  */
+  get colors() {
+    return this._colors
+  }
+
+  /*
+    Returns Tailwind scales, including modified scales.
+  */
+  get scales() {
+    return this._scales
+  }
+
+  /*
     Loads all definition files defined in the Configuration.DEFINITION_FILES constant.
   */
   async loadDefinitions() {
+    await this.loadTailwindConfig()
+
     Configuration.DEFINITION_FILES.forEach(definition => {
       this._definitions = [...this._definitions, require(`../Definitions/${Configuration.VERSION}/${definition}`)]
     })
@@ -99,12 +114,11 @@ exports.Configuration = class Configuration {
       }
 
       // let keywordQuery = "kMDItemTextContent == " + this.keywords.join(" || kMDItemTextContent == ");
-      console.log(FUNCTIONS.normalizePath(nova.workspace.path))
+      // console.log(FUNCTIONS.normalizePath(nova.workspace.path))
       let options = {
         // args: ['-name tailwind.config.js', '-onlyin', nova.workspace.path]
         args: ['-name', 'tailwind.config.js', '-onlyin', '/Users/jasonplatts/Sites/nova-extensions']
       }
-
 
       let process = new Process('/usr/bin/mdfind', options)
 
@@ -161,7 +175,7 @@ exports.Configuration = class Configuration {
   /*
     Find and load any custom Tailwind config file.
   */
-  async loadCustomDefinitions() {
+  async loadTailwindConfig() {
     let tailwindConfigFiles = await this.findTailwindConfigFiles()
 
     if (tailwindConfigFiles.stdout.length == 1) {
@@ -169,34 +183,25 @@ exports.Configuration = class Configuration {
         let tailwindConfig = await this.readConfigFile()
 
         if (tailwindConfig.theme.extend.colors) {
-          console.log('exists', Object.keys(tailwindConfig.theme.extend.colors))
+          // console.log('exists', Object.keys(tailwindConfig.theme.extend.colors))
+          // console.log('sample color', tailwindConfig.theme.extend.colors['rails-blue'][900])
         }
-        console.log('contents', tailwindConfig.theme.extend.colors['rails-blue'][900])
-
-        let userDefined = []
 
         let colors = []
 
-        // tailwindConfig.theme.extend.colors.forEach(color => {
-        //   colors.push(
-        //
-        //   )
-        // })
-
         for (const [currentColorPrefix, value] of Object.entries(tailwindConfig.theme.extend.colors)) {
-          // let currentColorPrefix = `${key}-`
-          // console.log(`${key}: ${value}`)
           for (const [colorKey, colorValue] of Object.entries(value)) {
-            // console.log(`${colorKey}: ${colorValue}`)
             colors.push(
               {
                 name: `${currentColorPrefix}-${colorKey}`,
-                hex:  colorValue
+                hex:  colorValue,
+                rgb:  FUNCTIONS.convertHexToRgbArray(colorValue).join(', ')
               }
             )
           }
         }
-        console.log('colors', JSON.stringify(colors))
+
+        this._colors = [...this._colors, ...colors]
       } catch (error) {
         FUNCTIONS.showConsoleError(error)
       }
