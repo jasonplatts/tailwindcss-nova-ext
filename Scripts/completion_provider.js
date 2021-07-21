@@ -3,16 +3,19 @@
 const FUNCTIONS = require('./functions.js')
 
 exports.CompletionProvider = class CompletionProvider {
-  constructor(version, definitions) {
+  constructor(version, config) {
+    this._config      = config
     this._version     = version
-    this._definitions = definitions
+    this._definitions = config.definitions
     this._items       = []
   }
 
   async loadCompletionItems() {
     this._definitions.forEach(definitionFile => {
-      for (const [categoryName, category] of Object.entries(definitionFile)) {
-        for (const [subCategoryName, subCategory] of Object.entries(category)) {
+      let twClasses = definitionFile.twClasses(this._config)
+
+      for (const [categoryName, categoryClasses] of Object.entries(twClasses)) {
+        for (const [subCategoryName, subCategory] of Object.entries(categoryClasses)) {
           subCategory.forEach(utilityClass => {
             let item = null
 

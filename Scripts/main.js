@@ -23,8 +23,9 @@ exports.activate = async function() {
 
   try {
     config = new Configuration()
+
     await config.loadDefinitions()
-    await config.loadCustomDefinitions()
+    // await config.loadCustomDefinitions()
 
     await registerCompletionAssistant()
     await registerTreeView()
@@ -41,7 +42,7 @@ exports.deactivate = function() {
 }
 
 async function registerCompletionAssistant() {
-  let completionProvider = new CompletionProvider(Configuration.VERSION, config.defintions)
+  let completionProvider = new CompletionProvider(Configuration.VERSION, config)
 
   await completionProvider.loadCompletionItems()
 
@@ -51,7 +52,7 @@ async function registerCompletionAssistant() {
 }
 
 async function registerTreeView() {
-  sidebar.list = new List(Configuration.VERSION, config.defintions)
+  sidebar.list = new List(Configuration.VERSION, config)
 
   // await sidebar.list.loadCustomDefinitions()
   await sidebar.list.loadDefinitions()

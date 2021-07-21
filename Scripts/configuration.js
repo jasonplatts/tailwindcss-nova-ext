@@ -7,6 +7,12 @@ const FUNCTIONS = require('./functions.js')
 */
 exports.Configuration = class Configuration {
   constructor() {
+    const COLORS = require(`../Definitions/${Configuration.VERSION}/includes/colors.js`)
+    const SCALES = require(`../Definitions/${Configuration.VERSION}/includes/scales.js`)
+
+    this.colors       = COLORS.COLORS
+    this.scales       = SCALES
+
     this._definitions = []
   }
 
@@ -66,7 +72,7 @@ exports.Configuration = class Configuration {
     UtilityClass objects. The Tailwind UtilityClass objects have a label, detail,
     and documentation property.
   */
-  get defintions() {
+  get definitions() {
     return this._definitions
   }
 
@@ -177,13 +183,23 @@ exports.Configuration = class Configuration {
         //   )
         // })
 
-        for (const [key, value] of Object.entries(tailwindConfig.theme.extend.colors)) {
-          console.log(`${key}: ${value}`)
+        for (const [currentColorPrefix, value] of Object.entries(tailwindConfig.theme.extend.colors)) {
+          // let currentColorPrefix = `${key}-`
+          // console.log(`${key}: ${value}`)
+          for (const [colorKey, colorValue] of Object.entries(value)) {
+            // console.log(`${colorKey}: ${colorValue}`)
+            colors.push(
+              {
+                name: `${currentColorPrefix}-${colorKey}`,
+                hex:  colorValue
+              }
+            )
+          }
         }
+        console.log('colors', JSON.stringify(colors))
       } catch (error) {
         FUNCTIONS.showConsoleError(error)
       }
-
     } else if (tailwindConfigSearch.stdout.length > 1) {
       FUNCTIONS.showNotification('Tailwind Configuration Files',
         'Multiple Tailwind config files were found. If you wish to include user defined or ' +
@@ -199,3 +215,4 @@ exports.Configuration = class Configuration {
     return
   }
 }
+
