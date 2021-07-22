@@ -13,7 +13,8 @@ var sidebar                  = {
   dataProvider: null,
   treeView:     null,
 }
-var treeViewDisposables      = new CompositeDisposable()
+var extensionDisposables     = new CompositeDisposable()
+var reloading = false
 
 exports.activate = async function() {
   if (nova.inDevMode()) {
@@ -21,6 +22,14 @@ exports.activate = async function() {
     console.log('TAILWIND CSS -- DEV MODE ACTIVE')
   }
 
+  loadExtension()
+}
+
+exports.deactivate = function() {
+  extensionDisposables.dispose()
+}
+
+async function loadExtension() {
   try {
     config = new Configuration()
 
@@ -29,15 +38,30 @@ exports.activate = async function() {
     await registerCompletionAssistant()
     await registerTreeView()
 
-    nova.workspace.config.onDidChange('tailwindcss.workspace.version', reloadCompletionAssistant)
+    if (config.tailwindConfigFilePath !== null) {
+      extensionDisposables.add(nova.fs.watch(config.tailwindConfigFilePath, reloadExtension))
+    }
+
+    nova.workspace.config.onDidChange('tailwindcss.workspace.tailwindConfig', reloadExtension)
   } catch (error) {
     FUNCTIONS.showConsoleError(error)
   }
+
+  return
 }
 
-exports.deactivate = function() {
-  completionAssistant.dispose()
-  treeViewDisposables.dispose()
+async function reloadExtension() {
+  if (reloading == false) {
+    reloading = true
+
+    extensionDisposables.dispose()
+    config, completionAssistant, sidebar.list, sidebar.dataProvider, sidebar.treeView = null
+
+    await loadExtension()
+    sidebar.treeView.reload()
+
+    reloading = false
+  }
 }
 
 async function registerCompletionAssistant() {
@@ -45,7 +69,7 @@ async function registerCompletionAssistant() {
 
   await completionProvider.loadCompletionItems()
 
-  completionAssistant = nova.assistants.registerCompletionAssistant(Configuration.SUPPORTED_FILE_TYPES, completionProvider)
+  extensionDisposables.add(nova.assistants.registerCompletionAssistant(Configuration.SUPPORTED_FILE_TYPES, completionProvider))
 
   return true
 }
@@ -61,19 +85,9 @@ async function registerTreeView() {
     dataProvider: sidebar.dataProvider
   })
 
-  treeViewDisposables.add(sidebar.treeView)
+  extensionDisposables.add(sidebar.treeView)
 
   return true
-}
-
-function reloadCompletionAssistant() {
-  completionAssistant.dispose()
-  registerCompletionAssistant()
-}
-
-function reloadExtension() {
-  // TODO: Add completion assistant and treeview reloading here.
-  console.log('RELOADING...')
 }
 
 nova.commands.register('tailwind.openDocs', () => {
@@ -89,5 +103,3 @@ nova.commands.register('tailwind.doubleClick', () => {
 nova.commands.register('tailwind.openCategoryDocs', () => {
   nova.openURL(Configuration.TAILWIND_DOCS_URL + FUNCTIONS.camelCaseToLowercaseDash(sidebar.treeView.selection[0].urlName))
 })
-
-nova.workspace.config.observe('tailwindcss.workspace.tailwindConfig', reloadExtension)
