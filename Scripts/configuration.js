@@ -113,11 +113,10 @@ exports.Configuration = class Configuration {
         stderr: [],
       }
 
-      // let keywordQuery = "kMDItemTextContent == " + this.keywords.join(" || kMDItemTextContent == ");
-      // console.log(FUNCTIONS.normalizePath(nova.workspace.path))
+      let path = FUNCTIONS.normalizePath(nova.workspace.path)
+
       let options = {
-        // args: ['-name tailwind.config.js', '-onlyin', nova.workspace.path]
-        args: ['-name', 'tailwind.config.js', '-onlyin', '/Users/jasonplatts/Sites/nova-extensions']
+        args: ['-name', 'tailwind.config.js', '-onlyin', path]
       }
 
       let process = new Process('/usr/bin/mdfind', options)
@@ -153,21 +152,21 @@ exports.Configuration = class Configuration {
     Reads the contents of the Tailwind config file into a JavaScript
     object compatible with commonJS. I.E. - No require statements.
   */
-  async readConfigFile() {
-    let tailwindConfigFile = nova.fs.open('/Users/jasonplatts/Sites/nova-extensions/completions/tailwindcss.novaextension/Sample Files/tailwind.config.js')
-    // let tailwindConfigFile = nova.fs.open(tailwindConfigFiles.stdout[0])
-    let contents = tailwindConfigFile.readlines()
+  async readConfigFile(configFilePath) {
+    let tailwindConfigFile = nova.fs.open(configFilePath)
+    let contents           = tailwindConfigFile.readlines()
+    let newContents        = ''
+
     tailwindConfigFile.close()
 
-    let newString = ''
-
+    // Remove any lines including the require, such as 'require('@tailwindcss/forms')'
     contents.forEach((line) => {
       if (!line.includes('require(')) {
-        newString = newString + line
+        newContents = newContents + line
       }
     })
 
-    let configObject = eval(newString)
+    let configObject = eval(newContents)
 
     return configObject
   }
@@ -176,48 +175,71 @@ exports.Configuration = class Configuration {
     Find and load any custom Tailwind config file.
   */
   async loadTailwindConfig() {
-    let tailwindConfigFiles = await this.findTailwindConfigFiles()
+    try {
+      let tailwindConfigPath   = nova.workspace.config.get('tailwindcss.workspace.tailwindConfig')
+      let tailwindConfigObject = null
 
-    if (tailwindConfigFiles.stdout.length == 1) {
-      try {
-        let tailwindConfig = await this.readConfigFile()
+      // If config file location not supplied by user,
+      // then search in the workspace for tailwind.config.js files.
+      if (tailwindConfigPath == null) {
+        if (FUNCTIONS.isWorkspace()) {
+          let detectedConfigFiles = await this.findTailwindConfigFiles()
 
-        if (tailwindConfig.theme.extend.colors) {
-          // console.log('exists', Object.keys(tailwindConfig.theme.extend.colors))
-          // console.log('sample color', tailwindConfig.theme.extend.colors['rails-blue'][900])
-        }
-
-        let colors = []
-
-        for (const [currentColorPrefix, value] of Object.entries(tailwindConfig.theme.extend.colors)) {
-          for (const [colorKey, colorValue] of Object.entries(value)) {
-            colors.push(
-              {
-                name: `${currentColorPrefix}-${colorKey}`,
-                hex:  colorValue,
-                rgb:  FUNCTIONS.convertHexToRgbArray(colorValue).join(', ')
-              }
-            )
+          // If a single tailwind.config.js file found, read it.
+          if (detectedConfigFiles.stdout.length == 1) {
+            tailwindConfigPath = detectedConfigFiles.stdout[0]
+          } else if (detectedConfigFiles.stdout.length > 1) {
+            FUNCTIONS.showNotification('Tailwind Configuration Files',
+              'Multiple Tailwind config files were found. If you wish to include user defined or ' +
+              'modified Tailwind classes, please go to the extension preferences and set the correct ' +
+              '\'tailwind.config.js\' file for this project.')
+          } else {
+            // FUNCTIONS.showNotification('Tailwind Configuration Files',
+            //   'No \'tailwind.config.js\' file could be found. If you are using a custom config file name ' +
+            //   'or it is located outside of your project, please go to preferences and set the desired file. ' +
+            //   'Otherwise, you can safely ignore this message and default Tailwind classes will be provided.')
+            console.log('No Tailwind configuration file found in the workspace.')
           }
         }
-
-        this._colors = [...this._colors, ...colors]
-      } catch (error) {
-        FUNCTIONS.showConsoleError(error)
       }
-    } else if (tailwindConfigSearch.stdout.length > 1) {
-      FUNCTIONS.showNotification('Tailwind Configuration Files',
-        'Multiple Tailwind config files were found. If you wish to include user defined or ' +
-        'modified Tailwind classes, please go to the extension preferences and set the correct ' +
-        '\'tailwind.config.js\' file for this project.')
-    } else {
-      FUNCTIONS.showNotification('Tailwind Configuration Files',
-        'No \'tailwind.config.js\' file was found. If you are using a custom config file name ' +
-        'or it is located elsewhere, please go to the extension preferences and set the correct file. ' +
-        'Otherwise, you can ignore this message and default Tailwind classes will be provided.')
+
+      if (tailwindConfigPath !== null) {
+        console.log('Configuration File Location:', tailwindConfigPath)
+        tailwindConfigObject = await this.readConfigFile(tailwindConfigPath)
+
+        if (tailwindConfigObject.theme.extend.colors) {
+          let colors   = await this.readTailwindConfigColors(tailwindConfigObject)
+          this._colors = [...this._colors, ...colors]
+        }
+      } else {
+        console.log('No Configuration File Detected')
+      }
+    } catch (error) {
+      FUNCTIONS.showConsoleError(error)
     }
 
     return
+  }
+
+  /*
+    Attempts to read any extended colors in a customized Tailwind config file.
+  */
+  async readTailwindConfigColors(tailwindConfigObject) {
+    let colors = []
+
+    for (const [currentColorPrefix, value] of Object.entries(tailwindConfigObject.theme.extend.colors)) {
+      for (const [colorKey, colorValue] of Object.entries(value)) {
+        colors.push(
+          {
+            name: `${currentColorPrefix}-${colorKey}`,
+            hex:  colorValue,
+            rgb:  FUNCTIONS.convertHexToRgbArray(colorValue).join(', ')
+          }
+        )
+      }
+    }
+
+    return colors
   }
 }
 

@@ -148,3 +148,19 @@ exports.showNotification = function showNotification(title, body) {
 
   nova.notifications.add(notification)
 }
+
+/*
+Returns a boolean representing whether or not the current
+environment is a workspace or Nova window without a
+workspace.
+*/
+exports.isWorkspace = function isWorkspace() {
+  if (nova.workspace.path == undefined || nova.workspace.path == null) {
+    // Opening single file in a Nova editor does not define a workspace. A project must exist.
+    // Opening a remote server environment is also not considered a workspace.
+    return false
+  } else {
+    // A local project is the only environment considered a Nova workspace.
+    return true
+  }
+}

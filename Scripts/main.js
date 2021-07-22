@@ -71,6 +71,11 @@ function reloadCompletionAssistant() {
   registerCompletionAssistant()
 }
 
+function reloadExtension() {
+  // TODO: Add completion assistant and treeview reloading here.
+  console.log('RELOADING...')
+}
+
 nova.commands.register('tailwind.openDocs', () => {
   nova.openURL(Configuration.TAILWIND_DOCS_URL)
 })
@@ -84,3 +89,5 @@ nova.commands.register('tailwind.doubleClick', () => {
 nova.commands.register('tailwind.openCategoryDocs', () => {
   nova.openURL(Configuration.TAILWIND_DOCS_URL + FUNCTIONS.camelCaseToLowercaseDash(sidebar.treeView.selection[0].urlName))
 })
+
+nova.workspace.config.observe('tailwindcss.workspace.tailwindConfig', reloadExtension)

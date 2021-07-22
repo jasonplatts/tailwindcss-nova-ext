@@ -58,7 +58,7 @@ exports.CompletionProvider = class CompletionProvider {
 
   bypassSpecialCase(context) {
     const rootScope = context.selectors.pop()
-    console.log('root', rootScope)
+    // console.log('root', rootScope)
 
     if (rootScope?.matches('vue.html.embedded.script')) {
       return true
