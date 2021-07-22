@@ -68,6 +68,18 @@ exports.camelCaseToTitleCase = function(string) {
 }
 
 /*
+  Converts to lowercase and adds dashes to a camel case string with no spaces.
+*/
+exports.camelCaseToLowercaseDash = function(string) {
+  let newString = ''
+
+  newString = string.split(/(?=[A-Z])/).join('-')
+  newString = newString.toLowerCase()
+
+  return newString
+}
+
+/*
   Truncates a string to a specified length.
 */
 exports.truncateString = function(string, maxLength) {
@@ -75,6 +87,44 @@ exports.truncateString = function(string, maxLength) {
     return string.slice(0, maxLength) + '…'
   } else {
     return string
+  }
+}
+
+/*
+  Adds a string to the end of the documentation property in each object within the array.
+*/
+exports.addStringToDocumentation = function(array, string) {
+  array.forEach(object => {
+    object.documentation = `${object.documentation} ${string}`
+  })
+
+  return array
+}
+
+/*
+  Adds a required class to the end of the documentation property in each object within the array.
+*/
+exports.addRequiredClass = function(array, requiredClass) {
+  array.forEach(object => {
+    object.documentation = `${object.documentation} *Requires the '${requiredClass}' class.`
+  })
+
+  return array
+}
+
+/*
+Removes the preceding Volumes and HDD portion of a standard returned path.
+*/
+exports.normalizePath = function normalizePath(path) {
+  // The first element returned from split is anything before the first separator.
+  // This will be empty string if nothing is before the first separator.
+  let firstDirectory = path.split('/', 2)[1]
+
+  if (firstDirectory == 'Volumes') {
+    let newPath = '/' + path.split('/').slice(3).join('/')
+    return newPath
+  } else {
+    return path
   }
 }
 
@@ -97,4 +147,20 @@ exports.showNotification = function showNotification(title, body) {
   notification.actions = [nova.localize('OK')]
 
   nova.notifications.add(notification)
+}
+
+/*
+Returns a boolean representing whether or not the current
+environment is a workspace or Nova window without a
+workspace.
+*/
+exports.isWorkspace = function isWorkspace() {
+  if (nova.workspace.path == undefined || nova.workspace.path == null) {
+    // Opening single file in a Nova editor does not define a workspace. A project must exist.
+    // Opening a remote server environment is also not considered a workspace.
+    return false
+  } else {
+    // A local project is the only environment considered a Nova workspace.
+    return true
+  }
 }

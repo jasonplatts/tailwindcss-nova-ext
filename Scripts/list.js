@@ -4,25 +4,29 @@ const FUNCTIONS    = require('./functions.js')
 const { ListItem } = require('./list_item.js')
 
 exports.List = class List {
-  constructor(version, definitions) {
+  constructor(version, config) {
+    this._config      = config
     this._version     = version
-    this._definitions = definitions
+    this._definitions = config.definitions
     this._items       = []
   }
 
   async loadDefinitions() {
     this._definitions.forEach(definitionFile => {
-      for (const [categoryName, category] of Object.entries(definitionFile)) {
+      let twClasses = definitionFile.twClasses(this._config)
+
+      for (const [categoryName, categoryClasses] of Object.entries(twClasses)) {
         let categoryItem = new ListItem(FUNCTIONS.camelCaseToUpperCase(categoryName))
 
         categoryItem.collapsibleState = TreeItemCollapsibleState.Collapsed
         categoryItem.image            = 'sidebar-category'
 
-        for (const [subCategoryName, subCategory] of Object.entries(category)) {
+        for (const [subCategoryName, subCategory] of Object.entries(categoryClasses)) {
           let subCategoryItem = new ListItem(FUNCTIONS.camelCaseToTitleCase(subCategoryName))
 
           subCategoryItem.collapsibleState = TreeItemCollapsibleState.Collapsed
           subCategoryItem.image            = 'sidebar-subcategory'
+          subCategoryItem.urlName          = subCategoryName
 
           categoryItem.children.push(subCategoryItem)
 
@@ -37,6 +41,7 @@ exports.List = class List {
 
             utilityClassItem.descriptiveText = utilityClass.detail
             utilityClassItem.tooltip         = utilityClass.documentation
+            utilityClassItem.urlName         = subCategoryName
 
             subCategoryItem.children.push(utilityClassItem)
           })
@@ -47,24 +52,6 @@ exports.List = class List {
     })
 
     return
-  }
-
-  async loadTailwindConfigDefinitions() {
-    //     let tailwindConfigFile = nova.fs.open('/Volumes/Macintosh HD/Users/jasonplatts/Sites/nova-extensions/completions/tailwindcss.novaextension/Sample Files/tailwind.config.js')
-    //     let contents = tailwindConfigFile.readlines()
-    //     tailwindConfigFile.close()
-    //
-    //     let newString = ''
-    //
-    //     contents.forEach((line) => {
-    //       if (!line.includes('require(')) {
-    //         newString = newString + line
-    //       }
-    //     })
-    //
-    //     let temp = eval(newString)
-    //     // let temp = JSON.stringify(contents)
-    //     console.log('contents', temp.theme.extend.colors['rails-blue'][900])
   }
 
   get items() {

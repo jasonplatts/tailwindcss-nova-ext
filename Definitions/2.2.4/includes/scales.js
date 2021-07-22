@@ -1,3 +1,5 @@
+'use strict'
+
 const SCREENS = [
   { name:'sm',  desc:'small',         value:'640px' },
   { name:'md',  desc:'medium',        value:'768px' },
@@ -301,6 +303,38 @@ const TRANSITION_DELAY_SCALE = [
   { name:'1000', value:'1000ms' }
 ]
 
+const SCALE_SCALE = [
+  { name:'0',   value:'0' },
+  { name:'50',  value:'.5' },
+  { name:'75',  value:'.75' },
+  { name:'90',  value:'.9' },
+  { name:'95',  value:'.95' },
+  { name:'100', value:'1' },
+  { name:'105', value:'1.05' },
+  { name:'110', value:'1.1' },
+  { name:'125', value:'1.25' },
+  { name:'150', value:'1.5' },
+]
+
+const ROTATE_SCALE = [
+  { name:'1',   value:'1deg' },
+  { name:'2',   value:'2deg' },
+  { name:'3',   value:'3deg' },
+  { name:'6',   value:'6deg' },
+  { name:'12',  value:'12deg' },
+  { name:'45',  value:'45deg' },
+  { name:'90',  value:'90deg' },
+  { name:'180', value:'180deg' }
+]
+
+const SKEW_SCALE = [
+  { name:'1',  value:'1deg' },
+  { name:'2',  value:'2deg' },
+  { name:'3',  value:'3deg' },
+  { name:'6',  value:'6deg' },
+  { name:'12', value:'12deg' }
+]
+
 exports.SCREENS                       = SCREENS
 exports.DEFAULT_SPACING_SCALE         = DEFAULT_SPACING_SCALE
 exports.CORE_DEFAULT_FRACTIONAL_SCALE = CORE_DEFAULT_FRACTIONAL_SCALE
@@ -338,3 +372,9 @@ exports.HUE_NEGATIVE_SCALE            = HUE_NEGATIVE_SCALE
 
 exports.TRANSITION_DURATION_SCALE     = TRANSITION_DURATION_SCALE
 exports.TRANSITION_DELAY_SCALE        = TRANSITION_DELAY_SCALE
+
+/*        TRANSFORM SCALES        */
+
+exports.SCALE_SCALE                   = SCALE_SCALE
+exports.ROTATE_SCALE                  = ROTATE_SCALE
+exports.SKEW_SCALE                    = SKEW_SCALE

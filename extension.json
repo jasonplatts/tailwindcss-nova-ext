@@ -18,7 +18,8 @@
   ],
 
   "entitlements": {
-    "filesystem": "readonly"
+    "filesystem": "readonly",
+    "process": true
   },
 
   "sidebars": [
@@ -30,23 +31,23 @@
       "sections": [
         {
           "id": "tw-sidebar-classes",
-          "name": "Tailwind CSS",
+          "name": "Tailwind CSS (v2.2.4)",
           "headerCommands": [
             {
               "title": "View Docs…",
-              "tooltip": "View Tailwind CSS Documentation",
+              "tooltip": "Open Tailwind CSS Documentation in Browser",
               "image": "__builtin.remote",
-              "command": "tailwind.test"
+              "command": "tailwind.openDocs"
             }
           ],
           "contextCommands": [
             {
               "title": "Insert",
-              "command": "tw-sidebar.insert"
+              "command": "tailwind.doubleClick"
             },
             {
               "title": "Go to Docs...",
-              "command": "tw-sidebar.goToDocs"
+              "command": "tailwind.openCategoryDocs"
             }
           ]
         }

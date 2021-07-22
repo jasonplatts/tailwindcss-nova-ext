@@ -23,6 +23,7 @@ exports.activate = async function() {
 
   try {
     config = new Configuration()
+
     await config.loadDefinitions()
 
     await registerCompletionAssistant()
@@ -40,7 +41,7 @@ exports.deactivate = function() {
 }
 
 async function registerCompletionAssistant() {
-  let completionProvider = new CompletionProvider(Configuration.VERSION, config.defintions)
+  let completionProvider = new CompletionProvider(Configuration.VERSION, config)
 
   await completionProvider.loadCompletionItems()
 
@@ -50,7 +51,7 @@ async function registerCompletionAssistant() {
 }
 
 async function registerTreeView() {
-  sidebar.list = new List(Configuration.VERSION, config.defintions)
+  sidebar.list = new List(Configuration.VERSION, config)
 
   await sidebar.list.loadDefinitions()
 
@@ -69,3 +70,24 @@ function reloadCompletionAssistant() {
   completionAssistant.dispose()
   registerCompletionAssistant()
 }
+
+function reloadExtension() {
+  // TODO: Add completion assistant and treeview reloading here.
+  console.log('RELOADING...')
+}
+
+nova.commands.register('tailwind.openDocs', () => {
+  nova.openURL(Configuration.TAILWIND_DOCS_URL)
+})
+
+nova.commands.register('tailwind.doubleClick', () => {
+  if (sidebar.treeView.selection[0].children == 0) {
+    nova.workspace.activeTextEditor.insert(sidebar.treeView.selection[0].name)
+  }
+})
+
+nova.commands.register('tailwind.openCategoryDocs', () => {
+  nova.openURL(Configuration.TAILWIND_DOCS_URL + FUNCTIONS.camelCaseToLowercaseDash(sidebar.treeView.selection[0].urlName))
+})
+
+nova.workspace.config.observe('tailwindcss.workspace.tailwindConfig', reloadExtension)
