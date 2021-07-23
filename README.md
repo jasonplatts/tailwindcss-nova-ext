@@ -9,6 +9,8 @@ Provides Tailwind CSS completions for Panic's macOS code editor, Nova.
 *The sidebar offers access to the Tailwind classes and associated documentation right from within Nova. It makes it easy
 to learn about available Tailwind classes!*
 
+<img src="https://user-images.githubusercontent.com/48892071/126841607-1eac600c-b6fa-4df1-a347-c56bb85e1d8a.png" width="300" alt="Tailwind CSS Sidebar">
+
 Thank you to Tailwind Labs, Adam Wathan, and Steve Schoger for their contribution to the development community, including Tailwind CSS, Headless UI, and Tailwind UI. *This extension is not created, maintained, or endorsed by Tailwind Labs. To request features or report bugs, please see the section below.*
 
 ## Prerequisites
