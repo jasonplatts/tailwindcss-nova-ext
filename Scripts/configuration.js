@@ -7,12 +7,13 @@ const FUNCTIONS = require('./functions.js')
 */
 exports.Configuration = class Configuration {
   constructor() {
-    const COLORS      = require(`../Definitions/${Configuration.VERSION}/includes/colors.js`)
-    const SCALES      = require(`../Definitions/${Configuration.VERSION}/includes/scales.js`)
-    this._colors      = COLORS.COLORS
-    this._scales      = SCALES
+    const COLORS                = require(`../Definitions/${Configuration.VERSION}/includes/colors.js`)
+    const SCALES                = require(`../Definitions/${Configuration.VERSION}/includes/scales.js`)
+    this._colors                = COLORS.COLORS
+    this._scales                = SCALES
 
-    this._definitions = []
+    this._definitions           = []
+    this.tailwindConfigFilePath = null
   }
 
   /*
@@ -211,6 +212,8 @@ exports.Configuration = class Configuration {
           let colors   = await this.readTailwindConfigColors(tailwindConfigObject)
           this._colors = [...this._colors, ...colors]
         }
+
+        this.tailwindConfigFilePath = tailwindConfigPath
       } else {
         console.log('No Configuration File Detected')
       }
