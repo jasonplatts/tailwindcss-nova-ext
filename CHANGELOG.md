@@ -1,8 +1,10 @@
 ## Version 3.0
 
 * Added sidebar for viewing available Tailwind classes.
-* Provided access to Tailwind documentation through the sidebar.
-* Removed support for older versions of Tailwind in order to focus on extension feature enhancements.
+* Added support for Tailwind version 2.2.4.
+* Added support for tailwind.config.js customization of extended colors. *More Tailwind customization support is coming soon.*
+* Improved Tailwind completion support in Vue.js projects by disallowing completions in script blocks and allowing completions in a style block when the @apply directive is used.
+* Removed support for older versions of Tailwind to focus on current and future extension feature enhancements.
 
 ## Version 2.2
 
