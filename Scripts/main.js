@@ -1,20 +1,22 @@
 'use strict'
 
-const FUNCTIONS              = require('./functions.js')
-const { Configuration }      = require('./configuration.js')
-const { CompletionProvider } = require('./completion_provider.js')
-const { DataProvider }       = require('./data_provider.js')
-const { List }               = require('./list.js')
+const FUNCTIONS               = require('./functions.js')
+const { Configuration }       = require('./configuration.js')
+const { CompletionProvider }  = require('./completion_provider.js')
+const { DataProvider }        = require('./data_provider.js')
+const { List }                = require('./list.js')
 
-var config                   = null
-var completionAssistant      = null
-var sidebar                  = {
+var config                    = null
+var completionAssistant       = null
+var sidebar                   = {
   list:         null,
   dataProvider: null,
   treeView:     null,
 }
-var extensionDisposables     = new CompositeDisposable()
-var reloading = false
+var extensionDisposables      = new CompositeDisposable()
+
+var twConfigLastSaveState     = null
+var twConfigEditorDisposables = new CompositeDisposable()
 
 exports.activate = async function() {
   if (nova.inDevMode()) {
@@ -27,6 +29,7 @@ exports.activate = async function() {
 
 exports.deactivate = function() {
   extensionDisposables.dispose()
+  twConfigEditorDisposables.dispose()
 }
 
 async function loadExtension() {
@@ -39,10 +42,10 @@ async function loadExtension() {
     await registerTreeView()
 
     if (config.tailwindConfigFilePath !== null) {
-      extensionDisposables.add(nova.fs.watch(config.tailwindConfigFilePath, reloadExtension))
+      extensionDisposables.add(nova.workspace.onDidAddTextEditor(evaluateTextEditorPath))
     }
 
-    nova.workspace.config.onDidChange('tailwindcss.workspace.tailwindConfig', reloadExtension)
+    extensionDisposables.add(nova.workspace.config.onDidChange('tailwindcss.workspace.tailwindConfig', reloadExtension))
   } catch (error) {
     FUNCTIONS.showConsoleError(error)
   }
@@ -50,18 +53,33 @@ async function loadExtension() {
   return
 }
 
-async function reloadExtension() {
-  if (reloading == false) {
-    reloading = true
-
-    extensionDisposables.dispose()
-    config, completionAssistant, sidebar.list, sidebar.dataProvider, sidebar.treeView = null
-
-    await loadExtension()
-    sidebar.treeView.reload()
-
-    reloading = false
+function evaluateTextEditorPath(textEditor) {
+  if (config.tailwindConfigFilePath == FUNCTIONS.normalizePath(textEditor.document.path)) {
+    twConfigLastSaveState = textEditor.getTextInRange(new Range(0, textEditor.document.length))
+    twConfigEditorDisposables.add(textEditor.onDidSave(savedTailwindConfig))
   }
+}
+
+function savedTailwindConfig(textEditor) {
+  if (twConfigLastSaveState !== textEditor.getTextInRange(new Range(0, textEditor.document.length))) {
+    reloadExtension()
+  }
+}
+
+async function reloadExtension() {
+  await resetVars()
+  await loadExtension()
+  sidebar.treeView.reload()
+
+  return
+}
+
+async function resetVars() {
+  extensionDisposables.dispose()
+  twConfigEditorDisposables.dispose()
+  config, completionAssistant, sidebar.list, sidebar.dataProvider, sidebar.treeView = null
+
+  return
 }
 
 async function registerCompletionAssistant() {
@@ -71,7 +89,7 @@ async function registerCompletionAssistant() {
 
   extensionDisposables.add(nova.assistants.registerCompletionAssistant(Configuration.SUPPORTED_FILE_TYPES, completionProvider))
 
-  return true
+  return
 }
 
 async function registerTreeView() {
@@ -87,7 +105,7 @@ async function registerTreeView() {
 
   extensionDisposables.add(sidebar.treeView)
 
-  return true
+  return
 }
 
 nova.commands.register('tailwind.openDocs', () => {
