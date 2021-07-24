@@ -1,3 +1,7 @@
+## Version 3.0.1
+
+* Fixed bug causing inconsistent reloading of the Tailwind classes when the Tailwind config file is saved.
+
 ## Version 3.0
 
 * Added sidebar for viewing available Tailwind classes.
