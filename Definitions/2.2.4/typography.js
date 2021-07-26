@@ -427,7 +427,7 @@ exports.twClasses = function twClasses(config) {
       documentation: 'Set element text to wrap normally within an element. Newlines and spaces will be collapsed.'
     },
     {
-      label:         'whitespace-no-wrap',
+      label:         'whitespace-nowrap',
       detail:        'white-space: nowrap;',
       documentation: 'Prevent text from wrapping within an element. Newlines and spaces will be collapsed.'
     },
