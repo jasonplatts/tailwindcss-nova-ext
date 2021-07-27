@@ -2,7 +2,7 @@
   "identifier": "jasonplatts.tailwindcss",
   "name": "Tailwind CSS",
   "organization": "Jason Platts",
-  "description": "Provides Tailwind CSS completions.",
+  "description": "Provides completions and a documentation sidebar for Tailwind CSS.",
   "version": "3.0.1",
   "license":"MIT",
   "repository":"https://github.com/jasonplatts/tailwindcss-nova-ext",
