@@ -1,3 +1,7 @@
+## Version 3.0.2
+
+* Changed the "whitespace-no-wrap" Tailwind class to the correct name, "whitespace-nowrap".
+
 ## Version 3.0.1
 
 * Fixed bug causing inconsistent reloading of the Tailwind classes when the Tailwind config file is saved.
