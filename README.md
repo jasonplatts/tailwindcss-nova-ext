@@ -1,6 +1,6 @@
 # Tailwind CSS Extension for Panic's Nova Code Editor
 
-Provides Tailwind CSS completions for Panic's macOS code editor, Nova.
+Provides Tailwind CSS completions and a documentation sidebar for Panic's macOS code editor, Nova.
 
 <img src="https://user-images.githubusercontent.com/48892071/105522129-dacd1080-5caa-11eb-8ce9-dacd244de575.png" width="800" alt="Tailwind CSS Completion">
 
