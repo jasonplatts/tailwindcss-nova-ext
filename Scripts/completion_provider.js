@@ -45,13 +45,7 @@ exports.CompletionProvider = class CompletionProvider {
   }
 
   provideCompletionItems(editor, context) {
-    let currentWordRange = FUNCTIONS.getRangeOfCurrentWord(editor, context)
-
     if (this.bypassSpecialCase(context)) { return }
-
-    this._items.forEach(item => {
-      item.range = currentWordRange
-    })
 
     return this._items
   }
