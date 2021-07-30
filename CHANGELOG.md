@@ -1,3 +1,7 @@
+## Version 3.0.3
+
+* Fixed a bug preventing autocompletions from being offered immediately after an opening quote within a HTML class attribute.
+
 ## Version 3.0.2
 
 * Changed the "whitespace-no-wrap" Tailwind class to the correct name, "whitespace-nowrap".
