@@ -1,3 +1,8 @@
+## Version 3.0.4
+
+* Added completion support in css, sass, and scss files.
+* Fixed a bug preventing Tailwind class completions on systems not supporting newer JavaScript versions.
+
 ## Version 3.0.3
 
 * Fixed a bug preventing autocompletions from being offered immediately after an opening quote within a HTML class attribute.
