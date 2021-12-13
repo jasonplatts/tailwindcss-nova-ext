@@ -1,3 +1,7 @@
+## Version 4.0
+
+* Added support for Tailwind version 3.0.0
+
 ## Version 3.0.4
 
 * Added completion support in css, sass, and scss files.
