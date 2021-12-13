@@ -128,6 +128,37 @@ const MAX_WIDTH_SCALE = [
   { name:'screen-2xl', value:'1536px' }
 ]
 
+const COLUMN_COUNTS = [
+  { name:'1',    value:'1'    },
+  { name:'2',    value:'2'    },
+  { name:'3',    value:'3'    },
+  { name:'4',    value:'4'    },
+  { name:'5',    value:'5'    },
+  { name:'6',    value:'6'    },
+  { name:'7',    value:'7'    },
+  { name:'8',    value:'8'    },
+  { name:'9',    value:'9'    },
+  { name:'10',   value:'10'   },
+  { name:'11',   value:'11'   },
+  { name:'12',   value:'12'   }
+]
+
+const COLUMN_WIDTHS = [
+  { name:'3xs',  value:'16rem' },
+  { name:'2xs',  value:'18rem' },
+  { name:'xs',   value:'20rem' },
+  { name:'sm',   value:'24rem' },
+  { name:'md',   value:'28rem' },
+  { name:'lg',   value:'32rem' },
+  { name:'xl',   value:'36rem' },
+  { name:'2xl',  value:'42rem' },
+  { name:'3xl',  value:'48rem' },
+  { name:'4xl',  value:'56rem' },
+  { name:'5xl',  value:'64rem' },
+  { name:'6xl',  value:'72rem' },
+  { name:'7xl',  value:'80rem' }
+]
+
 const FONT_SIZES = [
   { name:'xs',   size:'0.75rem',  lineHeight:'1rem' },
   { name:'sm',   size:'0.875rem', lineHeight:'1.25rem' },
@@ -343,6 +374,11 @@ exports.SIXTHS_FRACTIONAL_SCALE       = SIXTHS_FRACTIONAL_SCALE
 exports.TWELFTHS_FRACTIONAL_SCALE     = TWELFTHS_FRACTIONAL_SCALE
 exports.DEFAULT_OPACITY_SCALE         = DEFAULT_OPACITY_SCALE
 exports.MAX_WIDTH_SCALE               = MAX_WIDTH_SCALE
+
+/*        LAYOUT SCALES        */
+
+exports.COLUMN_COUNTS                 = COLUMN_COUNTS
+exports.COLUMN_WIDTHS                 = COLUMN_WIDTHS
 
 /*        TYPOGRAPHY SCALES        */
 

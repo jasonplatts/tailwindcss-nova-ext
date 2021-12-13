@@ -3,6 +3,26 @@
 const FUNCTIONS = require('../../Scripts/functions.js')
 
 exports.twClasses = function twClasses(config) {
+  /*        ASPECT RATIO CLASSES        */
+
+  let aspectRatio = [
+    {
+      label:         'aspect-auto',
+      detail:        'aspect-ratio: auto;',
+      documentation: 'Set an element\'s aspect ratio to its default value.'
+    },
+    {
+      label:         'aspect-square',
+      detail:        'aspect-ratio: 1 / 1;',
+      documentation: 'Set an element\'s aspect ratio to a square.'
+    },
+    {
+      label:         'aspect-video',
+      detail:        'aspect-ratio: 16 / 9;',
+      documentation: 'Set an element\'s aspect ratio to 16:9, a typical video format.'
+    }
+  ]
+
   /*        CONTAINER CLASSES        */
 
   let container = [
@@ -13,18 +33,165 @@ exports.twClasses = function twClasses(config) {
     }
   ]
 
+  /*        COLUMNS CLASSES        */
+
+  let columns = []
+
+  columns.push(
+    {
+      label:         'columns-auto',
+      detail:        'columns: auto;',
+      documentation: 'Let the browser calculate and select the number and width of the columns within an element.'
+    }
+  )
+
+  for(let i = 0; i < config.scales.COLUMN_COUNTS.length; i++) {
+    columns.push(
+      {
+        label:         `columns-${config.scales.COLUMN_COUNTS[i].name}`,
+        detail:        `columns: ${config.scales.COLUMN_COUNTS[i].value};`,
+        documentation: `Set the number of columns that should be created for the content within an element to ${config.scales.COLUMN_COUNTS[i].value}.`
+      }
+    )
+  }
+
+  for(let i = 0; i < config.scales.COLUMN_WIDTHS.length; i++) {
+    columns.push(
+      {
+        label:         `columns-${config.scales.COLUMN_WIDTHS[i].name}`,
+        detail:        `columns: ${config.scales.COLUMN_WIDTHS[i].value};`,
+        documentation: `Set the ideal column width for the content within an element to ${config.scales.COLUMN_WIDTHS[i].value}.`
+      }
+    )
+  }
+
+  /*        BREAK AFTER CLASSES        */
+
+  let breakAfter = [
+    {
+      label:         'break-after-auto',
+      detail:        'break-after: auto;',
+      documentation: 'Allow, but do not force a column or page break immediately after an element.'
+    },
+    {
+      label:         'break-after-avoid',
+      detail:        'break-after: avoid;',
+      documentation: 'Avoid a column or page break immediately after an element.'
+    },
+    {
+      label:         'break-after-all',
+      detail:        'break-after: all;',
+      documentation: 'Force a column or page break immediately after an element.'
+    },
+    {
+      label:         'break-after-avoid-page',
+      detail:        'break-after: avoid-page;',
+      documentation: 'Avoid a page break immediately after an element.'
+    },
+    {
+      label:         'break-after-page',
+      detail:        'break-after: page;',
+      documentation: 'Force a page break immediately after an element.'
+    },
+    {
+      label:         'break-after-left',
+      detail:        'break-after: left;',
+      documentation: 'Force one or two page breaks immediately after an element, whichever will make the next page a left page.'
+    },
+    {
+      label:         'break-after-right',
+      detail:        'break-after: right;',
+      documentation: 'Force one or two page breaks immediately after an element, whichever will make the next page a right page.'
+    },
+    {
+      label:         'break-after-column',
+      detail:        'break-after: column;',
+      documentation: 'Force a column break immediately after an element.'
+    }
+  ]
+
+  /*        BREAK BEFORE CLASSES        */
+
+  let breakBefore = [
+    {
+      label:         'break-before-auto',
+      detail:        'break-before: auto;',
+      documentation: 'Allow, but do not force a column or page break immediately before an element.'
+    },
+    {
+      label:         'break-before-avoid',
+      detail:        'break-before: avoid;',
+      documentation: 'Avoid a column or page break immediately before an element.'
+    },
+    {
+      label:         'break-before-all',
+      detail:        'break-before: all;',
+      documentation: 'Force a column or page break immediately before an element.'
+    },
+    {
+      label:         'break-before-avoid-page',
+      detail:        'break-before: avoid-page;',
+      documentation: 'Avoid a page break immediately before an element.'
+    },
+    {
+      label:         'break-before-page',
+      detail:        'break-before: page;',
+      documentation: 'Force a page break immediately before an element.'
+    },
+    {
+      label:         'break-before-left',
+      detail:        'break-before: left;',
+      documentation: 'Force one or two page breaks immediately before an element, whichever will make the next page a left page.'
+    },
+    {
+      label:         'break-before-right',
+      detail:        'break-before: right;',
+      documentation: 'Force one or two page breaks immediately before an element, whichever will make the next page a right page.'
+    },
+    {
+      label:         'break-before-column',
+      detail:        'break-before: column;',
+      documentation: 'Force a column break immediately before an element.'
+    }
+  ]
+
+  /*        BREAK INSIDE CLASSES        */
+
+  let breakInside = [
+    {
+      label:         'break-inside-auto',
+      detail:        'break-inside: auto;',
+      documentation: 'Allow, but do not force a column or page break within an element.'
+    },
+    {
+      label:         'break-inside-avoid',
+      detail:        'break-inside: avoid;',
+      documentation: 'Avoid a column or page break within an element.'
+    },
+    {
+      label:         'break-inside-avoid-page',
+      detail:        'break-inside: avoid-page;',
+      documentation: 'Avoid a page break within an element.'
+    },
+    {
+      label:         'break-inside-avoid-column',
+      detail:        'break-inside: avoid-column;',
+      documentation: 'Avoid a column break within an element.'
+    }
+  ]
+
   /*        BOX-SIZING CLASSES        */
 
   let boxDecorationBreak = [
     {
-      label:         'decoration-slice',
-      detail:        'box-decoration-break: slice;',
-      documentation: 'Set an element\'s properties, such as background and border, to render as one continuous fragment.'
-    },
-    {
       label:         'decoration-clone',
       detail:        'box-decoration-break: clone;',
       documentation: 'Set an element\'s properties, such as background and border, to render as distinct blocks.'
+    },
+    {
+      label:         'decoration-slice',
+      detail:        'box-decoration-break: slice;',
+      documentation: 'Set an element\'s properties, such as background and border, to render as one continuous fragment.'
     }
   ]
 
@@ -596,7 +763,11 @@ exports.twClasses = function twClasses(config) {
 
   return {
     layout: {
+      aspectRatio:        aspectRatio,
       container:          container,
+      columns:            columns,
+      breakAfter:         breakAfter,
+      breakBefore:        breakBefore,
       boxDecorationBreak: boxDecorationBreak,
       boxSizing:          boxSizing,
       display:            display,
