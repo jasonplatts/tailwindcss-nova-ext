@@ -1,6 +1,28 @@
 'use strict'
 
 exports.twClasses = function twClasses(config) {
+  /*        FLEX BASIS CLASSES        */
+
+  const COMBINED_FLEX_BASIS_SCALE = [
+    ...config.scales.DEFAULT_SPACING_SCALE,
+    ...config.scales.CORE_DEFAULT_FRACTIONAL_SCALE,
+    ...config.scales.FIFTHS_FRACTIONAL_SCALE,
+    ...config.scales.SIXTHS_FRACTIONAL_SCALE,
+    ...config.scales.TWELFTHS_FRACTIONAL_SCALE
+  ]
+
+  let flexBasis = []
+
+  for(let i = 0; i < COMBINED_FLEX_BASIS_SCALE.length; i++) {
+    flexBasis.push(
+      {
+        label:         `basis-${COMBINED_FLEX_BASIS_SCALE[i].name}`,
+        detail:        `flex-basis: ${COMBINED_FLEX_BASIS_SCALE[i].value};`,
+        documentation: `Set the initial size of a flex item to ${COMBINED_FLEX_BASIS_SCALE[i].value}.`
+      }
+    )
+  }
+
   /*        FLEX DIRECTION CLASSES        */
 
   let flexDirection = [
@@ -601,6 +623,11 @@ exports.twClasses = function twClasses(config) {
       detail:        'align-self: stretch;',
       documentation: 'Stretch an item to fill the container\'s cross axis, regardless of the container\'s align-items value.'
     },
+    {
+      label:         'self-baseline',
+      detail:        'align-self: baseline;',
+      documentation: 'Align an item along the baseline of the container\'s cross axis, regardless of the container\'s align-items value.'
+    },
   ]
 
   /*        PLACE CONTENT CLASSES        */
@@ -700,6 +727,7 @@ exports.twClasses = function twClasses(config) {
 
   return {
     flexboxAndGrid: {
+      flexBasis:           flexBasis,
       flexDirection:       flexDirection,
       flexWrap:            flexWrap,
       flex:                flex,
