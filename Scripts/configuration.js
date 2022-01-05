@@ -44,7 +44,7 @@ exports.Configuration = class Configuration {
 
   /*
     List of definition files containing Tailwind classes.
-    Files are listen manually in order to set desired sort order for sidebar.
+    Files are listed manually in order to set desired sort order for sidebar.
   */
   static get DEFINITION_FILES() {
     return [
@@ -163,7 +163,13 @@ exports.Configuration = class Configuration {
 
     // Remove any lines including the require, such as 'require('@tailwindcss/forms')'
     contents.forEach((line) => {
-      if (!line.includes('require(')) {
+      // FIXME: sans: ['Inter var', ...defaultTheme.fontFamily.sans], is ignored due to an issue causing
+      // the extension to fail to recognize a custom Tailwind config when using the tailwindcss-rails gem
+      // in a Ruby on Rails project. The Javascript engine and version used by Nova does not allow
+      // for the require syntax to be used. The tailwindcss-rails gem generates a custom tailwind.config.js file
+      // that includes a require statement for the defaultTheme. Since this const is not allowed, it cannot be
+      // referenced. This issue should be addressed in some other way.
+      if (!line.includes('require(') && !line.includes('sans: [\'Inter var\', ...defaultTheme.fontFamily.sans]')) {
         newContents = newContents + line
       }
     })
