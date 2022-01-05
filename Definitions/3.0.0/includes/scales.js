@@ -120,6 +120,7 @@ const MAX_WIDTH_SCALE = [
   { name:'full',       value:'100%' },
   { name:'min',        value:'min-content' },
   { name:'max',        value:'max-content' },
+  { name:'fit',        value:'fit-content' },
   { name:'prose',      value:'65ch' },
   { name:'screen-sm',  value:'640px' },
   { name:'screen-md',  value:'768px' },

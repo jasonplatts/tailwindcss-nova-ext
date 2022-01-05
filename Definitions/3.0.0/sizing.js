@@ -46,6 +46,11 @@ exports.twClasses = function twClasses(config) {
       label:         'w-max',
       detail:        'width: max-content;',
       documentation: 'Set an element width to the maximum content width.'
+    },
+    {
+      label:         'w-fit',
+      detail:        'width: fit-content;',
+      documentation: 'Set an element width to the available space between min-content and max-content widths.'
     }
   )
 
@@ -73,6 +78,11 @@ exports.twClasses = function twClasses(config) {
       label:         'min-w-max',
       detail:        'min-width: max-content',
       documentation: 'Set the minimum width of an element to the maximum content width.'
+    },
+    {
+      label:         'min-w-fit',
+      detail:        'min-width: fit-content',
+      documentation: 'Set the minimum width of an element to the minimum needed to fit the content.'
     }
   )
 
@@ -120,7 +130,22 @@ exports.twClasses = function twClasses(config) {
     {
       label:         'h-screen',
       detail:        'height: 100vh;',
-      documentation: 'Make an element to span the entire height of the viewport.'
+      documentation: 'Set an element to span the entire height of the viewport.'
+    },
+    {
+      label:         'h-min',
+      detail:        'height: min-content;',
+      documentation: 'Set an element height to no less than that needed to fit its content.'
+    },
+    {
+      label:         'h-max',
+      detail:        'height: max-content;',
+      documentation: 'Set an element height to no more than that needed to fit its content.'
+    },
+    {
+      label:         'h-fit',
+      detail:        'height: fit-content;',
+      documentation: 'Set an element height to that needed to fit its content.'
     }
   )
 
@@ -141,6 +166,21 @@ exports.twClasses = function twClasses(config) {
       label:         'min-h-screen',
       detail:        'min-height: 100vh;',
       documentation: 'Set the minimum element height to span the entire height of the viewport.'
+    },
+    {
+      label:         'min-h-min',
+      detail:        'min-height: min-content;',
+      documentation: 'Set an element minimum height to min-content.'
+    },
+    {
+      label:         'min-h-max',
+      detail:        'min-height: max-content;',
+      documentation: 'Set an element minimum height to max-content.'
+    },
+    {
+      label:         'min-h-fit',
+      detail:        'min-height: fit-content;',
+      documentation: 'Set an element minimum height to fit-content.'
     }
   ]
 
@@ -168,6 +208,21 @@ exports.twClasses = function twClasses(config) {
       label:         'max-h-screen',
       detail:        'max-height: 100vh;',
       documentation: 'Set the maximum element height to span the entire height of the viewport.'
+    },
+    {
+      label:         'max-h-min',
+      detail:        'max-height: min-content;',
+      documentation: 'Set an element maximum height to min-content.'
+    },
+    {
+      label:         'max-h-max',
+      detail:        'max-height: max-content;',
+      documentation: 'Set an element maximum height to max-content.'
+    },
+    {
+      label:         'max-h-fit',
+      detail:        'max-height: fit-content;',
+      documentation: 'Set an element maximum height to fit-content.'
     }
   )
 
