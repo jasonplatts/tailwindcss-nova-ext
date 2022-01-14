@@ -24,7 +24,15 @@ exports.CompletionProvider = class CompletionProvider {
 
               item.color = utilityClass.color
             } else {
-              item = new CompletionItem(utilityClass.label, CompletionItemKind.StyleClass)
+              item = new CompletionItem(utilityClass.label, this._getCompletionItemKind(utilityClass.completionItemKind))
+            }
+
+            if (utilityClass.insertText !== undefined) {
+              item.insertText = utilityClass.insertText
+            }
+
+            if (utilityClass.insertTextFormat !== undefined) {
+              item.insertTextFormat = InsertTextFormat.Snippet;
             }
 
             if (utilityClass.detail !== undefined) {
@@ -36,6 +44,12 @@ exports.CompletionProvider = class CompletionProvider {
             }
 
             this._items = [...this._items, item]
+
+            if (utilityClass.allowNegation === true) {
+              let negatedItem = new CompletionItem(`-${utilityClass.label}`, this._getCompletionItemKind(utilityClass.completionItemKind))
+              this._items = [...this._items, negatedItem]
+              console.log(`Negation Allowed ${utilityClass.label}`)
+            }
           })
         }
       }
@@ -51,6 +65,31 @@ exports.CompletionProvider = class CompletionProvider {
       return this._items
     }
   }
+
+  _getCompletionItemKind(completionItemKindString) {
+
+    let completionItemKind = undefined
+
+    if (completionItemKindString !== null && completionItemKindString !== undefined) {
+      switch(completionItemKindString) {
+        case 'style_pseudo_class':
+          completionItemKind = CompletionItemKind.StylePseudoClass
+          break
+        case 'style_pseudo_element':
+          completionItemKind = CompletionItemKind.StylePseudoElement
+          break
+        default:
+          completionItemKind = CompletionItemKind.StyleClass
+          break
+      }
+    } else {
+      completionItemKind = CompletionItemKind.StyleClass
+    }
+
+    return completionItemKind
+  }
+
+
 
   _preventCompletions(context) {
     const rootScope = context.selectors.pop()

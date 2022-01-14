@@ -36,7 +36,7 @@ exports.List = class List {
             if (utilityClass.color !== undefined) {
               utilityClassItem.color = utilityClass.color
             } else {
-              utilityClassItem.image = '__symbol.style-class'
+              utilityClassItem.image = this._getTreeItemImage(utilityClass.completionItemKind)
             }
 
             utilityClassItem.descriptiveText = utilityClass.detail
@@ -56,5 +56,27 @@ exports.List = class List {
 
   get items() {
     return this._items
+  }
+
+  _getTreeItemImage(completionKindString) {
+    let completionItemKind = undefined
+
+    if (completionKindString !== null && completionKindString !== undefined) {
+      switch(completionKindString) {
+        case 'style_pseudo_class':
+          completionItemKind = '__symbol.style-pseudoclass'
+          break
+        case 'style_pseudo_element':
+          completionItemKind = '__symbol.style-pseudoelement'
+          break
+        default:
+          completionItemKind = '__symbol.style-class'
+          break
+      }
+    } else {
+      completionItemKind = '__symbol.style-class'
+    }
+
+    return completionItemKind
   }
 }
