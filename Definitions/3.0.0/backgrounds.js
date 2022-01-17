@@ -52,15 +52,20 @@ exports.twClasses = function twClasses(config) {
 
   let backgroundColor = [
     {
-      label:         'bg-transparent',
-      color:         new Color('rgb', [0, 0, 0, 0]),
-      detail:        'background-color: transparent;',
-      documentation: 'Set the background color of an element to transparent.'
+      label:         'bg-inherit',
+      detail:        'background-color: inherit;',
+      documentation: 'Set the background color of an element to that of the parent element.'
     },
     {
       label:         'bg-current',
       detail:        'background-color: currentColor;',
       documentation: 'Set the background color of an element to the currentColor.'
+    },
+    {
+      label:         'bg-transparent',
+      color:         new Color('rgb', [0, 0, 0, 0]),
+      detail:        'background-color: transparent;',
+      documentation: 'Set the background color of an element to transparent.'
     }
   ]
 
@@ -69,28 +74,13 @@ exports.twClasses = function twClasses(config) {
       {
         label:         `bg-${color.name}`,
         color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
-        detail:        `--tw-bg-opacity: 1; background-color: rgba(${color.rgb}, var(--tw-bg-opacity));`,
+        detail:        `background-color: rgb(${color.rgb});`,
         documentation: `Set the background color of an element to #${color.hex}.`
       }
     )
   })
 
-  /*        BACKGROUND OPACITY CLASSES        */
-
-  let backgroundOpacity = []
-
-  config.scales.DEFAULT_OPACITY_SCALE.forEach(scale => {
-    backgroundOpacity.push(
-      {
-        label:         `bg-opacity-${scale.name}`,
-        color:         new Color('rgb', [0, 0, 0, parseFloat(scale.value)]),
-        detail:        `--tw-bg-opacity: ${scale.value};`,
-        documentation: `Set the background opacity to ${scale.value}.`
-      }
-    )
-  })
-
-  /*        BACKGROUND POSITION CLASSES        */
+  /*        BACKGROUND ORIGIN CLASSES        */
 
   let backgroundOrigin = [
     {
@@ -271,15 +261,20 @@ exports.twClasses = function twClasses(config) {
 
   gradientColorStops.push(
     {
-      label:         'from-transparent',
-      color:         new Color('rgb', [0, 0, 0, 0]),
-      detail:        '--tw-gradient-from: transparent; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));',
-      documentation: 'Set the first gradient stop of an element to transparent. Use with via-{color} and to-{color} classes.'
+      label:         'from-inherit',
+      detail:        '--tw-gradient-from: inherit; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0));',
+      documentation: 'Set the first gradient stop of an element to that of the parent element. Use with via-{color} and to-{color} classes.'
     },
     {
       label:         'from-current',
       detail:        '--tw-gradient-from: currentColor; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0));',
       documentation: 'Set the first gradient stop of an element to the currentColor. Use with via-{color} and to-{color} classes.'
+    },
+    {
+      label:         'from-transparent',
+      color:         new Color('rgb', [0, 0, 0, 0]),
+      detail:        '--tw-gradient-from: transparent; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));',
+      documentation: 'Set the first gradient stop of an element to transparent. Use with via-{color} and to-{color} classes.'
     }
   )
 
@@ -349,7 +344,6 @@ exports.twClasses = function twClasses(config) {
       backgroundAttachment: backgroundAttachment,
       backgroundClip:       backgroundClip,
       backgroundColor:      backgroundColor,
-      backgroundOpacity:    backgroundOpacity,
       backgroundOrigin:     backgroundOrigin,
       backgroundPosition:   backgroundPosition,
       backgroundRepeat:     backgroundRepeat,
