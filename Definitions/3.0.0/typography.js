@@ -434,10 +434,10 @@ exports.twClasses = function twClasses(config) {
   config.scales.DEFAULT_SPACING_SCALE.forEach(scale => {
     textIndent.push(
       {
-        label:         `indent-${scale.name}`,
-        detail:        `text-indent: ${scale.value};`,
-        documentation: `Set the amount of empty space shown before a block of text to ${scale.value}.`,
-        allowNegation: true,
+        label:              `indent-${scale.name}`,
+        detail:             `text-indent: ${scale.value};`,
+        documentation:      `Set the amount of empty space shown before a block of text to ${scale.value}.`,
+        allowNegation:      true,
         completionItemKind: `style_pseudo_class`
       }
     )
