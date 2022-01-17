@@ -64,6 +64,7 @@ exports.Configuration = class Configuration {
       'interactivity.js',
       'svg.js',
       'accessibility.js',
+      'modifiers.js',
     ]
   }
 
