@@ -1,6 +1,9 @@
 ## Version 4.0
 
 * Added support for Tailwind version 3.0.0
+* Updated Tailwind class icons to represent style classes, pseudo-classes and pseudo-elements.
+* Added support for arbitrary values.
+* Added support for Tailwind functions and directives.
 
 ## Version 3.0.4
 
@@ -23,7 +26,7 @@
 
 * Added sidebar for viewing available Tailwind classes.
 * Added support for Tailwind version 2.2.4.
-* Added support for tailwind.config.js customization of extended colors. *More Tailwind customization support is coming soon.*
+* Added support for tailwind.config.js customization of extended colors.
 * Improved Tailwind completion support in Vue.js projects by disallowing completions in script blocks and allowing completions in a style block when the @apply directive is used.
 * Removed support for older versions of Tailwind to focus on current and future extension feature enhancements.
 
