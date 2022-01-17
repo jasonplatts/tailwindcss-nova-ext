@@ -45,10 +45,10 @@ exports.CompletionProvider = class CompletionProvider {
 
             this._items = [...this._items, item]
 
+            // Includes a negated class when specified, such as for the Tailwind class '-indent-1'.
             if (utilityClass.allowNegation === true) {
               let negatedItem = new CompletionItem(`-${utilityClass.label}`, this._getCompletionItemKind(utilityClass.completionItemKind))
               this._items = [...this._items, negatedItem]
-              console.log(`Negation Allowed ${utilityClass.label}`)
             }
           })
         }
