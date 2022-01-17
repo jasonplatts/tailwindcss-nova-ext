@@ -67,7 +67,6 @@ exports.CompletionProvider = class CompletionProvider {
   }
 
   _getCompletionItemKind(completionItemKindString) {
-
     let completionItemKind = undefined
 
     if (completionItemKindString !== null && completionItemKindString !== undefined) {
@@ -77,6 +76,15 @@ exports.CompletionProvider = class CompletionProvider {
           break
         case 'style_pseudo_element':
           completionItemKind = CompletionItemKind.StylePseudoElement
+          break
+        case 'style_directive':
+          completionItemKind = CompletionItemKind.StyleDirective
+          break
+        case 'style_ruleset':
+          completionItemKind = CompletionItemKind.StyleRuleset
+          break
+        case 'function':
+          completionItemKind = CompletionItemKind.Function
           break
         default:
           completionItemKind = CompletionItemKind.StyleClass

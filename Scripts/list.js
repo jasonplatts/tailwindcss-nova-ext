@@ -69,6 +69,15 @@ exports.List = class List {
         case 'style_pseudo_element':
           completionItemKind = '__symbol.style-pseudoelement'
           break
+        case 'style_directive':
+          completionItemKind = '__symbol.style-directive'
+          break
+        case 'style_ruleset':
+          completionItemKind = '__symbol.style-ruleset'
+          break
+        case 'function':
+          completionItemKind = '__symbol.function'
+          break
         default:
           completionItemKind = '__symbol.style-class'
           break
