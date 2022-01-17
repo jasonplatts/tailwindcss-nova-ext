@@ -204,51 +204,6 @@ exports.twClasses = function twClasses(config) {
     }
   ]
 
-  /*        PLACEHOLDER COLOR CLASSES        */
-
-  let placeholderColor = []
-
-  placeholderColor.push(
-    {
-      label:         'placeholder-transparent',
-      color:         new Color('rgb', [0, 0, 0, 0]),
-      detail:        'color: transparent;',
-      documentation: 'Set the placeholder color of an element to transparent.'
-    },
-    {
-      label:         'placeholder-current',
-      detail:        'color: currentColor;',
-      documentation: 'Set the placeholder color of an element to the currentColor.'
-    }
-  )
-
-  config.colors.forEach(color => {
-    placeholderColor.push(
-      {
-        label:         `placeholder-${color.name}`,
-        color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
-        detail:        `--tw-placeholder-opacity: 1; color: rgba(${color.rgb}, var(--tw-placeholder-opacity));`,
-        documentation: `Set the placeholder color of an element to #${color.hex}.`
-      }
-    )
-
-  })
-
-  /*        PLACEHOLDER OPACITY CLASSES        */
-
-  let placeholderOpacity = []
-
-  for(let i = 0; i < config.scales.DEFAULT_OPACITY_SCALE.length; i++) {
-    placeholderOpacity.push(
-      {
-        label:         `placeholder-opacity-${config.scales.DEFAULT_OPACITY_SCALE[i].name}`,
-        color:         new Color('rgb', [0, 0, 0, parseFloat(config.scales.DEFAULT_OPACITY_SCALE[i].value)]),
-        detail:        `--tw-placeholder-opacity: ${config.scales.DEFAULT_OPACITY_SCALE[i].value};`,
-        documentation: `Set the opacity of the placeholder color to ${config.scales.DEFAULT_OPACITY_SCALE[i].value}.`
-      }
-    )
-  }
-
   /*        TEXT ALIGN CLASSES        */
 
   let textAlign = [
@@ -303,40 +258,129 @@ exports.twClasses = function twClasses(config) {
     )
   })
 
-  /*        TEXT OPACITY CLASSES        */
-
-  let textOpacity = []
-
-  for(let i = 0; i < config.scales.DEFAULT_OPACITY_SCALE.length; i++) {
-    textOpacity.push(
-      {
-        label:         `text-opacity-${config.scales.DEFAULT_OPACITY_SCALE[i].name}`,
-        color:         new Color('rgb', [0, 0, 0, parseFloat(config.scales.DEFAULT_OPACITY_SCALE[i].value)]),
-        detail:        `--tw-text-opacity: ${config.scales.DEFAULT_OPACITY_SCALE[i].value};`,
-        documentation: `Set the opacity of an element's text color to ${config.scales.DEFAULT_OPACITY_SCALE[i].value}.`
-      }
-    )
-  }
-
   /*        TEXT DECORATION CLASSES        */
 
   let textDecoration = [
     {
       label:         'underline',
-      detail:        'text-decoration: underline;',
+      detail:        'text-decoration-line: underline;',
       documentation: 'Set the text decoration to underline.'
     },
     {
+      label:         'overline',
+      detail:        'text-decoration-line: overline;',
+      documentation: 'Set the text decoration to overline.'
+    },
+    {
       label:         'line-through',
-      detail:        'text-decoration: line-through;',
+      detail:        'text-decoration-line: line-through;',
       documentation: 'Set the text decoration to line-through so that it appears to be striked out.'
     },
     {
       label:         'no-underline',
-      detail:        'text-decoration: none;',
+      detail:        'text-decoration-line: none;',
       documentation: 'Removes the text decoration (underline and/or line-through).'
     }
   ]
+
+  /*        TEXT DECORATION COLOR CLASSES        */
+
+    let textDecorationColor = []
+
+    textDecorationColor.push(
+      {
+        label:         'decoration-inherit',
+        detail:        'text-decoration-color: inherit;',
+        documentation: 'Set the text decoration color of an element to its default value.'
+      },
+      {
+        label:         'decoration-current',
+        detail:        'text-decoration-color: currentColor;',
+        documentation: 'Set the text decoration color of an element to the currentColor.'
+      },
+      {
+        label:         'decoration-transparent',
+        color:         new Color('rgb', [0, 0, 0, 0]),
+        detail:        'text-decoration-color: transparent;',
+        documentation: 'Set the text decoration color of an element to transparent.'
+      }
+    )
+
+    config.colors.forEach(color => {
+      textDecorationColor.push(
+        {
+          label:         `decoration-${color.name}`,
+          color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+          detail:        `text-decoration-color: #${color.hex};`,
+          documentation: `Set the text decoration color of an element to #${color.hex}.`
+        }
+      )
+    })
+
+  /*        TEXT DECORATION STYLE CLASSES        */
+
+  const TEXT_DECORATION_STYLES = ['solid', 'double', 'dotted', 'dashed', 'wavy']
+
+  let textDecorationStyle = []
+
+  TEXT_DECORATION_STYLES.forEach(style => {
+    textDecorationStyle.push(
+      {
+        label:         `decoration-${style}`,
+        detail:        `text-decoration-style: ${style};`,
+        documentation: `Set an element\'s text decoration style to ${style}.`
+      }
+    )
+  })
+
+  /*        TEXT DECORATION THICKNESS CLASSES        */
+
+  let textDecorationThickness = []
+
+  textDecorationThickness.push(
+    {
+      label:         'decoration-auto',
+      detail:        'text-decoration-thickness: auto;',
+      documentation: 'Lets the browser determine an appropriate thickness for the text decoration line.'
+    },
+    {
+      label:         'decoration-from-font',
+      detail:        'text-decoration-thickness: from-font;',
+      documentation: 'Uses the preferred thickness specified by the font file. If the font does not include this information, the browser will behave as if auto is set.'
+    }
+  )
+
+  config.scales.TEXT_DECORATION_THICKNESSES.forEach(thickness => {
+    textDecorationThickness.push(
+      {
+        label:         `decoration-${thickness.name}`,
+        detail:        `text-decoration-thickness: ${thickness.value};`,
+        documentation: `Set an element\'s text decoration thickness to ${thickness.value}.`
+      }
+    )
+  })
+
+ /*        TEXT UNDERLINE OFFSET CLASSES        */
+
+  let textUnderlineOffset = []
+
+  textUnderlineOffset.push(
+    {
+      label:         'underline-offset-auto',
+      detail:        'text-underline-offset: auto;',
+      documentation: 'Lets the browser determine the offset of a text underline.'
+    }
+  )
+
+  config.scales.TEXT_UNDERLINE_OFFSETS.forEach(offset => {
+    textUnderlineOffset.push(
+      {
+        label:         `underline-offset-${offset.name}`,
+        detail:        `text-underline-offset: ${offset.value};`,
+        documentation: `Set an element\'s text underline offset to ${offset.value}.`
+      }
+    )
+  })
 
   /*        TEXT TRANSFORM CLASSES        */
 
@@ -372,16 +416,32 @@ exports.twClasses = function twClasses(config) {
       documentation: 'Set overflowing text within an element to truncate with an ellipsis (…) if needed.'
     },
     {
-      label:         'overflow-ellipsis',
+      label:         'text-ellipsis',
       detail:        'text-overflow: ellipsis;',
       documentation: 'Set overflowing text within an element to truncate with an ellipsis (…) if needed.'
     },
     {
-      label:         'overflow-clip',
+      label:         'text-clip',
       detail:        'text-overflow: clip;',
       documentation: 'Set overflowing text to truncate at the limit of the content area.'
     }
   ]
+
+  /*        TEXT INDENT CLASSES        */
+
+  let textIndent = []
+
+  config.scales.DEFAULT_SPACING_SCALE.forEach(scale => {
+    textIndent.push(
+      {
+        label:         `indent-${scale.name}`,
+        detail:        `text-indent: ${scale.value};`,
+        documentation: `Set the amount of empty space shown before a block of text to ${scale.value}.`,
+        allowNegation: true,
+        completionItemKind: `style_pseudo_class`
+      }
+    )
+  })
 
   /*        VERTICAL ALIGN CLASSES        */
 
@@ -415,6 +475,16 @@ exports.twClasses = function twClasses(config) {
       label:         'align-text-bottom',
       detail:        'vertical-align: text-bottom;',
       documentation: 'Align the bottom of an element with the bottom of the parent element\'s font.'
+    },
+    {
+      label:         'align-sub',
+      detail:        'vertical-align: sub;',
+      documentation: 'Align the baseline of the element with the subscript-baseline of its parent.'
+    },
+    {
+      label:         'align-super',
+      detail:        'vertical-align: super;',
+      documentation: 'Align the baseline of the element with the superscript-baseline of its parent.'
     }
   ]
 
@@ -468,29 +538,42 @@ exports.twClasses = function twClasses(config) {
     }
   ]
 
+  /*        CONTENT CLASSES        */
+
+  let content = [
+    {
+      label:         'content-none',
+      detail:        'content: none;',
+      documentation: 'Set the content of the pseudo-element, if applied, to nothing.'
+    }
+  ]
+
   return {
     typography: {
-      fontFamily:         fontFamily,
-      fontSize:           fontSize,
-      fontSmoothing:      fontSmoothing,
-      fontStyle:          fontStyle,
-      fontWeight:         fontWeight,
-      fontVariantNumeric: fontVariantNumeric,
-      letterSpacing:      letterSpacing,
-      lineHeights:        lineHeights,
-      listStyleTypes:     listStyleTypes,
-      listStylePositions: listStylePositions,
-      placeholderColor:   placeholderColor,
-      placeholderOpacity: placeholderOpacity,
-      textAlign:          textAlign,
-      textColor:          textColor,
-      textOpacity:        textOpacity,
-      textDecoration:     textDecoration,
-      textTransform:      textTransform,
-      textOverflow:       textOverflow,
-      verticalAlign:      verticalAlign,
-      whitespace:         whitespace,
-      wordBreak:          wordBreak
+      fontFamily:              fontFamily,
+      fontSize:                fontSize,
+      fontSmoothing:           fontSmoothing,
+      fontStyle:               fontStyle,
+      fontWeight:              fontWeight,
+      fontVariantNumeric:      fontVariantNumeric,
+      letterSpacing:           letterSpacing,
+      lineHeights:             lineHeights,
+      listStyleTypes:          listStyleTypes,
+      listStylePositions:      listStylePositions,
+      textAlign:               textAlign,
+      textColor:               textColor,
+      textDecoration:          textDecoration,
+      textDecorationColor:     textDecorationColor,
+      textDecorationStyle:     textDecorationStyle,
+      textDecorationThickness: textDecorationThickness,
+      textUnderlineOffset:     textUnderlineOffset,
+      textTransform:           textTransform,
+      textOverflow:            textOverflow,
+      textIndent:              textIndent,
+      verticalAlign:           verticalAlign,
+      whitespace:              whitespace,
+      wordBreak:               wordBreak,
+      content:                 content
     }
   }
 }

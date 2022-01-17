@@ -217,6 +217,22 @@ const FONT_FIXED_LINE_HEIGHTS = [
   { name:'loose',   value:'2' }
 ]
 
+const TEXT_DECORATION_THICKNESSES = [
+  { name:'0', value:'0px' },
+  { name:'1', value:'1px' },
+  { name:'2', value:'2px' },
+  { name:'4', value:'4px' },
+  { name:'8', value:'8px' }
+]
+
+const TEXT_UNDERLINE_OFFSETS = [
+  { name:'0', value:'0px' },
+  { name:'1', value:'1px' },
+  { name:'2', value:'2px' },
+  { name:'4', value:'4px' },
+  { name:'8', value:'8px' }
+]
+
 const BORDER_RADIUS_SCALE = [
   { name:'-none', value:'0px' },
   { name:'-sm',   value:'0.125rem' },
@@ -388,6 +404,8 @@ exports.FONT_WEIGHTS                  = FONT_WEIGHTS
 exports.FONT_TRACKING_OPTIONS         = FONT_TRACKING_OPTIONS
 exports.FONT_RELATIVE_LINE_HEIGHTS    = FONT_RELATIVE_LINE_HEIGHTS
 exports.FONT_FIXED_LINE_HEIGHTS       = FONT_FIXED_LINE_HEIGHTS
+exports.TEXT_DECORATION_THICKNESSES   = TEXT_DECORATION_THICKNESSES
+exports.TEXT_UNDERLINE_OFFSETS        = TEXT_UNDERLINE_OFFSETS
 
 /*        BORDER SCALES        */
 
