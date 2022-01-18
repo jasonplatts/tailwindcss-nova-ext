@@ -2,7 +2,6 @@
 
 * Added support for Tailwind version 3.0.0
 * Updated Tailwind class icons to represent style classes, pseudo-classes and pseudo-elements.
-* Added support for arbitrary values.
 * Added support for Tailwind functions and directives.
 
 ## Version 3.0.4

@@ -19,24 +19,9 @@ exports.twClasses = function twClasses(config) {
     )
   })
 
-  /*        ARBITRARY VALUES        */
-
-  let arbitraryValue = []
-
-  arbitraryValue.push(
-    {
-      label:         `[]`,
-      insertText:    "[${0}]",
-      insertTextFormat: `snippet`,
-      detail:        ``,
-      documentation: `Enter a one-off arbitrary value that should belong in the Tailwind theme. Useful for additional colors (text-[#50d71e]), opacity (opacity-[.67]), and before and after content (after:content-['*']).`
-    }
-  )
-
   return {
     modifiers: {
-      opacity: opacity,
-      arbitraryValue: arbitraryValue
+      opacity: opacity
     }
   }
 }
