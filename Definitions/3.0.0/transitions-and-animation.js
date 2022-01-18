@@ -11,32 +11,32 @@ exports.twClasses = function twClasses(config) {
     },
     {
       label:         'transition-all',
-      detail:        'transition-property: all;',
+      detail:        'transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms;',
       documentation: 'Set all of an element\'s properties to transition.'
     },
     {
       label:         'transition',
-      detail:        'transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;',
+      detail:        'transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms;',
       documentation: 'Set an element\'s background-color, border-color, color, fill, stroke, opacity, box-shadow, and transform properties to transition.'
     },
     {
       label:         'transition-colors',
-      detail:        'transition-property: background-color, border-color, color, fill, stroke;',
+      detail:        'transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms;',
       documentation: 'Set an element\'s background-color, border-color, color, fill, and stroke properties to transition.'
     },
     {
       label:         'transition-opacity',
-      detail:        'transition-property: opacity;',
+      detail:        'transition-property: opacity; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms;',
       documentation: 'Set an element\'s opacity property to transition.'
     },
     {
       label:         'transition-shadow',
-      detail:        'transition-property: box-shadow;',
+      detail:        'transition-property: box-shadow; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms;',
       documentation: 'Set an element\'s box shadow property to transition.'
     },
     {
       label:         'transition-transform',
-      detail:        'transition-property: transform;',
+      detail:        'transition-property: transform; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms;',
       documentation: 'Set an element\'s transform properties to transition.'
     }
   ]
