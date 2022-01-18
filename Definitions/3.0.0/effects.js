@@ -1,5 +1,7 @@
 'use strict'
 
+const FUNCTIONS = require('../../Scripts/functions.js')
+
 exports.twClasses = function twClasses(config) {
   /*        BOX SHADOW CLASSES        */
 
@@ -45,6 +47,41 @@ exports.twClasses = function twClasses(config) {
       documentation: 'Remove any existing box shadow styling on an element.'
     },
   ]
+
+  /*        BOX SHADOW COLOR CLASSES        */
+
+    let boxShadowColor = []
+
+    boxShadowColor.push(
+      {
+        label:         'shadow-inherit',
+        detail:        '--tw-shadow-color: inherit;',
+        documentation: 'Set the box shadow color of an element to that of the parent element.'
+      },
+      {
+        label:         'shadow-current',
+        detail:        '--tw-shadow-color: currentColor;',
+        documentation: 'Set the box shadow color of an element to the currentColor.'
+      },
+      {
+        label:         'shadow-transparent',
+        color:         new Color('rgb', [0, 0, 0, 0]),
+        detail:        '--tw-shadow-color: transparent;',
+        documentation: 'Set the box shadow color of an element to transparent.'
+      }
+    )
+
+    config.colors.forEach(color => {
+      boxShadowColor.push(
+        {
+          label:         `shadow-${color.name}`,
+          color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+          detail:        `--tw-shadow-color: #${color.hex};`,
+          documentation: `Set the box shadow color of an element to #${color.hex}.`
+        }
+      )
+    })
+
 
   /*        OPACITY CLASSES        */
 
@@ -233,6 +270,7 @@ exports.twClasses = function twClasses(config) {
   return {
     effects: {
       boxShadow:           boxShadow,
+      boxShadowColor:      boxShadowColor,
       opacity:             opacity,
       mixBlendMode:        mixBlendMode,
       backgroundBlendMode: backgroundBlendMode
