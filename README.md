@@ -2,9 +2,9 @@
 
 Provides Tailwind CSS completions and a documentation sidebar for Panic's macOS code editor, Nova.
 
-<img src="https://user-images.githubusercontent.com/48892071/105522129-dacd1080-5caa-11eb-8ce9-dacd244de575.png" width="800" alt="Tailwind CSS Completion">
+**Now supports Tailwind CSS Version 3!**
 
-**Now includes a sidebar!**
+<img src="https://user-images.githubusercontent.com/48892071/105522129-dacd1080-5caa-11eb-8ce9-dacd244de575.png" width="800" alt="Tailwind CSS Completion">
 
 *The sidebar offers access to the Tailwind classes from within Nova. It makes it easy
 to learn about available Tailwind classes and access documentation!*
@@ -29,7 +29,7 @@ The Tailwind CSS extension will always provide default Tailwind CSS classes. How
 1. Attempt to read the Tailwind configuration file specified in the workspace preferences (*see screenshot below*).
 2. Search the workspace for a 'tailwind.config.js' file and attempt to read it.
 
-**As of version 3.0.1, the extension only supports customized extended colors. Support for additional customizations is coming!**
+**As of version 4.0, the extension only supports customized extended colors. Support for additional customizations is planned.**
 
 It is not necessary to include a Tailwind installation in the project, nor include a 'tailwind.config.js' file for default class suggestions.
 
@@ -41,7 +41,6 @@ To specify a Tailwind configuration file, go to the workspace preferences, selec
 ## Planned Future Features
 
 * Improved support for Tailwind CSS customization.
-* CSS/Sass file support.
 
 ## Report a Bug or Feature Request
 
