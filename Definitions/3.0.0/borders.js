@@ -114,6 +114,26 @@ exports.twClasses = function twClasses(config) {
   config.scales.BORDER_WIDTH_SCALE.forEach(scale => {
     borderWidth.push(
       {
+        label:         `border-x${scale.name}`,
+        detail:        `border-left-width: ${scale.value}; border-right-width: ${scale.value};`,
+        documentation: `Set the horizontal border width on two sides of an element to ${scale.value}.`
+      }
+    )
+  })
+
+  config.scales.BORDER_WIDTH_SCALE.forEach(scale => {
+    borderWidth.push(
+      {
+        label:         `border-y${scale.name}`,
+        detail:        `border-top-width: ${scale.value}; border-bottom-width: ${scale.value};`,
+        documentation: `Set the vertical border width on two sides of an element to ${scale.value}.`
+      }
+    )
+  })
+
+  config.scales.BORDER_WIDTH_SCALE.forEach(scale => {
+    borderWidth.push(
+      {
         label:         `border-t${scale.name}`,
         detail:        `border-top-width: ${scale.value};`,
         documentation: `Set the top border width of an element to ${scale.value}.`
@@ -155,15 +175,20 @@ exports.twClasses = function twClasses(config) {
 
   let borderColor = [
     {
-      label:'border-transparent',
-      color:          new Color('rgb', [0, 0, 0, 0]),
-      detail:        'border-color: transparent;',
-      documentation: 'Set the border color of an element to transparent.'
+      label:         'border-inherit',
+      detail:        'border-color: inherit;',
+      documentation: 'Set the border color of an element to that of the parent element.'
     },
     {
       label:         'border-current',
       detail:        'border-color: currentColor;',
       documentation: 'Set the border color of an element to the currentColor.'
+    },
+    {
+      label:'border-transparent',
+      color:          new Color('rgb', [0, 0, 0, 0]),
+      detail:        'border-color: transparent;',
+      documentation: 'Set the border color of an element to transparent.'
     }
   ]
 
@@ -172,23 +197,8 @@ exports.twClasses = function twClasses(config) {
       {
         label:         `border-${color.name}`,
         color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
-        detail:        `--tw-border-opacity: 1; border-color: rgba(${color.rgb}, var(--tw-divide-opacity));`,
+        detail:        `border-color: rgb(${color.rgb});`,
         documentation: `Set the border color of an element to #${color.hex}.`
-      }
-    )
-  })
-
-  /*        BORDER OPACITY CLASSES        */
-
-  let borderOpacity = []
-
-  config.scales.DEFAULT_OPACITY_SCALE.forEach(scale => {
-    borderOpacity.push(
-      {
-        label:         `border-opacity-${scale.name}`,
-        color:         new Color('rgb', [0, 0, 0, parseFloat(scale.value)]),
-        detail:        `--tw-border-opacity: ${scale.value};`,
-        documentation: `Set the opacity of an element's border to ${scale.value}.`
       }
     )
   })
@@ -215,6 +225,11 @@ exports.twClasses = function twClasses(config) {
       label:         'border-double',
       detail:        'border-style: double;',
       documentation: 'Set an element\'s border style to double.'
+    },
+    {
+      label:         'border-hidden',
+      detail:        'border-style: hidden;',
+      documentation: 'Hide an element\'s border style.'
     },
     {
       label:         'border-none',
@@ -266,15 +281,20 @@ exports.twClasses = function twClasses(config) {
 
   divideColor.push(
     {
-      label:         'divide-transparent',
-      color:         new Color('rgb', [0, 0, 0, 0]),
-      detail:        'border-color: transparent;',
-      documentation: 'Set the border color between elements using divide utilities to transparent.'
+      label:         'divide-inherit',
+      detail:        'border-color: inherit;',
+      documentation: 'Set the border color between elements using divide utilities to that of the parent element.'
     },
     {
       label:         'divide-current',
       detail:        'border-color: currentColor;',
       documentation: 'Set the border color between elements using divide utilities to the currentColor.'
+    },
+    {
+      label:         'divide-transparent',
+      color:         new Color('rgb', [0, 0, 0, 0]),
+      detail:        'border-color: transparent;',
+      documentation: 'Set the border color between elements using divide utilities to transparent.'
     }
   )
 
@@ -283,23 +303,8 @@ exports.twClasses = function twClasses(config) {
       {
         label:         `divide-${color.name}`,
         color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
-        detail:        `--tw-divide-opacity: 1; border-color: rgba(${color.rgb}, var(--tw-divide-opacity));`,
+        detail:        `border-color: rgb(${color.rgb});`,
         documentation: `Set the border color between elements using divide utilities to #${color.hex}.`
-      }
-    )
-  })
-
-  /*        DIVIDE OPACITY CLASSES        */
-
-  let divideOpacity = []
-
-  config.scales.DEFAULT_OPACITY_SCALE.forEach(scale => {
-    divideOpacity.push(
-      {
-        label:         `divide-opacity-${scale.name}`,
-        color:         new Color('rgb', [0, 0, 0, parseFloat(scale.value)]),
-        detail:        `--tw-divide-opacity: ${scale.value};`,
-        documentation: `Set the opacity of the borders between elements using the divide utilities to ${scale.value}.`
       }
     )
   })
@@ -334,6 +339,103 @@ exports.twClasses = function twClasses(config) {
     }
   ]
 
+  /*        OUTLINE WIDTH CLASSES        */
+
+  let outlineWidth = []
+
+  config.scales.OUTLINE_WIDTH_SCALE.forEach(scale => {
+    outlineWidth.push(
+      {
+        label:         `outline-${scale.name}`,
+        detail:        `outline-width: ${scale.value};`,
+        documentation: `Set the width of an element's outline to ${scale.value}.`
+      }
+    )
+  })
+
+  /*        OUTLINE COLOR CLASSES        */
+
+  let outlineColor = []
+
+  outlineColor.push(
+    {
+      label:         'outline-inherit',
+      detail:        'outline-color: inherit;',
+      documentation: 'Set the outline color of an element to that of the parent element.'
+    },
+    {
+      label:         'outline-current',
+      detail:        'outline-color: currentColor;',
+      documentation: 'Set the outline color of an element to the currentColor.'
+    },
+    {
+      label:         'outline-transparent',
+      color:         new Color('rgb', [0, 0, 0, 0]),
+      detail:        'outline-color: transparent;',
+      documentation: 'Set the outline color of an element to transparent.'
+    }
+  )
+
+  config.colors.forEach(color => {
+    outlineColor.push(
+      {
+        label:         `outline-${color.name}`,
+        color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
+        detail:        `outline-color: rgb(${color.rgb});`,
+        documentation: `Set the outline color of an element to #${color.hex}.`
+      }
+    )
+  })
+
+  /*        OUTLINE STYLE CLASSES        */
+
+    let outlineStyle = [
+      {
+        label:         'outline-none',
+        detail:        'outline: 2px solid transparent; outline-offset: 2px;',
+        documentation: 'Remove an element\'s outline style.'
+      },
+      {
+        label:         'outline',
+        detail:        'outline-style: solid;',
+        documentation: 'Set an element\'s outline style to solid.'
+      },
+      {
+        label:         'outline-dashed',
+        detail:        'outline-style: dashed;',
+        documentation: 'Set an element\'s outline style to dashed.'
+      },
+      {
+        label:         'outline-dotted',
+        detail:        'outline-style: dotted;',
+        documentation: 'Set an element\'s outline style to dotted.'
+      },
+      {
+        label:         'outline-double',
+        detail:        'outline-style: double;',
+        documentation: 'Set an element\'s outline style to double.'
+      },
+      {
+        label:         'outline-hidden',
+        detail:        'outline-style: hidden;',
+        documentation: 'Hide an element\'s outline style.'
+      }
+    ]
+
+  /*        OUTLINE OFFSET CLASSES        */
+
+  let outlineOffset = []
+
+  config.scales.OUTLINE_OFFSET_SCALE.forEach(scale => {
+    outlineOffset.push(
+      {
+        label:         `outline-offset-${scale.name}`,
+        detail:        `outline-offset: ${scale.value};`,
+        documentation: `Set the offset of an element's outline to ${scale.value}.`
+      }
+    )
+  })
+
   /*        RING WIDTH CLASSES        */
 
   let ringWidth = []
@@ -360,15 +462,20 @@ exports.twClasses = function twClasses(config) {
 
   let ringColor = [
     {
-      label:         'ring-transparent',
-      color:         new Color('rgb', [0, 0, 0, 0]),
-      detail:        '--tw-ring-color: transparent;',
-      documentation: 'Set the outline ring color to transparent.'
+      label:         'ring-inherit',
+      detail:        '--tw-ring-color: inherit;',
+      documentation: 'Set the outline ring color to that of the parent element.'
     },
     {
       label:         'ring-current',
       detail:        '--tw-ring-color: currentColor;',
       documentation: 'Set the outline ring color to the currentColor.'
+    },
+    {
+      label:         'ring-transparent',
+      color:         new Color('rgb', [0, 0, 0, 0]),
+      detail:        '--tw-ring-color: transparent;',
+      documentation: 'Set the outline ring color to transparent.'
     }
   ]
 
@@ -377,23 +484,8 @@ exports.twClasses = function twClasses(config) {
       {
         label:         `ring-${color.name}`,
         color:         FUNCTIONS.convertHexToRgbColorObject(color.hex),
-        detail:        `--tw-ring-color: rgba(${color.rgb}, var(--tw-ring-opacity));`,
+        detail:        `--tw-ring-color: rgb(${color.rgb});`,
         documentation: `Set the outline ring color to #${color.hex}.`
-      }
-    )
-  })
-
-  /*        RING OPACITY CLASSES        */
-
-  let ringOpacity = []
-
-  config.scales.DEFAULT_OPACITY_SCALE.forEach(scale => {
-    ringOpacity.push(
-      {
-        label:         `ring-opacity-${scale.name}`,
-        color:         new Color('rgb', [0, 0, 0, parseFloat(scale.value)]),
-        detail:        `--tw-ring-opacity: ${scale.value};`,
-        documentation: `Set the opacity of an element's outline ring to ${scale.value}.`
       }
     )
   })
@@ -416,15 +508,20 @@ exports.twClasses = function twClasses(config) {
 
   let ringOffsetColor = [
     {
-      label:         'ring-offset-transparent',
-      color:         new Color('rgb', [0, 0, 0, 0]),
-      detail:        'ring-color: transparent;',
-      documentation: 'Set the outline ring color to transparent.'
+      label:         'ring-offset-inherit',
+      detail:        '--tw-ring-offset-color: inherit; box-shadow: 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color), var(--tw-ring-shadow);',
+      documentation: 'Set the outline ring color to the currentColor.'
     },
     {
       label:         'ring-offset-current',
-      detail:        'ring-color: currentColor;',
+      detail:        '--tw-ring-offset-color: currentColor; box-shadow: 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color), var(--tw-ring-shadow);',
       documentation: 'Set the outline ring color to the currentColor.'
+    },
+    {
+      label:         'ring-offset-transparent',
+      color:         new Color('rgb', [0, 0, 0, 0]),
+      detail:        '--tw-ring-offset-color: transparent; box-shadow: 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color), var(--tw-ring-shadow);',
+      documentation: 'Set the outline ring color to transparent.'
     }
   ]
 
@@ -444,15 +541,16 @@ exports.twClasses = function twClasses(config) {
       borderRadius:    borderRadius,
       borderWidth:     borderWidth,
       borderColor:     borderColor,
-      borderOpacity:   borderOpacity,
       borderStyle:     borderStyle,
       divideWidth:     divideWidth,
       divideColor:     divideColor,
-      divideOpacity:   divideOpacity,
       divideStyle:     divideStyle,
+      outlineWidth:    outlineWidth,
+      outlineColor:    outlineColor,
+      outlineStyle:    outlineStyle,
+      outlineOffset:   outlineOffset,
       ringWidth:       ringWidth,
       ringColor:       ringColor,
-      ringOpacity:     ringOpacity,
       ringOffsetWidth: ringOffsetWidth,
       ringOffsetColor: ringOffsetColor
     }

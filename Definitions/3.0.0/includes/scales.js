@@ -236,7 +236,7 @@ const TEXT_UNDERLINE_OFFSETS = [
 const BORDER_RADIUS_SCALE = [
   { name:'-none', value:'0px' },
   { name:'-sm',   value:'0.125rem' },
-  { name:'',     value:'0.25rem' },
+  { name:'',      value:'0.25rem' },
   { name:'-md',   value:'0.375rem' },
   { name:'-lg',   value:'0.5rem' },
   { name:'-xl',   value:'0.75rem' },
@@ -259,6 +259,22 @@ const DIVIDE_WIDTH_SCALE = [
   { name:'-4', value:'4px' },
   { name:'-8', value:'8px' },
   { name:'',   value:'1px' }
+]
+
+const OUTLINE_WIDTH_SCALE = [
+  { name:'0', value:'0px' },
+  { name:'1', value:'1px' },
+  { name:'2', value:'2px' },
+  { name:'4', value:'4px' },
+  { name:'8', value:'8px' }
+]
+
+const OUTLINE_OFFSET_SCALE = [
+  { name:'0', value:'0px' },
+  { name:'1', value:'1px' },
+  { name:'2', value:'2px' },
+  { name:'4', value:'4px' },
+  { name:'8', value:'8px' }
 ]
 
 const RING_WIDTH_SCALE = [
@@ -412,6 +428,8 @@ exports.TEXT_UNDERLINE_OFFSETS        = TEXT_UNDERLINE_OFFSETS
 exports.BORDER_RADIUS_SCALE           = BORDER_RADIUS_SCALE
 exports.BORDER_WIDTH_SCALE            = BORDER_WIDTH_SCALE
 exports.DIVIDE_WIDTH_SCALE            = DIVIDE_WIDTH_SCALE
+exports.OUTLINE_WIDTH_SCALE           = OUTLINE_WIDTH_SCALE
+exports.OUTLINE_OFFSET_SCALE          = OUTLINE_OFFSET_SCALE
 exports.RING_WIDTH_SCALE              = RING_WIDTH_SCALE
 exports.RING_OFFSET_WIDTH_SCALE       = RING_OFFSET_WIDTH_SCALE
 
