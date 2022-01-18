@@ -329,7 +329,8 @@ const CONTRAST_SCALE = [
   { name:'200', value:'2' }
 ]
 
-const HUE_POSITIVE_SCALE = [
+const HUE_SCALE = [
+  { name:'0',   value:'0deg' },
   { name:'15',  value:'15deg' },
   { name:'30',  value:'30deg' },
   { name:'60',  value:'60deg' },
@@ -337,12 +338,14 @@ const HUE_POSITIVE_SCALE = [
   { name:'180', value:'180deg' }
 ]
 
-const HUE_NEGATIVE_SCALE = [
-  { name:'180', value:'-180deg' },
-  { name:'90',  value:'-90deg' },
-  { name:'60',  value:'-60deg' },
-  { name:'30',  value:'-30deg' },
-  { name:'15',  value:'-15deg' }
+const SATURATE_SCALE = [
+  { name:'0',   value:'0' },
+  { name:'50',  value:'.5' },
+  { name:'75',  value:'.75' },
+  { name:'100', value:'1' },
+  { name:'125', value:'1.25' },
+  { name:'150', value:'1.5' },
+  { name:'200', value:'2' }
 ]
 
 const TRANSITION_DURATION_SCALE = [
@@ -438,8 +441,8 @@ exports.RING_OFFSET_WIDTH_SCALE       = RING_OFFSET_WIDTH_SCALE
 exports.BLUR_SCALE                    = BLUR_SCALE
 exports.BRIGHTNESS_SCALE              = BRIGHTNESS_SCALE
 exports.CONTRAST_SCALE                = CONTRAST_SCALE
-exports.HUE_POSITIVE_SCALE            = HUE_POSITIVE_SCALE
-exports.HUE_NEGATIVE_SCALE            = HUE_NEGATIVE_SCALE
+exports.HUE_SCALE                     = HUE_SCALE
+exports.SATURATE_SCALE                = SATURATE_SCALE
 
 /*        TRANSITION AND ANIMATION SCALES        */
 
