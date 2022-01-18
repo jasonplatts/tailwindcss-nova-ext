@@ -102,17 +102,6 @@ exports.addStringToDocumentation = function(array, string) {
 }
 
 /*
-  Adds a required class to the end of the documentation property in each object within the array.
-*/
-exports.addRequiredClass = function(array, requiredClass) {
-  array.forEach(object => {
-    object.documentation = `${object.documentation} *Requires the '${requiredClass}' class.`
-  })
-
-  return array
-}
-
-/*
 Removes the preceding Volumes and HDD portion of a standard returned path.
 */
 exports.normalizePath = function normalizePath(path) {

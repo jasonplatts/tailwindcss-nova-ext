@@ -384,6 +384,7 @@ const SCALE_SCALE = [
 ]
 
 const ROTATE_SCALE = [
+  { name:'0',   value:'0deg' },
   { name:'1',   value:'1deg' },
   { name:'2',   value:'2deg' },
   { name:'3',   value:'3deg' },
@@ -395,6 +396,7 @@ const ROTATE_SCALE = [
 ]
 
 const SKEW_SCALE = [
+  { name:'0',  value:'0deg' },
   { name:'1',  value:'1deg' },
   { name:'2',  value:'2deg' },
   { name:'3',  value:'3deg' },
