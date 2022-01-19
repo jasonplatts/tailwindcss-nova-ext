@@ -29,7 +29,7 @@ The Tailwind CSS extension will always provide default Tailwind CSS classes. How
 1. Attempt to read the Tailwind configuration file specified in the workspace preferences (*see screenshot below*).
 2. Search the workspace for a 'tailwind.config.js' file and attempt to read it.
 
-**As of version 4.0, the extension only supports customized extended colors. Support for additional customizations is planned.**
+**As of version 4.1, the extension only supports customized extended colors. Support for additional customizations is planned.**
 
 It is not necessary to include a Tailwind installation in the project, nor include a 'tailwind.config.js' file for default class suggestions.
 

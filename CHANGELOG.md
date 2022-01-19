@@ -1,3 +1,8 @@
+## Version 4.1
+
+* Improved when autocompletions are suggested by preventing suggestions outside of HTML class attributes, CSS files, or single and double quotes in other files, such as ERB.
+* Fixed an issue causing improper insertion of Tailwind directives.
+
 ## Version 4.0
 
 * Added support for Tailwind version 3.0.15
