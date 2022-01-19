@@ -302,18 +302,21 @@ exports.twClasses = function twClasses(config) {
     {
       label:              '@tailwind',
       detail:             '',
+      insertText:         'tailwind',
       documentation:      `Use the '@tailwind' directive to insert Tailwind's 'base', 'components', 'utilities' and 'variants' styles into your CSS.`,
       completionItemKind: `style_directive`
     },
     {
       label:              '@layer',
       detail:             '',
+      insertText:         'layer',
       documentation:      `Use the '@layer' directive to tell Tailwind which 'bucket' a set of custom styles belong to. Valid layers are 'base', 'components', and 'utilities'.`,
       completionItemKind: `style_directive`
     },
     {
       label:              '@apply',
       detail:             '',
+      insertText:         'apply',
       documentation:      `Use '@apply' to inline any existing utility classes into your own custom CSS.`,
       completionItemKind: `style_directive`
     },
