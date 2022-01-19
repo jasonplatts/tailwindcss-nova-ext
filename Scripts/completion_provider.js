@@ -60,8 +60,10 @@ exports.CompletionProvider = class CompletionProvider {
 
   provideCompletionItems(editor, context) {
     if (this._preventCompletions(context)) {
+      // console.log('stop')
       return
     } else {
+      // console.log('go')
       return this._items
     }
   }
@@ -97,67 +99,41 @@ exports.CompletionProvider = class CompletionProvider {
     return completionItemKind
   }
 
-
-
   _preventCompletions(context) {
-    const rootScope = context.selectors.pop()
-    let invalidContext = false
-    // console.log('root', rootScope)
+    if (context.selectors.length > 0) {
+      // console.log(context.selectors[0].string)
+      // console.log(context.selectors[1].string)
+      // console.log(context.selectors[2].string)
+      // console.log(context.selectors[0].matches('html'))
 
-    // console.log('Text', context.text)
-    // console.log('Line', context.line)
-    // console.log('Ident. chars', context.identifiedChars)
-    // console.log('position', context.position)
-    // console.log('reason', context.reason)
-    // console.log('trigg char', context.triggerCharacter)
-    // console.log('CONTEXT SELECTORS[0]', context.selectors[0].classes)
-    // let temp = context.selectors[2]?.string
-    // console.log('CONTEXT SELECTORS[0]', temp)
-    // console.log('CONTEXT SELECTORS[0]', context.selectors[2].classes)
-    // console.log('CONTEXT SELECTORS[0]', context?.selectors[1].string)
-    // console.log('CONTEXT SELECTORS[0]', context?.selectors[2].string)
+      // Allow completions if context selectors is a HTML class attribute value.
+      if (context.selectors[0].matches('html.tag.attribute.class.value.double-quoted')) { return false }
 
-    // console.log('Selector Classes', rootScope.classes)
-    // console.log('Selector String', rootScope.string)
-    // console.log('Selector Match SCSS', rootScope.matches('scss'))
-    // console.log('Selector Match Sass', rootScope.matches('sass'))
-    // console.log('Selector Match HTML', rootScope.matches('html'))
+      if (context.selectors[0].matches('css')) { return false }
 
-    if (rootScope) {
-      if (rootScope.matches('css') || rootScope.matches('scss') || rootScope.matches('sass')) {
-        //console.log('Rootscope matches css, scss, or sass.')
-      }
+      // Allow completions in other files if contained within single quotes or double quotes.
+      // This, for example, enables completions in Rails ERB files when passing a class option to the link_to method.
+      if (context.selectors[0].classes.includes('single-quoted')) { return false }
+      if (context.selectors[0].classes.includes('double-quoted')) { return false }
 
-      if (this._invalidVueContext(rootScope, context.line)) {
-        invalidContext = true
-      }
+      // Prevent completions in an invalid Vue context.
+      if (this._invalidVueContext(context)) { return true }
+
+      return true
+    } else {
+      return true
     }
-
-    //console.log('invalid context', invalidContext)
-    return invalidContext
   }
 
   /*
     Evaluates if the completion position is within a valid context in Vue.
   */
-  _invalidVueContext(scopeSelector, line) {
-    let invalid = false
+  _invalidVueContext(context) {
+    let rootScope = context.selectors.pop()
 
-    if (scopeSelector.matches('vue.html.embedded.script')) { invalid = true }
-    if (scopeSelector.matches('vue.html.embedded.style') && !line.includes('@apply')) { invalid = true }
+    if (rootScope.matches('vue.html.embedded.script')) { return true }
+    if (rootScope.matches('vue.html.embedded.style') && !context.line.includes('@apply')) { return true }
 
-    return invalid
+    return false
   }
-
-  /*
-    Evaluates if the completion position is within a valid context in Vue.
-  */
-//   _invalidVueContext(scopeSelector, line) {
-//     let invalid = false
-//
-//     if (scopeSelector.matches('vue.html.embedded.script')) { invalid = true }
-//     if (scopeSelector.matches('vue.html.embedded.style') && !line.includes('@apply')) { invalid = true }
-//
-//     return invalid
-//   }
 }
