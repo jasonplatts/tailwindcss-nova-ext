@@ -116,13 +116,6 @@ static _toggle = false
       // console.log(context.selectors[2].string)
       // console.log(context.selectors[0].matches('html'))
       
-      //Prevent completion in php context
-      if (
-        context.selectors[0].string === 'php.string.single-quoted.delimiter' ||
-        'php.string.double-quoted.delimiter'
-      ) {
-        return true;
-      }
       
       // Allow completions if context selectors is a HTML class attribute value.
       if (context.selectors[0].matches('html.tag.attribute.class.value.double-quoted')) { return false }

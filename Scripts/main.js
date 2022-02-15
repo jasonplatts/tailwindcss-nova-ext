@@ -123,6 +123,6 @@ nova.commands.register('tailwind.openCategoryDocs', () => {
 })
 
 // Register the Toggle and modify the CompletionProvider Class
-nova.commands.register('tailwind.toggle', (workspace) => {
+nova.commands.register('tailwind.toggle', () => {
   CompletionProvider.toggle() 
 })
