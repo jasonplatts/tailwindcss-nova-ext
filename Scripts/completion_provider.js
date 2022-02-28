@@ -10,6 +10,10 @@ exports.CompletionProvider = class CompletionProvider {
     this._items       = []
   }
 
+//on|off switch for the extension
+static _toggle = false
+
+
   async loadCompletionItems() {
     this._definitions.forEach(definitionFile => {
       let twClasses = definitionFile.twClasses(this._config)
@@ -98,14 +102,21 @@ exports.CompletionProvider = class CompletionProvider {
 
     return completionItemKind
   }
-
+  
+  // tailwind.toggle command
+  static toggle() { this._toggle = !this._toggle}
+  
   _preventCompletions(context) {
+    
+    if(CompletionProvider._toggle){ return true }
+    
     if (context.selectors.length > 0) {
       // console.log(context.selectors[0].string)
       // console.log(context.selectors[1].string)
       // console.log(context.selectors[2].string)
       // console.log(context.selectors[0].matches('html'))
-
+      
+      
       // Allow completions if context selectors is a HTML class attribute value.
       if (context.selectors[0].matches('html.tag.attribute.class.value.double-quoted')) { return false }
 

@@ -69,5 +69,15 @@
         }
       ]
     }
-  ]
+  ],
+  
+  "commands": {
+      "command-palette": [
+          {
+              "title": "Toggle TailwindCSS",
+              "command": "tailwind.toggle",
+          }
+      ]
+      
+  }
 }
