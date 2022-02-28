@@ -1,3 +1,7 @@
+## Version 4.2.1
+
+* Fixed minor configuration error.
+
 ## Version 4.2
 
 * Added "Toggle TailwindCSS" command to the Nova command palette. Thanks to Emran (https://github.com/EmranMR) for this contribution!
