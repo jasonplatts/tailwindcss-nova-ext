@@ -1,3 +1,7 @@
+## Version 4.2
+
+* Added "Toggle TailwindCSS" command to the Nova command palette. Thanks to Emran (https://github.com/EmranMR) for this contribution!
+
 ## Version 4.1
 
 * Improved when autocompletions are suggested by preventing suggestions outside of HTML class attributes, CSS files, or single and double quotes in other files, such as ERB.

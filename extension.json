@@ -3,7 +3,7 @@
   "name": "Tailwind CSS",
   "organization": "Jason Platts",
   "description": "Provides completions and a documentation sidebar for Tailwind CSS.",
-  "version": "4.1",
+  "version": "4.2",
   "license":"MIT",
   "repository":"https://github.com/jasonplatts/tailwindcss-nova-ext",
   "bugs":"https://github.com/jasonplatts/tailwindcss-nova-ext/issues",
@@ -70,7 +70,7 @@
       ]
     }
   ],
-  
+
   "commands": {
       "command-palette": [
           {
@@ -78,6 +78,6 @@
               "command": "tailwind.toggle",
           }
       ]
-      
+
   }
 }

@@ -19,7 +19,7 @@ There are no prerequisites for this extension, other than Panic's Nova code edit
 
 ## Usage
 
-Enable the extension in the extension library within Nova.
+Enable the extension in the extension library within Nova. The extension can be toggled on/off at any time using the "Toggle TailwindCSS" command available in the command palette.
 
 ## Configuration
 
