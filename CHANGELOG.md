@@ -1,3 +1,7 @@
+## Version 4.2.2
+
+* Fixed multiple tailwind configuration file error caused by detection of tailwind.config.js files in the node_modules directory.
+
 ## Version 4.2.1
 
 * Fixed minor configuration error.
