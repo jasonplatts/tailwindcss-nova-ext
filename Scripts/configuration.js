@@ -22,7 +22,7 @@ exports.Configuration = class Configuration {
   static get SUPPORTED_FILE_TYPES() {
     return [
       'html', 'html+erb', 'html+eex', 'haml', 'php', 'blade', 'twig',
-      'vue', 'js', 'jsx', 'ts', 'tsx', 'svelte', 'liquid', 'jade', 'pug',
+      'vue', 'js', 'jsx', 'ts', 'tsx', 'svelte', 'liquid-html', 'jade', 'pug',
       'css', 'sass', 'scss', 'astro'
     ]
   }
