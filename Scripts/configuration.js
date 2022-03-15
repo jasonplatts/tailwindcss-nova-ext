@@ -23,7 +23,7 @@ exports.Configuration = class Configuration {
     return [
       'html', 'html+erb', 'html+eex', 'haml', 'php', 'blade', 'twig',
       'vue', 'js', 'jsx', 'ts', 'tsx', 'svelte', 'liquid-html', 'jade', 'pug',
-      'css', 'sass', 'scss'
+      'css', 'sass', 'scss', 'astro'
     ]
   }
 
