@@ -1,3 +1,8 @@
+## Version 4.3
+
+* Added support for Astro.
+* Restored support for Liquid.
+
 ## Version 4.2.2
 
 * Fixed multiple tailwind configuration file error caused by detection of tailwind.config.js files in the node_modules directory.
