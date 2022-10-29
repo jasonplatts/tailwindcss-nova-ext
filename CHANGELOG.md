@@ -1,3 +1,7 @@
+## Version 4.4
+
+* Fixed a bug preventing completions in Nova version 10.
+
 ## Version 4.3
 
 * Added support for Astro.

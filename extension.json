@@ -3,11 +3,11 @@
   "name": "Tailwind CSS",
   "organization": "Jason Platts",
   "description": "Provides completions and a documentation sidebar for Tailwind CSS.",
-  "version": "4.3",
+  "version": "4.4",
   "license":"MIT",
   "repository":"https://github.com/jasonplatts/tailwindcss-nova-ext",
   "bugs":"https://github.com/jasonplatts/tailwindcss-nova-ext/issues",
-  "min_runtime": "3.0",
+  "min_runtime": "10.0",
   "categories": ["completions", "languages", "sidebars"],
 
   "main": "main.js",
