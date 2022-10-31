@@ -43,10 +43,6 @@
             {
               "title": "Insert",
               "command": "tailwind.doubleClick"
-            },
-            {
-              "title": "Go to Docs...",
-              "command": "tailwind.openCategoryDocs"
             }
           ]
         }
