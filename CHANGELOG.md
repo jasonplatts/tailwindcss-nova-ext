@@ -1,3 +1,9 @@
+## Version 4.5
+
+* Removed truncation of class details and documentations.
+* Fixed an issue preventing completions in JavaScript files.
+* Removed outdated links to Tailwind documentation.
+
 ## Version 4.4
 
 * Fixed a bug preventing completions in Nova version 10.
