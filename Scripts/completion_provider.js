@@ -40,11 +40,11 @@ exports.CompletionProvider = class CompletionProvider {
             }
 
             if (utilityClass.detail !== undefined) {
-              item.detail = FUNCTIONS.truncateString(utilityClass.detail, 30)
+              item.detail = utilityClass.detail
             }
 
             if (utilityClass.documentation !== undefined) {
-              item.documentation = FUNCTIONS.truncateString(utilityClass.documentation, 128)
+              item.documentation = utilityClass.documentation
             }
 
             this._items = [...this._items, item]
