@@ -1,3 +1,8 @@
+## Version 4.6
+
+* Added support for darker (950) colors added in Tailwind 3.3. Thanks to Bijan (https://github.com/gobijan) for this contribution!
+* Added support for new flex-grow/flex-shrink aliases. Thanks to Emran (https://github.com/EmranMR) for this contribution!
+
 ## Version 4.5
 
 * Removed truncation of class details and documentations.
