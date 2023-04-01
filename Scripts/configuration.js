@@ -22,8 +22,8 @@ exports.Configuration = class Configuration {
   static get SUPPORTED_FILE_TYPES() {
     return [
       'html', 'html+erb', 'html+eex', 'haml', 'php', 'blade', 'twig',
-      'vue', 'js', 'jsx', 'ts', 'tsx', 'svelte', 'liquid', 'jade', 'pug',
-      'css', 'sass', 'scss'
+      'vue', 'js', 'jsx', 'ts', 'tsx', 'svelte', 'liquid-html', 'jade', 'pug',
+      'css', 'sass', 'scss', 'astro', 'typescript', 'javascript'
     ]
   }
 
@@ -135,18 +135,22 @@ exports.Configuration = class Configuration {
       process.onDidExit((status) => {
         returnValue.status = status
         if (status === 0) {
-          resolve(returnValue)
+          let validConfigFiles = returnValue.stdout.filter(path => {
+            if (path.includes('node_modules') !== true) { return path }
+          })
+
+          resolve(validConfigFiles)
         } else {
-          reject(returnValue)
+          console.log(`Status: ${returnValue.status}`)
+          reject(false)
         }
       })
 
       try {
         process.start()
       } catch (e) {
-        returnValue.status = 128
-        returnValue.stderr = [e.message]
-        reject(returnValue)
+        console.log(`Status: 128 - ${e.message}`)
+        reject(false)
       }
     })
   }
@@ -188,26 +192,18 @@ exports.Configuration = class Configuration {
       let tailwindConfigPath   = nova.workspace.config.get('tailwindcss.workspace.tailwindConfig')
       let tailwindConfigObject = null
 
-      // If config file location not supplied by user,
-      // then search in the workspace for tailwind.config.js files.
+      // If config file not specified in preferences, search the workspace for tailwind.config.js.
       if (tailwindConfigPath == null) {
         if (FUNCTIONS.isWorkspace()) {
           let detectedConfigFiles = await this.findTailwindConfigFiles()
 
-          // If a single tailwind.config.js file found, read it.
-          if (detectedConfigFiles.stdout.length == 1) {
-            tailwindConfigPath = detectedConfigFiles.stdout[0]
-          } else if (detectedConfigFiles.stdout.length > 1) {
+          if (detectedConfigFiles.length == 1) {
+            tailwindConfigPath = detectedConfigFiles[0]
+          } else if (detectedConfigFiles.length > 1) {
             FUNCTIONS.showNotification('Tailwind Configuration Files',
               'Multiple Tailwind config files were found. If you wish to include user defined or ' +
               'modified Tailwind classes, please go to the extension preferences and set the correct ' +
               '\'tailwind.config.js\' file for this project.')
-          } else {
-            // FUNCTIONS.showNotification('Tailwind Configuration Files',
-            //   'No \'tailwind.config.js\' file could be found. If you are using a custom config file name ' +
-            //   'or it is located outside of your project, please go to preferences and set the desired file. ' +
-            //   'Otherwise, you can safely ignore this message and default Tailwind classes will be provided.')
-            console.log('No Tailwind configuration file found in the workspace.')
           }
         }
       }

@@ -3,12 +3,11 @@
   "name": "Tailwind CSS",
   "organization": "Jason Platts",
   "description": "Provides completions and a documentation sidebar for Tailwind CSS.",
-  "version": "4.1",
+  "version": "4.5",
   "license":"MIT",
   "repository":"https://github.com/jasonplatts/tailwindcss-nova-ext",
   "bugs":"https://github.com/jasonplatts/tailwindcss-nova-ext/issues",
-  "funding":"https://github.com/sponsors/jasonplatts",
-  "min_runtime": "3.0",
+  "min_runtime": "10.0",
   "categories": ["completions", "languages", "sidebars"],
 
   "main": "main.js",
@@ -44,10 +43,6 @@
             {
               "title": "Insert",
               "command": "tailwind.doubleClick"
-            },
-            {
-              "title": "Go to Docs...",
-              "command": "tailwind.openCategoryDocs"
             }
           ]
         }
@@ -70,14 +65,13 @@
       ]
     }
   ],
-  
+
   "commands": {
-      "command-palette": [
-          {
-              "title": "Toggle TailwindCSS",
-              "command": "tailwind.toggle",
-          }
-      ]
-      
+    "command-palette": [
+      {
+        "title": "Toggle TailwindCSS",
+        "command": "tailwind.toggle"
+      }
+    ]
   }
 }

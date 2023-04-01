@@ -10,8 +10,8 @@ exports.CompletionProvider = class CompletionProvider {
     this._items       = []
   }
 
-//on|off switch for the extension
-static _toggle = false
+  //on|off switch for the extension
+  static _toggle = false
 
 
   async loadCompletionItems() {
@@ -40,11 +40,11 @@ static _toggle = false
             }
 
             if (utilityClass.detail !== undefined) {
-              item.detail = FUNCTIONS.truncateString(utilityClass.detail, 30)
+              item.detail = utilityClass.detail
             }
 
             if (utilityClass.documentation !== undefined) {
-              item.documentation = FUNCTIONS.truncateString(utilityClass.documentation, 128)
+              item.documentation = utilityClass.documentation
             }
 
             this._items = [...this._items, item]
@@ -102,30 +102,25 @@ static _toggle = false
 
     return completionItemKind
   }
-  
+
   // tailwind.toggle command
   static toggle() { this._toggle = !this._toggle}
-  
+
   _preventCompletions(context) {
-    
-    if(CompletionProvider._toggle){ return true }
-    
+    if (CompletionProvider._toggle) { return true }
+
     if (context.selectors.length > 0) {
       // console.log(context.selectors[0].string)
-      // console.log(context.selectors[1].string)
-      // console.log(context.selectors[2].string)
-      // console.log(context.selectors[0].matches('html'))
-      
-      
+
       // Allow completions if context selectors is a HTML class attribute value.
-      if (context.selectors[0].matches('html.tag.attribute.class.value.double-quoted')) { return false }
+      if (context.selectors[0].matches('tag.attribute.value')) { return false }
 
       if (context.selectors[0].matches('css')) { return false }
+      if (context.selectors[0].matches('scss')) { return false }
 
       // Allow completions in other files if contained within single quotes or double quotes.
-      // This, for example, enables completions in Rails ERB files when passing a class option to the link_to method.
-      if (context.selectors[0].classes.includes('single-quoted')) { return false }
-      if (context.selectors[0].classes.includes('double-quoted')) { return false }
+      // This enables completions in files, such as Rails ERB, when passing a class option to the link_to method.
+      if (context.selectors[0].matches('string')) { return false }
 
       // Prevent completions in an invalid Vue context.
       if (this._invalidVueContext(context)) { return true }

@@ -105,6 +105,16 @@ exports.twClasses = function twClasses(config) {
       label:         'flex-grow',
       detail:        'flex-grow: 1;',
       documentation: 'Allow a flex item to grow to fill available space.'
+    },
+    {
+      label:         'grow-0',
+      detail:        'flex-grow: 0;',
+      documentation: 'Prevent a flex item from growing.'
+    },
+    {
+      label:         'grow',
+      detail:        'flex-grow: 1;',
+      documentation: 'Allow a flex item to grow to fill available space.'
     }
   ]
 
@@ -118,6 +128,16 @@ exports.twClasses = function twClasses(config) {
     },
     {
       label:         'flex-shrink',
+      detail:        'flex-shrink: 1;',
+      documentation: 'Allow a flex item to shrink if needed.'
+    },
+    {
+      label:         'shrink-0',
+      detail:        'flex-shrink: 0;',
+      documentation: 'Prevent a flex item from shrinking.'
+    },
+    {
+      label:         'shrink',
       detail:        'flex-shrink: 1;',
       documentation: 'Allow a flex item to shrink if needed.'
     }

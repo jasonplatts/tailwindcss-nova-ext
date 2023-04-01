@@ -118,11 +118,7 @@ nova.commands.register('tailwind.doubleClick', () => {
   }
 })
 
-nova.commands.register('tailwind.openCategoryDocs', () => {
-  nova.openURL(Configuration.TAILWIND_DOCS_URL + FUNCTIONS.camelCaseToLowercaseDash(sidebar.treeView.selection[0].urlName))
-})
-
 // Register the Toggle and modify the CompletionProvider Class
 nova.commands.register('tailwind.toggle', () => {
-  CompletionProvider.toggle() 
+  CompletionProvider.toggle()
 })

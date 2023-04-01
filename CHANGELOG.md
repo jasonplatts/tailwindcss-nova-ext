@@ -1,3 +1,30 @@
+## Version 4.5
+
+* Removed truncation of class details and documentations.
+* Fixed an issue preventing completions in JavaScript files.
+* Removed outdated links to Tailwind documentation.
+
+## Version 4.4
+
+* Fixed a bug preventing completions in Nova version 10.
+
+## Version 4.3
+
+* Added support for Astro.
+* Restored support for Liquid.
+
+## Version 4.2.2
+
+* Fixed multiple tailwind configuration file error caused by detection of tailwind.config.js files in the node_modules directory.
+
+## Version 4.2.1
+
+* Fixed minor configuration error.
+
+## Version 4.2
+
+* Added "Toggle TailwindCSS" command to the Nova command palette. Thanks to Emran (https://github.com/EmranMR) for this contribution!
+
 ## Version 4.1
 
 * Improved when autocompletions are suggested by preventing suggestions outside of HTML class attributes, CSS files, or single and double quotes in other files, such as ERB.
