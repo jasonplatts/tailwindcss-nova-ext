@@ -64,6 +64,10 @@ const SLATE = [
   {
     name:  currentColorPrefix + '900',
     hex:   '0f172a'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '020617'
   }
 ]
 
@@ -109,6 +113,10 @@ const GRAY = [
   {
     name:  currentColorPrefix + '900',
     hex:   '111827'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '030712'
   }
 ]
 
@@ -154,6 +162,10 @@ const ZINC = [
   {
     name:  currentColorPrefix + '900',
     hex:   '18181b'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '09090b'
   }
 ]
 
@@ -199,6 +211,10 @@ const NEUTRAL = [
   {
     name:  currentColorPrefix + '900',
     hex:   '171717'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '0a0a0a'
   }
 ]
 
@@ -244,6 +260,10 @@ const STONE = [
   {
     name:  currentColorPrefix + '900',
     hex:   '1c1917'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '0c0a09'
   }
 ]
 
@@ -289,6 +309,10 @@ const RED = [
   {
     name:  currentColorPrefix + '900',
     hex:   '7f1d1d'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '450a0a'
   }
 ]
 
@@ -334,6 +358,10 @@ const ORANGE = [
   {
     name:  currentColorPrefix + '900',
     hex:   '7c2d12'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '431407'
   }
 ]
 
@@ -379,6 +407,10 @@ const AMBER = [
   {
     name:  currentColorPrefix + '900',
     hex:   '78350f'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '451a03'
   }
 ]
 
@@ -424,6 +456,10 @@ const YELLOW = [
   {
     name:  currentColorPrefix + '900',
     hex:   '713f12'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '422006'
   }
 ]
 
@@ -469,6 +505,10 @@ const LIME = [
   {
     name:  currentColorPrefix + '900',
     hex:   '365314'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '1a2e05'
   }
 ]
 
@@ -514,6 +554,10 @@ const GREEN = [
   {
     name:  currentColorPrefix + '900',
     hex:   '14532d'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '052e16'
   }
 ]
 
@@ -559,6 +603,10 @@ const EMERALD = [
   {
     name:  currentColorPrefix + '900',
     hex:   '064e3b'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '022c22'
   }
 ]
 
@@ -604,6 +652,10 @@ const TEAL = [
   {
     name:  currentColorPrefix + '900',
     hex:   '134e4a'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '042f2e'
   }
 ]
 
@@ -649,6 +701,10 @@ const CYAN = [
   {
     name:  currentColorPrefix + '900',
     hex:   '164e63'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '083344'
   }
 ]
 
@@ -694,6 +750,10 @@ const SKY = [
   {
     name:  currentColorPrefix + '900',
     hex:   '0c4a6e'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '082f49'
   }
 ]
 
@@ -739,6 +799,10 @@ const BLUE = [
   {
     name:  currentColorPrefix + '900',
     hex:   '1e3a8a'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '172554'
   }
 ]
 
@@ -784,6 +848,10 @@ const INDIGO = [
   {
     name:  currentColorPrefix + '900',
     hex:   '312e81'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '1e1b4b'
   }
 ]
 
@@ -829,6 +897,10 @@ const VIOLET = [
   {
     name:  currentColorPrefix + '900',
     hex:   '4c1d95'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '2e1065'
   }
 ]
 
@@ -874,6 +946,10 @@ const PURPLE = [
   {
     name:  currentColorPrefix + '900',
     hex:   '581c87'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '3b0764'
   }
 ]
 
@@ -919,6 +995,10 @@ const FUCHSIA = [
   {
     name:  currentColorPrefix + '900',
     hex:   '701a75'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '4a044e'
   }
 ]
 
@@ -964,6 +1044,10 @@ const PINK = [
   {
     name:  currentColorPrefix + '900',
     hex:   '831843'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '500724'
   }
 ]
 
@@ -1009,6 +1093,10 @@ const ROSE = [
   {
     name:  currentColorPrefix + '900',
     hex:   '881337'
+  },
+  {
+    name:  currentColorPrefix + '950',
+    hex:   '4c0519'
   }
 ]
 
